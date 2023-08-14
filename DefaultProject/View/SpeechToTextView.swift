@@ -1,21 +1,23 @@
 //
-//  ListeningView.swift
+//  SpeechToTextView.swift
 //  DefaultProject
 //
-//  Created by darktech4 on 12/08/2023.
+//  Created by darktech4 on 14/08/2023.
 //
 
 import SwiftUI
 import AVFAudio
 
-struct ListeningView: View {
+struct SpeechToTextView: View {
+    @StateObject var speechRecognizer = SpeechRecognizer()
+    @State private var isRecording = false
     @State var countCorrect = 0
     @State var countWrong = 0
     @State private var textToSpeak: String = ""
     @State private var selectedAnswer = ""
     @State private var answerCorrect = ""
     @State private var selectedTab = 0
-    @State private var isCorrect = false
+//    @State private var isCorrect = false
     @State private var isSubmit = false
     @State private var isShowPopup = false
     @State var audioPlayer: AVAudioPlayer?
@@ -23,7 +25,8 @@ struct ListeningView: View {
     let synthesizer = AVSpeechSynthesizer()
     @State private var progress = 0.5
     @EnvironmentObject var coordinator: Coordinator
-
+    @State var offset: CGFloat = -10
+    
     var body: some View {
         VStack{
             HStack{
@@ -33,7 +36,7 @@ struct ListeningView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Listen")
+                    Text("Math")
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }
@@ -42,25 +45,12 @@ struct ListeningView: View {
             
             HStack{
                 VStack{
-                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsListen.count)")
+                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsMath.count)")
                         .font(.bold(size: 16))
                         .foregroundColor(Color.background)
-                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsListen.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsListen.count - 1))
+                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1))
                 }
-                
-                HStack{
-                    Text("\(countCorrect)")
-                        .font(.bold(size: 18))
-                        .foregroundColor(.text)
-                    
-                    Image(systemName: "checkmark")
-                        .imageScale(.medium)
-                        .foregroundColor(.text)
-                }
-                .padding(8)
-                .frame(width: 85, height: 40)
-                .background(Color(hex: "9ae3ab"))
-                .cornerRadius(15)
+                .hAlign(.center)
                 
                 HStack{
                     Text("\(countWrong)")
@@ -80,33 +70,68 @@ struct ListeningView: View {
             
             VStack{
                 TabView(selection: $selectedTab) {
-                    ForEach(QUIZDEFAULT.SHARED.listQuestionsListen.indices, id: \.self) { index in
-                        let quiz = QUIZDEFAULT.SHARED.listQuestionsListen[index]
-                        VStack {
-                            VStack{
-                                Text("Listen and choose the correct answer")
-                                    .font(.regular(size: 20))
+                    ForEach(QUIZDEFAULT.SHARED.listQuestionsMath.indices, id: \.self) { index in
+                        let quiz = QUIZDEFAULT.SHARED.listQuestionsMath[index]
+                        VStack (spacing: 0) {
+                            Text("Select an answer")
+                                .font(.bold(size: 14))
+                                .foregroundColor(Color.text2)
+                                .hAlign(.leading)
+                                .padding(.top)
+                                .padding(.horizontal)
+                            
+                            HStack{
+                                Text(quiz.question)
+                                    .font(.regular(size: 22))
                                     .foregroundColor(.background)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .multilineTextAlignment(.leading)
                                 
                                 Image("sound")
                                     .resizable()
                                     .frame(width: 25,height: 25)
-                                    .onTapGesture {
-                                        speakText(textToSpeak: quiz.question)
-                                    }
                             }
                             .simultaneousGesture(DragGesture())
                             .hAlign(.leading)
                             .padding()
+                            .onTapGesture {
+                                if !synthesizer.isSpeaking{
+                                    speakText(textToSpeak: quiz.question)
+                                }
+                            }
                             
                             Spacer()
                             
                             VStack(spacing: 10){
-                                answerView(question: quiz.a, isCorrect: quiz.answer == quiz.a)
-                                answerView(question: quiz.b, isCorrect: quiz.answer == quiz.b)
-                                answerView(question: quiz.c, isCorrect: quiz.answer == quiz.c)
-                                answerView(question: quiz.d, isCorrect: quiz.answer == quiz.d)
+                                Text(speechRecognizer.transcript)
+                                    .font(.regular(size: 22))
+                                    .foregroundColor(.background)
+                                    .multilineTextAlignment(.leading)
+                                
+                                HStack{
+                                    Button{
+                                        if !isRecording {
+                                            speechRecognizer.transcribe()
+                                        } else {
+                                            speechRecognizer.stopTranscribing()
+                                        }
+                                        
+                                        isRecording.toggle()
+                                    }label: {
+                                        Text(isRecording ? "Stop" : "Record")
+                                            .font(.regular(size: 18))
+                                            .foregroundColor(.background)
+                                            .multilineTextAlignment(.leading)
+                                    }
+                                    
+                                    Button{
+                                        resetSpeak()
+                                    }label: {
+                                        Text("Reset")
+                                            .font(.regular(size: 18))
+                                            .foregroundColor(.background)
+                                            .multilineTextAlignment(.leading)
+                                    }
+                                }
                             }
                             .padding()
                             .simultaneousGesture(DragGesture())
@@ -117,22 +142,18 @@ struct ListeningView: View {
                             answerCorrect = quiz.answer
                         }
                     }
-                    
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 
                 HStack(spacing: 10){
                     Button{
-                        isSubmit = true
-                        
-                        if selectedAnswer == answerCorrect{
+                        if speechRecognizer.transcript.lowercased() == answerCorrect.lowercased(){
                             loadAudio(nameSound: "correct")
-                            isCorrect = true
+                            isSubmit = true
                             countCorrect += 1
                         }else{
                             loadAudio(nameSound: "wrong")
-                            isCorrect = false
-                            countWrong += 1
+                            resetSpeak()
                         }
                     }label: {
                         Text("Submit")
@@ -143,21 +164,19 @@ struct ListeningView: View {
                             .background(Color.blue)
                             .cornerRadius(13)
                     }
-                    .disabled(selectedAnswer == "" || isSubmit ? true : false)
-                    .opacity(selectedAnswer == "" || isSubmit ? 0.6 : 1)
+//                    .disabled(speechRecognizer.transcript == "" || isSubmit ? true : false)
+//                    .opacity(speechRecognizer.transcript == "" || isSubmit ? 0.6 : 1)
                     
                     Button{
                         synthesizer.stopSpeaking(at: .immediate)
-                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsListen.count - 1 {
+                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsMath.count - 1 {
                             progress += 1
-                            selectedAnswer = ""
+                            resetSpeak()
                             isSubmit = false
-                            isCorrect = false
                             withAnimation {
                                 selectedTab += 1
                             }
                         }else{
-                         
                             withAnimation {
                                 isShowPopup = true
                             }
@@ -168,10 +187,8 @@ struct ListeningView: View {
                                 loadAudio(nameSound: "congralutions")
                             }
                         }
-                        
-                        Point.savePoint(pointListen: countCorrect)
                     }label: {
-                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsListen.count - 1 ? "Next" : "Done")
+                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsMath.count - 1 ? "Next" : "Done")
                             .foregroundColor(.text)
                             .padding()
                             .frame(height: 50)
@@ -179,8 +196,8 @@ struct ListeningView: View {
                             .background(Color.blue)
                             .cornerRadius(13)
                     }
-                    .disabled(selectedAnswer == "" || !isSubmit ? true : false)
-                    .opacity(selectedAnswer == "" || !isSubmit ? 0.6 : 1)
+                    .disabled(speechRecognizer.transcript == "" || !isSubmit ? true : false)
+                    .opacity(speechRecognizer.transcript == "" || !isSubmit ? 0.6 : 1)
                 }
                 .padding()
             }
@@ -194,13 +211,19 @@ struct ListeningView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsListen.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsMath.count)
         }
+    }
+    
+    func resetSpeak(){
+        speechRecognizer.transcript = ""
+        speechRecognizer.reset()
+        isRecording = false
     }
     
     func speakText(textToSpeak: String) {
         let utterance = AVSpeechUtterance(string: textToSpeak)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en")
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.4
         synthesizer.speak(utterance)
     }
@@ -241,9 +264,23 @@ struct ListeningView: View {
                 selectedAnswer = question
             }
         }
+        .offset(x: isSubmit && !isCorrect && selectedAnswer == question ? offset : 0)
+        .animation(
+            Animation.easeInOut(duration: 0.15)
+                .repeatCount(3), // Repeats 3 times
+            value: isSubmit && !isCorrect && selectedAnswer == question
+        )
+        .onChange(of: isSubmit) { newValue in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15 * 3) {
+                withAnimation {
+                    offset = 0
+                }
+            }
+        }
     }
     
     func loadAudio(nameSound: String) {
+        print("load")
         if let audioURL = Bundle.main.url(forResource: nameSound, withExtension: "mp3") {
             audioPlayer = try? AVAudioPlayer(contentsOf: audioURL)
             audioPlayer?.play()

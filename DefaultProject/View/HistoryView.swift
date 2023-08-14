@@ -1,14 +1,14 @@
 //
-//  ListeningView.swift
+//  HistoryView.swift
 //  DefaultProject
 //
-//  Created by darktech4 on 12/08/2023.
+//  Created by daktech on 14/08/2023.
 //
 
 import SwiftUI
-import AVFAudio
+import AVFoundation
 
-struct ListeningView: View {
+struct HistoryView: View {
     @State var countCorrect = 0
     @State var countWrong = 0
     @State private var textToSpeak: String = ""
@@ -23,7 +23,8 @@ struct ListeningView: View {
     let synthesizer = AVSpeechSynthesizer()
     @State private var progress = 0.5
     @EnvironmentObject var coordinator: Coordinator
-
+    @State var offset: CGFloat = -10
+    
     var body: some View {
         VStack{
             HStack{
@@ -33,7 +34,7 @@ struct ListeningView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Listen")
+                    Text("Math")
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }
@@ -42,10 +43,10 @@ struct ListeningView: View {
             
             HStack{
                 VStack{
-                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsListen.count)")
+                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsHistory.count)")
                         .font(.bold(size: 16))
                         .foregroundColor(Color.background)
-                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsListen.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsListen.count - 1))
+                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1))
                 }
                 
                 HStack{
@@ -80,25 +81,37 @@ struct ListeningView: View {
             
             VStack{
                 TabView(selection: $selectedTab) {
-                    ForEach(QUIZDEFAULT.SHARED.listQuestionsListen.indices, id: \.self) { index in
-                        let quiz = QUIZDEFAULT.SHARED.listQuestionsListen[index]
-                        VStack {
-                            VStack{
-                                Text("Listen and choose the correct answer")
-                                    .font(.regular(size: 20))
+                    ForEach(QUIZDEFAULT.SHARED.listQuestionsHistory.indices, id: \.self) { index in
+                        let quiz = QUIZDEFAULT.SHARED.listQuestionsHistory[index]
+                        VStack (spacing: 0) {
+                            Text("Select an answer")
+                                .font(.bold(size: 14))
+                                .foregroundColor(Color.text2)
+                                .hAlign(.leading)
+                                .padding(.top)
+                                .padding(.horizontal)
+                            
+                            HStack{
+                                Text(quiz.question)
+                                    .font(.regular(size: 22))
                                     .foregroundColor(.background)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .multilineTextAlignment(.leading)
                                 
                                 Image("sound")
                                     .resizable()
                                     .frame(width: 25,height: 25)
-                                    .onTapGesture {
-                                        speakText(textToSpeak: quiz.question)
-                                    }
                             }
                             .simultaneousGesture(DragGesture())
                             .hAlign(.leading)
                             .padding()
+                            .onTapGesture {
+                                speakText(textToSpeak: quiz.question)
+                            }
+                            //                            Image(question.img)
+                            //                                .resizable()
+                            //                                .frame(maxWidth: .infinity)
+                            //                                .frame(height: 140, alignment: .top)
+                            //                                .padding()
                             
                             Spacer()
                             
@@ -123,6 +136,7 @@ struct ListeningView: View {
                 
                 HStack(spacing: 10){
                     Button{
+                        offset = -10
                         isSubmit = true
                         
                         if selectedAnswer == answerCorrect{
@@ -148,7 +162,7 @@ struct ListeningView: View {
                     
                     Button{
                         synthesizer.stopSpeaking(at: .immediate)
-                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsListen.count - 1 {
+                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1 {
                             progress += 1
                             selectedAnswer = ""
                             isSubmit = false
@@ -157,7 +171,7 @@ struct ListeningView: View {
                                 selectedTab += 1
                             }
                         }else{
-                         
+                            
                             withAnimation {
                                 isShowPopup = true
                             }
@@ -169,9 +183,11 @@ struct ListeningView: View {
                             }
                         }
                         
-                        Point.savePoint(pointListen: countCorrect)
+                        if selectedTab >= QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1{
+                            Point.savePoint(pointHistory: countCorrect)
+                        }
                     }label: {
-                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsListen.count - 1 ? "Next" : "Done")
+                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1 ? "Next" : "Done")
                             .foregroundColor(.text)
                             .padding()
                             .frame(height: 50)
@@ -194,13 +210,13 @@ struct ListeningView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsListen.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsHistory.count)
         }
     }
     
     func speakText(textToSpeak: String) {
         let utterance = AVSpeechUtterance(string: textToSpeak)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en")
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.4
         synthesizer.speak(utterance)
     }
@@ -235,10 +251,23 @@ struct ListeningView: View {
                 }
             }
             .padding(.horizontal)
-        }
+        } 
         .onTapGesture {
             if !isSubmit{
                 selectedAnswer = question
+            }
+        }
+        .offset(x: isSubmit && !isCorrect && selectedAnswer == question ? offset : 0)
+        .animation(
+            Animation.easeInOut(duration: 0.15)
+                .repeatCount(3), // Repeats 3 times
+            value: isSubmit && !isCorrect && selectedAnswer == question
+        )
+        .onChange(of: isSubmit) { newValue in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15 * 3) {
+                withAnimation {
+                    offset = 0
+                }
             }
         }
     }

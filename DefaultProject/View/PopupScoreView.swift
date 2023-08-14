@@ -12,7 +12,8 @@ struct PopupScoreView: View {
     @Binding var countCorrect: Int
     @Binding var countWrong: Int
     @State var totalQuestion: Int
-    
+    @EnvironmentObject var coordinator: Coordinator
+
     var body: some View {
         VStack{
             Text(countCorrect == 0 ? "You didn't get any question right !" : "Congralutions! You have scored")
@@ -42,6 +43,7 @@ struct PopupScoreView: View {
             Button{
                 withAnimation {
                     isShowPopup = false
+                    coordinator.pop()
                 }
             }label: {
                 Text("Back to home")

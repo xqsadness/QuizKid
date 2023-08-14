@@ -22,11 +22,32 @@ struct MathView: View {
     
     let synthesizer = AVSpeechSynthesizer()
     @State private var progress = 0.5
+    @EnvironmentObject var coordinator: Coordinator
+    @State var offset: CGFloat = -10
     
     var body: some View {
         VStack{
             HStack{
-                ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1))
+                Button {
+                    coordinator.pop()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .imageScale(.large)
+                        .foregroundColor(Color.background)
+                    Text("Math")
+                        .font(.bold(size: 24))
+                        .foregroundColor(Color.background)
+                }
+                .hAlign(.leading)
+            }
+            
+            HStack{
+                VStack{
+                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsMath.count)")
+                        .font(.bold(size: 16))
+                        .foregroundColor(Color.background)
+                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1))
+                }
                 
                 HStack{
                     Text("\(countCorrect)")
@@ -62,7 +83,14 @@ struct MathView: View {
                 TabView(selection: $selectedTab) {
                     ForEach(QUIZDEFAULT.SHARED.listQuestionsMath.indices, id: \.self) { index in
                         let quiz = QUIZDEFAULT.SHARED.listQuestionsMath[index]
-                        VStack {
+                        VStack (spacing: 0) {
+                            Text("Select an answer")
+                                .font(.bold(size: 14))
+                                .foregroundColor(Color.text2)
+                                .hAlign(.leading)
+                                .padding(.top)
+                                .padding(.horizontal)
+                            
                             HStack{
                                 Text(quiz.question)
                                     .font(.regular(size: 22))
@@ -79,11 +107,11 @@ struct MathView: View {
                             .onTapGesture {
                                 speakText(textToSpeak: quiz.question)
                             }
-//                            Image(question.img)
-//                                .resizable()
-//                                .frame(maxWidth: .infinity)
-//                                .frame(height: 140, alignment: .top)
-//                                .padding()
+                            //                            Image(question.img)
+                            //                                .resizable()
+                            //                                .frame(maxWidth: .infinity)
+                            //                                .frame(height: 140, alignment: .top)
+                            //                                .padding()
                             
                             Spacer()
                             
@@ -108,6 +136,7 @@ struct MathView: View {
                 
                 HStack(spacing: 10){
                     Button{
+                        offset = -10
                         isSubmit = true
                         
                         if selectedAnswer == answerCorrect{
@@ -142,7 +171,7 @@ struct MathView: View {
                                 selectedTab += 1
                             }
                         }else{
-                         
+                            
                             withAnimation {
                                 isShowPopup = true
                             }
@@ -175,7 +204,7 @@ struct MathView: View {
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.text)
-        
+        .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
             PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsMath.count)
         }
@@ -222,6 +251,19 @@ struct MathView: View {
         .onTapGesture {
             if !isSubmit{
                 selectedAnswer = question
+            }
+        }
+        .offset(x: isSubmit && !isCorrect && selectedAnswer == question ? offset : 0)
+        .animation(
+            Animation.easeInOut(duration: 0.15)
+                .repeatCount(3), // Repeats 3 times
+            value: isSubmit && !isCorrect && selectedAnswer == question
+        )
+        .onChange(of: isSubmit) { newValue in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15 * 3) {
+                withAnimation {
+                    offset = 0
+                }
             }
         }
     }

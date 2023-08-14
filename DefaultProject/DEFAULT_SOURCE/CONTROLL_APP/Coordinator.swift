@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum Page: String, Identifiable{
-    case NONE
+    case NONE, mathView, listeningView, historyView
     var id: String{
         return self.rawValue
     }
@@ -68,9 +68,17 @@ class Coordinator: ObservableObject{
     }
     
     @ViewBuilder
-    func build(page: Page) -> some View{
+    func build(page: Page) -> some View {
         switch page{
-            
+        case .mathView:
+            MathView()
+                .environmentObject(Coordinator.shared)
+        case .listeningView:
+            ListeningView()
+                .environmentObject(Coordinator.shared)
+        case .historyView:
+            HistoryView()
+                .environmentObject(Coordinator.shared)
         default:
             EmptyView()
         }
