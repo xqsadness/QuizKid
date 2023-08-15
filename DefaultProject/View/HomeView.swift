@@ -21,6 +21,9 @@ struct HomeView: View {
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
             }
+            .onTapGesture {
+                coordinator.push(.speechToTextView)
+            }
             
             VStack {
                 HStack{
@@ -34,7 +37,7 @@ struct HomeView: View {
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("10 questions")
+                        Text("\(QUIZDEFAULT.SHARED.listQuestionsMath.count) questions")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -49,12 +52,12 @@ struct HomeView: View {
                                 .frame(width: 52, height: 52)
                                 .overlay{
                                     Circle()
-                                        .trim(from: 0, to: 0.68)
+                                        .trim(from: 0, to: CGFloat(point.first?.pointMath ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsMath.count))
                                         .stroke(Color(hex: "FFFFFF"), style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                         .rotationEffect(.degrees(-90))
                                 }
                             
-                            Text("68%")
+                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointMath ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsMath.count)))%")
                                 .font(.bold(size: 12))
                                 .foregroundColor(Color.text)
                         }
@@ -125,7 +128,7 @@ struct HomeView: View {
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("10 questions")
+                        Text("\(QUIZDEFAULT.SHARED.listQuestionsListen.count) questions")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -140,12 +143,12 @@ struct HomeView: View {
                                 .frame(width: 52, height: 52)
                                 .overlay {
                                     Circle()
-                                        .trim(from: 0, to: CGFloat(point.first?.pointListen ?? 0) / 10)
+                                        .trim(from: 0, to: CGFloat(point.first?.pointListen ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsListen.count))
                                         .stroke(Color(hex: "FFFFFF"), style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                         .rotationEffect(.degrees(-90))
                                 }
                             
-                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointListen ?? 0) * 10))%")
+                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointListen ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsListen.count)))%")
                                 .font(.bold(size: 12))
                                 .foregroundColor(Color.text)
                         }
@@ -216,7 +219,7 @@ struct HomeView: View {
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("10 questions")
+                        Text("\(QUIZDEFAULT.SHARED.listQuestionsHistory.count) questions")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -231,12 +234,12 @@ struct HomeView: View {
                                 .frame(width: 52, height: 52)
                                 .overlay {
                                     Circle()
-                                        .trim(from: 0, to: CGFloat(point.first?.pointHistory ?? 0) / 10)
+                                        .trim(from: 0, to: CGFloat(point.first?.pointHistory ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsHistory.count))
                                         .stroke(Color.text, style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                         .rotationEffect(.degrees(-90))
                                 }
                             
-                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointHistory ?? 0) * 10))%")
+                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointHistory ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsHistory.count)))%")
                                 .font(.bold(size: 12))
                                 .foregroundColor(Color.text)
                         }
@@ -250,6 +253,53 @@ struct HomeView: View {
                 .cornerRadius(12)
                 .onTapGesture {
                     coordinator.push(.historyView)
+                }
+                
+                HStack{
+                    Image("history-book")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .padding(.leading)
+                    
+                    VStack(spacing: 5) {
+                        Text("Listen And Repeat")
+                            .font(.bold(size: 16))
+                            .foregroundColor(Color.background)
+                            .hAlign(.leading)
+                        Text("\(QUIZDEFAULT.SHARED.listListenAndRepeat.count) questions")
+                            .font(.bold(size: 14))
+                            .foregroundColor(Color.text)
+                            .hAlign(.leading)
+                    }
+                    
+                    Spacer()
+                    
+                    VStack{
+                        ZStack {
+                            Image("Ellipse")
+                                .resizable()
+                                .frame(width: 52, height: 52)
+                                .overlay {
+                                    Circle()
+                                        .trim(from: 0, to: CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count))
+                                        .stroke(Color.text, style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                                        .rotationEffect(.degrees(-90))
+                                }
+                            
+                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointListenAndRepeat ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count)))%")
+                                .font(.bold(size: 12))
+                                .foregroundColor(Color.text)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                        .padding()
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 80)
+                .background(Color(red: 0.77, green: 0.81, blue: 0.84))
+                .cornerRadius(12)
+                .onTapGesture {
+                    coordinator.push(.listenAndRepeat)
                 }
             }
         }

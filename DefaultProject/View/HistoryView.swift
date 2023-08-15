@@ -107,11 +107,6 @@ struct HistoryView: View {
                             .onTapGesture {
                                 speakText(textToSpeak: quiz.question)
                             }
-                            //                            Image(question.img)
-                            //                                .resizable()
-                            //                                .frame(maxWidth: .infinity)
-                            //                                .frame(height: 140, alignment: .top)
-                            //                                .padding()
                             
                             Spacer()
                             
@@ -133,6 +128,25 @@ struct HistoryView: View {
                     
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
+                
+                HStack{
+                    Text("set viet nam")
+                        .font(.regular(size: 22))
+                        .foregroundColor(.background)
+                        .multilineTextAlignment(.leading)
+                        .onTapGesture {
+                            Bundle.set(language: .vietnamese)
+                        }
+                    
+                    Text("set english")
+                        .font(.regular(size: 22))
+                        .foregroundColor(.background)
+                        .multilineTextAlignment(.leading)
+                        .onTapGesture {
+                            Bundle.set(language: .english(.us))
+                        }
+
+                }
                 
                 HStack(spacing: 10){
                     Button{
@@ -183,9 +197,9 @@ struct HistoryView: View {
                             }
                         }
                         
-                        if selectedTab >= QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1{
-                            Point.savePoint(pointHistory: countCorrect)
-                        }
+//                        if selectedTab >= QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1{
+                        Point.updatePointHistory(newPointHistory: countCorrect)
+//                        }
                     }label: {
                         Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1 ? "Next" : "Done")
                             .foregroundColor(.text)
@@ -251,7 +265,7 @@ struct HistoryView: View {
                 }
             }
             .padding(.horizontal)
-        } 
+        }
         .onTapGesture {
             if !isSubmit{
                 selectedAnswer = question

@@ -1,14 +1,14 @@
 //
-//  MathView.swift
+//  ListenAndRepeatView.swift
 //  DefaultProject
 //
-//  Created by darktech4 on 11/08/2023.
+//  Created by daktech on 15/08/2023.
 //
 
 import SwiftUI
 import AVFoundation
 
-struct MathView: View {
+struct ListenAndRepeatView: View {
     @State var countCorrect = 0
     @State var countWrong = 0
     @State private var textToSpeak: String = ""
@@ -24,6 +24,8 @@ struct MathView: View {
     @State private var progress = 0.5
     @EnvironmentObject var coordinator: Coordinator
     @State var offset: CGFloat = -10
+    @State var isHide: Bool = true
+    @State var isSpeaking: Bool = false
     
     var body: some View {
         VStack{
@@ -34,7 +36,7 @@ struct MathView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Math")
+                    Text("Listen and repeat")
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }
@@ -43,10 +45,10 @@ struct MathView: View {
             
             HStack{
                 VStack{
-                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsMath.count)")
+                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listListenAndRepeat.count)")
                         .font(.bold(size: 16))
                         .foregroundColor(Color.background)
-                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1))
+                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1)), total: Double(QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1))
                 }
                 
                 HStack{
@@ -81,45 +83,88 @@ struct MathView: View {
             
             VStack{
                 TabView(selection: $selectedTab) {
-                    ForEach(QUIZDEFAULT.SHARED.listQuestionsMath.indices, id: \.self) { index in
-                        let quiz = QUIZDEFAULT.SHARED.listQuestionsMath[index]
+                    ForEach(QUIZDEFAULT.SHARED.listListenAndRepeat.indices, id: \.self) { index in
+                        let quiz = QUIZDEFAULT.SHARED.listListenAndRepeat[index]
                         VStack (spacing: 0) {
-                            Text("Select an answer")
-                                .font(.bold(size: 14))
-                                .foregroundColor(Color.text2)
+                            Text("Repeat what you hear")
+                                .font(.bold(size: 16))
+                                .foregroundColor(Color.background)
                                 .hAlign(.leading)
                                 .padding(.top)
                                 .padding(.horizontal)
                             
                             HStack{
-                                Text(quiz.question)
-                                    .font(.regular(size: 22))
-                                    .foregroundColor(.background)
-                                    .multilineTextAlignment(.leading)
+                                LottieView(name: "animation_human", loopMode: .playOnce)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .frame(width: 120, height: 190)
                                 
-                                Image("sound")
-                                    .resizable()
-                                    .frame(width: 25,height: 25)
+                                ZStack{
+                                    HStack{
+                                        Image(systemName: "speaker.wave.2.fill")
+                                            .imageScale(.large)
+                                            .foregroundColor(Color.blue)
+                                        
+                                        Text(isHide ? "" : "\(quiz.question)")
+                                            .font(.bold(size: 14))
+                                            .foregroundColor(Color.background)
+                                    }
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                                }
+                                .padding(10)
+                                .frame(height: 100)
+                                .frame(maxWidth: .infinity)
+                                .overlay{
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.text2, lineWidth: 2)
+                                }
                             }
                             .simultaneousGesture(DragGesture())
                             .hAlign(.leading)
-                            .padding()
+                            .padding(.horizontal)
                             .onTapGesture {
                                 speakText(textToSpeak: quiz.question)
                             }
-                            //                            Image(question.img)
-                            //                                .resizable()
-                            //                                .frame(maxWidth: .infinity)
-                            //                                .frame(height: 140, alignment: .top)
-                            //                                .padding()
+                            
+                            Text(isHide ? "Show" : "")
+                                .font(.bold(size: 14))
+                                .foregroundColor(Color.blue)
+                                .frame(maxWidth: .infinity, alignment: .topTrailing)
+                                .padding(.horizontal, 15)
+                                .padding(.top, -30)
+                                .onTapGesture {
+                                    isHide.toggle()
+                                }
+                            
+                            Button {
+                                isSpeaking.toggle()
+                            } label: {
+                                if isSpeaking {
+                                    LottieView(name: "animation_soundwave", loopMode: .loop)
+                                        .frame(height: 57)
+                                } else {
+                                    Image(systemName: "mic.fill")
+                                        .imageScale(.large)
+                                        .foregroundColor(Color.blue)
+                                    Text("Tap to speak")
+                                        .font(.bold(size: 17))
+                                        .foregroundColor(Color.blue)
+                                }
+                            }
+                            .padding(isSpeaking ? 0 : 15)
+                            .frame(maxWidth: .infinity)
+                            .overlay{
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.blue, lineWidth: 2)
+                            }
+                            .padding(.horizontal, 15)
+                            .padding(.top)
+                            .contentShape(Rectangle())
+                            .animation(.easeInOut(duration: 0.3), value: isSpeaking)
                             
                             Spacer()
                             
                             VStack(spacing: 10){
-                                answerView(question: quiz.a, isCorrect: quiz.answer == quiz.a)
-                                answerView(question: quiz.b, isCorrect: quiz.answer == quiz.b)
-                                answerView(question: quiz.c, isCorrect: quiz.answer == quiz.c)
-                                answerView(question: quiz.d, isCorrect: quiz.answer == quiz.d)
+                                
                             }
                             .padding()
                             .simultaneousGesture(DragGesture())
@@ -134,67 +179,19 @@ struct MathView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 
-                HStack(spacing: 10){
+                HStack{
                     Button{
-                        offset = -10
-                        isSubmit = true
                         
-                        if selectedAnswer == answerCorrect{
-                            loadAudio(nameSound: "correct")
-                            isCorrect = true
-                            countCorrect += 1
-                        }else{
-                            loadAudio(nameSound: "wrong")
-                            isCorrect = false
-                            countWrong += 1
-                        }
                     }label: {
-                        Text("Submit")
-                            .foregroundColor(.text)
-                            .padding()
-                            .frame(height: 50)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .cornerRadius(13)
+                        Text("CHECK")
+                            .font(.bold(size: 16))
+                            .foregroundColor(Color(hex: "b5b5b5"))
                     }
-                    .disabled(selectedAnswer == "" || isSubmit ? true : false)
-                    .opacity(selectedAnswer == "" || isSubmit ? 0.6 : 1)
-                    
-                    Button{
-                        synthesizer.stopSpeaking(at: .immediate)
-                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsMath.count - 1 {
-                            progress += 1
-                            selectedAnswer = ""
-                            isSubmit = false
-                            isCorrect = false
-                            withAnimation {
-                                selectedTab += 1
-                            }
-                        }else{
-                            
-                            withAnimation {
-                                isShowPopup = true
-                            }
-                            audioPlayer?.pause()
-                            if countCorrect == 0{
-                                loadAudio(nameSound: "wrong")
-                            }else{
-                                loadAudio(nameSound: "congralutions")
-                            }
-                        }
-                        
-                        Point.updatePointMath(point: countCorrect)
-                    }label: {
-                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsMath.count - 1 ? "Next" : "Done")
-                            .foregroundColor(.text)
-                            .padding()
-                            .frame(height: 50)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .cornerRadius(13)
-                    }
-                    .disabled(selectedAnswer == "" || !isSubmit ? true : false)
-                    .opacity(selectedAnswer == "" || !isSubmit ? 0.6 : 1)
+                    .padding()
+                    .hAlign(.center)
+                    .background(Color(hex: "e5e5e5"))
+                    .cornerRadius(10)
+                    .disabled(true)
                 }
                 .padding()
             }
@@ -208,7 +205,45 @@ struct MathView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsMath.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listListenAndRepeat.count)
+        }
+        .sheet(isPresented: $isSpeaking) {
+            VStack {
+                HStack{
+                    Image(systemName: "checkmark.circle.fill")
+                        .imageScale(.large)
+                        .foregroundColor(Color(hex: "58a700"))
+                    Text("Perfect!")
+                        .font(.bold(size: 20))
+                        .foregroundColor(Color(hex: "58a700"))
+                }
+                .hAlign(.topLeading)
+                
+                Text("Mean: ")
+                    .font(.bold(size: 16))
+                    .foregroundColor(Color(hex: "58a700"))
+                    .hAlign(.leading)
+                Text("dap an")
+                    .font(.bold(size: 18))
+                    .foregroundColor(Color(hex: "80c23b"))
+                    .hAlign(.leading)
+                
+                Button {
+                    
+                } label: {
+                    Text("CONTINUE")
+                        .font(.bold(size: 16))
+                        .foregroundColor(Color.white)
+                }
+                .padding(10)
+                .hAlign(.center)
+                .background(Color(hex: "58cc02"))
+                .cornerRadius(10)
+            }
+            .padding()
+            .presentationDetents([.height(130)])
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(hex: "#d7ffb8"))
         }
     }
     

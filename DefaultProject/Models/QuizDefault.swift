@@ -68,16 +68,29 @@ class QUIZDEFAULT{
     ]
 
     var listQuestionsHistory: [QUIZHISTORY] = [
-        QUIZHISTORY(answer: "Ba Ria", question: "In the year 1933, France merged Truong Sa into which province?", a: "Ba Ria", b: "Kien Giang", c: "Gia Dinh", d: "Khanh Hoa", img: ""),
-        QUIZHISTORY(answer: "Vietnam", question: "The Paracel and Spratly Islands belong to which country?", a: "Vietnam", b: "Thailand", c: "Laos", d: "China", img: ""),
-        QUIZHISTORY(answer: "to counter the Soviet Union and socialist countries.", question: "In March 1947, US President Truman officially launched the 'Cold War' for the purpose of?", a: "to counter the Soviet Union and socialist countries.", b: "to maintain world peace and security after the war.", c: "to appease the workers' struggle in capitalist countries.", d: "to counter the liberation movements in Latin America.", img: ""),
-        QUIZHISTORY(answer: "play a primary role in maintaining global peace and security.", question: "The role of the United Nations Security Council is to?", a: "play a primary role in maintaining global peace and security.", b: "protect the fundamental national rights of countries.", c: "ensure peace for nations.", d: "prevent countries from violating each other's sovereignty.", img: ""),
-        QUIZHISTORY(answer: "Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", question: "In the final stages of World War II, what did the Allies do to change the global situation?", a: "Launched a massive assault on Germany's capital Berlin.", b: "Urgently demanded a complete defeat of the Nazi powers.", c: "Rapidly organized a new world order after the war.", d: "Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", img: ""),
-        QUIZHISTORY(answer: "the world was divided into two camps: capitalism and socialism.", question: "The fundamental cause of the Cold War after World War II was", a: "the world was divided into two camps: capitalism and socialism.", b: "unsatisfactory post-World War II division of influence.", c: "disagreements at the Yalta Conference.", d: "US not achieving its goals at the Yalta Conference.", img: ""),
-        QUIZHISTORY(answer: "the role of the United Nations.", question: "Resolving disputes and conflicts in various regions through peaceful means, this is one of the contents of", a: "the principles of the United Nations.", b: "the role of the United Nations.", c: "resolutions of the Yalta Conference.", d: "the purpose of the United Nations.", img: ""),
-        QUIZHISTORY(answer: "5 and 4 BC", question: "When was history created?", a: "5 and 4 BC", b: "6 and 7 BC", c: "1 AND 3 BC", d: "2 and 4 BC", img: ""),
-        QUIZHISTORY(answer: "About 5,000 years", question: "About 5,000 years", a: "About 4,000 years", b: "About 3,000 years", c: "About 2,000 years", d: "About 1,000 years", img: ""),
-        QUIZHISTORY(answer: "Greece", question: "Who invented history?", a: "Greece", b: "VietNam", c: "Russia", d: "America", img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("Ba Ria", comment: "Answer text"), question: NSLocalizedString("In the year 1933, France merged Truong Sa into which province?", comment: "Question text"), a: NSLocalizedString("Ba Ria", comment: "Option text"), b: NSLocalizedString("Kien Giang", comment: "Option text"), c: NSLocalizedString("Gia Dinh", comment: "Option text"), d: NSLocalizedString("Khanh Hoa", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("Vietnam", comment: "Answer text"), question: NSLocalizedString("The Paracel and Spratly Islands belong to which country?", comment: "Question text"), a: NSLocalizedString("Vietnam", comment: "Option text"), b: NSLocalizedString("Thailand", comment: "Option text"), c: NSLocalizedString("Laos", comment: "Option text"), d: NSLocalizedString("China", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("to counter the Soviet Union and socialist countries.", comment: "Answer text"), question: NSLocalizedString("In March 1947, US President Truman officially launched the 'Cold War' for the purpose of?", comment: "Question text"), a: NSLocalizedString("to counter the Soviet Union and socialist countries.", comment: "Option text"), b: NSLocalizedString("to maintain world peace and security after the war.", comment: "Option text"), c: NSLocalizedString("to appease the workers' struggle in capitalist countries.", comment: "Option text"), d: NSLocalizedString("to counter the liberation movements in Latin America.", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("play a primary role in maintaining global peace and security.", comment: "Answer text"), question: NSLocalizedString("The role of the United Nations Security Council is to?", comment: "Question text"), a: NSLocalizedString("play a primary role in maintaining global peace and security.", comment: "Option text"), b: NSLocalizedString("protect the fundamental national rights of countries.", comment: "Option text"), c: NSLocalizedString("ensure peace for nations.", comment: "Option text"), d: NSLocalizedString("prevent countries from violating each other's sovereignty.", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", comment: "Answer text"), question: NSLocalizedString("In the final stages of World War II, what did the Allies do to change the global situation?", comment: "Question text"), a: NSLocalizedString("Launched a massive assault on Germany's capital Berlin.", comment: "Option text"), b: NSLocalizedString("Urgently demanded a complete defeat of the Nazi powers.", comment: "Option text"), c: NSLocalizedString("Rapidly organized a new world order after the war.", comment: "Option text"), d: NSLocalizedString("Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("the world was divided into two camps: capitalism and socialism.", comment: "Answer text"), question: NSLocalizedString("The fundamental cause of the Cold War after World War II was", comment: "Question text"), a: NSLocalizedString("the world was divided into two camps: capitalism and socialism.", comment: "Option text"), b: NSLocalizedString("unsatisfactory post-World War II division of influence.", comment: "Option text"), c: NSLocalizedString("disagreements at the Yalta Conference.", comment: "Option text"), d: NSLocalizedString("US not achieving its goals at the Yalta Conference.", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("the role of the United Nations.", comment: "Answer text"), question: NSLocalizedString("Resolving disputes and conflicts in various regions through peaceful means, this is one of the contents of", comment: "Question text"), a: NSLocalizedString("the principles of the United Nations.", comment: "Option text"), b: NSLocalizedString("the role of the United Nations.", comment: "Option text"), c: NSLocalizedString("resolutions of the Yalta Conference.", comment: "Option text"), d: NSLocalizedString("the purpose of the United Nations.", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("5 and 4 BC", comment: "Answer text"), question: NSLocalizedString("When was history created?", comment: "Question text"), a: NSLocalizedString("5 and 4 BC", comment: "Option text"), b: NSLocalizedString("6 and 7 BC", comment: "Option text"), c: NSLocalizedString("1 AND 3 BC", comment: "Option text"), d: NSLocalizedString("2 and 4 BC", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("About 5,000 years", comment: "Answer text"), question: NSLocalizedString("About 5,000 years", comment: "Question text"), a: NSLocalizedString("About 4,000 years", comment: "Option text"), b: NSLocalizedString("About 3,000 years", comment: "Option text"), c: NSLocalizedString("About 2,000 years", comment: "Option text"), d: NSLocalizedString("About 1,000 years", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("Greece", comment: "Answer text"), question: NSLocalizedString("Who invented history?", comment: "Question text"), a: NSLocalizedString("Greece", comment: "Option text"), b: NSLocalizedString("VietNam", comment: "Option text"), c: NSLocalizedString("Russia", comment: "Option text"), d: NSLocalizedString("America", comment: "Option text"), img: ""),
+    ]
+
+    var listListenAndRepeat: [QUIZLISTENANDREPEAT] = [
+        QUIZLISTENANDREPEAT(question: "Fine, thank you!", answer: "Fine, thank you!", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "How are you?", answer: "How are you?", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "I can see", answer: "I can see", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "I love you", answer: "I love you", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Bread", answer: "Bread", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Listen to music", answer: "Listen to music", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Watch TV", answer: "Watch TV", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Do exercise", answer: "Do exercise", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Breakfast", answer: "Breakfast", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "I like it", answer: "I like it", a: "", b: "", c: "", d: ""),
     ]
 }
 
@@ -133,4 +146,13 @@ struct QUIZHISTORY {
     var c: String = ""
     var d: String = ""
     var img: String = ""
+}
+struct QUIZLISTENANDREPEAT {
+    var id = UUID()
+    var question: String = ""
+    var answer: String = ""
+    var a: String = ""
+    var b: String = ""
+    var c: String = ""
+    var d: String = ""
 }

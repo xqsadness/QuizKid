@@ -17,7 +17,6 @@ struct SpeechToTextView: View {
     @State private var selectedAnswer = ""
     @State private var answerCorrect = ""
     @State private var selectedTab = 0
-//    @State private var isCorrect = false
     @State private var isSubmit = false
     @State private var isShowPopup = false
     @State var audioPlayer: AVAudioPlayer?
@@ -26,7 +25,7 @@ struct SpeechToTextView: View {
     @State private var progress = 0.5
     @EnvironmentObject var coordinator: Coordinator
     @State var offset: CGFloat = -10
-    
+
     var body: some View {
         VStack{
             HStack{
@@ -51,20 +50,6 @@ struct SpeechToTextView: View {
                     ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1))
                 }
                 .hAlign(.center)
-                
-                HStack{
-                    Text("\(countWrong)")
-                        .font(.bold(size: 18))
-                        .foregroundColor(.text)
-                    
-                    Image(systemName: "x.circle")
-                        .imageScale(.medium)
-                        .foregroundColor(.text)
-                }
-                .padding(8)
-                .frame(width: 85, height: 40)
-                .background(Color(hex: "ff9d97"))
-                .cornerRadius(15)
             }
             .padding(.bottom)
             
@@ -94,14 +79,27 @@ struct SpeechToTextView: View {
                             .hAlign(.leading)
                             .padding()
                             .onTapGesture {
+//                                speechRecognizer.stopTranscribing()
                                 if !synthesizer.isSpeaking{
                                     speakText(textToSpeak: quiz.question)
+                                }else{
+                                    synthesizer.stopSpeaking(at: .immediate)
                                 }
                             }
                             
                             Spacer()
                             
                             VStack(spacing: 10){
+                                Text("set")
+                                    .font(.regular(size: 22))
+                                    .foregroundColor(.background)
+                                    .multilineTextAlignment(.leading)
+                                    .onTapGesture {
+                                        speechRecognizer.transcript = quiz.answer
+                                    }
+                          
+                                
+                                
                                 Text(speechRecognizer.transcript)
                                     .font(.regular(size: 22))
                                     .foregroundColor(.background)
@@ -109,7 +107,9 @@ struct SpeechToTextView: View {
                                 
                                 HStack{
                                     Button{
+                                        audioPlayer?.pause()
                                         if !isRecording {
+                                            synthesizer.stopSpeaking(at: .immediate)
                                             speechRecognizer.transcribe()
                                         } else {
                                             speechRecognizer.stopTranscribing()
@@ -147,13 +147,14 @@ struct SpeechToTextView: View {
                 
                 HStack(spacing: 10){
                     Button{
+                        audioPlayer?.pause()
                         if speechRecognizer.transcript.lowercased() == answerCorrect.lowercased(){
                             loadAudio(nameSound: "correct")
                             isSubmit = true
                             countCorrect += 1
                         }else{
                             loadAudio(nameSound: "wrong")
-                            resetSpeak()
+                            isRecording = false
                         }
                     }label: {
                         Text("Submit")
@@ -172,6 +173,7 @@ struct SpeechToTextView: View {
                         if selectedTab < QUIZDEFAULT.SHARED.listQuestionsMath.count - 1 {
                             progress += 1
                             resetSpeak()
+                            isRecording = false
                             isSubmit = false
                             withAnimation {
                                 selectedTab += 1
@@ -222,11 +224,20 @@ struct SpeechToTextView: View {
     }
     
     func speakText(textToSpeak: String) {
+        resetSpeak()
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
         let utterance = AVSpeechUtterance(string: textToSpeak)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.4
         synthesizer.speak(utterance)
     }
+
     
     @ViewBuilder
     func answerView(question: String, isCorrect: Bool) -> some View {
@@ -281,9 +292,17 @@ struct SpeechToTextView: View {
     
     func loadAudio(nameSound: String) {
         print("load")
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
         if let audioURL = Bundle.main.url(forResource: nameSound, withExtension: "mp3") {
             audioPlayer = try? AVAudioPlayer(contentsOf: audioURL)
-            audioPlayer?.play()
+            DispatchQueue.main.async {
+                audioPlayer?.play()
+            }
         }
     }
     

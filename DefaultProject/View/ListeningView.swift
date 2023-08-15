@@ -169,7 +169,7 @@ struct ListeningView: View {
                             }
                         }
                         
-                        Point.savePoint(pointListen: countCorrect)
+                        Point.updatePointListen(point: countCorrect)
                     }label: {
                         Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsListen.count - 1 ? "Next" : "Done")
                             .foregroundColor(.text)
