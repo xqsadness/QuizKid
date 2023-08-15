@@ -96,17 +96,10 @@ struct MathView: View {
                                     .font(.regular(size: 22))
                                     .foregroundColor(.background)
                                     .multilineTextAlignment(.leading)
-                                
-                                Image("sound")
-                                    .resizable()
-                                    .frame(width: 25,height: 25)
                             }
                             .simultaneousGesture(DragGesture())
                             .hAlign(.leading)
                             .padding()
-                            .onTapGesture {
-                                speakText(textToSpeak: quiz.question)
-                            }
                             //                            Image(question.img)
                             //                                .resizable()
                             //                                .frame(maxWidth: .infinity)
@@ -171,6 +164,7 @@ struct MathView: View {
                                 selectedTab += 1
                             }
                         }else{
+                            
                             withAnimation {
                                 isShowPopup = true
                             }

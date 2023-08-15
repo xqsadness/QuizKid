@@ -23,6 +23,7 @@ struct ListeningView: View {
     let synthesizer = AVSpeechSynthesizer()
     @State private var progress = 0.5
     @EnvironmentObject var coordinator: Coordinator
+    @State var offset: CGFloat = -10
 
     var body: some View {
         VStack{
@@ -239,6 +240,19 @@ struct ListeningView: View {
         .onTapGesture {
             if !isSubmit{
                 selectedAnswer = question
+            }
+        }
+        .offset(x: isSubmit && !isCorrect && selectedAnswer == question ? offset : 0)
+        .animation(
+            Animation.easeInOut(duration: 0.15)
+                .repeatCount(3), // Repeats 3 times
+            value: isSubmit && !isCorrect && selectedAnswer == question
+        )
+        .onChange(of: isSubmit) { newValue in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15 * 3) {
+                withAnimation {
+                    offset = 0
+                }
             }
         }
     }

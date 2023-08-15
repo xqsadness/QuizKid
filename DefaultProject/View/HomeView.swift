@@ -99,12 +99,12 @@ struct HomeView: View {
                                 .frame(width: 52, height: 52)
                                 .overlay{
                                     Circle()
-                                        .trim(from: 0, to: 0.68)
+                                        .trim(from: 0, to: CGFloat(point.first?.pointColor ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsColor.count))
                                         .stroke(Color(hex: "FFFFFF"), style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                         .rotationEffect(.degrees(-90))
                                 }
                             
-                            Text("68%")
+                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointColor ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsColor.count)))%")
                                 .font(.bold(size: 12))
                                 .foregroundColor(Color.text)
                         }
@@ -116,6 +116,9 @@ struct HomeView: View {
                 .frame(height: 80)
                 .background(Color(red: 0.96, green: 0.33, blue: 0.33).opacity(0.48))
                 .cornerRadius(12)
+                .onTapGesture {
+                    coordinator.push(.colorView)
+                }
                 
                 HStack{
                     Image("PngItem_766243")
@@ -255,11 +258,9 @@ struct HomeView: View {
                     coordinator.push(.historyView)
                 }
                 
-                HStack{
-                    Image("history-book")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .padding(.leading)
+                HStack(spacing: 0) {
+                    LottieView(name: "animation_human2", loopMode: .loop)
+                        .frame(width: 80)
                     
                     VStack(spacing: 5) {
                         Text("Listen And Repeat")
@@ -296,7 +297,7 @@ struct HomeView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 80)
-                .background(Color(red: 0.77, green: 0.81, blue: 0.84))
+                .background(Color(hex: "#e9d579"))
                 .cornerRadius(12)
                 .onTapGesture {
                     coordinator.push(.listenAndRepeat)

@@ -1,14 +1,14 @@
 //
-//  HistoryView.swift
+//  ColorView.swift
 //  DefaultProject
 //
-//  Created by daktech on 14/08/2023.
+//  Created by daktech on 15/08/2023.
 //
 
 import SwiftUI
-import AVFoundation
+import AVFAudio
 
-struct HistoryView: View {
+struct ColorView: View {
     @State var countCorrect = 0
     @State var countWrong = 0
     @State private var textToSpeak: String = ""
@@ -24,7 +24,7 @@ struct HistoryView: View {
     @State private var progress = 0.5
     @EnvironmentObject var coordinator: Coordinator
     @State var offset: CGFloat = -10
-    
+
     var body: some View {
         VStack{
             HStack{
@@ -34,7 +34,7 @@ struct HistoryView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("History")
+                    Text("Color")
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }
@@ -43,10 +43,10 @@ struct HistoryView: View {
             
             HStack{
                 VStack{
-                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsHistory.count)")
+                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsColor.count)")
                         .font(.bold(size: 16))
                         .foregroundColor(Color.background)
-                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1))
+                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsColor.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsColor.count - 1))
                 }
                 
                 HStack{
@@ -81,32 +81,22 @@ struct HistoryView: View {
             
             VStack{
                 TabView(selection: $selectedTab) {
-                    ForEach(QUIZDEFAULT.SHARED.listQuestionsHistory.indices, id: \.self) { index in
-                        let quiz = QUIZDEFAULT.SHARED.listQuestionsHistory[index]
-                        VStack (spacing: 0) {
-                            Text("Select an answer")
-                                .font(.bold(size: 14))
-                                .foregroundColor(Color.text2)
-                                .hAlign(.leading)
-                                .padding(.top)
-                                .padding(.horizontal)
-                            
-                            HStack{
-                                Text(quiz.question)
-                                    .font(.regular(size: 22))
+                    ForEach(QUIZDEFAULT.SHARED.listQuestionsColor.indices, id: \.self) { index in
+                        let quiz = QUIZDEFAULT.SHARED.listQuestionsColor[index]
+                        VStack {
+                            VStack{
+                                Text("\(quiz.question)")
+                                    .font(.regular(size: 20))
                                     .foregroundColor(.background)
-                                    .multilineTextAlignment(.leading)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                                 
-                                Image("sound")
+                                Image("\(quiz.img)")
                                     .resizable()
-                                    .frame(width: 25,height: 25)
+                                    .scaledToFit()
                             }
                             .simultaneousGesture(DragGesture())
                             .hAlign(.leading)
                             .padding()
-                            .onTapGesture {
-                                speakText(textToSpeak: quiz.question)
-                            }
                             
                             Spacer()
                             
@@ -131,7 +121,6 @@ struct HistoryView: View {
                 
                 HStack(spacing: 10){
                     Button{
-                        offset = -10
                         isSubmit = true
                         
                         if selectedAnswer == answerCorrect{
@@ -143,7 +132,7 @@ struct HistoryView: View {
                             isCorrect = false
                             countWrong += 1
                         }
-                    }label: {
+                    } label: {
                         Text("Submit")
                             .foregroundColor(.text)
                             .padding()
@@ -157,7 +146,7 @@ struct HistoryView: View {
                     
                     Button{
                         synthesizer.stopSpeaking(at: .immediate)
-                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1 {
+                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsColor.count - 1 {
                             progress += 1
                             selectedAnswer = ""
                             isSubmit = false
@@ -166,7 +155,7 @@ struct HistoryView: View {
                                 selectedTab += 1
                             }
                         }else{
-                            
+                         
                             withAnimation {
                                 isShowPopup = true
                             }
@@ -179,10 +168,10 @@ struct HistoryView: View {
                         }
                         
 //                        if selectedTab >= QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1{
-                            Point.updatePointHistory(newPointHistory: countCorrect)
+                            Point.updatePointColor(point: countCorrect)
 //                        }
                     }label: {
-                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1 ? "Next" : "Done")
+                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsColor.count - 1 ? "Next" : "Done")
                             .foregroundColor(.text)
                             .padding()
                             .frame(height: 50)
@@ -205,13 +194,13 @@ struct HistoryView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsHistory.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsColor.count)
         }
     }
     
     func speakText(textToSpeak: String) {
         let utterance = AVSpeechUtterance(string: textToSpeak)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.voice = AVSpeechSynthesisVoice(language: "en")
         utterance.rate = 0.4
         synthesizer.speak(utterance)
     }

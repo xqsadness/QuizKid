@@ -83,6 +83,8 @@
 		DD0EA4902A8B366B007D8C55 /* animation_human.json in Resources */ = {isa = PBXBuildFile; fileRef = DD0EA48E2A8B366A007D8C55 /* animation_human.json */; };
 		DD0EA4912A8B366B007D8C55 /* animation_soundwave.json in Resources */ = {isa = PBXBuildFile; fileRef = DD0EA48F2A8B366A007D8C55 /* animation_soundwave.json */; };
 		DD0EA4932A8B5B1A007D8C55 /* SheetShowAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EA4922A8B5B1A007D8C55 /* SheetShowAnswerView.swift */; };
+		DD3B1B8D2A8B8C910047F43B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B1B8C2A8B8C910047F43B /* ColorView.swift */; };
+		DD3B1B8F2A8B8CF70047F43B /* congralutions2.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3B1B8E2A8B8CF70047F43B /* congralutions2.json */; };
 		DD67413E2A85D9AE00CB9B0B /* MathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67413D2A85D9AE00CB9B0B /* MathView.swift */; };
 		DD6741422A8616D200CB9B0B /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD6741402A86162600CB9B0B /* correct.mp3 */; };
 		DD6741442A8624F500CB9B0B /* wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD6741432A8624F500CB9B0B /* wrong.mp3 */; };
@@ -92,7 +94,6 @@
 		DD72E2382A8A1D4D006AB647 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2372A8A1D4D006AB647 /* HistoryView.swift */; };
 		DDA494532A871421003814F1 /* PopupScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA494522A871421003814F1 /* PopupScoreView.swift */; };
 		DDA494552A87192D003814F1 /* congralutions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDA494542A87192D003814F1 /* congralutions.mp3 */; };
-		DDA4945A2A871B22003814F1 /* congralutions2.json in Resources */ = {isa = PBXBuildFile; fileRef = DDA494592A871B22003814F1 /* congralutions2.json */; };
 		DDA4945C2A871C8A003814F1 /* congralutions.json in Resources */ = {isa = PBXBuildFile; fileRef = DDA4945B2A871C8A003814F1 /* congralutions.json */; };
 		DDA4945E2A8721C4003814F1 /* faild.json in Resources */ = {isa = PBXBuildFile; fileRef = DDA4945D2A8721C4003814F1 /* faild.json */; };
 		DDA494602A8725FC003814F1 /* QuizDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4945F2A8725FC003814F1 /* QuizDefault.swift */; };
@@ -199,6 +200,8 @@
 		DD0EA48E2A8B366A007D8C55 /* animation_human.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_human.json; sourceTree = "<group>"; };
 		DD0EA48F2A8B366A007D8C55 /* animation_soundwave.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_soundwave.json; sourceTree = "<group>"; };
 		DD0EA4922A8B5B1A007D8C55 /* SheetShowAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetShowAnswerView.swift; sourceTree = "<group>"; };
+		DD3B1B8C2A8B8C910047F43B /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		DD3B1B8E2A8B8CF70047F43B /* congralutions2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congralutions2.json; sourceTree = "<group>"; };
 		DD67413D2A85D9AE00CB9B0B /* MathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathView.swift; sourceTree = "<group>"; };
 		DD6741402A86162600CB9B0B /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		DD6741432A8624F500CB9B0B /* wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong.mp3; sourceTree = "<group>"; };
@@ -208,7 +211,6 @@
 		DD72E2372A8A1D4D006AB647 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		DDA494522A871421003814F1 /* PopupScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupScoreView.swift; sourceTree = "<group>"; };
 		DDA494542A87192D003814F1 /* congralutions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = congralutions.mp3; sourceTree = "<group>"; };
-		DDA494592A871B22003814F1 /* congralutions2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congralutions2.json; sourceTree = "<group>"; };
 		DDA4945B2A871C8A003814F1 /* congralutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congralutions.json; sourceTree = "<group>"; };
 		DDA4945D2A8721C4003814F1 /* faild.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = faild.json; sourceTree = "<group>"; };
 		DDA4945F2A8725FC003814F1 /* QuizDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizDefault.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		278982FB2A84EE65003CB639 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD3B1B8C2A8B8C910047F43B /* ColorView.swift */,
 				DD0EA48C2A8B342F007D8C55 /* ListenAndRepeatView.swift */,
 				DD72E2372A8A1D4D006AB647 /* HistoryView.swift */,
 				278982FC2A84EE65003CB639 /* CreateUsernameView.swift */,
@@ -493,7 +496,7 @@
 				DDA4945D2A8721C4003814F1 /* faild.json */,
 				DD0EA48E2A8B366A007D8C55 /* animation_human.json */,
 				DD0EA48F2A8B366A007D8C55 /* animation_soundwave.json */,
-				DDA494592A871B22003814F1 /* congralutions2.json */,
+				DD3B1B8E2A8B8CF70047F43B /* congralutions2.json */,
 				DDA4945B2A871C8A003814F1 /* congralutions.json */,
 			);
 			path = Lotties;
@@ -576,7 +579,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA22234E2A2BB32A005164BB /* Preview Assets.xcassets in Resources */,
-				DDA4945A2A871B22003814F1 /* congralutions2.json in Resources */,
 				CA2223AD2A2BB34A005164BB /* GoogleService-Info.plist in Resources */,
 				CA2223A22A2BB34A005164BB /* NativeAdView.xib in Resources */,
 				CA2223DE2A2BBADC005164BB /* Launch Screen.storyboard in Resources */,
@@ -589,6 +591,7 @@
 				9ADF75742A84C8F800A42B7B /* SF-Pro-Text-Medium.otf in Resources */,
 				CA2223B32A2BB34A005164BB /* SF-Pro-Display-Regular.otf in Resources */,
 				DD0EA4862A8B2704007D8C55 /* Localizable.strings in Resources */,
+				DD3B1B8F2A8B8CF70047F43B /* congralutions2.json in Resources */,
 				DD6741422A8616D200CB9B0B /* correct.mp3 in Resources */,
 				9ADF75752A84C8F800A42B7B /* SF-Pro-Text-Semibold.otf in Resources */,
 				DD0EA4902A8B366B007D8C55 /* animation_human.json in Resources */,
@@ -675,6 +678,7 @@
 				CA2223972A2BB34A005164BB /* SkeletonView.swift in Sources */,
 				CA2223B82A2BB34A005164BB /* FileManager.swift in Sources */,
 				CA2223C32A2BB34A005164BB /* BytesConverter.swift in Sources */,
+				DD3B1B8D2A8B8C910047F43B /* ColorView.swift in Sources */,
 				CA2223472A2BB329005164BB /* DefaultProjectApp.swift in Sources */,
 				CA2223AB2A2BB34A005164BB /* CONSTANT.swift in Sources */,
 				DDC5F3542A85CBD90096AAA0 /* Question.swift in Sources */,

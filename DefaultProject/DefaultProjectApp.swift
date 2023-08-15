@@ -64,6 +64,11 @@ struct RootView: View {
                 coordinator.build(fullScreenCover: fullScreencover)
             }
             .onAppear(perform: {
+                if !FIRST_LOAD_APP{
+                    let point = Point(pointColor: 0)
+                    Point.savePoint(point: point)
+                    FIRST_LOAD_APP = true
+                }
                 if !appController.SHOW_OPEN_APPP{
                     return
                 }

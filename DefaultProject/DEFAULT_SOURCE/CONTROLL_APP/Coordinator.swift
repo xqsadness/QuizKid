@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum Page: String, Identifiable{
-    case NONE, mathView, listeningView, historyView, listenAndRepeat, speechToTextView
+    case NONE, mathView, listeningView, historyView, listenAndRepeat, speechToTextView, colorView
     var id: String{
         return self.rawValue
     }
@@ -84,6 +84,9 @@ class Coordinator: ObservableObject{
                 .environmentObject(Coordinator.shared)
         case .speechToTextView:
             SpeechToTextView()
+                .environmentObject(Coordinator.shared)
+        case .colorView:
+            ColorView()
                 .environmentObject(Coordinator.shared)
         default:
             EmptyView()
