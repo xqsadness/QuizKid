@@ -79,7 +79,6 @@ struct SpeechToTextView: View {
                             .hAlign(.leading)
                             .padding()
                             .onTapGesture {
-//                                speechRecognizer.stopTranscribing()
                                 if !synthesizer.isSpeaking{
                                     speakText(textToSpeak: quiz.question)
                                 }else{

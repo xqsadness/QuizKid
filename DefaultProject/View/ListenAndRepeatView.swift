@@ -9,23 +9,26 @@ import SwiftUI
 import AVFoundation
 
 struct ListenAndRepeatView: View {
+    @EnvironmentObject var coordinator: Coordinator
+    @StateObject var speechRecognizer = SpeechRecognizer()
     @State var countCorrect = 0
     @State var countWrong = 0
     @State private var textToSpeak: String = ""
     @State private var selectedAnswer = ""
     @State private var answerCorrect = ""
+    @State private var titleButon = "CONTINUE"
     @State private var selectedTab = 0
     @State private var isCorrect = false
+    @State private var isFail = false
     @State private var isSubmit = false
     @State private var isShowPopup = false
     @State var audioPlayer: AVAudioPlayer?
     
     let synthesizer = AVSpeechSynthesizer()
     @State private var progress = 0.5
-    @EnvironmentObject var coordinator: Coordinator
-    @State var offset: CGFloat = -10
     @State var isHide: Bool = true
     @State var isSpeaking: Bool = false
+    @State var countFail = 0
     
     var body: some View {
         VStack{
@@ -86,7 +89,7 @@ struct ListenAndRepeatView: View {
                     ForEach(QUIZDEFAULT.SHARED.listListenAndRepeat.indices, id: \.self) { index in
                         let quiz = QUIZDEFAULT.SHARED.listListenAndRepeat[index]
                         VStack (spacing: 0) {
-                            Text("Repeat what you hear")
+                            Text("Repeat what you hear \(index + 1)")
                                 .font(.bold(size: 16))
                                 .foregroundColor(Color.background)
                                 .hAlign(.leading)
@@ -94,7 +97,7 @@ struct ListenAndRepeatView: View {
                                 .padding(.horizontal)
                             
                             HStack{
-                                LottieView(name: "animation_human", loopMode: .playOnce)
+                                LottieView(name: "animation_human", loopMode: .loop)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .frame(width: 120, height: 190)
                                 
@@ -103,6 +106,13 @@ struct ListenAndRepeatView: View {
                                         Image(systemName: "speaker.wave.2.fill")
                                             .imageScale(.large)
                                             .foregroundColor(Color.blue)
+                                            .onTapGesture {
+                                                if !synthesizer.isSpeaking{
+                                                    speakText(textToSpeak: quiz.question)
+                                                }else{
+                                                    synthesizer.stopSpeaking(at: .immediate)
+                                                }
+                                            }
                                         
                                         Text(isHide ? "" : "\(quiz.question)")
                                             .font(.bold(size: 14))
@@ -121,22 +131,50 @@ struct ListenAndRepeatView: View {
                             .simultaneousGesture(DragGesture())
                             .hAlign(.leading)
                             .padding(.horizontal)
-                            .onTapGesture {
-                                speakText(textToSpeak: quiz.question)
-                            }
                             
-                            Text(isHide ? "Show" : "")
+                            Text(isHide ? "Show" : "Hide")
                                 .font(.bold(size: 14))
                                 .foregroundColor(Color.blue)
                                 .frame(maxWidth: .infinity, alignment: .topTrailing)
                                 .padding(.horizontal, 15)
                                 .padding(.top, -30)
                                 .onTapGesture {
-                                    isHide.toggle()
+                                    withAnimation {
+                                        isHide.toggle()
+                                    }
                                 }
                             
                             Button {
-                                isSpeaking.toggle()
+                                if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 || !(countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
+                                    audioPlayer?.pause()
+                                    if !isSpeaking {
+                                        isSpeaking = true
+                                        synthesizer.stopSpeaking(at: .immediate)
+                                        speechRecognizer.transcribe()
+                                    } else {
+                                        isSpeaking = false
+                                        speechRecognizer.stopTranscribing()
+                                        if speechRecognizer.transcript.lowercased() == quiz.answer.lowercased(){
+                                            loadAudio(nameSound: "correct")
+                                            isCorrect = true
+                                            countCorrect += 1
+                                        }else{
+                                            loadAudio(nameSound: "wrong")
+                                            if countFail < 2{
+                                                titleButon = "Again"
+                                            }else{
+                                                titleButon = "Understand"
+                                            }
+                                            isFail = true
+                                        }
+                                    }
+                                }else if selectedTab == QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 && (countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
+                                    loadAudio(nameSound: "congralutions")
+                                    withAnimation {
+                                        isShowPopup = true
+                                    }
+                                    audioPlayer?.pause()
+                                }
                             } label: {
                                 if isSpeaking {
                                     LottieView(name: "animation_soundwave", loopMode: .loop)
@@ -159,7 +197,12 @@ struct ListenAndRepeatView: View {
                             .padding(.horizontal, 15)
                             .padding(.top)
                             .contentShape(Rectangle())
-                            .animation(.easeInOut(duration: 0.3), value: isSpeaking)
+                            .simultaneousGesture(DragGesture())
+                            
+                            Text("\(speechRecognizer.transcript)")
+                                .font(.bold(size: 17))
+                                .foregroundColor(Color.blue)
+                                .padding(.top,20)
                             
                             Spacer()
                             
@@ -175,9 +218,10 @@ struct ListenAndRepeatView: View {
                             answerCorrect = quiz.answer
                         }
                     }
-                    
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
+                .transition(.slide) // Thêm transition animation ở đây
+                .animation(.easeInOut)
                 
                 HStack{
                     Button{
@@ -207,120 +251,86 @@ struct ListenAndRepeatView: View {
         .popup(isPresented: $isShowPopup) {
             PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listListenAndRepeat.count)
         }
-        .sheet(isPresented: $isSpeaking) {
-            VStack {
-                HStack{
-                    Image(systemName: "checkmark.circle.fill")
-                        .imageScale(.large)
-                        .foregroundColor(Color(hex: "58a700"))
-                    Text("Perfect!")
-                        .font(.bold(size: 20))
-                        .foregroundColor(Color(hex: "58a700"))
+        .sheet(isPresented: $isCorrect, onDismiss: {
+            synthesizer.stopSpeaking(at: .immediate)
+            if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 {
+                progress += 1
+                resetSpeak()
+                withAnimation {
+                    selectedTab += 1
+                    isCorrect = false
                 }
-                .hAlign(.topLeading)
-                
-                Text("Mean: ")
-                    .font(.bold(size: 16))
-                    .foregroundColor(Color(hex: "58a700"))
-                    .hAlign(.leading)
-                Text("dap an")
-                    .font(.bold(size: 18))
-                    .foregroundColor(Color(hex: "80c23b"))
-                    .hAlign(.leading)
-                
-                Button {
-                    
-                } label: {
-                    Text("CONTINUE")
-                        .font(.bold(size: 16))
-                        .foregroundColor(Color.white)
+                countFail = 0
+            }else{
+                loadAudio(nameSound: "congralutions")
+                isCorrect = false
+                withAnimation {
+                    isShowPopup = true
                 }
-                .padding(10)
-                .hAlign(.center)
-                .background(Color(hex: "58cc02"))
-                .cornerRadius(10)
             }
-            .padding()
-            .presentationDetents([.height(130)])
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(hex: "#d7ffb8"))
+        }){
+            SheetShowAnswerCorrectView(answer: $answerCorrect){
+                isCorrect = false
+            }
+        }
+        .sheet(isPresented: $isFail, onDismiss: {
+            if countFail < 2{
+                isFail = false
+                countFail += 1
+            }else{
+                if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 {
+                    progress += 1
+                    countWrong += 1
+                    resetSpeak()
+                    withAnimation {
+                        selectedTab += 1
+                    }
+                    isFail = false
+                    countFail = 0
+                }else{
+                    isShowPopup = true
+                }
+            }
+        }){
+            SheetShowAnswerFailedView(answer: $answerCorrect, titleButon: $titleButon,isFail : $isFail){
+                isFail = false
+            }
         }
     }
     
+    func resetSpeak(){
+        speechRecognizer.transcript = ""
+        speechRecognizer.reset()
+        isSpeaking = false
+    }
+    
     func speakText(textToSpeak: String) {
+        isSpeaking = false
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
         let utterance = AVSpeechUtterance(string: textToSpeak)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         utterance.rate = 0.4
         synthesizer.speak(utterance)
     }
     
-    @ViewBuilder
-    func answerView(question: String, isCorrect: Bool) -> some View {
-        HStack{
-            Text(question)
-                .font(.regular(size: 18))
-                .foregroundColor(.background)
-                .frame(height: 55)
-                .hAlign(.center)
-                .contentShape(Rectangle())
-        }
-        .padding(.horizontal)
-        .frame(maxWidth: .infinity)
-        .overlay(
-            RoundedRectangle(cornerRadius: 13)
-                .stroke(lineWidth: 2)
-                .foregroundColor(getAnswerColor(isCorrect: isCorrect, question: question))
-        )
-        .overlay(alignment: .trailing){
-            VStack{
-                if isSubmit && isCorrect{
-                    Image(systemName: "checkmark")
-                        .imageScale(.medium)
-                        .foregroundColor(.green)
-                }else if isSubmit && !isCorrect && selectedAnswer == question{
-                    Image(systemName: "x.circle")
-                        .imageScale(.medium)
-                        .foregroundColor(.red)
-                }
-            }
-            .padding(.horizontal)
-        }
-        .onTapGesture {
-            if !isSubmit{
-                selectedAnswer = question
-            }
-        }
-        .offset(x: isSubmit && !isCorrect && selectedAnswer == question ? offset : 0)
-        .animation(
-            Animation.easeInOut(duration: 0.15)
-                .repeatCount(3), // Repeats 3 times
-            value: isSubmit && !isCorrect && selectedAnswer == question
-        )
-        .onChange(of: isSubmit) { newValue in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15 * 3) {
-                withAnimation {
-                    offset = 0
-                }
-            }
-        }
-    }
-    
     func loadAudio(nameSound: String) {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
         if let audioURL = Bundle.main.url(forResource: nameSound, withExtension: "mp3") {
             audioPlayer = try? AVAudioPlayer(contentsOf: audioURL)
-            audioPlayer?.play()
-        }
-    }
-    
-    func getAnswerColor(isCorrect: Bool, question: String) -> Color {
-        if isSubmit && isCorrect{
-            return .green
-        } else if isSubmit && !isCorrect && selectedAnswer == question{
-            return .red
-        } else if selectedAnswer == question{
-            return .blue
-        }else{
-            return .text2
+            DispatchQueue.main.async {
+                audioPlayer?.play()
+            }
         }
     }
 }

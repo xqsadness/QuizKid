@@ -171,7 +171,6 @@ struct MathView: View {
                                 selectedTab += 1
                             }
                         }else{
-                            
                             withAnimation {
                                 isShowPopup = true
                             }
