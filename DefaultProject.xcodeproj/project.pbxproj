@@ -96,6 +96,8 @@
 		DD72E2342A8A12F0006AB647 /* SpeechToTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2332A8A12F0006AB647 /* SpeechToTextView.swift */; };
 		DD72E2362A8A1D39006AB647 /* PoinRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2352A8A1D38006AB647 /* PoinRealm.swift */; };
 		DD72E2382A8A1D4D006AB647 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2372A8A1D4D006AB647 /* HistoryView.swift */; };
+		DD9E320E2A8CA6CA001FC594 /* animation_avatar.json in Resources */ = {isa = PBXBuildFile; fileRef = DD9E320D2A8CA6CA001FC594 /* animation_avatar.json */; };
+		DD9E32102A8CA6D5001FC594 /* animation_human2.json in Resources */ = {isa = PBXBuildFile; fileRef = DD9E320F2A8CA6D5001FC594 /* animation_human2.json */; };
 		DDA494532A871421003814F1 /* PopupScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA494522A871421003814F1 /* PopupScoreView.swift */; };
 		DDA494552A87192D003814F1 /* congralutions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDA494542A87192D003814F1 /* congralutions.mp3 */; };
 		DDA4945C2A871C8A003814F1 /* congralutions.json in Resources */ = {isa = PBXBuildFile; fileRef = DDA4945B2A871C8A003814F1 /* congralutions.json */; };
@@ -217,6 +219,8 @@
 		DD72E2332A8A12F0006AB647 /* SpeechToTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextView.swift; sourceTree = "<group>"; };
 		DD72E2352A8A1D38006AB647 /* PoinRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoinRealm.swift; sourceTree = "<group>"; };
 		DD72E2372A8A1D4D006AB647 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		DD9E320D2A8CA6CA001FC594 /* animation_avatar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_avatar.json; sourceTree = "<group>"; };
+		DD9E320F2A8CA6D5001FC594 /* animation_human2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_human2.json; sourceTree = "<group>"; };
 		DDA494522A871421003814F1 /* PopupScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupScoreView.swift; sourceTree = "<group>"; };
 		DDA494542A87192D003814F1 /* congralutions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = congralutions.mp3; sourceTree = "<group>"; };
 		DDA4945B2A871C8A003814F1 /* congralutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congralutions.json; sourceTree = "<group>"; };
@@ -506,6 +510,8 @@
 			isa = PBXGroup;
 			children = (
 				DDA4945D2A8721C4003814F1 /* faild.json */,
+				DD9E320D2A8CA6CA001FC594 /* animation_avatar.json */,
+				DD9E320F2A8CA6D5001FC594 /* animation_human2.json */,
 				DD0EA48E2A8B366A007D8C55 /* animation_human.json */,
 				DD0EA48F2A8B366A007D8C55 /* animation_soundwave.json */,
 				DD3B1B8E2A8B8CF70047F43B /* congralutions2.json */,
@@ -608,8 +614,10 @@
 				9ADF75752A84C8F800A42B7B /* SF-Pro-Text-Semibold.otf in Resources */,
 				DD0EA4902A8B366B007D8C55 /* animation_human.json in Resources */,
 				CA2223E62A2BC1CE005164BB /* loading_default.json in Resources */,
+				DD9E320E2A8CA6CA001FC594 /* animation_avatar.json in Resources */,
 				DDA4945E2A8721C4003814F1 /* faild.json in Resources */,
 				DD0EA4912A8B366B007D8C55 /* animation_soundwave.json in Resources */,
+				DD9E32102A8CA6D5001FC594 /* animation_human2.json in Resources */,
 				CA2223AF2A2BB34A005164BB /* temp_manifest.json in Resources */,
 				9ADF75772A84C8F800A42B7B /* SF-Pro-Text-Light.otf in Resources */,
 				DD6741442A8624F500CB9B0B /* wrong.mp3 in Resources */,

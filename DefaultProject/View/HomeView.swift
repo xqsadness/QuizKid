@@ -42,7 +42,9 @@ struct HomeView: View {
                         placeholder: language,
                         options: options,
                         onOptionSelected: { option in
-                            language = option.code
+                            withAnimation {
+                                language = option.code
+                            }
                         })
                     .padding(.horizontal)
                     .zIndex(10)
@@ -58,11 +60,11 @@ struct HomeView: View {
                         .padding(.leading)
                     
                     VStack(spacing: 5) {
-                        Text("Math")
+                        Text("Math".localizedLanguage(language: language))
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("\(QUIZDEFAULT.SHARED.listQuestionsMath.count) questions")
+                        Text("\(QUIZDEFAULT.SHARED.listQuestionsMath.count) \("questions".localizedLanguage(language: language))")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -107,11 +109,11 @@ struct HomeView: View {
                         .padding(.leading)
                     
                     VStack(spacing: 5) {
-                        Text("Color")
+                        Text("Color".localizedLanguage(language: language))
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("10 questions")
+                        Text("\(QUIZDEFAULT.SHARED.listQuestionsColor.count) \("questions".localizedLanguage(language: language))")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -154,11 +156,11 @@ struct HomeView: View {
                         .padding(.leading)
                     
                     VStack(spacing: 5) {
-                        Text("Listen")
+                        Text("Listen".localizedLanguage(language: language))
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("\(QUIZDEFAULT.SHARED.listQuestionsListen.count) questions")
+                        Text("\(QUIZDEFAULT.SHARED.listQuestionsListen.count) \("questions".localizedLanguage(language: language))")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -201,11 +203,11 @@ struct HomeView: View {
                         .padding(.leading)
                     
                     VStack(spacing: 5){
-                        Text("Surrounding objects")
+                        Text("Surrounding objects".localizedLanguage(language: language))
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("10 questions")
+                        Text("\(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count) \("questions".localizedLanguage(language: language))")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -220,12 +222,12 @@ struct HomeView: View {
                                 .frame(width: 52, height: 52)
                                 .overlay{
                                     Circle()
-                                        .trim(from: 0, to: 0.68)
+                                        .trim(from: 0, to: CGFloat(point.first?.pointSurrounding ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count))
                                         .stroke(Color(hex: "FFFFFF"), style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                         .rotationEffect(.degrees(-90))
                                 }
                             
-                            Text("68%")
+                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointSurrounding ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count)))%")
                                 .font(.bold(size: 12))
                                 .foregroundColor(Color.text)
                         }
@@ -237,6 +239,9 @@ struct HomeView: View {
                 .frame(height: 80)
                 .background(Color(red: 0.78, green: 0.56, blue: 0.95).opacity(0.48))
                 .cornerRadius(12)
+                .onTapGesture {
+                    coordinator.push(.surroundingObjectView)
+                }
                 
                 HStack{
                     Image("history-book")
@@ -249,7 +254,7 @@ struct HomeView: View {
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("\(QUIZDEFAULT.SHARED.listQuestionsHistory.count) questions")
+                        Text("\(QUIZDEFAULT.SHARED.listQuestionsHistory.count) \("questions".localizedLanguage(language: language))")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -290,11 +295,11 @@ struct HomeView: View {
                         .frame(width: 80)
                     
                     VStack(spacing: 5) {
-                        Text("Listen And Repeat")
+                        Text("Listen And Repeat".localizedLanguage(language: language))
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("\(QUIZDEFAULT.SHARED.listListenAndRepeat.count) questions")
+                        Text("\(QUIZDEFAULT.SHARED.listListenAndRepeat.count) \("questions".localizedLanguage(language: language))")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -337,11 +342,11 @@ struct HomeView: View {
                         .padding(.leading)
                     
                     VStack(spacing: 5) {
-                        Text("Writing")
+                        Text("Writing".localizedLanguage(language: language))
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("\(QUIZDEFAULT.SHARED.listListenAndRepeat.count) questions")
+                        Text("\(QUIZDEFAULT.SHARED.listListenAndRepeat.count) \("questions".localizedLanguage(language: language))")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -394,7 +399,6 @@ struct HomeView: View {
     }
 }
 
-
 extension String {
     func localizedLanguage(language: String = "en") -> String {
         if let bundlePath = Bundle.main.path(forResource: language, ofType: "lproj") {
@@ -402,7 +406,6 @@ extension String {
                 return bundle.localizedString(forKey: self, value: self, table: nil)
             }
         }
-        
         return self
     }
 }

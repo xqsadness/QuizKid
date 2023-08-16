@@ -11,18 +11,18 @@ class QUIZDEFAULT{
     static var SHARED = QUIZDEFAULT()
     
     var listQuestionsMath: [QUIZMATH] = [
-        QUIZMATH(answer: "8", question: "What is 5 plus 3?", a: "7", b: "8", c: "6", d: "5"),
+        QUIZMATH(answer: "8", question: "What is 5 + 3?", a: "7", b: "8", c: "6", d: "5"),
         QUIZMATH(answer: "5", question: "How many fingers are there on each of your hands?", a: "4", b: "5", c: "6", d: "7"),
         QUIZMATH(answer: "3", question: "If you have 4 apples and you give one to your friend, how many apples do you have left?", a: "1", b: "2", c: "3", d: "4"),
         QUIZMATH(answer: "3", question: "How many faces does a cube have?", a: "1", b: "2", c: "3", d: "6"),
-        QUIZMATH(answer: "0", question: "What is 8 times 0?", a: "1", b: "3", c: "5", d: "0"),
+        QUIZMATH(answer: "0", question: "What is 8 x 0?", a: "1", b: "3", c: "5", d: "0"),
         QUIZMATH(answer: "10", question: "If you have 10 fingers, how many fingers do you need to count to 20?", a: "10", b: "5", c: "3", d: "4"),
         QUIZMATH(answer: "4", question: "How many legs does a dog have?", a: "2", b: "3", c: "4", d: "5"),
-        QUIZMATH(answer: "14", question: "What is 7 times 2?", a: "9", b: "12", c: "14", d: "21"),
-        QUIZMATH(answer: "11", question: "What is 4 plus 7?", a: "54", b: "4", c: "11", d: "14"),
+        QUIZMATH(answer: "14", question: "What is 7 x 2?", a: "9", b: "12", c: "14", d: "21"),
+        QUIZMATH(answer: "11", question: "What is 4 + 7?", a: "54", b: "4", c: "11", d: "14"),
         QUIZMATH(answer: "Cat", question: "If a cat is in front of a chicken coop, the chicken coop is in front of the house, and the house is in front of a pond, then what is in front of a window?", a: "Chicken", b: "Cat", c: "Fish", d: "Dog"),
         QUIZMATH(answer: "9", question: "There is a bridge with 5 ducks on it. Under the bridge, there are 4 ducks. How many ducks are there in total?", a: "10", b: "8", c: "9", d: "11"),
-        QUIZMATH(answer: "Go up", question: "You have 3 matchsticks. If you want to form 3 triangles by moving only one matchstick, where do you need to move it?", a: "Go up", b: "Go through the middle", c: "Go underneath", d: "Cannot be done"),
+        QUIZMATH(answer: "3", question: "You have 5 apples. You ate 2. How many apples do you have left?", a: "5", b: "4", c: "3", d: "2"),
         QUIZMATH(answer: "Sunday", question: "If today is Saturday, what day is tomorrow?", a: "Saturday", b: "Sunday", c: "Monday", d: "Friday"),
         QUIZMATH(answer: "At the end of the road", question: "If you walk 10 steps along a road, where are you?", a: "At the beginning of the road", b: "In the middle of the road", c: "At the end of the road", d: "Cannot be determined"),
         QUIZMATH(answer: "4 times", question: "You have 2 red balls, 3 blue balls, and 1 yellow ball. If you randomly draw a ball from the bag, how many times do you need to draw to ensure you have at least one blue ball?", a: "2 times", b: "3 times", c: "4 times", d: "6 times"),
@@ -42,16 +42,16 @@ class QUIZDEFAULT{
     ]
     
     var listQuestionsListen: [QUIZLISTEN] = [
-        QUIZLISTEN(answer: "Shoes", question: "Shoes", a: "Shoes", b: "Gloves", c: "Coat", d: "Hat", img: ""),
-        QUIZLISTEN(answer: "Mining", question: "Mining", a: "Sheep farming", b: "Gardening", c: "Baking", d: "Mining", img: ""),
-        QUIZLISTEN(answer: "Planting", question: "Planting", a: "Baking", b: "Cooking rice", c: "Planting", d: "Raising chickens", img: ""),
-        QUIZLISTEN(answer: "Elephant", question: "Elephant", a: "Dog", b: "Pig", c: "Elephant", d: "Cat", img: ""),
-        QUIZLISTEN(answer: "Rose", question: "Rose", a: "Wild grass flower", b: "Sunflower", c: "Chrysanthemum", d: "Rose", img: ""),
-        QUIZLISTEN(answer: "Mouth", question: "Mouth", a: "Nose", b: "Eye", c: "Ear", d: "Mouth", img: ""),
-        QUIZLISTEN(answer: "Sun", question: "Sun", a: "Moon", b: "Sun", c: "Mercury", d: "Venus", img: ""),
-        QUIZLISTEN(answer: "Planet", question: "Planet", a: "Onion", b: "Leafy greens", c: "Planet", d: "Action", img: ""),
-        QUIZLISTEN(answer: "Computer", question: "Computer", a: "Desktop computer", b: "Airplane", c: "Projector", d: "Computer", img: ""),
-        QUIZLISTEN(answer: "Baby", question: "Baby", a: "Youngest", b: "Baby", c: "Well-behaved", d: "Grown-up", img: ""),
+        QUIZLISTEN(answer: "Shoes", question: "What is she wearing?", a: "Shoes", b: "Gloves", c: "Coat", d: "Hat", img: ""),
+        QUIZLISTEN(answer: "Mining", question: "What is he doing?", a: "Sheep farming", b: "Gardening", c: "Baking", d: "Mining", img: ""),
+        QUIZLISTEN(answer: "Planting", question: "What is she doing?", a: "Baking", b: "Cooking rice", c: "Planting", d: "Raising chickens", img: ""),
+        QUIZLISTEN(answer: "Elephant", question: "What animal is this?", a: "Dog", b: "Pig", c: "Elephant", d: "Cat", img: ""),
+        QUIZLISTEN(answer: "Rose", question: "What flower is this?", a: "Wild grass flower", b: "Sunflower", c: "Chrysanthemum", d: "Rose", img: ""),
+        QUIZLISTEN(answer: "Mouth", question: "What part of the body is this?", a: "Nose", b: "Eye", c: "Ear", d: "Mouth", img: ""),
+        QUIZLISTEN(answer: "Sun", question: "What is this?", a: "Moon", b: "Sun", c: "Mercury", d: "Venus", img: ""),
+        QUIZLISTEN(answer: "Planet", question: "What is this?", a: "Onion", b: "Leafy greens", c: "Planet", d: "Action", img: ""),
+        QUIZLISTEN(answer: "Computer", question: "What is this?", a: "Desktop computer", b: "Airplane", c: "Projector", d: "Computer", img: ""),
+        QUIZLISTEN(answer: "Baby", question: "What is he?", a: "Youngest", b: "Baby", c: "Well-behaved", d: "Grown-up", img: ""),
     ]
 
     var listQuestionsSurrounding: [QUIZSURROUNDING] = [
@@ -64,20 +64,20 @@ class QUIZDEFAULT{
         QUIZSURROUNDING(answer: "White Dog", question: "White Dog", a: "", b: "", c: "", d: "", img: "conchotrang"),
         QUIZSURROUNDING(answer: "Cherry", question: "Cherry", a: "", b: "", c: "", d: "", img: "cherry"),
         QUIZSURROUNDING(answer: "Orange", question: "Orange", a: "", b: "", c: "", d: "", img: "cam"),
-        QUIZSURROUNDING(answer: "Car", question: "Car", a: "", b: "", c: "", d: "", img: "xedo"),
+        QUIZSURROUNDING(answer: "Car", question: "Car", a: "", b: "", c: "", d: "", img: "xedo")
     ]
 
     var listQuestionsHistory: [QUIZHISTORY] = [
-        QUIZHISTORY(answer: NSLocalizedString("Ba Ria", comment: "Answer text"), question: NSLocalizedString("In the year 1933, France merged Truong Sa into which province?", comment: "Question text"), a: NSLocalizedString("Ba Ria", comment: "Option text"), b: NSLocalizedString("Kien Giang", comment: "Option text"), c: NSLocalizedString("Gia Dinh", comment: "Option text"), d: NSLocalizedString("Khanh Hoa", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("Vietnam", comment: "Answer text"), question: NSLocalizedString("The Paracel and Spratly Islands belong to which country?", comment: "Question text"), a: NSLocalizedString("Vietnam", comment: "Option text"), b: NSLocalizedString("Thailand", comment: "Option text"), c: NSLocalizedString("Laos", comment: "Option text"), d: NSLocalizedString("China", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("To counter the Soviet Union and socialist countries.", comment: "Answer text"), question: NSLocalizedString("In March 1947, US President Truman officially launched the 'Cold War' for the purpose of?", comment: "Question text"), a: NSLocalizedString("To counter the Soviet Union and socialist countries.", comment: "Option text"), b: NSLocalizedString("To maintain world peace and security after the war.", comment: "Option text"), c: NSLocalizedString("To appease the workers' struggle in capitalist countries.", comment: "Option text"), d: NSLocalizedString("To counter the liberation movements in Latin America.", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("Play a primary role in maintaining global peace and security.", comment: "Answer text"), question: NSLocalizedString("The role of the United Nations Security Council is to?", comment: "Question text"), a: NSLocalizedString("Play a primary role in maintaining global peace and security.", comment: "Option text"), b: NSLocalizedString("Protect the fundamental national rights of countries.", comment: "Option text"), c: NSLocalizedString("Ensure peace for nations.", comment: "Option text"), d: NSLocalizedString("Prevent countries from violating each other's sovereignty.", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", comment: "Answer text"), question: NSLocalizedString("In the final stages of World War II, what did the Allies do to change the global situation?", comment: "Question text"), a: NSLocalizedString("Launched a massive assault on Germany's capital Berlin.", comment: "Option text"), b: NSLocalizedString("Urgently demanded a complete defeat of the Nazi powers.", comment: "Option text"), c: NSLocalizedString("Rapidly organized a new world order after the war.", comment: "Option text"), d: NSLocalizedString("Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("The world was divided into two camps: capitalism and socialism.", comment: "Answer text"), question: NSLocalizedString("The fundamental cause of the Cold War after World War II was", comment: "Question text"), a: NSLocalizedString("The world was divided into two camps: capitalism and socialism.", comment: "Option text"), b: NSLocalizedString("Unsatisfactory post-World War II division of influence.", comment: "Option text"), c: NSLocalizedString("Disagreements at the Yalta Conference.", comment: "Option text"), d: NSLocalizedString("US not achieving its goals at the Yalta Conference.", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("The role of the United Nations.", comment: "Answer text"), question: NSLocalizedString("Resolving disputes and conflicts in various regions through peaceful means, this is one of the contents of", comment: "Question text"), a: NSLocalizedString("The principles of the United Nations.", comment: "Option text"), b: NSLocalizedString("The role of the United Nations.", comment: "Option text"), c: NSLocalizedString("Resolutions of the Yalta Conference.", comment: "Option text"), d: NSLocalizedString("The purpose of the United Nations.", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("5 and 4 BC", comment: "Answer text"), question: NSLocalizedString("When was history created?", comment: "Question text"), a: NSLocalizedString("5 and 4 BC", comment: "Option text"), b: NSLocalizedString("6 and 7 BC", comment: "Option text"), c: NSLocalizedString("1 AND 3 BC", comment: "Option text"), d: NSLocalizedString("2 and 4 BC", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("About 5,000 years", comment: "Answer text"), question: NSLocalizedString("About 5,000 years", comment: "Question text"), a: NSLocalizedString("About 4,000 years", comment: "Option text"), b: NSLocalizedString("About 3,000 years", comment: "Option text"), c: NSLocalizedString("About 5,000 years", comment: "Option text"), d: NSLocalizedString("About 1,000 years", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("Greece", comment: "Answer text"), question: NSLocalizedString("Who invented history?", comment: "Question text"), a: NSLocalizedString("Greece", comment: "Option text"), b: NSLocalizedString("VietNam", comment: "Option text"), c: NSLocalizedString("Russia", comment: "Option text"), d: NSLocalizedString("America", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: "Ba Ria", question: "In the year 1933, France merged Truong Sa into which province?", a: "Ba Ria", b: "Kien Giang", c: "Gia Dinh", d: "Khanh Hoa", img: ""),
+        QUIZHISTORY(answer: "Vietnam", question: "The Paracel and Spratly Islands belong to which country?", a: "Vietnam", b: "Thailand", c: "Laos", d: "China", img: ""),
+        QUIZHISTORY(answer: "To counter the Soviet Union and socialist countries.", question: "In March 1947, US President Truman officially launched the 'Cold War' for the purpose of?", a: "To counter the Soviet Union and socialist countries.", b: "To maintain world peace and security after the war.", c: "To appease the workers' struggle in capitalist countries.", d: "To counter the liberation movements in Latin America.", img: ""),
+        QUIZHISTORY(answer: "Play a primary role in maintaining global peace and security.", question: "The role of the United Nations Security Council is to?", a: "Play a primary role in maintaining global peace and security.", b: "Protect the fundamental national rights of countries.", c: "Ensure peace for nations.", d: "Prevent countries from violating each other's sovereignty.", img: ""),
+        QUIZHISTORY(answer: "Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", question: "In the final stages of World War II, what did the Allies do to change the global situation?", a: "Launched a massive assault on Germany's capital Berlin.", b: "Urgently demanded a complete defeat of the Nazi powers.", c: "Rapidly organized a new world order after the war.", d: "Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", img: ""),
+        QUIZHISTORY(answer: "The world was divided into two camps: capitalism and socialism.", question: "The fundamental cause of the Cold War after World War II was", a: "The world was divided into two camps: capitalism and socialism.", b: "Unsatisfactory post-World War II division of influence.", c: "Disagreements at the Yalta Conference.", d: "US not achieving its goals at the Yalta Conference.", img: ""),
+        QUIZHISTORY(answer: "The role of the United Nations.", question: "Resolving disputes and conflicts in various regions through peaceful means, this is one of the contents of", a: "The principles of the United Nations.", b: "The role of the United Nations.", c: "Resolutions of the Yalta Conference.", d: "The purpose of the United Nations.", img: ""),
+        QUIZHISTORY(answer: "5 and 4 BC", question: "When was history created?", a: "5 and 4 BC", b: "6 and 7 BC", c: "1 AND 3 BC", d: "2 and 4 BC", img: ""),
+        QUIZHISTORY(answer: "About 5,000 years", question: "About how many years ago was history created?", a: "About 4,000 years", b: "About 3,000 years", c: "About 5,000 years", d: "About 1,000 years", img: ""),
+        QUIZHISTORY(answer: "Greece", question: "Who invented history?", a: "Greece", b: "VietNam", c: "Russia", d: "America", img: ""),
     ]
 
     var listListenAndRepeat: [QUIZLISTENANDREPEAT] = [
@@ -92,7 +92,7 @@ class QUIZDEFAULT{
         QUIZLISTENANDREPEAT(question: "I like it", answer: "I like it", a: "", b: "", c: "", d: ""),
         QUIZLISTENANDREPEAT(question: "Fine, thank you!", answer: "Fine thank you", a: "", b: "", c: "", d: "")
     ]
-    
+
     var listWriting: [QUIZWRITING] = [
         QUIZWRITING(question: "Good bye", answer: "Good bye"),
         QUIZWRITING(question: "Bye", answer: "Bye"),
@@ -103,7 +103,7 @@ class QUIZDEFAULT{
         QUIZWRITING(question: "Listen", answer: "Listen"),
         QUIZWRITING(question: "How are you", answer: "How are you"),
         QUIZWRITING(question: "Good morning", answer: "Good morning"),
-        QUIZWRITING(question: "Good evening", answer: "Good evening"),
+        QUIZWRITING(question: "Good evening", answer: "Good evening")
     ]
 }
 

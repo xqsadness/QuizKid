@@ -44,11 +44,14 @@ struct SheetShowAnswerCorrectView: View {
                     .background(Color(hex: "58cc02"))
                     .cornerRadius(10)
             }
-        }
+        }        
         .padding()
-        .presentationDetents([.height(130)])
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity)
+        .frame(height: 130)
         .background(Color(hex: "#d7ffb8"))
+        .vAlign(.bottom)
+        //                .cornerRadius(13, corners: [.topLeft, .topRight])
+        .transition(.move(edge: .bottom))
     }
 }
 
@@ -93,9 +96,12 @@ struct SheetShowAnswerFailedView: View {
                     }
         }
         .padding()
-        .presentationDetents([.height(130)])
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(maxWidth: .infinity)
+        .frame(height: 130)
         .background(Color(hex: "ffdfe0"))
+        .vAlign(.bottom)
+        //                .cornerRadius(13, corners: [.topLeft, .topRight])
+        .transition(.move(edge: .bottom))
     }
 }
 
