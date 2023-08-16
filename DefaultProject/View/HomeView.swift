@@ -10,8 +10,19 @@ import RealmSwift
 
 struct HomeView: View {
     @AppStorage("USERNAME") var USERNAME: String = ""
+    @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
     @ObservedResults(Point.self) var point
+    @State private var selection = Language.english(.us)
+    @State private var selectedLanguage: Language = .english(.us)
+    @State var languages: [Language] = [.english(.us), .vietnamese]
+    @State var options: [DropdownOption] = [
+        DropdownOption(key: uniqueKey, value: Language.vietnamese.name, code: Language.vietnamese.code),
+        DropdownOption(key: uniqueKey, value: Language.english(.us).name, code: Language.english(.us).code),
+    ]
+    static var uniqueKey: String {
+        UUID().uuidString
+    }
     
     var body: some View {
         VStack {
@@ -20,10 +31,24 @@ struct HomeView: View {
                     .font(.bold(size: 20))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
+                    .onTapGesture {
+                        coordinator.push(.speechToTextView)
+                    }
+                
+                Spacer()
+                
+                Group {
+                    DropdownSelector(
+                        placeholder: language,
+                        options: options,
+                        onOptionSelected: { option in
+                            language = option.code
+                        })
+                    .padding(.horizontal)
+                    .zIndex(10)
+                }
             }
-            .onTapGesture {
-                coordinator.push(.speechToTextView)
-            }
+            .zIndex(10)
             
             VStack {
                 HStack{
@@ -63,12 +88,14 @@ struct HomeView: View {
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
                         .padding()
+                        .zIndex(1)
                     }
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 80)
                 .background(Color(red: 0, green: 0.45, blue: 1).opacity(0.24))
                 .cornerRadius(12)
+                .zIndex(1)
                 .onTapGesture {
                     coordinator.push(.mathView)
                 }
@@ -218,7 +245,7 @@ struct HomeView: View {
                         .padding(.leading)
                     
                     VStack(spacing: 5) {
-                        Text("History")
+                        Text("History".localizedLanguage(language: language))
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
@@ -302,10 +329,80 @@ struct HomeView: View {
                 .onTapGesture {
                     coordinator.push(.listenAndRepeat)
                 }
+                
+                HStack(spacing: 0) {
+                    Image("pngegg")
+                        .resizable()
+                        .frame(width: 60, height: 60)
+                        .padding(.leading)
+                    
+                    VStack(spacing: 5) {
+                        Text("Writing")
+                            .font(.bold(size: 16))
+                            .foregroundColor(Color.background)
+                            .hAlign(.leading)
+                        Text("\(QUIZDEFAULT.SHARED.listListenAndRepeat.count) questions")
+                            .font(.bold(size: 14))
+                            .foregroundColor(Color.text)
+                            .hAlign(.leading)
+                    }
+                    
+                    Spacer()
+                    
+                    VStack{
+                        ZStack {
+                            Image("Ellipse")
+                                .resizable()
+                                .frame(width: 52, height: 52)
+                                .overlay {
+                                    Circle()
+                                        .trim(from: 0, to: CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count))
+                                        .stroke(Color.text, style: StrokeStyle(lineWidth: 5, lineCap: .round))
+                                        .rotationEffect(.degrees(-90))
+                                }
+                            
+                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointListenAndRepeat ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count)))%")
+                                .font(.bold(size: 12))
+                                .foregroundColor(Color.text)
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                        .padding()
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 80)
+                .background(Color(hex: "#e9d579"))
+                .cornerRadius(12)
+                .onTapGesture {
+                    coordinator.push(.writingView)
+                }
             }
+            .zIndex(1)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding(.horizontal)
         .background(Color(red: 0.89, green: 0.79, blue: 0.98))
+        .onAppear{
+            switch language{
+            case "en":
+                selectedLanguage = .english(.us)
+            case "vi":
+                selectedLanguage = .vietnamese
+            default: break
+            }
+        }
+    }
+}
+
+
+extension String {
+    func localizedLanguage(language: String = "en") -> String {
+        if let bundlePath = Bundle.main.path(forResource: language, ofType: "lproj") {
+            if let bundle = Bundle(path: bundlePath) {
+                return bundle.localizedString(forKey: self, value: self, table: nil)
+            }
+        }
+        
+        return self
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 import AVFoundation
 
 struct HistoryView: View {
+    @AppStorage("Language") var language: String = "en"
     @State var countCorrect = 0
     @State var countWrong = 0
     @State private var textToSpeak: String = ""
@@ -34,7 +35,7 @@ struct HistoryView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("History")
+                    Text("History".localizedLanguage(language: language))
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }
@@ -84,25 +85,26 @@ struct HistoryView: View {
                     ForEach(QUIZDEFAULT.SHARED.listQuestionsHistory.indices, id: \.self) { index in
                         let quiz = QUIZDEFAULT.SHARED.listQuestionsHistory[index]
                         VStack (spacing: 0) {
-                            Text("Select an answer")
+                            Text("Select an answer".localizedLanguage(language: language))
                                 .font(.bold(size: 14))
                                 .foregroundColor(Color.text2)
                                 .hAlign(.leading)
                                 .padding(.top)
                                 .padding(.horizontal)
                             
-                            HStack{
-                                Text(quiz.question)
-                                    .font(.regular(size: 22))
+                            VStack{
+                                Text(quiz.question.localizedLanguage(language: language))
+                                    .font(.regular(size: 20))
                                     .foregroundColor(.background)
+                                    .hAlign(.leading)
                                     .multilineTextAlignment(.leading)
                                 
                                 Image("sound")
                                     .resizable()
                                     .frame(width: 25,height: 25)
+                                    .hAlign(.center)
                             }
                             .simultaneousGesture(DragGesture())
-                            .hAlign(.leading)
                             .padding()
                             .onTapGesture {
                                 speakText(textToSpeak: quiz.question)
@@ -144,7 +146,7 @@ struct HistoryView: View {
                             countWrong += 1
                         }
                     }label: {
-                        Text("Submit")
+                        Text("Submit".localizedLanguage(language: language))
                             .foregroundColor(.text)
                             .padding()
                             .frame(height: 50)
@@ -182,7 +184,7 @@ struct HistoryView: View {
                             Point.updatePointHistory(newPointHistory: countCorrect)
 //                        }
                     }label: {
-                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1 ? "Next" : "Done")
+                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1 ? "Next".localizedLanguage(language: language) : "Done".localizedLanguage(language: language))
                             .foregroundColor(.text)
                             .padding()
                             .frame(height: 50)
@@ -219,11 +221,12 @@ struct HistoryView: View {
     @ViewBuilder
     func answerView(question: String, isCorrect: Bool) -> some View {
         HStack{
-            Text(question)
-                .font(.regular(size: 18))
+            Text(question.localizedLanguage(language: language))
+                .font(.regular(size: 15))
                 .foregroundColor(.background)
                 .frame(height: 55)
                 .hAlign(.center)
+                .multilineTextAlignment(.center)
                 .contentShape(Rectangle())
         }
         .padding(.horizontal)

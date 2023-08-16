@@ -11,15 +11,15 @@ class QUIZDEFAULT{
     static var SHARED = QUIZDEFAULT()
     
     var listQuestionsMath: [QUIZMATH] = [
-        QUIZMATH(answer: "Eight", question: "What is 5 plus 3?", a: "7", b: "8", c: "6", d: "5"),
-        QUIZMATH(answer: "Five", question: "How many fingers are there on each of your hands?", a: "4", b: "5", c: "6", d: "7"),
-        QUIZMATH(answer: "Three", question: "If you have 4 apples and you give one to your friend, how many apples do you have left?", a: "1", b: "2", c: "3", d: "4"),
-        QUIZMATH(answer: "Three", question: "How many faces does a cube have?", a: "1", b: "2", c: "3", d: "6"),
-        QUIZMATH(answer: "Zero", question: "What is 8 times 0?", a: "1", b: "3", c: "5", d: "0"),
-        QUIZMATH(answer: "Ten", question: "If you have 10 fingers, how many fingers do you need to count to 20?", a: "10", b: "5", c: "3", d: "4"),
-        QUIZMATH(answer: "Four", question: "How many legs does a dog have?", a: "2", b: "3", c: "4", d: "5"),
-        QUIZMATH(answer: "Fourteen", question: "What is 7 times 2?", a: "9", b: "12", c: "14", d: "21"),
-        QUIZMATH(answer: "Eleven", question: "What is 4 plus 7?", a: "54", b: "4", c: "11", d: "14"),
+        QUIZMATH(answer: "8", question: "What is 5 plus 3?", a: "7", b: "8", c: "6", d: "5"),
+        QUIZMATH(answer: "5", question: "How many fingers are there on each of your hands?", a: "4", b: "5", c: "6", d: "7"),
+        QUIZMATH(answer: "3", question: "If you have 4 apples and you give one to your friend, how many apples do you have left?", a: "1", b: "2", c: "3", d: "4"),
+        QUIZMATH(answer: "3", question: "How many faces does a cube have?", a: "1", b: "2", c: "3", d: "6"),
+        QUIZMATH(answer: "0", question: "What is 8 times 0?", a: "1", b: "3", c: "5", d: "0"),
+        QUIZMATH(answer: "10", question: "If you have 10 fingers, how many fingers do you need to count to 20?", a: "10", b: "5", c: "3", d: "4"),
+        QUIZMATH(answer: "4", question: "How many legs does a dog have?", a: "2", b: "3", c: "4", d: "5"),
+        QUIZMATH(answer: "14", question: "What is 7 times 2?", a: "9", b: "12", c: "14", d: "21"),
+        QUIZMATH(answer: "11", question: "What is 4 plus 7?", a: "54", b: "4", c: "11", d: "14"),
         QUIZMATH(answer: "Cat", question: "If a cat is in front of a chicken coop, the chicken coop is in front of the house, and the house is in front of a pond, then what is in front of a window?", a: "Chicken", b: "Cat", c: "Fish", d: "Dog"),
         QUIZMATH(answer: "9", question: "There is a bridge with 5 ducks on it. Under the bridge, there are 4 ducks. How many ducks are there in total?", a: "10", b: "8", c: "9", d: "11"),
         QUIZMATH(answer: "Go up", question: "You have 3 matchsticks. If you want to form 3 triangles by moving only one matchstick, where do you need to move it?", a: "Go up", b: "Go through the middle", c: "Go underneath", d: "Cannot be done"),
@@ -70,13 +70,13 @@ class QUIZDEFAULT{
     var listQuestionsHistory: [QUIZHISTORY] = [
         QUIZHISTORY(answer: NSLocalizedString("Ba Ria", comment: "Answer text"), question: NSLocalizedString("In the year 1933, France merged Truong Sa into which province?", comment: "Question text"), a: NSLocalizedString("Ba Ria", comment: "Option text"), b: NSLocalizedString("Kien Giang", comment: "Option text"), c: NSLocalizedString("Gia Dinh", comment: "Option text"), d: NSLocalizedString("Khanh Hoa", comment: "Option text"), img: ""),
         QUIZHISTORY(answer: NSLocalizedString("Vietnam", comment: "Answer text"), question: NSLocalizedString("The Paracel and Spratly Islands belong to which country?", comment: "Question text"), a: NSLocalizedString("Vietnam", comment: "Option text"), b: NSLocalizedString("Thailand", comment: "Option text"), c: NSLocalizedString("Laos", comment: "Option text"), d: NSLocalizedString("China", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("to counter the Soviet Union and socialist countries.", comment: "Answer text"), question: NSLocalizedString("In March 1947, US President Truman officially launched the 'Cold War' for the purpose of?", comment: "Question text"), a: NSLocalizedString("to counter the Soviet Union and socialist countries.", comment: "Option text"), b: NSLocalizedString("to maintain world peace and security after the war.", comment: "Option text"), c: NSLocalizedString("to appease the workers' struggle in capitalist countries.", comment: "Option text"), d: NSLocalizedString("to counter the liberation movements in Latin America.", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("play a primary role in maintaining global peace and security.", comment: "Answer text"), question: NSLocalizedString("The role of the United Nations Security Council is to?", comment: "Question text"), a: NSLocalizedString("play a primary role in maintaining global peace and security.", comment: "Option text"), b: NSLocalizedString("protect the fundamental national rights of countries.", comment: "Option text"), c: NSLocalizedString("ensure peace for nations.", comment: "Option text"), d: NSLocalizedString("prevent countries from violating each other's sovereignty.", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("To counter the Soviet Union and socialist countries.", comment: "Answer text"), question: NSLocalizedString("In March 1947, US President Truman officially launched the 'Cold War' for the purpose of?", comment: "Question text"), a: NSLocalizedString("To counter the Soviet Union and socialist countries.", comment: "Option text"), b: NSLocalizedString("To maintain world peace and security after the war.", comment: "Option text"), c: NSLocalizedString("To appease the workers' struggle in capitalist countries.", comment: "Option text"), d: NSLocalizedString("To counter the liberation movements in Latin America.", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("Play a primary role in maintaining global peace and security.", comment: "Answer text"), question: NSLocalizedString("The role of the United Nations Security Council is to?", comment: "Question text"), a: NSLocalizedString("Play a primary role in maintaining global peace and security.", comment: "Option text"), b: NSLocalizedString("Protect the fundamental national rights of countries.", comment: "Option text"), c: NSLocalizedString("Ensure peace for nations.", comment: "Option text"), d: NSLocalizedString("Prevent countries from violating each other's sovereignty.", comment: "Option text"), img: ""),
         QUIZHISTORY(answer: NSLocalizedString("Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", comment: "Answer text"), question: NSLocalizedString("In the final stages of World War II, what did the Allies do to change the global situation?", comment: "Question text"), a: NSLocalizedString("Launched a massive assault on Germany's capital Berlin.", comment: "Option text"), b: NSLocalizedString("Urgently demanded a complete defeat of the Nazi powers.", comment: "Option text"), c: NSLocalizedString("Rapidly organized a new world order after the war.", comment: "Option text"), d: NSLocalizedString("Convened the Yalta Conference (USSR) from February 04 to February 11, 1945.", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("the world was divided into two camps: capitalism and socialism.", comment: "Answer text"), question: NSLocalizedString("The fundamental cause of the Cold War after World War II was", comment: "Question text"), a: NSLocalizedString("the world was divided into two camps: capitalism and socialism.", comment: "Option text"), b: NSLocalizedString("unsatisfactory post-World War II division of influence.", comment: "Option text"), c: NSLocalizedString("disagreements at the Yalta Conference.", comment: "Option text"), d: NSLocalizedString("US not achieving its goals at the Yalta Conference.", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("the role of the United Nations.", comment: "Answer text"), question: NSLocalizedString("Resolving disputes and conflicts in various regions through peaceful means, this is one of the contents of", comment: "Question text"), a: NSLocalizedString("the principles of the United Nations.", comment: "Option text"), b: NSLocalizedString("the role of the United Nations.", comment: "Option text"), c: NSLocalizedString("resolutions of the Yalta Conference.", comment: "Option text"), d: NSLocalizedString("the purpose of the United Nations.", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("The world was divided into two camps: capitalism and socialism.", comment: "Answer text"), question: NSLocalizedString("The fundamental cause of the Cold War after World War II was", comment: "Question text"), a: NSLocalizedString("The world was divided into two camps: capitalism and socialism.", comment: "Option text"), b: NSLocalizedString("Unsatisfactory post-World War II division of influence.", comment: "Option text"), c: NSLocalizedString("Disagreements at the Yalta Conference.", comment: "Option text"), d: NSLocalizedString("US not achieving its goals at the Yalta Conference.", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("The role of the United Nations.", comment: "Answer text"), question: NSLocalizedString("Resolving disputes and conflicts in various regions through peaceful means, this is one of the contents of", comment: "Question text"), a: NSLocalizedString("The principles of the United Nations.", comment: "Option text"), b: NSLocalizedString("The role of the United Nations.", comment: "Option text"), c: NSLocalizedString("Resolutions of the Yalta Conference.", comment: "Option text"), d: NSLocalizedString("The purpose of the United Nations.", comment: "Option text"), img: ""),
         QUIZHISTORY(answer: NSLocalizedString("5 and 4 BC", comment: "Answer text"), question: NSLocalizedString("When was history created?", comment: "Question text"), a: NSLocalizedString("5 and 4 BC", comment: "Option text"), b: NSLocalizedString("6 and 7 BC", comment: "Option text"), c: NSLocalizedString("1 AND 3 BC", comment: "Option text"), d: NSLocalizedString("2 and 4 BC", comment: "Option text"), img: ""),
-        QUIZHISTORY(answer: NSLocalizedString("About 5,000 years", comment: "Answer text"), question: NSLocalizedString("About 5,000 years", comment: "Question text"), a: NSLocalizedString("About 4,000 years", comment: "Option text"), b: NSLocalizedString("About 3,000 years", comment: "Option text"), c: NSLocalizedString("About 2,000 years", comment: "Option text"), d: NSLocalizedString("About 1,000 years", comment: "Option text"), img: ""),
+        QUIZHISTORY(answer: NSLocalizedString("About 5,000 years", comment: "Answer text"), question: NSLocalizedString("About 5,000 years", comment: "Question text"), a: NSLocalizedString("About 4,000 years", comment: "Option text"), b: NSLocalizedString("About 3,000 years", comment: "Option text"), c: NSLocalizedString("About 5,000 years", comment: "Option text"), d: NSLocalizedString("About 1,000 years", comment: "Option text"), img: ""),
         QUIZHISTORY(answer: NSLocalizedString("Greece", comment: "Answer text"), question: NSLocalizedString("Who invented history?", comment: "Question text"), a: NSLocalizedString("Greece", comment: "Option text"), b: NSLocalizedString("VietNam", comment: "Option text"), c: NSLocalizedString("Russia", comment: "Option text"), d: NSLocalizedString("America", comment: "Option text"), img: ""),
     ]
 
@@ -84,13 +84,26 @@ class QUIZDEFAULT{
         QUIZLISTENANDREPEAT(question: "How are you?", answer: "How are you", a: "", b: "", c: "", d: ""),
         QUIZLISTENANDREPEAT(question: "I can see", answer: "I can see", a: "", b: "", c: "", d: ""),
         QUIZLISTENANDREPEAT(question: "I love you", answer: "I love you", a: "", b: "", c: "", d: ""),
-//        QUIZLISTENANDREPEAT(question: "Bread", answer: "Bread", a: "", b: "", c: "", d: ""),
-//        QUIZLISTENANDREPEAT(question: "Listen to music", answer: "Listen to music", a: "", b: "", c: "", d: ""),
-//        QUIZLISTENANDREPEAT(question: "Watch TV", answer: "Watch TV", a: "", b: "", c: "", d: ""),
-//        QUIZLISTENANDREPEAT(question: "Do exercise", answer: "Do exercise", a: "", b: "", c: "", d: ""),
-//        QUIZLISTENANDREPEAT(question: "Breakfast", answer: "Breakfast", a: "", b: "", c: "", d: ""),
-//        QUIZLISTENANDREPEAT(question: "I like it", answer: "I like it", a: "", b: "", c: "", d: ""),
-//        QUIZLISTENANDREPEAT(question: "Fine, thank you!", answer: "Fine thank you", a: "", b: "", c: "", d: "")
+        QUIZLISTENANDREPEAT(question: "Bread", answer: "Bread", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Listen to music", answer: "Listen to music", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Watch TV", answer: "Watch TV", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Do exercise", answer: "Do exercise", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Breakfast", answer: "Breakfast", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "I like it", answer: "I like it", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "Fine, thank you!", answer: "Fine thank you", a: "", b: "", c: "", d: "")
+    ]
+    
+    var listWriting: [QUIZWRITING] = [
+        QUIZWRITING(question: "Good bye", answer: "Good bye"),
+        QUIZWRITING(question: "Bye", answer: "Bye"),
+        QUIZWRITING(question: "Fine", answer: "Fine"),
+        QUIZWRITING(question: "Go", answer: "Go"),
+        QUIZWRITING(question: "See", answer: "See"),
+        QUIZWRITING(question: "Come here", answer: "Come here"),
+        QUIZWRITING(question: "Listen", answer: "Listen"),
+        QUIZWRITING(question: "How are you", answer: "How are you"),
+        QUIZWRITING(question: "Good morning", answer: "Good morning"),
+        QUIZWRITING(question: "Good evening", answer: "Good evening"),
     ]
 }
 
@@ -155,4 +168,10 @@ struct QUIZLISTENANDREPEAT {
     var b: String = ""
     var c: String = ""
     var d: String = ""
+}
+
+struct QUIZWRITING {
+    var id = UUID()
+    var question: String = ""
+    var answer: String = ""
 }

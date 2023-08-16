@@ -85,6 +85,10 @@
 		DD0EA4932A8B5B1A007D8C55 /* SheetShowAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EA4922A8B5B1A007D8C55 /* SheetShowAnswerView.swift */; };
 		DD3B1B8D2A8B8C910047F43B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B1B8C2A8B8C910047F43B /* ColorView.swift */; };
 		DD3B1B8F2A8B8CF70047F43B /* congralutions2.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3B1B8E2A8B8CF70047F43B /* congralutions2.json */; };
+		DD5EA4A32A8C780A00084D6A /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA4A22A8C780A00084D6A /* DropdownView.swift */; };
+		DD5EA4A52A8C7B0600084D6A /* ChooseLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA4A42A8C7B0600084D6A /* ChooseLanguageView.swift */; };
+		DD5EA4A82A8C80F000084D6A /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA4A62A8C80F000084D6A /* WritingView.swift */; };
+		DD5EA4A92A8C80F000084D6A /* SurroundingObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA4A72A8C80F000084D6A /* SurroundingObjectView.swift */; };
 		DD67413E2A85D9AE00CB9B0B /* MathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67413D2A85D9AE00CB9B0B /* MathView.swift */; };
 		DD6741422A8616D200CB9B0B /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD6741402A86162600CB9B0B /* correct.mp3 */; };
 		DD6741442A8624F500CB9B0B /* wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD6741432A8624F500CB9B0B /* wrong.mp3 */; };
@@ -202,6 +206,10 @@
 		DD0EA4922A8B5B1A007D8C55 /* SheetShowAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetShowAnswerView.swift; sourceTree = "<group>"; };
 		DD3B1B8C2A8B8C910047F43B /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		DD3B1B8E2A8B8CF70047F43B /* congralutions2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congralutions2.json; sourceTree = "<group>"; };
+		DD5EA4A22A8C780A00084D6A /* DropdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
+		DD5EA4A42A8C7B0600084D6A /* ChooseLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageView.swift; sourceTree = "<group>"; };
+		DD5EA4A62A8C80F000084D6A /* WritingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
+		DD5EA4A72A8C80F000084D6A /* SurroundingObjectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurroundingObjectView.swift; sourceTree = "<group>"; };
 		DD67413D2A85D9AE00CB9B0B /* MathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathView.swift; sourceTree = "<group>"; };
 		DD6741402A86162600CB9B0B /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		DD6741432A8624F500CB9B0B /* wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong.mp3; sourceTree = "<group>"; };
@@ -233,6 +241,9 @@
 		278982FB2A84EE65003CB639 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD5EA4A22A8C780A00084D6A /* DropdownView.swift */,
+				DD5EA4A72A8C80F000084D6A /* SurroundingObjectView.swift */,
+				DD5EA4A62A8C80F000084D6A /* WritingView.swift */,
 				DD3B1B8C2A8B8C910047F43B /* ColorView.swift */,
 				DD0EA48C2A8B342F007D8C55 /* ListenAndRepeatView.swift */,
 				DD72E2372A8A1D4D006AB647 /* HistoryView.swift */,
@@ -243,6 +254,7 @@
 				DDA494612A872DDF003814F1 /* ListeningView.swift */,
 				DD72E2332A8A12F0006AB647 /* SpeechToTextView.swift */,
 				DD0EA4922A8B5B1A007D8C55 /* SheetShowAnswerView.swift */,
+				DD5EA4A42A8C7B0600084D6A /* ChooseLanguageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -667,6 +679,7 @@
 				278982FE2A84EE65003CB639 /* CreateUsernameView.swift in Sources */,
 				CA2223A52A2BB34A005164BB /* InterstitialAd.swift in Sources */,
 				CA2223AA2A2BB34A005164BB /* Mail.swift in Sources */,
+				DD5EA4A32A8C780A00084D6A /* DropdownView.swift in Sources */,
 				CA2223A02A2BB34A005164BB /* AdsOpenAd.swift in Sources */,
 				DD0EA48B2A8B30FD007D8C55 /* Language.swift in Sources */,
 				CA2223C42A2BB34A005164BB /* CGFloat.swift in Sources */,
@@ -699,7 +712,9 @@
 				CA2223A12A2BB34A005164BB /* GADNativeViewController.swift in Sources */,
 				DD72E2362A8A1D39006AB647 /* PoinRealm.swift in Sources */,
 				CA2223E42A2BC0B1005164BB /* LottieView.swift in Sources */,
+				DD5EA4A52A8C7B0600084D6A /* ChooseLanguageView.swift in Sources */,
 				CA2223AC2A2BB34A005164BB /* SwiftyJSON.swift in Sources */,
+				DD5EA4A92A8C80F000084D6A /* SurroundingObjectView.swift in Sources */,
 				DD67413E2A85D9AE00CB9B0B /* MathView.swift in Sources */,
 				CA2223ED2A2BD434005164BB /* Alerter.swift in Sources */,
 				CA2223BA2A2BB34A005164BB /* SafeAreaInsets.swift in Sources */,
@@ -715,6 +730,7 @@
 				CA2223C12A2BB34A005164BB /* SlimRectangle.swift in Sources */,
 				CA2223EB2A2BD0F3005164BB /* Coordinator.swift in Sources */,
 				CA2223992A2BB34A005164BB /* CustomActivity.swift in Sources */,
+				DD5EA4A82A8C80F000084D6A /* WritingView.swift in Sources */,
 				DD0EA48D2A8B342F007D8C55 /* ListenAndRepeatView.swift in Sources */,
 				CA2223A92A2BB34A005164BB /* MyAlert.swift in Sources */,
 				CA2223C52A2BB34A005164BB /* Views.swift in Sources */,

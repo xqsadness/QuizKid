@@ -1,14 +1,14 @@
 //
-//  ListeningView.swift
+//  SurroundingObjectView.swift
 //  DefaultProject
 //
-//  Created by darktech4 on 12/08/2023.
+//  Created by daktech on 16/08/2023.
 //
 
 import SwiftUI
 import AVFAudio
 
-struct ListeningView: View {
+struct SurroundingObjectView: View {
     @State var countCorrect = 0
     @State var countWrong = 0
     @State private var textToSpeak: String = ""
@@ -34,7 +34,7 @@ struct ListeningView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Listen")
+                    Text("Surrounding Object")
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }
@@ -43,10 +43,10 @@ struct ListeningView: View {
             
             HStack{
                 VStack{
-                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsListen.count)")
+                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count)")
                         .font(.bold(size: 16))
                         .foregroundColor(Color.background)
-                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsListen.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsListen.count - 1))
+                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count - 1))
                 }
                 
                 HStack{
@@ -81,21 +81,18 @@ struct ListeningView: View {
             
             VStack{
                 TabView(selection: $selectedTab) {
-                    ForEach(QUIZDEFAULT.SHARED.listQuestionsListen.indices, id: \.self) { index in
-                        let quiz = QUIZDEFAULT.SHARED.listQuestionsListen[index]
+                    ForEach(QUIZDEFAULT.SHARED.listQuestionsSurrounding.indices, id: \.self) { index in
+                        let quiz = QUIZDEFAULT.SHARED.listQuestionsSurrounding[index]
                         VStack {
                             VStack{
-                                Text("Listen and choose the correct answer")
-                                    .font(.regular(size: 19))
+                                Text("\(quiz.question)")
+                                    .font(.regular(size: 20))
                                     .foregroundColor(.background)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
-                                Image("sound")
+                                Image("\(quiz.img)")
                                     .resizable()
-                                    .frame(width: 25,height: 25)
-                                    .onTapGesture {
-                                        speakText(textToSpeak: quiz.question)
-                                    }
+                                    .scaledToFit()
                             }
                             .simultaneousGesture(DragGesture())
                             .hAlign(.leading)
@@ -135,7 +132,7 @@ struct ListeningView: View {
                             isCorrect = false
                             countWrong += 1
                         }
-                    }label: {
+                    } label: {
                         Text("Submit")
                             .foregroundColor(.text)
                             .padding()
@@ -149,7 +146,7 @@ struct ListeningView: View {
                     
                     Button{
                         synthesizer.stopSpeaking(at: .immediate)
-                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsListen.count - 1 {
+                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsSurrounding.count - 1 {
                             progress += 1
                             selectedAnswer = ""
                             isSubmit = false
@@ -170,9 +167,11 @@ struct ListeningView: View {
                             }
                         }
                         
-                        Point.updatePointListen(point: countCorrect)
+//                        if selectedTab >= QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1{
+                            Point.updatePointSurrounding(point: countCorrect)
+//                        }
                     }label: {
-                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsListen.count - 1 ? "Next" : "Done")
+                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsSurrounding.count - 1 ? "Next" : "Done")
                             .foregroundColor(.text)
                             .padding()
                             .frame(height: 50)
@@ -195,7 +194,7 @@ struct ListeningView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsListen.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsSurrounding.count)
         }
     }
     

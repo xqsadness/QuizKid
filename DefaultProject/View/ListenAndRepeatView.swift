@@ -143,39 +143,9 @@ struct ListenAndRepeatView: View {
                                         isHide.toggle()
                                     }
                                 }
+                                .simultaneousGesture(DragGesture())
                             
-                            Button {
-                                if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 || !(countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
-                                    audioPlayer?.pause()
-                                    if !isSpeaking {
-                                        isSpeaking = true
-                                        synthesizer.stopSpeaking(at: .immediate)
-                                        speechRecognizer.transcribe()
-                                    } else {
-                                        isSpeaking = false
-                                        speechRecognizer.stopTranscribing()
-                                        if speechRecognizer.transcript.lowercased() == quiz.answer.lowercased(){
-                                            loadAudio(nameSound: "correct")
-                                            isCorrect = true
-                                            countCorrect += 1
-                                        }else{
-                                            loadAudio(nameSound: "wrong")
-                                            if countFail < 2{
-                                                titleButon = "Again"
-                                            }else{
-                                                titleButon = "Understand"
-                                            }
-                                            isFail = true
-                                        }
-                                    }
-                                }else if selectedTab == QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 && (countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
-                                    loadAudio(nameSound: "congralutions")
-                                    withAnimation {
-                                        isShowPopup = true
-                                    }
-                                    audioPlayer?.pause()
-                                }
-                            } label: {
+                            HStack{
                                 if isSpeaking {
                                     LottieView(name: "animation_soundwave", loopMode: .loop)
                                         .frame(height: 57)
@@ -198,6 +168,9 @@ struct ListenAndRepeatView: View {
                             .padding(.top)
                             .contentShape(Rectangle())
                             .simultaneousGesture(DragGesture())
+                            .onTapGesture {
+                                handleTapToSpeak(answer: quiz.answer)
+                            }
                             
                             Text("\(speechRecognizer.transcript)")
                                 .font(.bold(size: 17))
@@ -223,21 +196,21 @@ struct ListenAndRepeatView: View {
                 .transition(.slide) // Thêm transition animation ở đây
                 .animation(.easeInOut)
                 
-                HStack{
-                    Button{
-                        
-                    }label: {
-                        Text("CHECK")
-                            .font(.bold(size: 16))
-                            .foregroundColor(Color(hex: "b5b5b5"))
-                    }
-                    .padding()
-                    .hAlign(.center)
-                    .background(Color(hex: "e5e5e5"))
-                    .cornerRadius(10)
-                    .disabled(true)
-                }
-                .padding()
+                //                HStack{
+                //                    Button{
+                //
+                //                    }label: {
+                //                        Text("CHECK")
+                //                            .font(.bold(size: 16))
+                //                            .foregroundColor(Color(hex: "b5b5b5"))
+                //                    }
+                //                    .padding()
+                //                    .hAlign(.center)
+                //                    .background(Color(hex: "e5e5e5"))
+                //                    .cornerRadius(10)
+                //                    .disabled(true)
+                //                }
+                //                .padding()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.text)
@@ -278,9 +251,9 @@ struct ListenAndRepeatView: View {
                 isFail = false
                 countFail += 1
             }else{
+                countWrong += 1
                 if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 {
                     progress += 1
-                    countWrong += 1
                     resetSpeak()
                     withAnimation {
                         selectedTab += 1
@@ -295,6 +268,39 @@ struct ListenAndRepeatView: View {
             SheetShowAnswerFailedView(answer: $answerCorrect, titleButon: $titleButon,isFail : $isFail){
                 isFail = false
             }
+        }
+    }
+    
+    func handleTapToSpeak(answer: String){
+        if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 || !(countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
+            audioPlayer?.pause()
+            if !isSpeaking {
+                isSpeaking = true
+                synthesizer.stopSpeaking(at: .immediate)
+                speechRecognizer.transcribe()
+            } else {
+                isSpeaking = false
+                speechRecognizer.stopTranscribing()
+                if speechRecognizer.transcript.lowercased() == answer.lowercased(){
+                    loadAudio(nameSound: "correct")
+                    isCorrect = true
+                    countCorrect += 1
+                }else{
+                    loadAudio(nameSound: "wrong")
+                    if countFail < 2{
+                        titleButon = "Again"
+                    }else{
+                        titleButon = "Understand"
+                    }
+                    isFail = true
+                }
+            }
+        }else if selectedTab == QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 && (countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
+            loadAudio(nameSound: "congralutions")
+            withAnimation {
+                isShowPopup = true
+            }
+            audioPlayer?.pause()
         }
     }
     

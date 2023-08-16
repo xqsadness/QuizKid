@@ -14,6 +14,9 @@
 "Question text" = "Câu hỏi";
 "Answer text" = "Câu trả lời";
 "Option text" = "Lựa chọn";
+"Submit" = "Xác nhận";
+"Next" = "Tiếp theo";
+"Done" = "Hoàn thành";
 
 "History" = "Lịch sử";
 
@@ -39,35 +42,35 @@
 "Laos" = "Lào";
 "China" = "Trung Quốc";
 
-"to counter the Soviet Union and socialist countries." = "để chống lại Liên Xô và các nước xã hội chủ nghĩa.";
-"to maintain world peace and security after the war." = "để duy trì hòa bình và an ninh thế giới sau chiến tranh.";
-"to appease the workers' struggle in capitalist countries." = "để xoa dịu cuộc đấu tranh của công nhân ở các nước tư bản.";
-"to counter the liberation movements in Latin America." = "để chống lại các phong trào giải phóng ở châu Mỹ Latinh.";
+"To counter the Soviet Union and socialist countries." = "Để chống lại Liên Xô và các nước xã hội chủ nghĩa.";
+"To maintain world peace and security after the war." = "Để duy trì hòa bình và an ninh thế giới sau chiến tranh.";
+"To appease the workers' struggle in capitalist countries." = "Để xoa dịu cuộc đấu tranh của công nhân ở các nước tư bản.";
+"To counter the liberation movements in Latin America." = "Để chống lại các phong trào giải phóng ở châu Mỹ Latinh.";
 
-"play a primary role in maintaining global peace and security." = "đóng vai trò chính trong việc duy trì hòa bình và an ninh toàn cầu.";
-"protect the fundamental national rights of countries." = "bảo vệ quyền cơ bản của các quốc gia.";
-"ensure peace for nations." = "đảm bảo hòa bình cho các quốc gia.";
-"prevent countries from violating each other's sovereignty." = "ngăn chặn các quốc gia vi phạm chủ quyền của nhau.";
+"Play a primary role in maintaining global peace and security." = "Đóng vai trò chính trong việc duy trì hòa bình và an ninh toàn cầu.";
+"Protect the fundamental national rights of countries." = "Bảo vệ quyền cơ bản của các quốc gia.";
+"Ensure peace for nations." = "Đảm bảo hòa bình cho các quốc gia.";
+"Prevent countries from violating each other's sovereignty." = "Ngăn chặn các quốc gia vi phạm chủ quyền của nhau.";
 
 "Launched a massive assault on Germany's capital Berlin." = "Tiến hành cuộc tấn công toàn diện vào thủ đô Berlin của Đức.";
 "Urgently demanded a complete defeat of the Nazi powers." = "Đòi hỏi việc tiêu diệt hoàn toàn quyền lực của Đảng Quốc xã Đức.";
 "Rapidly organized a new world order after the war." = "Nhanh chóng tổ chức một trật tự thế giới mới sau chiến tranh.";
 "Convened the Yalta Conference (USSR) from February 04 to February 11, 1945." = "Triệu tập Hội nghị Yalta (Liên Xô) từ ngày 04 đến ngày 11 tháng 2 năm 1945.";
 
-"the world was divided into two camps: capitalism and socialism." = "thế giới được chia thành hai phe: chủ nghĩa tư bản và chủ nghĩa xã hội.";
-"unsatisfactory post-World War II division of influence." = "sự chia cắt không hài lòng sau Chiến tranh Thế giới II.";
-"disagreements at the Yalta Conference." = "sự không đồng tình tại Hội nghị Yalta.";
+"The world was divided into two camps: capitalism and socialism." = "Thế giới được chia thành hai phe: chủ nghĩa tư bản và chủ nghĩa xã hội.";
+"Unsatisfactory post-World War II division of influence." = "Sự chia cắt không hài lòng sau Chiến tranh Thế giới II.";
+"Disagreements at the Yalta Conference." = "Sự không đồng tình tại Hội nghị Yalta.";
 "US not achieving its goals at the Yalta Conference." = "Mỹ không đạt được mục tiêu của mình tại Hội nghị Yalta.";
 
-"the principles of the United Nations." = "nguyên tắc của Liên Hiệp Quốc.";
-"the role of the United Nations." = "vai trò của Liên Hiệp Quốc.";
-"resolutions of the Yalta Conference." = "các nghị quyết của Hội nghị Yalta.";
-"the purpose of the United Nations." = "mục đích của Liên Hiệp Quốc.";
+"The principles of the United Nations." = "Nguyên tắc của Liên Hiệp Quốc.";
+"The role of the United Nations." = "Vai trò của Liên Hiệp Quốc.";
+"Resolutions of the Yalta Conference." = "Các nghị quyết của Hội nghị Yalta.";
+"The purpose of the United Nations." = "Mục đích của Liên Hiệp Quốc.";
 
-"5 and 4 BC" = "năm 5 và 4 TCN";
-"6 and 7 BC" = "năm 6 và 7 TCN";
-"1 AND 3 BC" = "năm 1 và 3 TCN";
-"2 and 4 BC" = "năm 2 và 4 TCN";
+"5 and 4 BC" = "Năm 5 và 4 TCN";
+"6 and 7 BC" = "Năm 6 và 7 TCN";
+"1 AND 3 BC" = "Năm 1 và 3 TCN";
+"2 and 4 BC" = "Năm 2 và 4 TCN";
 
 "About 4,000 years" = "Khoảng 4.000 năm trước";
 "About 3,000 years" = "Khoảng 3.000 năm trước";
