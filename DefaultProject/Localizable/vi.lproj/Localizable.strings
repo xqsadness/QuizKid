@@ -16,11 +16,11 @@
 "questions" = "câu hỏi";
 "Listen And Repeat" = "Lắng nghe và lặp lại";
 "Writing" = "Viết";
-
+"Hi" = "Chào";
 // global
 "Select an answer" = "Chọn 1 đán án đúng";
 "of" = "trên";
-"questions" = "câu hỏi";
+//"Something went wrong. please try again !" = "Đã xảy ra lỗi. Vui lòng thử lại !";
 // MARK: History
 // Questions
 "Question text" = "Câu hỏi";
@@ -212,7 +212,7 @@
 "Car" = "Ô tô";
 
 // MARK: Listen and repeat
-"How are you?" = "Cậu khỏe không?";
+"How are you" = "Cậu khỏe không";
 "I can see" = "Tớ thấy được";
 "I love you" = "Tớ yêu cậu";
 "Bread" = "Bánh mì";
@@ -222,7 +222,11 @@
 "Breakfast" = "Bữa sáng";
 "I like it" = "Tớ thích nó";
 "Fine, thank you!" = "Khỏe, cảm ơn cậu!";
-
+"Repeat what you hear" = "Đọc lại những gì bạn nghe thấy";
+"Tap to speak" = "Bấm để nói";
+"Listen and repeat" = "Lắng nghe và lặp lại";
+"Hide" = "Ẩn";
+"Show" = "Hiện";
 // MARK: Writing
 "Good bye" = "Chào tạm biệt";
 "Bye" = "Tạm biệt";
@@ -231,6 +235,22 @@
 "See" = "Nhìn thấy";
 "Come here" = "Đến đây";
 "Listen" = "Lắng nghe";
-"How are you" = "Bạn khỏe không";
+"Listen and rewrite the following sentence" = "Nghe và viết lại câu nói sau";
+"Tap to listen" = "Bấm để nghe";
+"Enter here" = "Nhập ở đây";
+"CHECK" = "Kiểm tra";
+"Answer:" = "Đáp án";
+"CONTINUE" = "Tiếp tục";
+//"How are you" = "Bạn khỏe không";
 "Good morning" = "Chào buổi sáng";
 "Good evening" = "Chào buổi tối";
+
+//Question result
+"Perfect" = "Hoàn hảo";
+"Wrong" = "Sai rồi";
+
+//Popup score
+"You didn't get any question right !" = "Bạn đã không trả lời được bất kỳ câu hỏi đúng!";
+"Congralutions! You have scored" = "Chúc mừng! Bạn đã ghi được điểm";
+"Back to home" = "Trở về trang chủ";
+"Out of" = "trên";

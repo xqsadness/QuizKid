@@ -105,6 +105,15 @@
 		DDA494602A8725FC003814F1 /* QuizDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4945F2A8725FC003814F1 /* QuizDefault.swift */; };
 		DDA494622A872DDF003814F1 /* ListeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA494612A872DDF003814F1 /* ListeningView.swift */; };
 		DDC5F3542A85CBD90096AAA0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5F3532A85CBD90096AAA0 /* Question.swift */; };
+		DDCC6D692A8DC4FB0085D950 /* underline.json in Resources */ = {isa = PBXBuildFile; fileRef = DDCC6D682A8DC4FB0085D950 /* underline.json */; };
+		DDCC6D6C2A8DCE100085D950 /* QuestionResultWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D6B2A8DCE100085D950 /* QuestionResultWritingView.swift */; };
+		DDCC6D6E2A8DCF2F0085D950 /* QuizWritingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D6D2A8DCF2F0085D950 /* QuizWritingContentView.swift */; };
+		DDCC6D702A8DD6C50085D950 /* QuizWritingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D6F2A8DD6C50085D950 /* QuizWritingInfoView.swift */; };
+		DDCC6D742A8E0A9D0085D950 /* ListenAndRPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D732A8E0A9D0085D950 /* ListenAndRPInfoView.swift */; };
+		DDCC6D762A8E0B740085D950 /* ListenAndRPContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D752A8E0B740085D950 /* ListenAndRPContentView.swift */; };
+		DDCC6D792A8E19E50085D950 /* HistoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D782A8E19E50085D950 /* HistoryInfoView.swift */; };
+		DDCC6D7B2A8E1A420085D950 /* HistoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D7A2A8E1A420085D950 /* HistoryContentView.swift */; };
+		DDCC6D7D2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D7C2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -228,6 +237,16 @@
 		DDA4945F2A8725FC003814F1 /* QuizDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizDefault.swift; sourceTree = "<group>"; };
 		DDA494612A872DDF003814F1 /* ListeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningView.swift; sourceTree = "<group>"; };
 		DDC5F3532A85CBD90096AAA0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		DDCC6D682A8DC4FB0085D950 /* underline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = underline.json; sourceTree = "<group>"; };
+		DDCC6D6B2A8DCE100085D950 /* QuestionResultWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResultWritingView.swift; sourceTree = "<group>"; };
+		DDCC6D6D2A8DCF2F0085D950 /* QuizWritingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWritingContentView.swift; sourceTree = "<group>"; };
+		DDCC6D6F2A8DD6C50085D950 /* QuizWritingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWritingInfoView.swift; sourceTree = "<group>"; };
+		DDCC6D712A8E06BB0085D950 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DDCC6D732A8E0A9D0085D950 /* ListenAndRPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenAndRPInfoView.swift; sourceTree = "<group>"; };
+		DDCC6D752A8E0B740085D950 /* ListenAndRPContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenAndRPContentView.swift; sourceTree = "<group>"; };
+		DDCC6D782A8E19E50085D950 /* HistoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfoView.swift; sourceTree = "<group>"; };
+		DDCC6D7A2A8E1A420085D950 /* HistoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentView.swift; sourceTree = "<group>"; };
+		DDCC6D7C2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySubmitNextButtonsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,19 +264,18 @@
 		278982FB2A84EE65003CB639 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDCC6D772A8E19B20085D950 /* History */,
+				DDCC6D722A8E09B90085D950 /* ListenEndRepeat */,
+				DDCC6D6A2A8DCD4D0085D950 /* Writing */,
 				DD5EA4A22A8C780A00084D6A /* DropdownView.swift */,
 				DD5EA4A72A8C80F000084D6A /* SurroundingObjectView.swift */,
-				DD5EA4A62A8C80F000084D6A /* WritingView.swift */,
 				DD3B1B8C2A8B8C910047F43B /* ColorView.swift */,
-				DD0EA48C2A8B342F007D8C55 /* ListenAndRepeatView.swift */,
-				DD72E2372A8A1D4D006AB647 /* HistoryView.swift */,
 				278982FC2A84EE65003CB639 /* CreateUsernameView.swift */,
 				278982FD2A84EE65003CB639 /* HomeView.swift */,
 				DD67413D2A85D9AE00CB9B0B /* MathView.swift */,
 				DDA494522A871421003814F1 /* PopupScoreView.swift */,
 				DDA494612A872DDF003814F1 /* ListeningView.swift */,
 				DD72E2332A8A12F0006AB647 /* SpeechToTextView.swift */,
-				DD0EA4922A8B5B1A007D8C55 /* SheetShowAnswerView.swift */,
 				DD5EA4A42A8C7B0600084D6A /* ChooseLanguageView.swift */,
 			);
 			path = View;
@@ -509,6 +527,7 @@
 		DDA494562A871A35003814F1 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				DDCC6D682A8DC4FB0085D950 /* underline.json */,
 				DDA4945D2A8721C4003814F1 /* faild.json */,
 				DD9E320D2A8CA6CA001FC594 /* animation_avatar.json */,
 				DD9E320F2A8CA6D5001FC594 /* animation_human2.json */,
@@ -528,6 +547,39 @@
 				DDC5F3532A85CBD90096AAA0 /* Question.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DDCC6D6A2A8DCD4D0085D950 /* Writing */ = {
+			isa = PBXGroup;
+			children = (
+				DD5EA4A62A8C80F000084D6A /* WritingView.swift */,
+				DDCC6D6B2A8DCE100085D950 /* QuestionResultWritingView.swift */,
+				DDCC6D6D2A8DCF2F0085D950 /* QuizWritingContentView.swift */,
+				DDCC6D6F2A8DD6C50085D950 /* QuizWritingInfoView.swift */,
+			);
+			path = Writing;
+			sourceTree = "<group>";
+		};
+		DDCC6D722A8E09B90085D950 /* ListenEndRepeat */ = {
+			isa = PBXGroup;
+			children = (
+				DD0EA4922A8B5B1A007D8C55 /* SheetShowAnswerView.swift */,
+				DD0EA48C2A8B342F007D8C55 /* ListenAndRepeatView.swift */,
+				DDCC6D732A8E0A9D0085D950 /* ListenAndRPInfoView.swift */,
+				DDCC6D752A8E0B740085D950 /* ListenAndRPContentView.swift */,
+			);
+			path = ListenEndRepeat;
+			sourceTree = "<group>";
+		};
+		DDCC6D772A8E19B20085D950 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				DD72E2372A8A1D4D006AB647 /* HistoryView.swift */,
+				DDCC6D782A8E19E50085D950 /* HistoryInfoView.swift */,
+				DDCC6D7A2A8E1A420085D950 /* HistoryContentView.swift */,
+				DDCC6D7C2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -578,6 +630,7 @@
 				en,
 				Base,
 				vi,
+				fr,
 			);
 			mainGroup = CA22233A2A2BB329005164BB;
 			packageReferences = (
@@ -614,6 +667,7 @@
 				9ADF75752A84C8F800A42B7B /* SF-Pro-Text-Semibold.otf in Resources */,
 				DD0EA4902A8B366B007D8C55 /* animation_human.json in Resources */,
 				CA2223E62A2BC1CE005164BB /* loading_default.json in Resources */,
+				DDCC6D692A8DC4FB0085D950 /* underline.json in Resources */,
 				DD9E320E2A8CA6CA001FC594 /* animation_avatar.json in Resources */,
 				DDA4945E2A8721C4003814F1 /* faild.json in Resources */,
 				DD0EA4912A8B366B007D8C55 /* animation_soundwave.json in Resources */,
@@ -677,6 +731,7 @@
 				DD72E2342A8A12F0006AB647 /* SpeechToTextView.swift in Sources */,
 				DD0EA4932A8B5B1A007D8C55 /* SheetShowAnswerView.swift in Sources */,
 				CA2223A42A2BB34A005164BB /* RewardedAd.swift in Sources */,
+				DDCC6D6E2A8DCF2F0085D950 /* QuizWritingContentView.swift in Sources */,
 				CA2223982A2BB34A005164BB /* TextShimer.swift in Sources */,
 				CA22239A2A2BB34A005164BB /* WebView.swift in Sources */,
 				CA2223E92A2BCF30005164BB /* Shimmer.swift in Sources */,
@@ -703,6 +758,8 @@
 				CA2223472A2BB329005164BB /* DefaultProjectApp.swift in Sources */,
 				CA2223AB2A2BB34A005164BB /* CONSTANT.swift in Sources */,
 				DDC5F3542A85CBD90096AAA0 /* Question.swift in Sources */,
+				DDCC6D6C2A8DCE100085D950 /* QuestionResultWritingView.swift in Sources */,
+				DDCC6D7B2A8E1A420085D950 /* HistoryContentView.swift in Sources */,
 				CA2223A72A2BB34A005164BB /* Network.swift in Sources */,
 				CA2223BF2A2BB34A005164BB /* RoundedCross.swift in Sources */,
 				CA2223BB2A2BB34A005164BB /* Int.swift in Sources */,
@@ -711,17 +768,20 @@
 				CA2223A82A2BB34A005164BB /* LocalNotification.swift in Sources */,
 				CA2223CD2A2BB6F8005164BB /* AppDelegate.swift in Sources */,
 				278982FF2A84EE65003CB639 /* HomeView.swift in Sources */,
+				DDCC6D702A8DD6C50085D950 /* QuizWritingInfoView.swift in Sources */,
 				CA2223952A2BB34A005164BB /* User.swift in Sources */,
 				CA2223C92A2BB34A005164BB /* Color.swift in Sources */,
 				CA22239F2A2BB34A005164BB /* SwiftUIBannerAd.swift in Sources */,
 				CA2223B92A2BB34A005164BB /* Image.swift in Sources */,
 				CA22239B2A2BB34A005164BB /* TextView.swift in Sources */,
 				CA2223C82A2BB34A005164BB /* Bundle.swift in Sources */,
+				DDCC6D7D2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift in Sources */,
 				CA2223A12A2BB34A005164BB /* GADNativeViewController.swift in Sources */,
 				DD72E2362A8A1D39006AB647 /* PoinRealm.swift in Sources */,
 				CA2223E42A2BC0B1005164BB /* LottieView.swift in Sources */,
 				DD5EA4A52A8C7B0600084D6A /* ChooseLanguageView.swift in Sources */,
 				CA2223AC2A2BB34A005164BB /* SwiftyJSON.swift in Sources */,
+				DDCC6D792A8E19E50085D950 /* HistoryInfoView.swift in Sources */,
 				DD5EA4A92A8C80F000084D6A /* SurroundingObjectView.swift in Sources */,
 				DD67413E2A85D9AE00CB9B0B /* MathView.swift in Sources */,
 				CA2223ED2A2BD434005164BB /* Alerter.swift in Sources */,
@@ -737,8 +797,10 @@
 				CA2223CA2A2BB34A005164BB /* TimeInterval.swift in Sources */,
 				CA2223C12A2BB34A005164BB /* SlimRectangle.swift in Sources */,
 				CA2223EB2A2BD0F3005164BB /* Coordinator.swift in Sources */,
+				DDCC6D742A8E0A9D0085D950 /* ListenAndRPInfoView.swift in Sources */,
 				CA2223992A2BB34A005164BB /* CustomActivity.swift in Sources */,
 				DD5EA4A82A8C80F000084D6A /* WritingView.swift in Sources */,
+				DDCC6D762A8E0B740085D950 /* ListenAndRPContentView.swift in Sources */,
 				DD0EA48D2A8B342F007D8C55 /* ListenAndRepeatView.swift in Sources */,
 				CA2223A92A2BB34A005164BB /* MyAlert.swift in Sources */,
 				CA2223C52A2BB34A005164BB /* Views.swift in Sources */,
@@ -756,6 +818,7 @@
 			children = (
 				DD0EA4872A8B2704007D8C55 /* en */,
 				DD0EA4892A8B2726007D8C55 /* vi */,
+				DDCC6D712A8E06BB0085D950 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

@@ -24,7 +24,13 @@ struct SurroundingObjectView: View {
     @State private var progress = 0.5
     @EnvironmentObject var coordinator: Coordinator
     @State var offset: CGFloat = -10
-
+    @State var checkedText: String = ""
+    @State var checkedImg: String = ""
+    @State var listText: [QUIZSURROUNDING] = []
+    @State var listImg: [QUIZSURROUNDING] = []
+    
+    @State var heartPoint: Int = 3
+    
     var body: some View {
         VStack{
             HStack{
@@ -42,159 +48,77 @@ struct SurroundingObjectView: View {
             }
             
             HStack{
-                VStack{
-                    Text("\(selectedTab + 1) of \(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count)")
-                        .font(.bold(size: 16))
-                        .foregroundColor(Color.background)
-                    ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count - 1))
-                }
+                Text("Tap on the corresponding pairs")
+                    .font(.bold(size: 16))
+                    .foregroundColor(Color.background)
                 
                 HStack{
-                    Text("\(countCorrect)")
+                    Text("\(heartPoint)")
                         .font(.bold(size: 18))
                         .foregroundColor(.text)
                     
-                    Image(systemName: "checkmark")
+                    Image(systemName: "heart.fill")
                         .imageScale(.medium)
-                        .foregroundColor(.text)
+                        .foregroundColor(.red)
                 }
                 .padding(8)
                 .frame(width: 85, height: 40)
                 .background(Color(hex: "9ae3ab"))
                 .cornerRadius(15)
-                
-                HStack{
-                    Text("\(countWrong)")
-                        .font(.bold(size: 18))
-                        .foregroundColor(.text)
-                    
-                    Image(systemName: "x.circle")
-                        .imageScale(.medium)
-                        .foregroundColor(.text)
-                }
-                .padding(8)
-                .frame(width: 85, height: 40)
-                .background(Color(hex: "ff9d97"))
-                .cornerRadius(15)
             }
             .padding(.bottom)
             
-            VStack{
-                TabView(selection: $selectedTab) {
-                    ForEach(QUIZDEFAULT.SHARED.listQuestionsSurrounding.indices, id: \.self) { index in
-                        let quiz = QUIZDEFAULT.SHARED.listQuestionsSurrounding[index]
-                        VStack {
-                            VStack{
-                                Text("\(quiz.question)")
-                                    .font(.regular(size: 20))
-                                    .foregroundColor(.background)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                
-                                Image("\(quiz.img)")
-                                    .resizable()
-                                    .scaledToFit()
-                            }
-                            .simultaneousGesture(DragGesture())
-                            .hAlign(.leading)
-                            .padding()
-                            
-                            Spacer()
-                            
-                            VStack(spacing: 10){
-                                answerView(question: quiz.a, isCorrect: quiz.answer == quiz.a)
-                                answerView(question: quiz.b, isCorrect: quiz.answer == quiz.b)
-                                answerView(question: quiz.c, isCorrect: quiz.answer == quiz.c)
-                                answerView(question: quiz.d, isCorrect: quiz.answer == quiz.d)
-                            }
-                            .padding()
-                            .simultaneousGesture(DragGesture())
-                        }
-                        .tag(index)
-                        .contentShape(Rectangle()).gesture(DragGesture())
-                        .onAppear{
-                            answerCorrect = quiz.answer
-                        }
+            HStack {
+                VStack(spacing: 15) {
+                    ForEach(listText, id: \.id) { item in
+                        viewText(answer: item.answer)
                     }
-                    
                 }
-                .tabViewStyle(.page(indexDisplayMode: .never))
+                .hAlign(.leading)
                 
-                HStack(spacing: 10){
-                    Button{
-                        isSubmit = true
-                        
-                        if selectedAnswer == answerCorrect{
-                            loadAudio(nameSound: "correct")
-                            isCorrect = true
-                            countCorrect += 1
-                        }else{
-                            loadAudio(nameSound: "wrong")
-                            isCorrect = false
-                            countWrong += 1
-                        }
-                    } label: {
-                        Text("Submit")
-                            .foregroundColor(.text)
-                            .padding()
-                            .frame(height: 50)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .cornerRadius(13)
+                VStack {
+                    ForEach(listImg, id: \.id) { item in
+                        viewImg(img: item.img, answer: item.answer)
                     }
-                    .disabled(selectedAnswer == "" || isSubmit ? true : false)
-                    .opacity(selectedAnswer == "" || isSubmit ? 0.6 : 1)
-                    
-                    Button{
-                        synthesizer.stopSpeaking(at: .immediate)
-                        if selectedTab < QUIZDEFAULT.SHARED.listQuestionsSurrounding.count - 1 {
-                            progress += 1
-                            selectedAnswer = ""
-                            isSubmit = false
-                            isCorrect = false
-                            withAnimation {
-                                selectedTab += 1
-                            }
-                        }else{
-                         
-                            withAnimation {
-                                isShowPopup = true
-                            }
-                            audioPlayer?.pause()
-                            if countCorrect == 0{
-                                loadAudio(nameSound: "wrong")
-                            }else{
-                                loadAudio(nameSound: "congralutions")
-                            }
-                        }
-                        
-//                        if selectedTab >= QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1{
-                            Point.updatePointSurrounding(point: countCorrect)
-//                        }
-                    }label: {
-                        Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsSurrounding.count - 1 ? "Next" : "Done")
-                            .foregroundColor(.text)
-                            .padding()
-                            .frame(height: 50)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.blue)
-                            .cornerRadius(13)
-                    }
-                    .disabled(selectedAnswer == "" || !isSubmit ? true : false)
-                    .opacity(selectedAnswer == "" || !isSubmit ? 0.6 : 1)
                 }
-                .padding()
+                .hAlign(.trailing)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .background(Color.text)
-            .cornerRadius(20)
-            .shadow(color: Color.black.opacity(0.5), radius: 8, x: 0, y: 2)
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
-        .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsSurrounding.count)
+        .overlay {
+            if isShowPopup {
+                ZStack{
+                    Color.background.opacity(0.7).ignoresSafeArea()
+                    PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsSurrounding.count)
+                }
+            }
+        }
+        .onAppear{
+            listText.removeAll()
+            listImg.removeAll()
+            
+            if listText.isEmpty{
+                listText = QUIZDEFAULT.SHARED.listQuestionsSurrounding
+                listText = listText.shuffled()
+                
+                listImg = QUIZDEFAULT.SHARED.listQuestionsSurrounding
+                listImg = listText.shuffled()
+            }
+        }
+        .onChange(of: heartPoint) { newValue in
+            if newValue <= 0 {
+                coordinator.pop()
+            }
+        }
+        .onChange(of: listImg.count) { newValue in
+            if newValue <= 0 {
+                isShowPopup = true
+            }
         }
     }
     
@@ -253,6 +177,82 @@ struct SurroundingObjectView: View {
                     offset = 0
                 }
             }
+        }
+    }
+    
+    @ViewBuilder
+    func viewText(answer: String) -> some View{
+        VStack {
+            Text("\(answer)")
+                .font(.bold(size: 14))
+                .foregroundColor(Color.background)
+                .padding(10)
+                .background(checkedText == answer ? Color.blue.opacity(0.5) : Color.clear)
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 2)
+                        .foregroundColor(Color.gray)
+                )
+                .onTapGesture {
+                    if checkedText == answer {
+                        checkedText = ""
+                    }else{
+                        checkedText = answer
+                        if checkedImg == checkedText{
+                            if let index = listText.firstIndex(where: { $0.answer == checkedText }) {
+                                listText.remove(at: index)
+                                listImg.removeAll(where: {$0.answer == checkedText})
+                            }
+                            loadAudio(nameSound: "correct")
+                            countCorrect += 1
+                            checkedImg = ""
+                            checkedText = ""
+                        }else if !checkedImg.isEmpty == !checkedText.isEmpty{
+                            loadAudio(nameSound: "wrong")
+                            heartPoint -= 1
+                            countCorrect -= 1
+                        }
+                    }
+                    Point.updatePointSurrounding(point: countCorrect)
+                }
+        }
+    }
+    
+    @ViewBuilder
+    func viewImg(img: String, answer: String) -> some View {
+        VStack {
+            Image("\(img)")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 50)
+                .overlay{
+                    Rectangle()
+                        .foregroundColor(Color.blue.opacity(0.5))
+                        .opacity(checkedImg == answer ? 1 : 0)
+                }
+                .onTapGesture {
+                    if checkedImg == answer {
+                        checkedImg = ""
+                    } else {
+                        checkedImg = answer
+                        if checkedImg == checkedText {
+                            if let index = listImg.firstIndex(where: { $0.answer == checkedImg }) {
+                                listImg.remove(at: index)
+                                listText.removeAll(where: {$0.answer == checkedImg})
+                            }
+                            loadAudio(nameSound: "correct")
+                            countCorrect += 1
+                            checkedImg = ""
+                            checkedText = ""
+                        }else if !checkedImg.isEmpty == !checkedText.isEmpty {
+                            loadAudio(nameSound: "wrong")
+                            heartPoint -= 1
+                            countCorrect -= 1
+                        }
+                    }
+                    Point.updatePointSurrounding(point: countCorrect)
+                }
         }
     }
     

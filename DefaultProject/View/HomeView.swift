@@ -19,6 +19,7 @@ struct HomeView: View {
     @State var options: [DropdownOption] = [
         DropdownOption(key: uniqueKey, value: Language.vietnamese.name, code: Language.vietnamese.code),
         DropdownOption(key: uniqueKey, value: Language.english(.us).name, code: Language.english(.us).code),
+        DropdownOption(key: uniqueKey, value: Language.french.name, code: Language.french.code),
     ]
     static var uniqueKey: String {
         UUID().uuidString
@@ -27,7 +28,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             HStack{
-                Text("Hi \(USERNAME)")
+                Text("\("Hi".localizedLanguage(language: language)), \(USERNAME)")
                     .font(.bold(size: 20))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
@@ -346,7 +347,7 @@ struct HomeView: View {
                             .font(.bold(size: 16))
                             .foregroundColor(Color.background)
                             .hAlign(.leading)
-                        Text("\(QUIZDEFAULT.SHARED.listListenAndRepeat.count) \("questions".localizedLanguage(language: language))")
+                        Text("\(QUIZDEFAULT.SHARED.listWriting.count) \("questions".localizedLanguage(language: language))")
                             .font(.bold(size: 14))
                             .foregroundColor(Color.text)
                             .hAlign(.leading)
@@ -361,12 +362,12 @@ struct HomeView: View {
                                 .frame(width: 52, height: 52)
                                 .overlay {
                                     Circle()
-                                        .trim(from: 0, to: CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count))
+                                        .trim(from: 0, to: CGFloat(point.first?.pointWriting ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listWriting.count))
                                         .stroke(Color.text, style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                         .rotationEffect(.degrees(-90))
                                 }
                             
-                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointListenAndRepeat ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count)))%")
+                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointWriting ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listWriting.count)))%")
                                 .font(.bold(size: 12))
                                 .foregroundColor(Color.text)
                         }
@@ -376,7 +377,7 @@ struct HomeView: View {
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 80)
-                .background(Color(hex: "#e9d579"))
+                .background(Color(hex: "#e64d33").opacity(0.3))
                 .cornerRadius(12)
                 .onTapGesture {
                     coordinator.push(.writingView)

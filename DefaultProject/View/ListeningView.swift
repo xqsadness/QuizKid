@@ -90,9 +90,10 @@ struct ListeningView: View {
                                     .foregroundColor(.background)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
-                                Image("sound")
-                                    .resizable()
-                                    .frame(width: 25,height: 25)
+                                Image(systemName: "speaker.wave.2.fill")
+                                    .imageScale(.large)
+                                    .foregroundColor(Color.blue)
+                                    .padding(.top)
                                     .onTapGesture {
                                         speakText(textToSpeak: quiz.question)
                                     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SheetShowAnswerCorrectView: View {
+    @AppStorage("Language") var language: String = "en"
     @Binding var answer: String
     var callback: (() -> Void)
     
@@ -17,7 +18,7 @@ struct SheetShowAnswerCorrectView: View {
                 Image(systemName: "checkmark.circle.fill")
                     .imageScale(.large)
                     .foregroundColor(Color(hex: "58a700"))
-                Text("Perfect!")
+                Text("Perfect")
                     .font(.bold(size: 20))
                     .foregroundColor(Color(hex: "58a700"))
             }
@@ -28,7 +29,7 @@ struct SheetShowAnswerCorrectView: View {
                 .font(.bold(size: 16))
                 .foregroundColor(Color(hex: "58a700"))
                 .hAlign(.leading)
-            Text("\(answer)")
+            Text("\(answer.localizedLanguage(language: language))")
                 .font(.bold(size: 18))
                 .foregroundColor(Color(hex: "80c23b"))
                 .hAlign(.leading)
@@ -56,9 +57,9 @@ struct SheetShowAnswerCorrectView: View {
 }
 
 struct SheetShowAnswerFailedView: View {
+    @AppStorage("Language") var language: String = "en"
     @Binding var answer: String
     @Binding var titleButon: String
-    @Binding var isFail: Bool
     var callback: (() -> Void)
     
     var body: some View {
@@ -67,7 +68,7 @@ struct SheetShowAnswerFailedView: View {
                 Image(systemName: "x.circle")
                     .imageScale(.large)
                     .foregroundColor(Color(hex: "ff4b4b"))
-                Text("Wrong !")
+                Text("Wrong")
                     .font(.bold(size: 20))
                     .foregroundColor(Color(hex: "ff4b4b"))
             }
@@ -78,7 +79,7 @@ struct SheetShowAnswerFailedView: View {
                 .font(.bold(size: 16))
                 .foregroundColor(Color(hex: "ff4b4b"))
                 .hAlign(.leading)
-            Text("\(answer)")
+            Text("\(answer.localizedLanguage(language: language))")
                 .font(.bold(size: 18))
                 .foregroundColor(Color(hex: "f06767"))
                 .hAlign(.leading)

@@ -81,7 +81,7 @@ class QUIZDEFAULT{
     ]
 
     var listListenAndRepeat: [QUIZLISTENANDREPEAT] = [
-        QUIZLISTENANDREPEAT(question: "How are you?", answer: "How are you", a: "", b: "", c: "", d: ""),
+        QUIZLISTENANDREPEAT(question: "How are you", answer: "How are you", a: "", b: "", c: "", d: ""),
         QUIZLISTENANDREPEAT(question: "I can see", answer: "I can see", a: "", b: "", c: "", d: ""),
         QUIZLISTENANDREPEAT(question: "I love you", answer: "I love you", a: "", b: "", c: "", d: ""),
         QUIZLISTENANDREPEAT(question: "Bread", answer: "Bread", a: "", b: "", c: "", d: ""),

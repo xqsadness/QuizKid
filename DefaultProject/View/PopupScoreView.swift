@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PopupScoreView: View {
+    @AppStorage("Language") var language: String = "en"
     @Binding var isShowPopup: Bool
     @Binding var countCorrect: Int
     @Binding var countWrong: Int
@@ -16,7 +17,7 @@ struct PopupScoreView: View {
 
     var body: some View {
         VStack{
-            Text(countCorrect == 0 ? "You didn't get any question right !" : "Congralutions! You have scored")
+            Text(countCorrect == 0 ? "You didn't get any question right !".localizedLanguage(language: language) : "Congralutions! You have scored".localizedLanguage(language: language))
                 .font(.bold(size: 20))
                 .foregroundColor(.background)
                 .vAlign(.top)
@@ -33,7 +34,7 @@ struct PopupScoreView: View {
                             .foregroundColor(.text)
                             .font(.bold(size: 40))
                         
-                        Text("Out of \(totalQuestion)")
+                        Text("\("Out of".localizedLanguage(language: language)) \(totalQuestion)")
                             .foregroundColor(.text)
                             .font(.regular(size: 19))
                     }
@@ -46,7 +47,7 @@ struct PopupScoreView: View {
                     coordinator.pop()
                 }
             }label: {
-                Text("Back to home")
+                Text("Back to home".localizedLanguage(language: language))
                     .font(.bold(size: 16))
                     .foregroundColor(.yellow)
                     .padding(.horizontal)
