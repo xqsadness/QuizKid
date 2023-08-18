@@ -110,11 +110,11 @@ struct SurroundingObjectView: View {
                 listImg = listText.shuffled()
             }
         }
-        .onChange(of: heartPoint) { newValue in
-            if newValue <= 0 {
-                coordinator.pop()
-            }
-        }
+//        .onChange(of: heartPoint) { newValue in
+//            if newValue <= 0 {
+//                coordinator.pop()
+//            }
+//        }
         .onChange(of: listImg.count) { newValue in
             if newValue <= 0 {
                 isShowPopup = true

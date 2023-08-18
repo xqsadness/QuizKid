@@ -82,9 +82,6 @@ class Coordinator: ObservableObject{
         case .listenAndRepeat:
             ListenAndRepeatView()
                 .environmentObject(Coordinator.shared)
-        case .speechToTextView:
-            SpeechToTextView()
-                .environmentObject(Coordinator.shared)
         case .colorView:
             ColorView()
                 .environmentObject(Coordinator.shared)

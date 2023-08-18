@@ -44,7 +44,7 @@ class QUIZDEFAULT{
     var listQuestionsListen: [QUIZLISTEN] = [
         QUIZLISTEN(answer: "Shoes", question: "What is she wearing?", a: "Shoes", b: "Gloves", c: "Coat", d: "Hat", img: ""),
         QUIZLISTEN(answer: "Mining", question: "What is he doing?", a: "Sheep farming", b: "Gardening", c: "Baking", d: "Mining", img: ""),
-        QUIZLISTEN(answer: "Planting", question: "What is she doing?", a: "Baking", b: "Cooking rice", c: "Planting", d: "Raising chickens", img: ""),
+        QUIZLISTEN(answer: "Planting", question: "What is he doing?", a: "Baking", b: "Cooking rice", c: "Planting", d: "Raising chickens", img: ""),
         QUIZLISTEN(answer: "Elephant", question: "What animal is this?", a: "Dog", b: "Pig", c: "Elephant", d: "Cat", img: ""),
         QUIZLISTEN(answer: "Rose", question: "What flower is this?", a: "Wild grass flower", b: "Sunflower", c: "Chrysanthemum", d: "Rose", img: ""),
         QUIZLISTEN(answer: "Mouth", question: "What part of the body is this?", a: "Nose", b: "Eye", c: "Ear", d: "Mouth", img: ""),

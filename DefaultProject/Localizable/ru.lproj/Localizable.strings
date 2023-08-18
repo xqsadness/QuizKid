@@ -1,0 +1,226 @@
+/*
+  Localizable.strings
+  DefaultProject
+
+  Created by darktech4 on 15/08/2023.
+  
+*/
+//MARK: Home
+"History" = "История";
+"Math" = "Математика";
+"Color" = "Цвет";
+"Listen" = "Слушать";
+"Surrounding objects" = "Окружающие объекты";
+"questions" = "вопросы";
+"Listen And Repeat" = "Слушать и повторять";
+"Writing" = "Письмо";
+"Languages" = "язык";
+
+// MARK: History
+// Questions
+"Question text" = "Текст вопроса";
+"Answer text" = "Текст ответа";
+"Option text" = "Текст варианта";
+"Submit" = "Подтвердить";
+"Next" = "Следующий";
+"Done" = "Готово";
+
+"In the year 1933, France merged Truong Sa into which province?" = "В 1933 году Франция присоединила Труонг Са к какой провинции?";
+"The Paracel and Spratly Islands belong to which country?" = "К какой стране принадлежат острова Парасель и Спратли?";
+"In March 1947, US President Truman officially launched the 'Cold War' for the purpose of?" = "В марте 1947 года президент США Труман официально начал 'Холодную войну' с какой целью?";
+"The role of the United Nations Security Council is to?" = "Какова роль Совета безопасности Организации Объединенных Наций?";
+"In the final stages of World War II, what did the Allies do to change the global situation?" = "На последних стадиях Второй мировой войны союзники сделали, чтобы изменить глобальную ситуацию?";
+"The fundamental cause of the Cold War after World War II was" = "Основная причина Холодной войны после Второй мировой войны заключалась в том, что";
+"Resolving disputes and conflicts in various regions through peaceful means, this is one of the contents of" = "Разрешение споров и конфликтов в различных регионах путем мирных средств, это одно из содержания";
+"When was history created?" = "Когда была создана история?";
+"About 5,000 years" = "Примерно 5 000 лет назад";
+"Who invented history?" = "Кто изобрел историю?";
+
+
+// Answers
+// Местоположение
+"Ba Ria" = "Ба Риа";
+"Kien Giang" = "Киенгианг";
+"Gia Dinh" = "Гиадин";
+"Khanh Hoa" = "Кханьхоа";
+
+// Страны
+"Vietnam" = "Вьетнам";
+"Thailand" = "Таиланд";
+"Laos" = "Лаос";
+"China" = "Китай";
+
+// Цели "Холодной войны"
+"To counter the Soviet Union and socialist countries." = "Для противостояния Советскому Союзу и социалистическим странам.";
+"To maintain world peace and security after the war." = "Для поддержания мирового мира и безопасности после войны.";
+"To appease the workers' struggle in capitalist countries." = "Для умиротворения борьбы рабочих в капиталистических странах.";
+"To counter the liberation movements in Latin America." = "Для противодействия освободительным движениям в Латинской Америке.";
+
+// Роль Совета безопасности ООН
+"Play a primary role in maintaining global peace and security." = "Играть первостепенную роль в поддержании мирового мира и безопасности.";
+"Protect the fundamental national rights of countries." = "Защищать основные национальные права стран.";
+"Ensure peace for nations." = "Обеспечивать мир для наций.";
+"Prevent countries from violating each other's sovereignty." = "Предотвращать нарушение суверенитета стран друг другом.";
+
+// Действия союзников в конечной стадии Второй мировой войны
+"Launched a massive assault on Germany's capital Berlin." = "Начали масштабное наступление на столицу Германии Берлин.";
+"Urgently demanded a complete defeat of the Nazi powers." = "Требовали срочного полного поражения нацистских сил.";
+"Rapidly organized a new world order after the war." = "Быстро организовали новый мировой порядок после войны.";
+"Convened the Yalta Conference (USSR) from February 04 to February 11, 1945." = "Созвали Ялтинскую конференцию (СССР) с 4 по 11 февраля 1945 года.";
+
+// Причины "Холодной войны"
+"The world was divided into two camps: capitalism and socialism." = "Мир был разделен на два лагеря: капитализм и социализм.";
+"Unsatisfactory post-World War II division of influence." = "Недостаточное деление влияния после Второй мировой войны.";
+"Disagreements at the Yalta Conference." = "Разногласия на Ялтинской конференции.";
+"US not achieving its goals at the Yalta Conference." = "США не достигли своих целей на Ялтинской конференции.";
+
+// Основные принципы и цели ООН
+"The principles of the United Nations." = "Принципы Организации Объединенных Наций.";
+"The role of the United Nations." = "Роль Организации Объединенных Наций.";
+"Resolutions of the Yalta Conference." = "Резолюции Ялтинской конференции.";
+"The purpose of the United Nations." = "Цель Организации Объединенных Наций.";
+
+// Годы до нашей эры
+"5 and 4 BC" = "5 и 4 года до н. э.";
+"6 and 7 BC" = "6 и 7 года до н. э.";
+"1 AND 3 BC" = "1 и 3 года до н. э.";
+"2 and 4 BC" = "2 и 4 года до н. э.";
+
+// Примерные временные интервалы
+"About 4,000 years" = "Примерно 4 000 лет назад";
+"About 3,000 years" = "Примерно 3 000 лет назад";
+"About 2,000 years" = "Примерно 2 000 лет назад";
+"About 1,000 years" = "Примерно 1 000 лет назад";
+
+
+// MARK: Math
+// questions
+"What is 5 + 3?" = "5 + 3 равно чему?";
+"How many fingers are there on each of your hands?" = "Сколько пальцев на каждой руке?";
+"If you have 4 apples and you give one to your friend, how many apples do you have left?" = "Если у вас есть 4 яблока, и вы отдаете одно своему другу, сколько яблок у вас останется?";
+"How many faces does a cube have?" = "Сколько граней у куба?";
+"What is 8 x 0?" = "8 x 0 равно чему?";
+"If you have 10 fingers, how many fingers do you need to count to 20?" = "Если у вас есть 10 пальцев, сколько пальцев вам нужно, чтобы досчитать до 20?";
+"How many legs does a dog have?" = "Сколько ног у собаки?";
+"What is 7 x 2?" = "7 x 2 равно чему?";
+"What is 4 + 7?" = "4 + 7 равно чему?";
+"If a cat is in front of a chicken coop, the chicken coop is in front of the house, and the house is in front of a pond, then what is in front of a window?" = "Если кошка перед курятником, курятник перед домом, а дом перед прудом, то что перед окном?";
+"There is a bridge with 5 ducks on it. Under the bridge, there are 4 ducks. How many ducks are there in total?" = "На мосту 5 уток. Под мостом 4 утки. Сколько всего уток?";
+"You have 5 apples. You ate 2. How many apples do you have left?" = "У вас есть 5 яблок. Вы съели 2. Сколько у вас осталось яблок?";
+"If today is Saturday, what day is tomorrow?" = "Если сегодня суббота, какой день будет завтра?";
+"If you walk 10 steps along a road, where are you?" = "Если вы сделаете 10 шагов вдоль дороги, где вы будете?";
+"You have 2 red balls, 3 blue balls, and 1 yellow ball. If you randomly draw a ball from the bag, how many times do you need to draw to ensure you have at least one blue ball?" = "У вас есть 2 красные мяча, 3 синих мяча и 1 желтый мяч. Если вы случайным образом вытаскиваете мяч из мешка, сколько раз вам нужно вытащить, чтобы гарантировать, что у вас есть хотя бы один синий мяч?";
+
+
+// answer
+"Cat" = "Кошка";
+"Chicken" = "Курица";
+"Fish" = "Рыба";
+"Dog" = "Собака";
+"Sunday" = "Воскресенье";
+"Saturday" = "Суббота";
+"Monday" = "Понедельник";
+"Friday" = "Пятница";
+"At the end of the road" = "В конце дороги";
+"At the beginning of the road" = "В начале дороги";
+"In the middle of the road" = "В середине дороги";
+"Cannot be determined" = "Невозможно определить";
+"4 times" = "4 раза";
+"2 times" = "2 раза";
+"3 times" = "3 раза";
+"6 times" = "6 раза";
+
+// MARK: Color
+// questions
+"What color is this fruit?" = "Какого цвета этот фрукт?";
+"What color is this cherry?" = "Какого цвета эта вишня?";
+"What color is this dog?" = "Какого цвета эта собака?";
+"What color is this?" = "Какого цвета это?";
+"What color is the girl's dress?" = "Какого цвета платье девочки?";
+"What color is this rabbit?" = "Какого цвета этот кролик?";
+"What color is the inside of this watermelon?" = "Какого цвета внутри этот арбуз?";
+
+// answers
+"Orange" = "Оранжевый";
+"Red" = "Красный";
+"Yellow" = "Желтый";
+"Green" = "Зеленый";
+"Purple" = "Фиолетовый";
+"White" = "Белый";
+"Black" = "Черный";
+"Brown" = "Коричневый";
+"Gray" = "Серый";
+"Blue" = "Синий";
+
+// MARK: list Listen
+"Listen and choose the correct answer" = "Слушайте и выберите правильный ответ";
+"Shoes" = "Обувь";
+"What is she wearing?" = "Что она носит?";
+"Gloves" = "Перчатки";
+"Coat" = "Пальто";
+"Hat" = "Шапка";
+"Mining" = "Добыча полезных ископаемых";
+"What is he doing?" = "Что он делает?";
+"Sheep farming" = "Овцеводство";
+"Gardening" = "Садоводство";
+"Baking" = "Выпечка";
+"Planting" = "Посадка растений";
+"Cooking rice" = "Приготовление риса";
+"Raising chickens" = "Выращивание кур";
+"Elephant" = "Слон";
+"What animal is this?" = "Какое это животное?";
+"Dog" = "Собака";
+"Pig" = "Свинья";
+"Cat" = "Кот";
+"Rose" = "Роза";
+"What flower is this?" = "Какой это цветок?";
+"Wild grass flower" = "Цветок дикой травы";
+"Sunflower" = "Подсолнух";
+"Chrysanthemum" = "Хризантема";
+"Mouth" = "Рот";
+"What part of the body is this?" = "Что это за часть тела?";
+"Nose" = "Нос";
+"Eye" = "Глаз";
+"Ear" = "Ухо";
+"Sun" = "Солнце";
+"What is this?" = "Что это?";
+"Moon" = "Луна";
+"Mercury" = "Меркурий";
+"Venus" = "Венера";
+"Planet" = "Планета";
+"Onion" = "Лук";
+"Leafy greens" = "Листовые овощи";
+"Action" = "Действие";
+"Computer" = "Компьютер";
+"Desktop computer" = "Настольный компьютер";
+"Airplane" = "Самолет";
+"Projector" = "Проектор";
+"Baby" = "Ребенок";
+"What is he?" = "Кто он?";
+"Youngest" = "Самый молодой";
+"Well-behaved" = "Хорошо воспитанный";
+"Grown-up" = "Взрослый";
+
+// MARK: Surrounding
+"Watermelon" = "Арбуз";
+"Banana Pepper" = "Банановый перец";
+"Brown Rabbit" = "Коричневый кролик";
+"Ao Dai" = "Ао Дай";
+"Strawberry" = "Клубника";
+"Rooster" = "Петух";
+"White Dog" = "Белая собака";
+"Cherry" = "Вишня";
+"Orange" = "Апельсин";
+"Car" = "Автомобиль";
+
+// MARK: Listen and repeat
+"How are you?" = "Как ты?";
+"I can see" = "Я вижу";
+"I love you" = "Я тебя люблю";
+"Bread" = "Хлеб";
+"Listen to music" = "Слушать музыку";
+"Watch TV" = "Смотреть телевизор";
+"Do exercise" = "Заниматься упражнениями";
+"Breakfast" = "Завтрак";
+"I like it" = "Мне это нравится";
+"Fine, thank you!" = "Хорошо, спасибо!";

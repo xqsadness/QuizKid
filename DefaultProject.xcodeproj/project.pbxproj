@@ -93,9 +93,24 @@
 		DD6741422A8616D200CB9B0B /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD6741402A86162600CB9B0B /* correct.mp3 */; };
 		DD6741442A8624F500CB9B0B /* wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD6741432A8624F500CB9B0B /* wrong.mp3 */; };
 		DD72E2322A8A1233006AB647 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2312A8A1233006AB647 /* SpeechRecognizer.swift */; };
-		DD72E2342A8A12F0006AB647 /* SpeechToTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2332A8A12F0006AB647 /* SpeechToTextView.swift */; };
 		DD72E2362A8A1D39006AB647 /* PoinRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2352A8A1D38006AB647 /* PoinRealm.swift */; };
 		DD72E2382A8A1D4D006AB647 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2372A8A1D4D006AB647 /* HistoryView.swift */; };
+		DD7F60FB2A8F040C0030E044 /* ListeningInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F60FA2A8F040C0030E044 /* ListeningInfoView.swift */; };
+		DD7F60FD2A8F04790030E044 /* ListenContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F60FC2A8F04790030E044 /* ListenContentView.swift */; };
+		DD7F60FF2A8F0A580030E044 /* ListeningSubmitNextButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F60FE2A8F0A580030E044 /* ListeningSubmitNextButtonsView.swift */; };
+		DD7F61022A8F0BE00030E044 /* ColorInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F61012A8F0BE00030E044 /* ColorInfoView.swift */; };
+		DD7F61042A8F0C240030E044 /* ColorContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F61032A8F0C240030E044 /* ColorContentView.swift */; };
+		DD7F61062A8F0D480030E044 /* ColorSubmitNextButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F61052A8F0D480030E044 /* ColorSubmitNextButtonsView.swift */; };
+		DD7F61092A8F10740030E044 /* MathInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F61082A8F10740030E044 /* MathInfoView.swift */; };
+		DD7F610B2A8F10B00030E044 /* MathContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F610A2A8F10B00030E044 /* MathContentView.swift */; };
+		DD7F610D2A8F113C0030E044 /* MathSubmitNextButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F610C2A8F113C0030E044 /* MathSubmitNextButtonsView.swift */; };
+		DD7F61122A8F14260030E044 /* SectionMathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F61112A8F14260030E044 /* SectionMathView.swift */; };
+		DD7F61142A8F14810030E044 /* SectionColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F61132A8F14810030E044 /* SectionColorView.swift */; };
+		DD7F61162A8F14BF0030E044 /* SectionListeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F61152A8F14BF0030E044 /* SectionListeningView.swift */; };
+		DD7F61182A8F14F50030E044 /* SectionSurroundingObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F61172A8F14F50030E044 /* SectionSurroundingObjectView.swift */; };
+		DD7F611A2A8F15230030E044 /* SectionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F61192A8F15230030E044 /* SectionHistoryView.swift */; };
+		DD7F611C2A8F154D0030E044 /* SectionListenAndRPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F611B2A8F154D0030E044 /* SectionListenAndRPView.swift */; };
+		DD7F611E2A8F15700030E044 /* SectionWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7F611D2A8F15700030E044 /* SectionWritingView.swift */; };
 		DD9E320E2A8CA6CA001FC594 /* animation_avatar.json in Resources */ = {isa = PBXBuildFile; fileRef = DD9E320D2A8CA6CA001FC594 /* animation_avatar.json */; };
 		DD9E32102A8CA6D5001FC594 /* animation_human2.json in Resources */ = {isa = PBXBuildFile; fileRef = DD9E320F2A8CA6D5001FC594 /* animation_human2.json */; };
 		DDA494532A871421003814F1 /* PopupScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA494522A871421003814F1 /* PopupScoreView.swift */; };
@@ -225,9 +240,25 @@
 		DD6741402A86162600CB9B0B /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		DD6741432A8624F500CB9B0B /* wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong.mp3; sourceTree = "<group>"; };
 		DD72E2312A8A1233006AB647 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
-		DD72E2332A8A12F0006AB647 /* SpeechToTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextView.swift; sourceTree = "<group>"; };
 		DD72E2352A8A1D38006AB647 /* PoinRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoinRealm.swift; sourceTree = "<group>"; };
 		DD72E2372A8A1D4D006AB647 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		DD7F60FA2A8F040C0030E044 /* ListeningInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningInfoView.swift; sourceTree = "<group>"; };
+		DD7F60FC2A8F04790030E044 /* ListenContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenContentView.swift; sourceTree = "<group>"; };
+		DD7F60FE2A8F0A580030E044 /* ListeningSubmitNextButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningSubmitNextButtonsView.swift; sourceTree = "<group>"; };
+		DD7F61012A8F0BE00030E044 /* ColorInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoView.swift; sourceTree = "<group>"; };
+		DD7F61032A8F0C240030E044 /* ColorContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorContentView.swift; sourceTree = "<group>"; };
+		DD7F61052A8F0D480030E044 /* ColorSubmitNextButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSubmitNextButtonsView.swift; sourceTree = "<group>"; };
+		DD7F61082A8F10740030E044 /* MathInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathInfoView.swift; sourceTree = "<group>"; };
+		DD7F610A2A8F10B00030E044 /* MathContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathContentView.swift; sourceTree = "<group>"; };
+		DD7F610C2A8F113C0030E044 /* MathSubmitNextButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathSubmitNextButtonsView.swift; sourceTree = "<group>"; };
+		DD7F61112A8F14260030E044 /* SectionMathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionMathView.swift; sourceTree = "<group>"; };
+		DD7F61132A8F14810030E044 /* SectionColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionColorView.swift; sourceTree = "<group>"; };
+		DD7F61152A8F14BF0030E044 /* SectionListeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionListeningView.swift; sourceTree = "<group>"; };
+		DD7F61172A8F14F50030E044 /* SectionSurroundingObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSurroundingObjectView.swift; sourceTree = "<group>"; };
+		DD7F61192A8F15230030E044 /* SectionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHistoryView.swift; sourceTree = "<group>"; };
+		DD7F611B2A8F154D0030E044 /* SectionListenAndRPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionListenAndRPView.swift; sourceTree = "<group>"; };
+		DD7F611D2A8F15700030E044 /* SectionWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionWritingView.swift; sourceTree = "<group>"; };
+		DD7F61202A8F17E10030E044 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD9E320D2A8CA6CA001FC594 /* animation_avatar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_avatar.json; sourceTree = "<group>"; };
 		DD9E320F2A8CA6D5001FC594 /* animation_human2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_human2.json; sourceTree = "<group>"; };
 		DDA494522A871421003814F1 /* PopupScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupScoreView.swift; sourceTree = "<group>"; };
@@ -264,18 +295,17 @@
 		278982FB2A84EE65003CB639 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD7F611F2A8F163C0030E044 /* SurroundingObject */,
+				DD7F61102A8F13BB0030E044 /* Home */,
+				DD7F61072A8F103F0030E044 /* Math */,
+				DD7F61002A8F0BBA0030E044 /* Color */,
+				DD7F60F92A8F03880030E044 /* Listen */,
 				DDCC6D772A8E19B20085D950 /* History */,
 				DDCC6D722A8E09B90085D950 /* ListenEndRepeat */,
 				DDCC6D6A2A8DCD4D0085D950 /* Writing */,
 				DD5EA4A22A8C780A00084D6A /* DropdownView.swift */,
-				DD5EA4A72A8C80F000084D6A /* SurroundingObjectView.swift */,
-				DD3B1B8C2A8B8C910047F43B /* ColorView.swift */,
 				278982FC2A84EE65003CB639 /* CreateUsernameView.swift */,
-				278982FD2A84EE65003CB639 /* HomeView.swift */,
-				DD67413D2A85D9AE00CB9B0B /* MathView.swift */,
 				DDA494522A871421003814F1 /* PopupScoreView.swift */,
-				DDA494612A872DDF003814F1 /* ListeningView.swift */,
-				DD72E2332A8A12F0006AB647 /* SpeechToTextView.swift */,
 				DD5EA4A42A8C7B0600084D6A /* ChooseLanguageView.swift */,
 			);
 			path = View;
@@ -524,6 +554,62 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DD7F60F92A8F03880030E044 /* Listen */ = {
+			isa = PBXGroup;
+			children = (
+				DDA494612A872DDF003814F1 /* ListeningView.swift */,
+				DD7F60FA2A8F040C0030E044 /* ListeningInfoView.swift */,
+				DD7F60FC2A8F04790030E044 /* ListenContentView.swift */,
+				DD7F60FE2A8F0A580030E044 /* ListeningSubmitNextButtonsView.swift */,
+			);
+			path = Listen;
+			sourceTree = "<group>";
+		};
+		DD7F61002A8F0BBA0030E044 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				DD3B1B8C2A8B8C910047F43B /* ColorView.swift */,
+				DD7F61012A8F0BE00030E044 /* ColorInfoView.swift */,
+				DD7F61032A8F0C240030E044 /* ColorContentView.swift */,
+				DD7F61052A8F0D480030E044 /* ColorSubmitNextButtonsView.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		DD7F61072A8F103F0030E044 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				DD67413D2A85D9AE00CB9B0B /* MathView.swift */,
+				DD7F61082A8F10740030E044 /* MathInfoView.swift */,
+				DD7F610A2A8F10B00030E044 /* MathContentView.swift */,
+				DD7F610C2A8F113C0030E044 /* MathSubmitNextButtonsView.swift */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		DD7F61102A8F13BB0030E044 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				278982FD2A84EE65003CB639 /* HomeView.swift */,
+				DD7F61112A8F14260030E044 /* SectionMathView.swift */,
+				DD7F61132A8F14810030E044 /* SectionColorView.swift */,
+				DD7F61152A8F14BF0030E044 /* SectionListeningView.swift */,
+				DD7F61172A8F14F50030E044 /* SectionSurroundingObjectView.swift */,
+				DD7F61192A8F15230030E044 /* SectionHistoryView.swift */,
+				DD7F611B2A8F154D0030E044 /* SectionListenAndRPView.swift */,
+				DD7F611D2A8F15700030E044 /* SectionWritingView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DD7F611F2A8F163C0030E044 /* SurroundingObject */ = {
+			isa = PBXGroup;
+			children = (
+				DD5EA4A72A8C80F000084D6A /* SurroundingObjectView.swift */,
+			);
+			path = SurroundingObject;
+			sourceTree = "<group>";
+		};
 		DDA494562A871A35003814F1 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
@@ -631,6 +717,7 @@
 				Base,
 				vi,
 				fr,
+				ru,
 			);
 			mainGroup = CA22233A2A2BB329005164BB;
 			packageReferences = (
@@ -728,8 +815,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD72E2342A8A12F0006AB647 /* SpeechToTextView.swift in Sources */,
 				DD0EA4932A8B5B1A007D8C55 /* SheetShowAnswerView.swift in Sources */,
+				DD7F611C2A8F154D0030E044 /* SectionListenAndRPView.swift in Sources */,
 				CA2223A42A2BB34A005164BB /* RewardedAd.swift in Sources */,
 				DDCC6D6E2A8DCF2F0085D950 /* QuizWritingContentView.swift in Sources */,
 				CA2223982A2BB34A005164BB /* TextShimer.swift in Sources */,
@@ -745,11 +832,14 @@
 				DD5EA4A32A8C780A00084D6A /* DropdownView.swift in Sources */,
 				CA2223A02A2BB34A005164BB /* AdsOpenAd.swift in Sources */,
 				DD0EA48B2A8B30FD007D8C55 /* Language.swift in Sources */,
+				DD7F60FF2A8F0A580030E044 /* ListeningSubmitNextButtonsView.swift in Sources */,
 				CA2223C42A2BB34A005164BB /* CGFloat.swift in Sources */,
 				CA2223BD2A2BB34A005164BB /* URL.swift in Sources */,
+				DD7F610D2A8F113C0030E044 /* MathSubmitNextButtonsView.swift in Sources */,
 				CA2223492A2BB329005164BB /* ContentView.swift in Sources */,
 				CA2223A62A2BB34A005164BB /* Giftcode.swift in Sources */,
 				DDA494532A871421003814F1 /* PopupScoreView.swift in Sources */,
+				DD7F60FB2A8F040C0030E044 /* ListeningInfoView.swift in Sources */,
 				CA2223B72A2BB34A005164BB /* Array.swift in Sources */,
 				CA2223972A2BB34A005164BB /* SkeletonView.swift in Sources */,
 				CA2223B82A2BB34A005164BB /* FileManager.swift in Sources */,
@@ -759,28 +849,36 @@
 				CA2223AB2A2BB34A005164BB /* CONSTANT.swift in Sources */,
 				DDC5F3542A85CBD90096AAA0 /* Question.swift in Sources */,
 				DDCC6D6C2A8DCE100085D950 /* QuestionResultWritingView.swift in Sources */,
+				DD7F61062A8F0D480030E044 /* ColorSubmitNextButtonsView.swift in Sources */,
 				DDCC6D7B2A8E1A420085D950 /* HistoryContentView.swift in Sources */,
 				CA2223A72A2BB34A005164BB /* Network.swift in Sources */,
 				CA2223BF2A2BB34A005164BB /* RoundedCross.swift in Sources */,
 				CA2223BB2A2BB34A005164BB /* Int.swift in Sources */,
 				CA2223BC2A2BB34A005164BB /* UIDevice.swift in Sources */,
 				CA2223AE2A2BB34A005164BB /* APPCONTROLLER.swift in Sources */,
+				DD7F61022A8F0BE00030E044 /* ColorInfoView.swift in Sources */,
 				CA2223A82A2BB34A005164BB /* LocalNotification.swift in Sources */,
 				CA2223CD2A2BB6F8005164BB /* AppDelegate.swift in Sources */,
 				278982FF2A84EE65003CB639 /* HomeView.swift in Sources */,
 				DDCC6D702A8DD6C50085D950 /* QuizWritingInfoView.swift in Sources */,
 				CA2223952A2BB34A005164BB /* User.swift in Sources */,
+				DD7F611E2A8F15700030E044 /* SectionWritingView.swift in Sources */,
 				CA2223C92A2BB34A005164BB /* Color.swift in Sources */,
 				CA22239F2A2BB34A005164BB /* SwiftUIBannerAd.swift in Sources */,
 				CA2223B92A2BB34A005164BB /* Image.swift in Sources */,
+				DD7F61092A8F10740030E044 /* MathInfoView.swift in Sources */,
 				CA22239B2A2BB34A005164BB /* TextView.swift in Sources */,
 				CA2223C82A2BB34A005164BB /* Bundle.swift in Sources */,
+				DD7F60FD2A8F04790030E044 /* ListenContentView.swift in Sources */,
+				DD7F610B2A8F10B00030E044 /* MathContentView.swift in Sources */,
 				DDCC6D7D2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift in Sources */,
 				CA2223A12A2BB34A005164BB /* GADNativeViewController.swift in Sources */,
 				DD72E2362A8A1D39006AB647 /* PoinRealm.swift in Sources */,
 				CA2223E42A2BC0B1005164BB /* LottieView.swift in Sources */,
+				DD7F61162A8F14BF0030E044 /* SectionListeningView.swift in Sources */,
 				DD5EA4A52A8C7B0600084D6A /* ChooseLanguageView.swift in Sources */,
 				CA2223AC2A2BB34A005164BB /* SwiftyJSON.swift in Sources */,
+				DD7F61182A8F14F50030E044 /* SectionSurroundingObjectView.swift in Sources */,
 				DDCC6D792A8E19E50085D950 /* HistoryInfoView.swift in Sources */,
 				DD5EA4A92A8C80F000084D6A /* SurroundingObjectView.swift in Sources */,
 				DD67413E2A85D9AE00CB9B0B /* MathView.swift in Sources */,
@@ -790,14 +888,18 @@
 				CA22239E2A2BB34A005164BB /* CustomSheet.swift in Sources */,
 				CA22239C2A2BB34A005164BB /* MarqueeText.swift in Sources */,
 				DDA494622A872DDF003814F1 /* ListeningView.swift in Sources */,
+				DD7F61042A8F0C240030E044 /* ColorContentView.swift in Sources */,
 				CA2223962A2BB34A005164BB /* IAPHandler.swift in Sources */,
 				CA2223C62A2BB34A005164BB /* Font.swift in Sources */,
 				CA2223C72A2BB34A005164BB /* UIApplication.swift in Sources */,
 				DDA494602A8725FC003814F1 /* QuizDefault.swift in Sources */,
+				DD7F61122A8F14260030E044 /* SectionMathView.swift in Sources */,
 				CA2223CA2A2BB34A005164BB /* TimeInterval.swift in Sources */,
 				CA2223C12A2BB34A005164BB /* SlimRectangle.swift in Sources */,
 				CA2223EB2A2BD0F3005164BB /* Coordinator.swift in Sources */,
 				DDCC6D742A8E0A9D0085D950 /* ListenAndRPInfoView.swift in Sources */,
+				DD7F611A2A8F15230030E044 /* SectionHistoryView.swift in Sources */,
+				DD7F61142A8F14810030E044 /* SectionColorView.swift in Sources */,
 				CA2223992A2BB34A005164BB /* CustomActivity.swift in Sources */,
 				DD5EA4A82A8C80F000084D6A /* WritingView.swift in Sources */,
 				DDCC6D762A8E0B740085D950 /* ListenAndRPContentView.swift in Sources */,
@@ -819,6 +921,7 @@
 				DD0EA4872A8B2704007D8C55 /* en */,
 				DD0EA4892A8B2726007D8C55 /* vi */,
 				DDCC6D712A8E06BB0085D950 /* fr */,
+				DD7F61202A8F17E10030E044 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

@@ -64,6 +64,7 @@ enum Language: Equatable, Hashable {
 //    }
     case vietnamese
     case french
+    case russian
     var displayName: String { 
         switch self {
         case .english(let english):
@@ -83,6 +84,7 @@ enum Language: Equatable, Hashable {
 //        case .korean: return "Korean"
 //        case .japanese: return "Japanese"
         case .french: return "French"
+        case .russian: return "Russian"
         case .vietnamese: return "Vietnamese"
         }
     }
@@ -112,6 +114,7 @@ extension Language {
 //        case .japanese:             return "ja"
         case .vietnamese:        return "vi"
         case .french:        return "fr"
+        case .russian:        return "ru"
         }
     }
     
@@ -137,6 +140,7 @@ extension Language {
 //        case .japanese:             return "日本語"
         case .vietnamese:        return "Tiếng Việt"
         case .french:        return "French"
+        case .russian:        return "Russian"
         }
     }
     
