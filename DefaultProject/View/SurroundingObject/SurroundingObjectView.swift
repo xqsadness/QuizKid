@@ -9,27 +9,18 @@ import SwiftUI
 import AVFAudio
 
 struct SurroundingObjectView: View {
-    @State var countCorrect = 0
-    @State var countWrong = 0
-    @State private var textToSpeak: String = ""
-    @State private var selectedAnswer = ""
-    @State private var answerCorrect = ""
-    @State private var selectedTab = 0
-    @State private var isCorrect = false
-    @State private var isSubmit = false
-    @State private var isShowPopup = false
-    @State var audioPlayer: AVAudioPlayer?
-    
-    let synthesizer = AVSpeechSynthesizer()
-    @State private var progress = 0.5
+    @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
-    @State var offset: CGFloat = -10
-    @State var checkedText: String = ""
-    @State var checkedImg: String = ""
+    @State var audioPlayer: AVAudioPlayer?
     @State var listText: [QUIZSURROUNDING] = []
     @State var listImg: [QUIZSURROUNDING] = []
-    
-    @State var heartPoint: Int = 3
+    @State var checkedText: String = ""
+    @State var checkedImg: String = ""
+    @State var heartPoint: Int = 5
+    @State var countCorrect = 0
+    @State var countWrong = 0
+    @State var isShowPopup = false
+    @State var isShowPopupFail = false
     
     var body: some View {
         VStack{
@@ -40,7 +31,7 @@ struct SurroundingObjectView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Surrounding Object")
+                    Text("Surrounding Object".localizedLanguage(language: language))
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }
@@ -48,7 +39,7 @@ struct SurroundingObjectView: View {
             }
             
             HStack{
-                Text("Tap on the corresponding pairs")
+                Text("Tap on the corresponding pairs".localizedLanguage(language: language))
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                 
@@ -68,23 +59,31 @@ struct SurroundingObjectView: View {
             }
             .padding(.bottom)
             
-            HStack {
-                VStack(spacing: 15) {
-                    ForEach(listText, id: \.id) { item in
-                        viewText(answer: item.answer)
+            GeometryReader { geometry in
+                ScrollView(.vertical, showsIndicators: false){
+                    HStack(spacing: 13) {
+                        VStack(spacing: 15) {
+                            ForEach(listText, id: \.id) { item in
+                                ItemTextView(countCorrect: $countCorrect, checkedImg: $checkedImg, checkedText: $checkedText, answer: item.answer, listText: $listText, listImg: $listImg, heartPoint: $heartPoint, size: geometry.size){ nameSound in
+                                    loadAudio(nameSound: nameSound)
+                                }
+                            }
+                        }
+                        
+                        VStack(spacing: 15) {
+                            ForEach(listImg, id: \.id) { item in
+                                ItemImgView(countCorrect: $countCorrect, checkedImg: $checkedImg, checkedText: $checkedText, img: item.img, answer: item.answer, listText: $listText, listImg: $listImg, heartPoint: $heartPoint, size: geometry.size) { nameSound in
+                                    loadAudio(nameSound: nameSound)
+                                }
+                            }
+                        }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .background(Color.text)
+                    .padding(.top)
                 }
-                .hAlign(.leading)
-                
-                VStack {
-                    ForEach(listImg, id: \.id) { item in
-                        viewImg(img: item.img, answer: item.answer)
-                    }
-                }
-                .hAlign(.trailing)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .background(Color.text)
+            
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -95,6 +94,80 @@ struct SurroundingObjectView: View {
                 ZStack{
                     Color.background.opacity(0.7).ignoresSafeArea()
                     PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsSurrounding.count)
+                }
+            }
+            if isShowPopupFail {
+                ZStack{
+                    Color.background.opacity(0.7).ignoresSafeArea()
+                    VStack{
+                        Text("You have run out of lives".localizedLanguage(language: language) + "!")
+                            .font(.bold(size: 20))
+                            .foregroundColor(.background)
+                            .vAlign(.top)
+                            .hAlign(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.bottom,15)
+                        
+                        LottieView(name: "human", loopMode: .loop)
+                            .frame(width: 130, height: 130)
+                            .hAlign(.top)
+                        
+                        HStack{
+                            Button{
+                                withAnimation {
+                                    isShowPopup = false
+                                    coordinator.pop()
+                                }
+                            }label: {
+                                Text("Back to home".localizedLanguage(language: language))
+                                    .font(.bold(size: 16))
+                                    .foregroundColor(.yellow)
+                                    .padding(.horizontal)
+                                    .padding(.vertical,7)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(lineWidth: 2)
+                                            .foregroundColor(.yellow)
+                                    }
+                            }
+                            
+                            Button{
+                                withAnimation {
+                                    isShowPopupFail = false
+                                    listText.removeAll()
+                                    listImg.removeAll()
+                                    checkedImg = ""
+                                    checkedText = ""
+                                    if listText.isEmpty{
+                                        listText = QUIZDEFAULT.SHARED.listQuestionsSurrounding
+                                        listText = listText.shuffled()
+                                        
+                                        listImg = QUIZDEFAULT.SHARED.listQuestionsSurrounding
+                                        listImg = listText.shuffled()
+                                    }
+                                    heartPoint = 5
+                                }
+                            }label: {
+                                Text("Play Again".localizedLanguage(language: language))
+                                    .font(.bold(size: 16))
+                                    .foregroundColor(.blue)
+                                    .padding(.horizontal)
+                                    .padding(.vertical,7)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 20)
+                                            .stroke(lineWidth: 2)
+                                            .foregroundColor(.blue)
+                                    }
+                            }
+                        }
+                        .vAlign(.bottom)
+                    }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 300)
+                    .background(Color.text)
+                    .cornerRadius(12)
+                    .padding(.horizontal)
                 }
             }
         }
@@ -110,149 +183,20 @@ struct SurroundingObjectView: View {
                 listImg = listText.shuffled()
             }
         }
-//        .onChange(of: heartPoint) { newValue in
-//            if newValue <= 0 {
-//                coordinator.pop()
-//            }
-//        }
+        .onChange(of: heartPoint) { newValue in
+            if newValue <= 0 {
+                withAnimation {
+                    isShowPopupFail = true
+                }
+            }
+        }
         .onChange(of: listImg.count) { newValue in
             if newValue <= 0 {
-                isShowPopup = true
-            }
-        }
-    }
-    
-    func speakText(textToSpeak: String) {
-        let utterance = AVSpeechUtterance(string: textToSpeak)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en")
-        utterance.rate = 0.4
-        synthesizer.speak(utterance)
-    }
-    
-    @ViewBuilder
-    func answerView(question: String, isCorrect: Bool) -> some View {
-        HStack{
-            Text(question)
-                .font(.regular(size: 18))
-                .foregroundColor(.background)
-                .frame(height: 55)
-                .hAlign(.center)
-                .contentShape(Rectangle())
-        }
-        .padding(.horizontal)
-        .frame(maxWidth: .infinity)
-        .overlay(
-            RoundedRectangle(cornerRadius: 13)
-                .stroke(lineWidth: 2)
-                .foregroundColor(getAnswerColor(isCorrect: isCorrect, question: question))
-        )
-        .overlay(alignment: .trailing){
-            VStack{
-                if isSubmit && isCorrect{
-                    Image(systemName: "checkmark")
-                        .imageScale(.medium)
-                        .foregroundColor(.green)
-                }else if isSubmit && !isCorrect && selectedAnswer == question{
-                    Image(systemName: "x.circle")
-                        .imageScale(.medium)
-                        .foregroundColor(.red)
-                }
-            }
-            .padding(.horizontal)
-        }
-        .onTapGesture {
-            if !isSubmit{
-                selectedAnswer = question
-            }
-        }
-        .offset(x: isSubmit && !isCorrect && selectedAnswer == question ? offset : 0)
-        .animation(
-            Animation.easeInOut(duration: 0.15)
-                .repeatCount(3), // Repeats 3 times
-            value: isSubmit && !isCorrect && selectedAnswer == question
-        )
-        .onChange(of: isSubmit) { newValue in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15 * 3) {
+                loadAudio(nameSound: "congralutions")
                 withAnimation {
-                    offset = 0
+                    isShowPopup = true
                 }
             }
-        }
-    }
-    
-    @ViewBuilder
-    func viewText(answer: String) -> some View{
-        VStack {
-            Text("\(answer)")
-                .font(.bold(size: 14))
-                .foregroundColor(Color.background)
-                .padding(10)
-                .background(checkedText == answer ? Color.blue.opacity(0.5) : Color.clear)
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: 2)
-                        .foregroundColor(Color.gray)
-                )
-                .onTapGesture {
-                    if checkedText == answer {
-                        checkedText = ""
-                    }else{
-                        checkedText = answer
-                        if checkedImg == checkedText{
-                            if let index = listText.firstIndex(where: { $0.answer == checkedText }) {
-                                listText.remove(at: index)
-                                listImg.removeAll(where: {$0.answer == checkedText})
-                            }
-                            loadAudio(nameSound: "correct")
-                            countCorrect += 1
-                            checkedImg = ""
-                            checkedText = ""
-                        }else if !checkedImg.isEmpty == !checkedText.isEmpty{
-                            loadAudio(nameSound: "wrong")
-                            heartPoint -= 1
-                            countCorrect -= 1
-                        }
-                    }
-                    Point.updatePointSurrounding(point: countCorrect)
-                }
-        }
-    }
-    
-    @ViewBuilder
-    func viewImg(img: String, answer: String) -> some View {
-        VStack {
-            Image("\(img)")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 50)
-                .overlay{
-                    Rectangle()
-                        .foregroundColor(Color.blue.opacity(0.5))
-                        .opacity(checkedImg == answer ? 1 : 0)
-                }
-                .onTapGesture {
-                    if checkedImg == answer {
-                        checkedImg = ""
-                    } else {
-                        checkedImg = answer
-                        if checkedImg == checkedText {
-                            if let index = listImg.firstIndex(where: { $0.answer == checkedImg }) {
-                                listImg.remove(at: index)
-                                listText.removeAll(where: {$0.answer == checkedImg})
-                            }
-                            loadAudio(nameSound: "correct")
-                            countCorrect += 1
-                            checkedImg = ""
-                            checkedText = ""
-                        }else if !checkedImg.isEmpty == !checkedText.isEmpty {
-                            loadAudio(nameSound: "wrong")
-                            heartPoint -= 1
-                            countCorrect -= 1
-                        }
-                    }
-                    Point.updatePointSurrounding(point: countCorrect)
-                }
         }
     }
     
@@ -260,18 +204,6 @@ struct SurroundingObjectView: View {
         if let audioURL = Bundle.main.url(forResource: nameSound, withExtension: "mp3") {
             audioPlayer = try? AVAudioPlayer(contentsOf: audioURL)
             audioPlayer?.play()
-        }
-    }
-    
-    func getAnswerColor(isCorrect: Bool, question: String) -> Color {
-        if isSubmit && isCorrect{
-            return .green
-        } else if isSubmit && !isCorrect && selectedAnswer == question{
-            return .red
-        } else if selectedAnswer == question{
-            return .blue
-        }else{
-            return .text2
         }
     }
 }

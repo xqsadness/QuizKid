@@ -34,7 +34,7 @@ struct MathView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Math")
+                    Text("Math".localizedLanguage(language: language))
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }

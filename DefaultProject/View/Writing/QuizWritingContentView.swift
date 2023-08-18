@@ -37,6 +37,7 @@ struct QuizWritingContentView: View {
                     .hAlign(.leading)
                     .padding(.top)
                     .padding(.horizontal)
+                    .simultaneousGesture(DragGesture())
                 
                 HStack{
                     LottieView(name: "animation_avatar", loopMode: .loop)
@@ -76,6 +77,7 @@ struct QuizWritingContentView: View {
                 .padding(.horizontal)
             }
             .contentShape(Rectangle())
+            .simultaneousGesture(DragGesture())
             .onTapGesture {
                 withAnimation {
                     isShowPopupCheck = false
@@ -160,7 +162,7 @@ struct QuizWritingContentView: View {
                         }
                         loadAudio(nameSound: "congralutions")
                     } label: {
-                        Text("Done")
+                        Text("Done".localizedLanguage(language: language))
                             .font(.bold(size: 16))
                             .foregroundColor(Color(hex: "FFFFFF"))
                             .padding()

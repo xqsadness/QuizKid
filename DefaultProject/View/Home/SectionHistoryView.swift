@@ -45,7 +45,7 @@ struct SectionHistoryView: View {
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointHistory ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsHistory.count)))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointHistory ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsHistory.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

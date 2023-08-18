@@ -8,27 +8,28 @@
 import SwiftUI
 
 struct CreateUsernameView: View {
+    @AppStorage("Language") var language: String = "en"
     @AppStorage("USERNAME") var USERNAME: String = ""
     @State var name: String = ""
     var body: some View {
         VStack{
             VStack{
-                Text("Simple Questions App!")
+                Text("Quiz kid app")
                     .font(.bold(size: 22))
                     .foregroundColor(Color.text)
                 
                 VStack{
-                    Text("Welcome")
+                    Text("Welcome".localizedLanguage(language: language))
                         .font(.bold(size: 16))
                         .foregroundColor(Color.background)
                         .padding(.bottom, 10)
-                    Text("Please enter your name")
+                    Text("Please enter your name".localizedLanguage(language: language))
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text2)
                         .padding(.bottom, 15)
                     
                     HStack{
-                        Text(name.isEmpty ? "Enter your name" : "")
+                        Text(name.isEmpty ? "Enter your name".localizedLanguage(language: language) : "")
                             .font(Font.medium(size: 16))
                             .foregroundColor(.text2)
                             .hAlign(.leading)
@@ -51,7 +52,7 @@ struct CreateUsernameView: View {
                     Button {
                         USERNAME = name
                     } label: {
-                        Text("START")
+                        Text("START".localizedLanguage(language: language))
                             .font(.bold(size: 18))
                             .foregroundColor(Color.text)
                             .padding(.vertical, 10)

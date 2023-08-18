@@ -43,7 +43,7 @@ struct SectionListenAndRPView: View {
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointListenAndRepeat ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count)))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

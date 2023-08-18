@@ -21,6 +21,8 @@
 "Select an answer" = "Chọn 1 đán án đúng";
 "of" = "trên";
 "Languages" = "Ngôn ngữ";
+"Please allow access speech and voice" = "Vui lòng cho phép quyền truy cập vào lời nói và micro";
+"Go to setting" = "Vào cài đặt";
 //"Something went wrong. please try again !" = "Đã xảy ra lỗi. Vui lòng thử lại !";
 // MARK: History
 // Questions
@@ -201,6 +203,7 @@
 "Grown-up" = "Người lớn";
 
 // MARK: Surrounding
+"Surrounding Object" = "Đồ vật xung quanh";
 "Watermelon" = "Dưa hấu";
 "Banana Pepper" = "Ớt chuông chuối";
 "Brown Rabbit" = "Thỏ nâu";
@@ -212,6 +215,9 @@
 "Orange" = "Cam";
 "Car" = "Ô tô";
 
+"You have run out of lives" = "Bạn đã hết lượt chơi";
+"Play Again" = "Chơi lại";
+"Tap on the corresponding pairs" = "Chạm vào các cặp tương ứng";
 // MARK: Listen and repeat
 "How are you" = "Cậu khỏe không";
 "I can see" = "Tớ thấy được";
@@ -228,6 +234,8 @@
 "Listen and repeat" = "Lắng nghe và lặp lại";
 "Hide" = "Ẩn";
 "Show" = "Hiện";
+"Mean:" = "Nghĩa là";
+"Again" = "Thử lại";
 // MARK: Writing
 "Good bye" = "Chào tạm biệt";
 "Bye" = "Tạm biệt";
@@ -255,3 +263,9 @@
 "Congralutions! You have scored" = "Chúc mừng! Bạn đã ghi được điểm";
 "Back to home" = "Trở về trang chủ";
 "Out of" = "trên";
+
+//Enter username
+"Welcome" = "Chào mừng";
+"Please enter your name" = "Vui lòng nhập tên của bạn";
+"Enter your name" = "Tên của bạn";
+"START" = "Bắt đầu";

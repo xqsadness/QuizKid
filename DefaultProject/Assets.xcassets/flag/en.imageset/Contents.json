@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "800px-United-kingdom_flag_icon_round.svg.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "united-kingdom.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

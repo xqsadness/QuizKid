@@ -15,7 +15,10 @@
 "Listen And Repeat" = "Слушать и повторять";
 "Writing" = "Письмо";
 "Languages" = "язык";
+"Hi" = "Привіт";
 
+"Please allow access speech and voice" = "Пожалуйста, разрешите доступ к речи и голосу";
+"Go to setting" = "Перейти к настройкам";
 // MARK: History
 // Questions
 "Question text" = "Текст вопроса";
@@ -24,6 +27,7 @@
 "Submit" = "Подтвердить";
 "Next" = "Следующий";
 "Done" = "Готово";
+"of" = "из";
 
 "In the year 1933, France merged Truong Sa into which province?" = "В 1933 году Франция присоединила Труонг Са к какой провинции?";
 "The Paracel and Spratly Islands belong to which country?" = "К какой стране принадлежат острова Парасель и Спратли?";
@@ -213,8 +217,13 @@
 "Orange" = "Апельсин";
 "Car" = "Автомобиль";
 
+"Surrounding Object" = "Об'єкт оточення";
+"You have run out of lives" = "У вас закончились жизни";
+"Play Again" = "Играть снова";
+"Tap on the corresponding pairs" = "Нажмите на соответствующие пары";
+
 // MARK: Listen and repeat
-"How are you?" = "Как ты?";
+"How are you" = "Как ты?";
 "I can see" = "Я вижу";
 "I love you" = "Я тебя люблю";
 "Bread" = "Хлеб";
@@ -224,3 +233,40 @@
 "Breakfast" = "Завтрак";
 "I like it" = "Мне это нравится";
 "Fine, thank you!" = "Хорошо, спасибо!";
+"Repeat what you hear" = "Повторите то, что вы слышите";
+"Tap to speak" = "Нажмите, чтобы говорить";
+"Listen and repeat" = "Слушайте и повторяйте";
+"Hide" = "Скрыть";
+"Show" = "Показать";
+"Mean:" = "Значение:";
+"Again" = "Снова";
+
+// MARK: Writing
+"Good bye" = "До свидания";
+"Bye" = "Пока";
+"Fine" = "Хорошо";
+"Go" = "Иди";
+"See" = "Видеть";
+"Come here" = "Иди сюда";
+"Listen" = "Слушать";
+"Listen and rewrite the following sentence" = "Слушайте и перепишите следующее предложение";
+"Tap to listen" = "Коснитесь, чтобы слушать";
+"Enter here" = "Введите здесь";
+"CHECK" = "ПРОВЕРИТЬ";
+"Answer:" = "Ответ:";
+"CONTINUE" = "ПРОДОЛЖИТЬ";
+
+// Greetings
+"Good morning" = "Доброе утро";
+"Good evening" = "Добрый вечер";
+
+// Question result
+"Perfect" = "Прекрасно";
+"Wrong" = "Неверно";
+
+// Popup score
+"You didn't get any question right !" = "Вы не ответили ни на один вопрос правильно!";
+"Congralutions! You have scored" = "Поздравляем! Вы набрали";
+"Back to home" = "Вернуться на главную";
+"Out of" = "из";
+

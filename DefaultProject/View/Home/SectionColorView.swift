@@ -45,7 +45,7 @@ struct SectionColorView: View {
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointColor ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsColor.count)))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointColor ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsColor.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

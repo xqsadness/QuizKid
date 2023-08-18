@@ -45,7 +45,7 @@ struct SectionMathView: View {
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointMath ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsMath.count)))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointMath ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsMath.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

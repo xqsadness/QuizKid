@@ -45,7 +45,7 @@ struct SectionListeningView: View {
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointListen ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsListen.count)))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointListen ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsListen.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

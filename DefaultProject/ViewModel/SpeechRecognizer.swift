@@ -12,6 +12,7 @@ import SwiftUI
 
 /// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
 class SpeechRecognizer: ObservableObject {
+    @AppStorage("Language") var language: String = "en"
     enum RecognizerError: Error {
         case nilRecognizer
         case notAuthorizedToRecognize
@@ -37,7 +38,7 @@ class SpeechRecognizer: ObservableObject {
     
     init() {
 //        recognizer = SFSpeechRecognizer()
-        recognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))
+        recognizer = SFSpeechRecognizer(locale: Locale(identifier: language))
         Task(priority: .background) {
             do {
                 guard recognizer != nil else {
@@ -144,7 +145,9 @@ class SpeechRecognizer: ObservableObject {
         } else {
             errorMessage += error.localizedDescription
         }
-        transcript = "<< \(errorMessage) >>"
+        DispatchQueue.main.async {
+            self.transcript = "<< \(errorMessage) >>"
+        }
     }
 }
 extension SFSpeechRecognizer {
@@ -155,6 +158,15 @@ extension SFSpeechRecognizer {
             }
         }
     }
+    
+    static func hasAuthorizationToRecognizeNot(completion: @escaping (Bool) -> Void) {
+        SFSpeechRecognizer.requestAuthorization { status in
+            DispatchQueue.main.async {
+                completion(status == .authorized)
+            }
+        }
+    }
+
 }
 
 extension AVAudioSession {
@@ -162,6 +174,14 @@ extension AVAudioSession {
         await withCheckedContinuation { continuation in
             requestRecordPermission { authorized in
                 continuation.resume(returning: authorized)
+            }
+        }
+    }
+    
+    static func hasPermissionToRecordNot(completion: @escaping (Bool) -> Void) {
+        AVAudioSession.sharedInstance().requestRecordPermission { authorized in
+            DispatchQueue.main.async {
+                completion(authorized)
             }
         }
     }

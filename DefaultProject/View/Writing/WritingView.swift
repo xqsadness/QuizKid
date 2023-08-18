@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFAudio
+import Speech
 
 enum FocusedField {
     case textWriting
@@ -24,6 +25,7 @@ struct WritingView: View {
     @State private var isCorrect = false
     @State private var isShowPopup = false
     @State var isShowPopupCheck: Bool = false
+    @State private var checkPermission: Bool = false
     @State var textWriting: String = ""
     @State var answer: String = ""
     
@@ -66,7 +68,25 @@ struct WritingView: View {
             .popup(isPresented: $isShowPopup) {
                 PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listWriting.count)
             }
-            
+            .overlay{
+                if checkPermission{
+                    PermissionsNoticeView(message: "Please allow access speech and voice")
+                        .environmentObject(coordinator)
+                }
+            }
+            .onAppear {
+                SFSpeechRecognizer.hasAuthorizationToRecognizeNot { authorized in
+                    if !authorized {
+                        checkPermission = true
+                    }
+                }
+                
+                AVAudioSession.hasPermissionToRecordNot { authorized in
+                    if !authorized {
+                        checkPermission = true
+                    }
+                }
+            }
             if isShowPopupCheck{
                 QuestionResultWritingView(isCorrect: $isCorrect, isShowPopupCheck: $isShowPopupCheck, answer: $answer) {
                     handleContinue()

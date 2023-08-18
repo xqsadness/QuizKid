@@ -9,6 +9,7 @@ import SwiftUI
 import AVFAudio
 
 struct ListeningView: View {
+    @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
     @State var audioPlayer: AVAudioPlayer?
     @State var synthesizer = AVSpeechSynthesizer()
@@ -32,7 +33,7 @@ struct ListeningView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Listen")
+                    Text("Listen".localizedLanguage(language: language))
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }

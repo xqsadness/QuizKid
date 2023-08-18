@@ -45,7 +45,7 @@ struct SectionSurroundingObjectView: View {
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointSurrounding ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count)))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointSurrounding ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsSurrounding.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

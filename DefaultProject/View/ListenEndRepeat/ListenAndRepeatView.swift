@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import Speech
 
 struct ListenAndRepeatView: View {
     @AppStorage("Language") var language: String = "en"
@@ -26,7 +27,7 @@ struct ListenAndRepeatView: View {
     @State private var isShowPopup = false
     @State private var isHide: Bool = true
     @State private var isSpeaking: Bool = false
-    
+    @State private var checkPermission: Bool = false
     
     var body: some View {
         ZStack(alignment: .top){
@@ -140,6 +141,25 @@ struct ListenAndRepeatView: View {
                             }
                         }
                     }
+                }
+            }
+        }
+        .overlay{
+            if checkPermission{
+               PermissionsNoticeView(message: "Please allow access speech and voice")
+                    .environmentObject(coordinator)
+            }
+        }
+        .onAppear {
+            SFSpeechRecognizer.hasAuthorizationToRecognizeNot { authorized in
+                if !authorized {
+                    checkPermission = true
+                }
+            }
+            
+            AVAudioSession.hasPermissionToRecordNot { authorized in
+                if !authorized {
+                    checkPermission = true
                 }
             }
         }

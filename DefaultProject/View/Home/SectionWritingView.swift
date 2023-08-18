@@ -45,7 +45,7 @@ struct SectionWritingView: View {
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointWriting ?? 0) * CGFloat(QUIZDEFAULT.SHARED.listWriting.count)))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointWriting ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listWriting.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

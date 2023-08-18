@@ -5,6 +5,39 @@
   Created by darktech4 on 15/08/2023.
   
 */
+// MARK: TEXT DEFAULT
+"Math" = "Mathématiques";
+"Select an answer" = "Sélectionnez une réponse";
+"Congralutions! You have scored" = "Toutes nos félicitations! Vous avez marqué";
+"Out of" = "Hors de";
+"Back to home" = "De retour à la maison";
+"You didn't get any question right !" = "Tu n'as pas bien compris la question !";
+"Color" = "Couleur";
+"Lắng nghe" = "Écouter";
+"Surrounding Object" = "Objet environnant";
+"Surrounding object" = "Objet environnant";
+"Tap on the corresponding pairs" = "Appuyez sur les paires correspondantes";
+"History" = "Histoire";
+"Listen And Repeat" = "Écoute et répète";
+"Repeat what you hear" = "Répétez ce que vous entendez";
+"of" = "de";
+"Show" = "Montrer";
+"Tap to speak" = "Appuyez pour parler";
+"Sai rồi" = "Faux";
+"Mean" = "Signifier";
+"Again" = "Encore";
+"Writing" = "En écrivant";
+"Listen and rewirte the following sentence" = "Écoutez et réécrivez la phrase suivante";
+"Tap to listen" = "Appuyez pour écouter";
+"Enter here" = "Entrer ici";
+"CHECK" = "VÉRIFIER";
+"Wrong" = "Faux";
+"Answer" = "Répondre";
+"CONTINUE" = "CONTINUER";
+"Hi" = "Bonjour";
+
+"Please allow access speech and voice" = "Veuillez autoriser l'accès à la parole et à la voix";
+"Go to setting" = "Aller aux paramètres";
 //MARK: Home
 "Histoire" = "Lịch sử";
 "Mathématiques" = "Math";
@@ -15,6 +48,7 @@
 "Écouter et Répéter" = "Écouter et Répéter";
 "Écriture" = "Écriture";
 "Languages" = "Langue";
+
 // MARK: History
 // Questions
 "Question text" = "Texte de la question";

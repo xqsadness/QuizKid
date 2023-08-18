@@ -14,7 +14,7 @@ class QUIZDEFAULT{
         QUIZMATH(answer: "8", question: "What is 5 + 3?", a: "7", b: "8", c: "6", d: "5"),
         QUIZMATH(answer: "5", question: "How many fingers are there on each of your hands?", a: "4", b: "5", c: "6", d: "7"),
         QUIZMATH(answer: "3", question: "If you have 4 apples and you give one to your friend, how many apples do you have left?", a: "1", b: "2", c: "3", d: "4"),
-        QUIZMATH(answer: "3", question: "How many faces does a cube have?", a: "1", b: "2", c: "3", d: "6"),
+        QUIZMATH(answer: "6", question: "How many faces does a cube have?", a: "1", b: "2", c: "3", d: "6"),
         QUIZMATH(answer: "0", question: "What is 8 x 0?", a: "1", b: "3", c: "5", d: "0"),
         QUIZMATH(answer: "10", question: "If you have 10 fingers, how many fingers do you need to count to 20?", a: "10", b: "5", c: "3", d: "4"),
         QUIZMATH(answer: "4", question: "How many legs does a dog have?", a: "2", b: "3", c: "4", d: "5"),
