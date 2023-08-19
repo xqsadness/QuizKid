@@ -45,9 +45,6 @@ extension Bundle {
 
 enum Language: Equatable, Hashable {
     case english(English)
-//    case chinese(Chinese)
-//    case korean
-//    case japanese
     
     enum English {
         case us
@@ -57,15 +54,10 @@ enum Language: Equatable, Hashable {
         case indian
     }
     
-//    enum Chinese {
-//        case simplified
-//        case traditional
-//        case hongKong
-//    }
     case vietnamese
     case french
     case russian
-    var displayName: String { 
+    var displayName: String {
         switch self {
         case .english(let english):
             switch english {
@@ -75,14 +67,6 @@ enum Language: Equatable, Hashable {
             case .canadian: return "English (Canadian)"
             case .indian: return "English (Indian)"
             }
-//        case .chinese(let chinese):
-//            switch chinese {
-//            case .simplified: return "Chinese (Simplified)"
-//            case .traditional: return "Chinese (Traditional)"
-//            case .hongKong: return "Chinese (Hong Kong)"
-//            }
-//        case .korean: return "Korean"
-//        case .japanese: return "Japanese"
         case .french: return "French"
         case .russian: return "Russian"
         case .vietnamese: return "Vietnamese"
@@ -103,15 +87,6 @@ extension Language {
             case .indian:            return "en-IN"
             }
             
-//        case .chinese(let chinese):
-//            switch chinese {
-//            case .simplified:       return "zh-Hans"
-//            case .traditional:      return "zh-Hant"
-//            case .hongKong:         return "zh-HK"
-//            }
-            
-//        case .korean:               return "ko"
-//        case .japanese:             return "ja"
         case .vietnamese:        return "vi"
         case .french:        return "fr"
         case .russian:        return "ru"
@@ -129,38 +104,29 @@ extension Language {
             case .indian:            return "English (India)"
             }
             
-//        case .chinese(let chinese):
-//            switch chinese {
-//            case .simplified:       return "简体中文"
-//            case .traditional:      return "繁體中文"
-//            case .hongKong:         return "繁體中文 (香港)"
-//            }
-            
-//        case .korean:               return "한국어"
-//        case .japanese:             return "日本語"
         case .vietnamese:        return "Tiếng Việt"
         case .french:        return "French"
         case .russian:        return "Russian"
         }
     }
     
-//    init?(languageCode: String?) {
-//        guard let languageCode = languageCode else { return nil }
-//        switch languageCode {
-//        case "en", "en-US":     self = .english(.us)
-//        case "en-GB":           self = .english(.uk)
-//        case "en-AU":           self = .english(.australian)
-//        case "en-CA":           self = .english(.canadian)
-//        case "en-IN":           self = .english(.indian)
-//
-//        case "zh-Hans":         self = .chinese(.simplified)
-//        case "zh-Hant":         self = .chinese(.traditional)
-//        case "zh-HK":           self = .chinese(.hongKong)
-//
-//        case "ko":              self = .korean
-//        case "ja":              self = .japanese
-//        case "vi":              self = .vietnamese
-//        default:                return nil
-//        }
-//    }
+    //    init?(languageCode: String?) {
+    //        guard let languageCode = languageCode else { return nil }
+    //        switch languageCode {
+    //        case "en", "en-US":     self = .english(.us)
+    //        case "en-GB":           self = .english(.uk)
+    //        case "en-AU":           self = .english(.australian)
+    //        case "en-CA":           self = .english(.canadian)
+    //        case "en-IN":           self = .english(.indian)
+    //
+    //        case "zh-Hans":         self = .chinese(.simplified)
+    //        case "zh-Hant":         self = .chinese(.traditional)
+    //        case "zh-HK":           self = .chinese(.hongKong)
+    //
+    //        case "ko":              self = .korean
+    //        case "ja":              self = .japanese
+    //        case "vi":              self = .vietnamese
+    //        default:                return nil
+    //        }
+    //    }
 }

@@ -1078,8 +1078,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DefaultProject/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the meeting";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcriptions of your meeting in the app";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Audio is recorded to transcribe the quiz questions and answers spoken by the user. This feature enhances accessibility and provides an alternative method for interacting with the app's content.\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"You can view text transcriptions of your quiz interactions in the app, allowing you to review and reference the spoken content at any time.\"";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1115,8 +1115,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DefaultProject/Info.plist;
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the meeting";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcriptions of your meeting in the app";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"Audio is recorded to transcribe the quiz questions and answers spoken by the user. This feature enhances accessibility and provides an alternative method for interacting with the app's content.\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"You can view text transcriptions of your quiz interactions in the app, allowing you to review and reference the spoken content at any time.\"";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

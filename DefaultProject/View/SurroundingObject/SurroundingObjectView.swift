@@ -83,7 +83,6 @@ struct SurroundingObjectView: View {
                     .padding(.top)
                 }
             }
-            
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

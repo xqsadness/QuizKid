@@ -24,7 +24,6 @@ struct MathView: View {
     @State private var isSubmit = false
     @State private var isShowPopup = false
     
-    
     var body: some View {
         VStack{
             HStack{

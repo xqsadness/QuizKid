@@ -15,7 +15,7 @@
 "Color" = "Couleur";
 "Lắng nghe" = "Écouter";
 "Surrounding Object" = "Objet environnant";
-"Surrounding object" = "Objet environnant";
+"Surrounding objects" = "Objet environnant";
 "Tap on the corresponding pairs" = "Appuyez sur les paires correspondantes";
 "History" = "Histoire";
 "Listen And Repeat" = "Écoute et répète";
@@ -239,6 +239,8 @@
 "Orange" = "Orange";
 "Car" = "Voiture";
 
+"Play Again" = "Rejouer";
+"You have run out of lives" =  "Vous n'avez plus de vies";
 
 // MARK: Listen and repeat
 "How are you?" = "Comment ça va ?";
