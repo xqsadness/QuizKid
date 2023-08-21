@@ -125,3 +125,4 @@ struct MathContentView: View {
         }
     }
 }
+

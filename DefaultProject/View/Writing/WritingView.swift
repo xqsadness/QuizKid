@@ -75,15 +75,14 @@ struct WritingView: View {
                 }
             }
             .onAppear {
-                SFSpeechRecognizer.hasAuthorizationToRecognizeNot { authorized in
-                    if !authorized {
+                Task(priority: .background) {
+                    guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
                         checkPermission = true
+                        return
                     }
-                }
-                
-                AVAudioSession.hasPermissionToRecordNot { authorized in
-                    if !authorized {
+                    guard await AVAudioSession.sharedInstance().hasPermissionToRecord() else {
                         checkPermission = true
+                        return
                     }
                 }
             }

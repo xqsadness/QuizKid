@@ -151,20 +151,19 @@ struct ListenAndRepeatView: View {
             }
         }
         .onAppear {
-            SFSpeechRecognizer.hasAuthorizationToRecognizeNot { authorized in
-                if !authorized {
+            Task(priority: .background) {
+                guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
                     checkPermission = true
+                    return
                 }
-            }
-            
-            AVAudioSession.hasPermissionToRecordNot { authorized in
-                if !authorized {
+                guard await AVAudioSession.sharedInstance().hasPermissionToRecord() else {
                     checkPermission = true
+                    return
                 }
             }
         }
     }
-    
+
     func handleTapToSpeak(answer: String){
         if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 || !(countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
             audioPlayer?.pause()

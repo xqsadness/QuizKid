@@ -10,7 +10,7 @@ import Foundation
 import Speech
 import SwiftUI
 
-/// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
+// A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
 class SpeechRecognizer: ObservableObject {
     @AppStorage("Language") var language: String = "en"
     enum RecognizerError: Error {
@@ -37,7 +37,6 @@ class SpeechRecognizer: ObservableObject {
     private var recognizer: SFSpeechRecognizer? = nil
     
     init() {
-//        recognizer = SFSpeechRecognizer()
         recognizer = SFSpeechRecognizer(locale: Locale(identifier: language))
         Task(priority: .background) {
             do {
@@ -60,7 +59,7 @@ class SpeechRecognizer: ObservableObject {
         reset()
     }
     
-    /// Reset the speech recognizer.
+    // Reset the speech recognizer.
     func reset() {
         task?.cancel()
         audioEngine?.stop()
@@ -129,7 +128,7 @@ class SpeechRecognizer: ObservableObject {
         return (audioEngine, request)
     }
     
-    /// Stop transcribing audio.
+    // Stop transcribing audio.
     func stopTranscribing() {
         reset()
     }
@@ -138,6 +137,7 @@ class SpeechRecognizer: ObservableObject {
         transcript = message
     }
     
+    // speakError(Error:) method to respond to an error in a known and informative way.
     private func speakError(_ error: Error) {
         var errorMessage = ""
         if let error = error as? RecognizerError {
@@ -150,6 +150,7 @@ class SpeechRecognizer: ObservableObject {
         }
     }
 }
+
 extension SFSpeechRecognizer {
     static func hasAuthorizationToRecognize() async -> Bool {
         await withCheckedContinuation { continuation in
@@ -158,15 +159,6 @@ extension SFSpeechRecognizer {
             }
         }
     }
-    
-    static func hasAuthorizationToRecognizeNot(completion: @escaping (Bool) -> Void) {
-        SFSpeechRecognizer.requestAuthorization { status in
-            DispatchQueue.main.async {
-                completion(status == .authorized)
-            }
-        }
-    }
-
 }
 
 extension AVAudioSession {
@@ -174,14 +166,6 @@ extension AVAudioSession {
         await withCheckedContinuation { continuation in
             requestRecordPermission { authorized in
                 continuation.resume(returning: authorized)
-            }
-        }
-    }
-    
-    static func hasPermissionToRecordNot(completion: @escaping (Bool) -> Void) {
-        AVAudioSession.sharedInstance().requestRecordPermission { authorized in
-            DispatchQueue.main.async {
-                completion(authorized)
             }
         }
     }
