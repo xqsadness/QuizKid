@@ -77,7 +77,6 @@
 		CA2223EB2A2BD0F3005164BB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2223EA2A2BD0F3005164BB /* Coordinator.swift */; };
 		CA2223ED2A2BD434005164BB /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2223EC2A2BD434005164BB /* Alerter.swift */; };
 		DA475ADEA3BDD29E30F2BF97 /* Pods_DefaultProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42865764303805AED8FF6CB0 /* Pods_DefaultProject.framework */; };
-		DD0EA4862A8B2704007D8C55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD0EA4882A8B2704007D8C55 /* Localizable.strings */; };
 		DD0EA48B2A8B30FD007D8C55 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EA48A2A8B30FD007D8C55 /* Language.swift */; };
 		DD0EA48D2A8B342F007D8C55 /* ListenAndRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EA48C2A8B342F007D8C55 /* ListenAndRepeatView.swift */; };
 		DD0EA4902A8B366B007D8C55 /* animation_human.json in Resources */ = {isa = PBXBuildFile; fileRef = DD0EA48E2A8B366A007D8C55 /* animation_human.json */; };
@@ -135,7 +134,6 @@
 		DDCC6D7B2A8E1A420085D950 /* HistoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D7A2A8E1A420085D950 /* HistoryContentView.swift */; };
 		DDCC6D7D2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D7C2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift */; };
 		DDFDD3DE2AB3EAF200585841 /* Localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDFDD3DD2AB3EAF200585841 /* Localize.strings */; };
-		DDFDD3E82AB3EE6800585841 /* CrowdinSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DDFDD3E72AB3EE6800585841 /* CrowdinSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -230,8 +228,6 @@
 		CA2223E82A2BCF2F005164BB /* Shimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		CA2223EA2A2BD0F3005164BB /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CA2223EC2A2BD434005164BB /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
-		DD0EA4872A8B2704007D8C55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DD0EA4892A8B2726007D8C55 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD0EA48A2A8B30FD007D8C55 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		DD0EA48C2A8B342F007D8C55 /* ListenAndRepeatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenAndRepeatView.swift; sourceTree = "<group>"; };
 		DD0EA48E2A8B366A007D8C55 /* animation_human.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_human.json; sourceTree = "<group>"; };
@@ -268,7 +264,6 @@
 		DD7F61192A8F15230030E044 /* SectionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHistoryView.swift; sourceTree = "<group>"; };
 		DD7F611B2A8F154D0030E044 /* SectionListenAndRPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionListenAndRPView.swift; sourceTree = "<group>"; };
 		DD7F611D2A8F15700030E044 /* SectionWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionWritingView.swift; sourceTree = "<group>"; };
-		DD7F61202A8F17E10030E044 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD7F61212A8F28EF0030E044 /* ItemImgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemImgView.swift; sourceTree = "<group>"; };
 		DD7F61232A8F2B820030E044 /* ItemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTextView.swift; sourceTree = "<group>"; };
 		DD9E320D2A8CA6CA001FC594 /* animation_avatar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_avatar.json; sourceTree = "<group>"; };
@@ -284,7 +279,6 @@
 		DDCC6D6B2A8DCE100085D950 /* QuestionResultWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResultWritingView.swift; sourceTree = "<group>"; };
 		DDCC6D6D2A8DCF2F0085D950 /* QuizWritingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWritingContentView.swift; sourceTree = "<group>"; };
 		DDCC6D6F2A8DD6C50085D950 /* QuizWritingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWritingInfoView.swift; sourceTree = "<group>"; };
-		DDCC6D712A8E06BB0085D950 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DDCC6D732A8E0A9D0085D950 /* ListenAndRPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenAndRPInfoView.swift; sourceTree = "<group>"; };
 		DDCC6D752A8E0B740085D950 /* ListenAndRPContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenAndRPContentView.swift; sourceTree = "<group>"; };
 		DDCC6D782A8E19E50085D950 /* HistoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfoView.swift; sourceTree = "<group>"; };
@@ -298,7 +292,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDFDD3E82AB3EE6800585841 /* CrowdinSDK in Frameworks */,
 				DA475ADEA3BDD29E30F2BF97 /* Pods_DefaultProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,7 +538,6 @@
 			isa = PBXGroup;
 			children = (
 				DDFDD3DD2AB3EAF200585841 /* Localize.strings */,
-				DD0EA4882A8B2704007D8C55 /* Localizable.strings */,
 			);
 			path = Localizable;
 			sourceTree = "<group>";
@@ -708,7 +700,6 @@
 			);
 			name = DefaultProject;
 			packageProductDependencies = (
-				DDFDD3E72AB3EE6800585841 /* CrowdinSDK */,
 			);
 			productName = DefaultProject;
 			productReference = CA2223432A2BB329005164BB /* DefaultProject.app */;
@@ -742,7 +733,6 @@
 			);
 			mainGroup = CA22233A2A2BB329005164BB;
 			packageReferences = (
-				DDFDD3E62AB3EE6800585841 /* XCRemoteSwiftPackageReference "mobile-sdk-ios" */,
 			);
 			productRefGroup = CA2223442A2BB329005164BB /* Products */;
 			projectDirPath = "";
@@ -771,7 +761,6 @@
 				DDA4945C2A871C8A003814F1 /* congralutions.json in Resources */,
 				9ADF75742A84C8F800A42B7B /* SF-Pro-Text-Medium.otf in Resources */,
 				CA2223B32A2BB34A005164BB /* SF-Pro-Display-Regular.otf in Resources */,
-				DD0EA4862A8B2704007D8C55 /* Localizable.strings in Resources */,
 				DD3B1B8F2A8B8CF70047F43B /* congralutions2.json in Resources */,
 				DD6741422A8616D200CB9B0B /* correct.mp3 in Resources */,
 				9ADF75752A84C8F800A42B7B /* SF-Pro-Text-Semibold.otf in Resources */,
@@ -941,20 +930,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DD0EA4882A8B2704007D8C55 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DD0EA4872A8B2704007D8C55 /* en */,
-				DD0EA4892A8B2726007D8C55 /* vi */,
-				DDCC6D712A8E06BB0085D950 /* fr */,
-				DD7F61202A8F17E10030E044 /* ru */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CA22234F2A2BB32A005164BB /* Debug */ = {
@@ -1169,25 +1144,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DDFDD3E62AB3EE6800585841 /* XCRemoteSwiftPackageReference "mobile-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/crowdin/mobile-sdk-ios.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DDFDD3E72AB3EE6800585841 /* CrowdinSDK */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DDFDD3E62AB3EE6800585841 /* XCRemoteSwiftPackageReference "mobile-sdk-ios" */;
-			productName = CrowdinSDK;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA22233B2A2BB329005164BB /* Project object */;
 }

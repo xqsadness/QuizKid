@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import CrowdinSDK
 
-struct ChooseLanguageView: View {
+struct ChooseLanguageView:  SwiftUI.View {
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
     @State var languagesList: [Language] = [.english(.us), .vietnamese, .french, .russian]
     
-    var body: some View {
+    var body: some SwiftUI.View {
         VStack{
             HStack{
                 Button {
@@ -53,6 +54,7 @@ struct ChooseLanguageView: View {
                         .onTapGesture {
                             withAnimation {
                                 language = ele.code
+                                CrowdinSDK.enableSDKLocalization(true, localization: "\(language)")
                             }
                         }
                     }
@@ -61,7 +63,6 @@ struct ChooseLanguageView: View {
             .padding(.top)
             
             Spacer()
-            
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

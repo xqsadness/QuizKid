@@ -11,7 +11,7 @@ import GoogleMobileAds
 import AppTrackingTransparency
 import CrowdinSDK
 
-class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate{
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate{    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         setUpCrowdinSDK()
@@ -27,7 +27,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
     
     func setUpCrowdinSDK(){
-        let providerConfig = CrowdinProviderConfig(hashString: "3cb996756cbbe1eed8c9779j50z", sourceLanguage: "fr")
+        let providerConfig = CrowdinProviderConfig(hashString: "3cb996756cbbe1eed8c9779j50z", sourceLanguage: "en")
         let config = CrowdinSDKConfig.config().with(crowdinProviderConfig: providerConfig)
         
         CrowdinSDK.startWithConfig(config) {

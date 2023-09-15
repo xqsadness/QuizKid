@@ -21,7 +21,7 @@ struct SectionColorView: View {
                 .padding(.leading)
             
             VStack(spacing: 5) {
-                Text("Color".localizedLanguage(language: language))
+                Text("Color".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
