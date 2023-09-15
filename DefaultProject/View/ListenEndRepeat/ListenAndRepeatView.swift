@@ -31,7 +31,7 @@ struct ListenAndRepeatView: View {
     
     var body: some View {
         ZStack(alignment: .top){
-            VStack{
+            VStack{ 
                 HStack{
                     Button {
                         coordinator.pop()
