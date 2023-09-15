@@ -81,6 +81,8 @@ struct RootView: View {
                         }
                     })
                 }
+                
+                CONSTANT.SHARED.loadData{}
             })
             .onChange(of: appController.INDEX_TABBAR, perform: { b in
                 if User.isShowInterstitial() == false{

@@ -134,7 +134,7 @@
 		DDCC6D7D2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D7C2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift */; };
 		DDFDD3DE2AB3EAF200585841 /* Localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDFDD3DD2AB3EAF200585841 /* Localize.strings */; };
 		DDFDD3EA2AB4053400585841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDFDD3E92AB4053400585841 /* GoogleService-Info.plist */; };
-		DDFDD3ED2AB409BA00585841 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = DDFDD3EC2AB409BA00585841 /* Data.json */; };
+		DDFDD3ED2AB409BA00585841 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = DDFDD3EC2AB409BA00585841 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -286,7 +286,7 @@
 		DDCC6D7C2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySubmitNextButtonsView.swift; sourceTree = "<group>"; };
 		DDFDD3DD2AB3EAF200585841 /* Localize.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localize.strings; sourceTree = "<group>"; };
 		DDFDD3E92AB4053400585841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		DDFDD3EC2AB409BA00585841 /* Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
+		DDFDD3EC2AB409BA00585841 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,7 +355,7 @@
 				CA2223482A2BB329005164BB /* ContentView.swift */,
 				CA22234A2A2BB32A005164BB /* Assets.xcassets */,
 				CA2223E52A2BC1CE005164BB /* loading_default.json */,
-				DDFDD3EC2AB409BA00585841 /* Data.json */,
+				DDFDD3EC2AB409BA00585841 /* data.json */,
 				DD0EA4832A8B26DC007D8C55 /* Localizable */,
 				DD72E2302A8A1182006AB647 /* ViewModel */,
 				DDA494562A871A35003814F1 /* Lotties */,
@@ -756,7 +756,7 @@
 				CA2223A22A2BB34A005164BB /* NativeAdView.xib in Resources */,
 				CA2223DE2A2BBADC005164BB /* Launch Screen.storyboard in Resources */,
 				CA2223B52A2BB34A005164BB /* SF-Pro-Display-Medium.otf in Resources */,
-				DDFDD3ED2AB409BA00585841 /* Data.json in Resources */,
+				DDFDD3ED2AB409BA00585841 /* data.json in Resources */,
 				9ADF75732A84C8F800A42B7B /* SF-Pro-Text-Bold.otf in Resources */,
 				9ADF75762A84C8F800A42B7B /* SF-Pro-Text-Regular.otf in Resources */,
 				CA2223B42A2BB34A005164BB /* SF-Pro-Display-Bold.otf in Resources */,

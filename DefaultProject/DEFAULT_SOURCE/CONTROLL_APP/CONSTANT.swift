@@ -14,6 +14,7 @@ class CONSTANT{
     
     static var USING_MANIFEST = true
     static var MANIFEST_URL = "/manifest/test/v1_0"
+    static var DATA_URL = "/data/ver_1"
     
     var OBSERVER_MANIFEST: Any?
     
@@ -49,6 +50,34 @@ class CONSTANT{
         }
     }
     
+    func loadData(_ completion: @escaping (()->Void)){
+        if CONSTANT.USING_MANIFEST && Network.connectedToNetwork(){
+            self.OBSERVER_MANIFEST = Database.database().reference().child(CONSTANT.DATA_URL).observe(.value){snapshot in
+                if !snapshot.exists(){
+                    debugPrint("DATA_URL URL NOT FOULD!")
+                    return
+                }
+                let json = JSON(snapshot.value as Any)
+                self.pareData(json, completion: {
+                    completion()
+                })
+            }
+        }
+        else {
+            if let manifestPath = Bundle.main.path(forResource: "data", ofType: "json"){
+                if let data = NSData(contentsOfFile: manifestPath) {
+                    do {
+                        let json = try JSON(data: data as Data, options: JSONSerialization.ReadingOptions.allowFragments)
+                        self.pareData(json, completion: {
+                            completion()
+                        })
+                    } catch _ {
+                        debugPrint("error")
+                    }
+                }
+            }
+        }
+    }
     //Init
     var VERSION_APP = [VERSION_APP_STRUCT]()
     var INFO_APP = INFO_APP_STRUCT()
@@ -61,6 +90,15 @@ class CONSTANT{
     var DESIGN = DESIGN_STRUCT()
     var URL = URL_STRUCT()
     var APP_NAVIGATION = APP_NAVIGATION_STRUCT()
+    
+    //data
+    var DATA_COLOR = [QUIZ]()
+    var DATA_MATH = [QUIZ]()
+    var DATA_SURROUNDING = [QUIZ]()
+    var DATA_LISTEN = [QUIZ]()
+    var DATA_HISTORY = [QUIZ]()
+    var DATA_LISTENANDREPEAT = [QUIZ]()
+    var DATA_WRITING = [QUIZ]()
 }
 
 struct VERSION_APP_STRUCT{
@@ -145,6 +183,17 @@ struct APP_NAVIGATION_STRUCT{
     var COLOR_TEXT = "000000"
     var COLOR_BUTTON_BACKGROUND = "00CC51"
     var COLOR_BUTTON_TEXT = "ffffff"
+}
+
+struct QUIZ {
+    var id: String = ""
+    var answer: String = ""
+    var question: String = ""
+    var a: String = ""
+    var b: String = ""
+    var c: String = ""
+    var d: String = ""
+    var img: String = ""
 }
 
 extension CONSTANT{
@@ -256,7 +305,22 @@ extension CONSTANT{
         self.APP_NAVIGATION.COLOR_BACKGROUND = nav["COLOR_BACKGROUND"].stringValue
         self.APP_NAVIGATION.COLOR_BUTTON_TEXT = nav["COLOR_BUTTON_TEXT"].stringValue
         self.APP_NAVIGATION.COLOR_BUTTON_BACKGROUND = nav["COLOR_BUTTON_BACKGROUND"].stringValue
+      
     }
+    
+    //data
+    func pareData(_ json: JSON, completion: @escaping ()->Void){
+        //DATA_COLOR
+        let dataColors = json["listQuestionsColor"]
+        
+        var list: [QUIZ] = []
+        for (_, json) : (String, JSON) in dataColors{
+            list.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+        }
+        
+        self.DATA_COLOR = list
+    }
+    
     //Load old
     func loadOldVersion(path: String,_ completion: @escaping (()->Void)){
         self.OBSERVER_MANIFEST = Database.database().reference().child(path).observe(.value){snapshot in
