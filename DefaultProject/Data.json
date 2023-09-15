@@ -1,0 +1,636 @@
+
+{
+    "listQuestionsMath": [
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "8",
+            "question": "What is 5 + 3?",
+            "a": "7",
+            "b": "8",
+            "c": "6",
+            "d": "5"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "5",
+            "question": "How many fingers are there on each of your hands?",
+            "a": "4",
+            "b": "5",
+            "c": "6",
+            "d": "7"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "3",
+            "question": "If you have 4 apples and you give one to your friend, how many apples do you have left?",
+            "a": "1",
+            "b": "2",
+            "c": "3",
+            "d": "4"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "6",
+            "question": "How many faces does a cube have?",
+            "a": "1",
+            "b": "2",
+            "c": "3",
+            "d": "6"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "0",
+            "question": "What is 8 x 0?",
+            "a": "1",
+            "b": "3",
+            "c": "5",
+            "d": "0"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "10",
+            "question": "If you have 10 fingers, how many fingers do you need to count to 20?",
+            "a": "10",
+            "b": "5",
+            "c": "3",
+            "d": "4"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "4",
+            "question": "How many legs does a dog have?",
+            "a": "2",
+            "b": "3",
+            "c": "4",
+            "d": "5"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "14",
+            "question": "What is 7 x 2?",
+            "a": "9",
+            "b": "12",
+            "c": "14",
+            "d": "21"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "11",
+            "question": "What is 4 + 7?",
+            "a": "54",
+            "b": "4",
+            "c": "11",
+            "d": "14"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Cat",
+            "question": "If a cat is in front of a chicken coop, the chicken coop is in front of the house, and the house is in front of a pond, then what is in front of a window?",
+            "a": "Chicken",
+            "b": "Cat",
+            "c": "Fish",
+            "d": "Dog"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "9",
+            "question": "There is a bridge with 5 ducks on it. Under the bridge, there are 4 ducks. How many ducks are there in total?",
+            "a": "10",
+            "b": "8",
+            "c": "9",
+            "d": "11"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "3",
+            "question": "You have 5 apples. You ate 2. How many apples do you have left?",
+            "a": "5",
+            "b": "4",
+            "c": "3",
+            "d": "2"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Sunday",
+            "question": "If today is Saturday, what day is tomorrow?",
+            "a": "Saturday",
+            "b": "Sunday",
+            "c": "Monday",
+            "d": "Friday"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "At the end of the road",
+            "question": "If you walk 10 steps along a road, where are you?",
+            "a": "At the beginning of the road",
+            "b": "In the middle of the road",
+            "c": "At the end of the road",
+            "d": "Cannot be determined"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "4 times",
+            "question": "You have 2 red balls, 3 blue balls, and 1 yellow ball. If you randomly draw a ball from the bag, how many times do you need to draw to ensure you have at least one blue ball?",
+            "a": "2 times",
+            "b": "3 times",
+            "c": "4 times",
+            "d": "6 times"
+        }
+    ],
+    "listQuestionsColor": [
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Orange",
+            "question": "What color is this fruit?",
+            "a": "Red",
+            "b": "Orange",
+            "c": "Yellow",
+            "d": "Green",
+            "img": "cam"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Red",
+            "question": "What color is this cherry?",
+            "a": "Red",
+            "b": "Green",
+            "c": "Yellow",
+            "d": "Purple",
+            "img": "cherry"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "White",
+            "question": "What color is this dog?",
+            "a": "Black",
+            "b": "Brown",
+            "c": "Red",
+            "d": "White",
+            "img": "conchotrang"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Yellow",
+            "question": "What color is this?",
+            "a": "Yellow",
+            "b": "Purple",
+            "c": "Blue",
+            "d": "Orange",
+            "img": "conga"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Red",
+            "question": "What color is this?",
+            "a": "Green",
+            "b": "Orange",
+            "c": "Blue",
+            "d": "Red",
+            "img": "images (1)"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Blue",
+            "question": "What color is the girl's dress?",
+            "a": "Blue",
+            "b": "Green",
+            "c": "Black",
+            "d": "White",
+            "img": "IMG_3959-scaled"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Brown",
+            "question": "What color is this rabbit?",
+            "a": "Black",
+            "b": "Red",
+            "c": "Gray",
+            "d": "Brown",
+            "img": "thonau"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Red",
+            "question": "What color is this?",
+            "a": "Green",
+            "b": "Orange",
+            "c": "Black",
+            "d": "Red",
+            "img": "xedo"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Yellow",
+            "question": "What color is this?",
+            "a": "Purple",
+            "b": "Orange",
+            "c": "Blue",
+            "d": "Yellow",
+            "img": "hinh-anh-qua-chuoi-tieu"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Red",
+            "question": "What color is the inside of this watermelon?",
+            "a": "Yellow",
+            "b": "Green",
+            "c": "Black",
+            "d": "Red",
+            "img": "duahau"
+        }
+    ],
+    "listQuestionsListen": [
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Shoes",
+            "question": "What is she wearing?",
+            "a": "Shoes",
+            "b": "Gloves",
+            "c": "Coat",
+            "d": "Hat",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Mining",
+            "question": "What is he doing?",
+            "a": "Sheep farming",
+            "b": "Gardening",
+            "c": "Baking",
+            "d": "Mining",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Planting",
+            "question": "What is he doing?",
+            "a": "Baking",
+            "b": "Cooking rice",
+            "c": "Planting",
+            "d": "Raising chickens",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Elephant",
+            "question": "What animal is this?",
+            "a": "Dog",
+            "b": "Pig",
+            "c": "Elephant",
+            "d": "Cat",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Rose",
+            "question": "What flower is this?",
+            "a": "Wild grass flower",
+            "b": "Sunflower",
+            "c": "Chrysanthemum",
+            "d": "Rose",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Mouth",
+            "question": "What part of the body is this?",
+            "a": "Nose",
+            "b": "Eye",
+            "c": "Ear",
+            "d": "Mouth",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Sun",
+            "question": "What is this?",
+            "a": "Moon",
+            "b": "Sun",
+            "c": "Mercury",
+            "d": "Venus",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Planet",
+            "question": "What is this?",
+            "a": "Onion",
+            "b": "Leafy greens",
+            "c": "Planet",
+            "d": "Action",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Computer",
+            "question": "What is this?",
+            "a": "Desktop computer",
+            "b": "Airplane",
+            "c": "Projector",
+            "d": "Computer",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Baby",
+            "question": "What is he?",
+            "a": "Youngest",
+            "b": "Baby",
+            "c": "Well-behaved",
+            "d": "Grown-up",
+            "img": ""
+        }
+    ],
+    "listQuestionsSurrounding": [
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Watermelon",
+            "question": "Watermelon",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "duahau"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Banana Pepper",
+            "question": "Banana Pepper",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "hinh-anh-qua-chuoi-tieu"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Brown Rabbit",
+            "question": "Brown Rabbit",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "thonau"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Ao Dai",
+            "question": "Ao Dai",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "IMG_3959-scaled"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Strawberry",
+            "question": "Strawberry",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "images (1)"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Rooster",
+            "question": "Rooster",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "conga"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "White Dog",
+            "question": "White Dog",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "conchotrang"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Cherry",
+            "question": "Cherry",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "cherry"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Orange",
+            "question": "Orange",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "cam"
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Car",
+            "question": "Car",
+            "a": "",
+            "b": "",
+            "c": "",
+            "d": "",
+            "img": "xedo"
+        }
+    ],
+    "listQuestionsHistory": [
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Ba Ria",
+            "question": "In the year 1933, France merged Truong Sa into which province?",
+            "a": "Ba Ria",
+            "b": "Kien Giang",
+            "c": "Gia Dinh",
+            "d": "Khanh Hoa",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Vietnam",
+            "question": "The Paracel and Spratly Islands belong to which country?",
+            "a": "Vietnam",
+            "b": "China",
+            "c": "Philippines",
+            "d": "Malaysia",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Hanoi",
+            "question": "Which city was the capital of North Vietnam during the Vietnam War?",
+            "a": "Hanoi",
+            "b": "Ho Chi Minh City",
+            "c": "Hue",
+            "d": "Da Nang",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Ly Thai To",
+            "question": "Who founded the city of Thang Long, now known as Hanoi?",
+            "a": "Ly Thai To",
+            "b": "Tran Nhan Tong",
+            "c": "Le Loi",
+            "d": "Nguyen Hue",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Hue",
+            "question": "Which city in Vietnam is known for its historic Imperial City and Forbidden Purple City?",
+            "a": "Hue",
+            "b": "Hanoi",
+            "c": "Hoi An",
+            "d": "Ho Chi Minh City",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "1975",
+            "question": "In which year did the Fall of Saigon occur, leading to the end of the Vietnam War?",
+            "a": "1975",
+            "b": "1965",
+            "c": "1985",
+            "d": "1995",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Pho",
+            "question": "What is the name of the popular Vietnamese noodle soup typically consisting of broth, rice noodles, and meat?",
+            "a": "Pho",
+            "b": "Banh Mi",
+            "c": "Goi Cuon",
+            "d": "Com tam",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Uncle Ho",
+            "question": "What nickname is often used to refer to Ho Chi Minh, the founding father of modern Vietnam?",
+            "a": "Uncle Ho",
+            "b": "Grandfather Hanoi",
+            "c": "Father of the Nation",
+            "d": "Hero of Dien Bien Phu",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Saigon",
+            "question": "What was the former name of Ho Chi Minh City before the reunification of North and South Vietnam?",
+            "a": "Saigon",
+            "b": "Hanoi",
+            "c": "Hue",
+            "d": "Da Nang",
+            "img": ""
+        },
+        {
+            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+            "answer": "Banh Mi",
+            "question": "What is the name of the Vietnamese sandwich typically consisting of a French baguette filled with various ingredients?",
+            "a": "Banh Mi",
+            "b": "Pho",
+            "c": "Goi Cuon",
+            "d": "Com tam",
+            "img": ""
+        }
+    ],
+    "INFO_APP": {
+        "EMAIL_CONTRACT": "vuphoapp2021@gmail.com",
+        "APPSTORE_URL": "https://apps.apple.com/us/app/mymusic-offline-music-player/id1588911860",
+        "PRIVACY": "https://telegra.ph/Privacy-Policy-10-15-52",
+        "SECRET_PASS": "1b1f1309201b4ef68f50396547f67ef9",
+        "SUBCRIPTION_TEXT": "Subscription automatically renews unless auto-renew is turned off at least 24-hours before the end of the current period. Account will be charged for renewal within 24-hours prior to the end of the current period, and identify the cost of the renewal. Subscriptions may be managed by the user and auto-renewal may be turned off in your Apple ID Account Settings after purchases",
+        "TERM": "https://telegra.ph/Terms--Conditions-10-15-2",
+        "VERIFY_RECEIPT": "https://buy.itunes.apple.com/verifyReceipt",
+        "KEYDECRYPTEBTEXT": "28 02 98 16 87 b6 bc 2c 93 89 c3 34 9f dc 17 fb 3d fb ba 62 24 af fb 76 76 e1 33 79 26 cd d6 02"
+    },
+    "IAP":[
+        {
+            "DESCRIPTION": "Plan auto-renews for 0.99$ / week",
+            "KEY": "week",
+            "PRICE": "0.99$",
+            "PRODUCT_ID": "cyc.trung.musi",
+            "TITLE": "WEEKLY",
+            "PERCENT_DISCOUNT": "",
+            "OTHER_INFOMATION": ""
+        },
+        {
+            "DESCRIPTION": "Plan auto-renews for 2.99$/week",
+            "KEY": "month",
+            "PRICE": "2.99$",
+            "PRODUCT_ID": "cyc.trung.musi",
+            "TITLE": "MONTHLY",
+            "PERCENT_DISCOUNT": "-25%",
+            "OTHER_INFOMATION": ""
+        }, {
+            "DESCRIPTION": "Plan auto-renews for 9.99$/month",
+            "KEY": "year",
+            "PRICE": "$9.99",
+            "PRODUCT_ID": "cyc.trung.musi.yearly 9.99$/year",
+            "TITLE": "YEARLY",
+            "PERCENT_DISCOUNT": "-81%",
+            "OTHER_INFOMATION": ""
+        }
+    ],
+    "ADS": {
+        "BANNER_ID": "ca-app-pub-3940256099942544/2934735716",
+        "NATIVE_ID": "ca-app-pub-3940256099942544/3986624511",
+        "OPEN_APP_ID": "ca-app-pub-3940256099942544/5662855259",
+        "REWARDED_ID": "ca-app-pub-3940256099942544/1712485313",
+        "INTERSTITIAL_ID": "ca-app-pub-3940256099942544/4411468910",
+        "ENABLE_REWARDED": false,
+        "ENABLE_OPEN_APP": false,
+        "ENABLE_BANNER": false,
+        "ENABLE_INTERSTITIAL": false,
+        "ENABLE_NATIVE": false,
+        "LIMIT_FREE_WITH_REWARDED": 99,
+        "INTERVAL_APP_OPEN": 60,
+        "INTERVAL_INTERSTITIAL": 10
+    },
+    "URL": {
+        "PATH_GIFTCODE" : "giftcode",
+        "LINK_FANAPGE" : "http://www.facebook.com/MetaVietnam",
+        "LINK_SCHEME_FANPAGE" : "fb://profile/108824017345866",
+        "FORM_FEEBACK": "https://forms.gle/HMGm1gUSSpWFkEGQ8",
+        "LINK_GARAGEBAND": "https://apps.apple.com/us/app/garageband/id408709785",
+        "LINK_API_CATEGORY" : "https://ring.daktech.co/list_category",
+        "LINK_LIST_RINGTONE" : "https://ring.daktech.co/ringtone?sortby=download",
+        "LINK_CATEGORY_WALLPAPER" : "https://aiby.mobi/widget/json/v1.54/release/wallpapers.json",
+        "LINK_CATEGORY_LIVE_WALLPAPER" : "https://aiby.mobi/widget/json/v1.54/release/liveWallpapers.json",
+        "LINK_SEARCH_RINGTONE" : "https://ring.daktech.co/ringtone?sortby=download&title="
+    },
+    "DESIGN": {
+        "ACTIVE_NEW_DESIGN" : true,
+        "ACTIVE_HIDDEN" : true,
+        "ACTIVE_MORE_APP": false,
+        "ENABLE_GIFT": true,
+        "ENABLE_FANPAGE": true,
+        "ACTIVE_SHOW_RATE_WHEN_OPEN_APP": true,
+        "ENABLE_CACHE": true,
+        "ENABLE_ADVANCED_MODE_EDITOR": true
+    },
+    "APP_NAVIGATION": {
+        "IS_SHOW_ALWAYS": false,
+        "ENABLE" : true,
+        "TITLE" : "Title",
+        "MESSAGE": "Message",
+        "IMAGE_URL": "https://is2-ssl.mzstatic.com/image/thumb/Purple116/v4/96/33/fc/9633fc94-4ff0-e3aa-7669-5b081cefad2f/AppIconMac-0-2x_U007euniversal-0-4-0-0-0-85-220-0.png/246x0w.webp",
+        "URL": "https://apps.apple.com/us/app/mymusic-offline-music-player/id1588911860",
+        "BUTTON_NAME": "OK",
+        "COLOR_BACKGROUND": "ffffff",
+        "COLOR_TEXT": "000000",
+        "COLOR_BUTTON_BACKGROUND": "00CC51",
+        "COLOR_BUTTON_TEXT" : "00CC51"
+    }
+}

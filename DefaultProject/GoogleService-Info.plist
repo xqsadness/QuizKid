@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBWSO4Guy481N7BSUIR2lCLgkJJVFXyRRY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1050436292091</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.default.DefaultProject</string>
+	<key>PROJECT_ID</key>
+	<string>quizapp-3d8ed</string>
+	<key>STORAGE_BUCKET</key>
+	<string>quizapp-3d8ed.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1050436292091:ios:7d7e8f80229e8b9b86cf5e</string>
+	<key>DATABASE_URL</key>
+	<string>https://quizapp-3d8ed-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
