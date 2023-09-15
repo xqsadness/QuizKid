@@ -29,7 +29,7 @@ struct ListeningSubmitNextButtonsView: View {
             Button{
                 isSubmit = true
                 
-                if selectedAnswer.lowercased().localizedLanguage(language: language) == answerCorrect.lowercased().localizedLanguage(language: language){
+                if selectedAnswer.lowercased().cw_localized == answerCorrect.lowercased().cw_localized{
                     loadAudio(nameSound: "correct")
                     isCorrect = true
                     countCorrect += 1
@@ -39,7 +39,7 @@ struct ListeningSubmitNextButtonsView: View {
                     countWrong += 1
                 }
             }label: {
-                Text("Submit".localizedLanguage(language: language))
+                Text("Submit".cw_localized)
                     .foregroundColor(.text)
                     .padding()
                     .frame(height: 50)
@@ -75,7 +75,7 @@ struct ListeningSubmitNextButtonsView: View {
                 
                 Point.updatePointListen(point: countCorrect)
             }label: {
-                Text(selectedTab < CONSTANT.SHARED.DATA_LISTEN.count - 1 ? "Next".localizedLanguage(language: language) : "Done".localizedLanguage(language: language))
+                Text(selectedTab < CONSTANT.SHARED.DATA_LISTEN.count - 1 ? "Next".cw_localized : "Done".cw_localized)
                     .foregroundColor(.text)
                     .padding()
                     .frame(height: 50)

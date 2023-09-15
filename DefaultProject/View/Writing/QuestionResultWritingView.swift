@@ -21,18 +21,18 @@ struct QuestionResultWritingView: View {
                 Image(systemName: isCorrect ? "checkmark.circle.fill" : "x.circle.fill")
                     .imageScale(.large)
                     .foregroundColor(Color(hex: isCorrect ? "58a700" : "ea2b2b"))
-                Text(isCorrect ? "Perfect".localizedLanguage(language: language) : "Wrong".localizedLanguage(language: language))
+                Text(isCorrect ? "Perfect".cw_localized : "Wrong".cw_localized)
                     .font(.bold(size: 20))
                     .foregroundColor(Color(hex: isCorrect ? "58a700" : "ea2b2b"))
             }
             .hAlign(.topLeading)
             .padding(.top,15)
             
-            Text("Answer:".localizedLanguage(language: language))
+            Text("Answer:".cw_localized)
                 .font(.bold(size: 16))
                 .foregroundColor(Color(hex: isCorrect ? "58a700" : "ea2b2b"))
                 .hAlign(.leading)
-            Text(" \(answer.localizedLanguage(language: language))")
+            Text(" \(answer.cw_localized)")
                 .font(.bold(size: 14))
                 .foregroundColor(Color(hex: isCorrect ? "58a700" : "ea2b2b"))
                 .hAlign(.leading)
@@ -42,7 +42,7 @@ struct QuestionResultWritingView: View {
                     isShowPopupCheck = false
                 }
             } label: {
-                Text("CONTINUE".localizedLanguage(language: language))
+                Text("CONTINUE".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.white)
                     .padding(10)

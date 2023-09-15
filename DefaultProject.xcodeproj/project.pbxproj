@@ -120,9 +120,7 @@
 		DDA494552A87192D003814F1 /* congralutions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DDA494542A87192D003814F1 /* congralutions.mp3 */; };
 		DDA4945C2A871C8A003814F1 /* congralutions.json in Resources */ = {isa = PBXBuildFile; fileRef = DDA4945B2A871C8A003814F1 /* congralutions.json */; };
 		DDA4945E2A8721C4003814F1 /* faild.json in Resources */ = {isa = PBXBuildFile; fileRef = DDA4945D2A8721C4003814F1 /* faild.json */; };
-		DDA494602A8725FC003814F1 /* QuizDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4945F2A8725FC003814F1 /* QuizDefault.swift */; };
 		DDA494622A872DDF003814F1 /* ListeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA494612A872DDF003814F1 /* ListeningView.swift */; };
-		DDC5F3542A85CBD90096AAA0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC5F3532A85CBD90096AAA0 /* Question.swift */; };
 		DDCC6D692A8DC4FB0085D950 /* underline.json in Resources */ = {isa = PBXBuildFile; fileRef = DDCC6D682A8DC4FB0085D950 /* underline.json */; };
 		DDCC6D6C2A8DCE100085D950 /* QuestionResultWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D6B2A8DCE100085D950 /* QuestionResultWritingView.swift */; };
 		DDCC6D6E2A8DCF2F0085D950 /* QuizWritingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D6D2A8DCF2F0085D950 /* QuizWritingContentView.swift */; };
@@ -272,9 +270,7 @@
 		DDA494542A87192D003814F1 /* congralutions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = congralutions.mp3; sourceTree = "<group>"; };
 		DDA4945B2A871C8A003814F1 /* congralutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congralutions.json; sourceTree = "<group>"; };
 		DDA4945D2A8721C4003814F1 /* faild.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = faild.json; sourceTree = "<group>"; };
-		DDA4945F2A8725FC003814F1 /* QuizDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizDefault.swift; sourceTree = "<group>"; };
 		DDA494612A872DDF003814F1 /* ListeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningView.swift; sourceTree = "<group>"; };
-		DDC5F3532A85CBD90096AAA0 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		DDCC6D682A8DC4FB0085D950 /* underline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = underline.json; sourceTree = "<group>"; };
 		DDCC6D6B2A8DCE100085D950 /* QuestionResultWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResultWritingView.swift; sourceTree = "<group>"; };
 		DDCC6D6D2A8DCF2F0085D950 /* QuizWritingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWritingContentView.swift; sourceTree = "<group>"; };
@@ -643,8 +639,6 @@
 			isa = PBXGroup;
 			children = (
 				DD72E2352A8A1D38006AB647 /* PoinRealm.swift */,
-				DDA4945F2A8725FC003814F1 /* QuizDefault.swift */,
-				DDC5F3532A85CBD90096AAA0 /* Question.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -865,7 +859,6 @@
 				DD3B1B8D2A8B8C910047F43B /* ColorView.swift in Sources */,
 				CA2223472A2BB329005164BB /* DefaultProjectApp.swift in Sources */,
 				CA2223AB2A2BB34A005164BB /* CONSTANT.swift in Sources */,
-				DDC5F3542A85CBD90096AAA0 /* Question.swift in Sources */,
 				DDCC6D6C2A8DCE100085D950 /* QuestionResultWritingView.swift in Sources */,
 				DD7F61062A8F0D480030E044 /* ColorSubmitNextButtonsView.swift in Sources */,
 				DDCC6D7B2A8E1A420085D950 /* HistoryContentView.swift in Sources */,
@@ -913,7 +906,6 @@
 				CA2223962A2BB34A005164BB /* IAPHandler.swift in Sources */,
 				CA2223C62A2BB34A005164BB /* Font.swift in Sources */,
 				CA2223C72A2BB34A005164BB /* UIApplication.swift in Sources */,
-				DDA494602A8725FC003814F1 /* QuizDefault.swift in Sources */,
 				DD7F61122A8F14260030E044 /* SectionMathView.swift in Sources */,
 				CA2223CA2A2BB34A005164BB /* TimeInterval.swift in Sources */,
 				CA2223C12A2BB34A005164BB /* SlimRectangle.swift in Sources */,

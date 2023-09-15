@@ -24,7 +24,7 @@ struct ListenAndRPContentView: View {
     var body: some View {
         VStack (spacing: 0) {
             let quiz = CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index]
-            Text("Repeat what you hear".localizedLanguage(language: language))
+            Text("Repeat what you hear".cw_localized)
                 .font(.bold(size: 16))
                 .foregroundColor(Color.background)
                 .hAlign(.leading)
@@ -52,7 +52,7 @@ struct ListenAndRPContentView: View {
                             }
                             .padding(.top,7)
                         }else{
-                            Text("\(quiz.question.localizedLanguage(language: language))")
+                            Text("\(quiz.question.cw_localized)")
                                 .font(.bold(size: 14))
                                 .foregroundColor(Color.background)
                         }
@@ -69,7 +69,7 @@ struct ListenAndRPContentView: View {
                 .contentShape(Rectangle())
                 .onTapGesture {
                     if !synthesizer.isSpeaking{
-                        speakText(textToSpeak: quiz.question.localizedLanguage(language: language))
+                        speakText(textToSpeak: quiz.question.cw_localized)
                     }else{
                         synthesizer.stopSpeaking(at: .immediate)
                     }
@@ -79,7 +79,7 @@ struct ListenAndRPContentView: View {
             .hAlign(.leading)
             .padding(.horizontal)
             
-            Text(isHide ? "Show".localizedLanguage(language: language) : "Hide".localizedLanguage(language: language))
+            Text(isHide ? "Show".cw_localized : "Hide".cw_localized)
                 .font(.bold(size: 14))
                 .foregroundColor(Color.blue)
                 .frame(maxWidth: .infinity, alignment: .topTrailing)
@@ -98,14 +98,14 @@ struct ListenAndRPContentView: View {
                         .frame(height: 57)
                 } else {
                     if selectedTab == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
-                        Text("Done".localizedLanguage(language: language))
+                        Text("Done".cw_localized)
                             .font(.bold(size: 17))
                             .foregroundColor(Color.blue)
                     }else{
                         Image(systemName: "mic.fill")
                             .imageScale(.large)
                             .foregroundColor(Color.blue)
-                        Text("Tap to speak".localizedLanguage(language: language))
+                        Text("Tap to speak".cw_localized)
                             .font(.bold(size: 17))
                             .foregroundColor(Color.blue)
                     }
@@ -135,7 +135,7 @@ struct ListenAndRPContentView: View {
                 }
                 .padding(.top,20)
             }else{
-                Text("\(speechRecognizer.transcript.localizedLanguage(language: language))")
+                Text("\(speechRecognizer.transcript.cw_localized)")
                     .font(.bold(size: 17))
                     .foregroundColor(Color.blue)
                     .padding(.top,20)

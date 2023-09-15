@@ -22,7 +22,7 @@ struct ChooseLanguageView:  SwiftUI.View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Languages".localizedLanguage(language: language))
+                    Text("Languages".cw_localized)
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }

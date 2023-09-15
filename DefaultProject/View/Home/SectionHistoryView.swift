@@ -21,11 +21,11 @@ struct SectionHistoryView: View {
                 .padding(.leading)
             
             VStack(spacing: 5) {
-                Text("History".localizedLanguage(language: language))
+                Text("History".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(CONSTANT.SHARED.DATA_HISTORY.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_HISTORY.count) \("questions".cw_localized)")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)

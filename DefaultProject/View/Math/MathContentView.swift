@@ -20,7 +20,7 @@ struct MathContentView: View {
         VStack (spacing: 0) {
             let quiz = CONSTANT.SHARED.DATA_MATH[index]
             
-            Text("Select an answer".localizedLanguage(language: language))
+            Text("Select an answer".cw_localized)
                 .font(.bold(size: 14))
                 .foregroundColor(Color.text2)
                 .hAlign(.leading)
@@ -28,7 +28,7 @@ struct MathContentView: View {
                 .padding(.horizontal)
             
             HStack{
-                Text(quiz.question.localizedLanguage(language: language))
+                Text(quiz.question.cw_localized)
                     .font(.regular(size: 22))
                     .foregroundColor(.background)
                     .multilineTextAlignment(.leading)
@@ -65,7 +65,7 @@ struct MathContentView: View {
     @ViewBuilder
     func answerView(question: String, isCorrect: Bool) -> some View {
         HStack{
-            Text(question.localizedLanguage(language: language))
+            Text(question.cw_localized)
                 .font(.regular(size: 18))
                 .foregroundColor(.background)
                 .frame(height: 55)

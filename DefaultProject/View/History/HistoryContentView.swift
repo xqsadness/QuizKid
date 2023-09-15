@@ -20,7 +20,7 @@ struct HistoryContentView: View {
         VStack (spacing: 0) {
             let quiz = CONSTANT.SHARED.DATA_HISTORY[index]
             
-            Text("Select an answer".localizedLanguage(language: language))
+            Text("Select an answer".cw_localized)
                 .font(.bold(size: 14))
                 .foregroundColor(Color.text2)
                 .hAlign(.leading)
@@ -28,7 +28,7 @@ struct HistoryContentView: View {
                 .padding(.horizontal)
             
             VStack{
-                Text(quiz.question.localizedLanguage(language: language))
+                Text(quiz.question.cw_localized)
                     .font(.regular(size: 20))
                     .foregroundColor(.background)
                     .hAlign(.leading)
@@ -44,7 +44,7 @@ struct HistoryContentView: View {
             .padding()
             .onTapGesture {
                 if !synthesizer.isSpeaking{
-                    speakText(textToSpeak: quiz.question.localizedLanguage(language: language))
+                    speakText(textToSpeak: quiz.question.cw_localized)
                 }else{
                     synthesizer.stopSpeaking(at: .immediate)
                 }
@@ -66,7 +66,7 @@ struct HistoryContentView: View {
     @ViewBuilder
     func answerView(question: String, isCorrect: Bool) -> some View {
         HStack{
-            Text(question.localizedLanguage(language: language))
+            Text(question.cw_localized)
                 .font(.regular(size: 15))
                 .foregroundColor(.background)
                 .frame(height: 55)

@@ -31,7 +31,7 @@ struct SurroundingObjectView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Surrounding Object".localizedLanguage(language: language))
+                    Text("Surrounding Object".cw_localized)
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }
@@ -39,7 +39,7 @@ struct SurroundingObjectView: View {
             }
             
             HStack{
-                Text("Tap on the corresponding pairs".localizedLanguage(language: language))
+                Text("Tap on the corresponding pairs".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                 
@@ -99,7 +99,7 @@ struct SurroundingObjectView: View {
                 ZStack{
                     Color.background.opacity(0.7).ignoresSafeArea()
                     VStack{
-                        Text("You have run out of lives".localizedLanguage(language: language) + "!")
+                        Text("You have run out of lives".cw_localized + "!")
                             .font(.bold(size: 20))
                             .foregroundColor(.background)
                             .vAlign(.top)
@@ -118,7 +118,7 @@ struct SurroundingObjectView: View {
                                     coordinator.pop()
                                 }
                             }label: {
-                                Text("Back to home".localizedLanguage(language: language))
+                                Text("Back to home".cw_localized)
                                     .font(.bold(size: 16))
                                     .foregroundColor(.yellow)
                                     .padding(.horizontal)
@@ -147,7 +147,7 @@ struct SurroundingObjectView: View {
                                     heartPoint = 5
                                 }
                             }label: {
-                                Text("Play Again".localizedLanguage(language: language))
+                                Text("Play Again".cw_localized)
                                     .font(.bold(size: 16))
                                     .foregroundColor(.blue)
                                     .padding(.horizontal)

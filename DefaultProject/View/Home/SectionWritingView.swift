@@ -21,11 +21,11 @@ struct SectionWritingView: View {
                 .padding(.leading)
             
             VStack(spacing: 5) {
-                Text("Writing".localizedLanguage(language: language))
+                Text("Writing".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(CONSTANT.SHARED.DATA_WRITING.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_WRITING.count) \("questions".cw_localized)")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)

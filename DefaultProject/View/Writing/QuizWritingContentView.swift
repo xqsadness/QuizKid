@@ -31,7 +31,7 @@ struct QuizWritingContentView: View {
             let quiz = CONSTANT.SHARED.DATA_WRITING[index]
             
             VStack{
-                Text("Listen and rewrite the following sentence".localizedLanguage(language: language))
+                Text("Listen and rewrite the following sentence".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
@@ -50,7 +50,7 @@ struct QuizWritingContentView: View {
                                 .imageScale(.large)
                                 .foregroundColor(Color.blue)
                             
-                            Text("Tap to listen".localizedLanguage(language: language))
+                            Text("Tap to listen".cw_localized)
                                 .font(.bold(size: 16))
                                 .foregroundColor(Color.background)
                                 .hAlign(.leading)
@@ -66,7 +66,7 @@ struct QuizWritingContentView: View {
                     .contentShape(Rectangle())
                     .onTapGesture {
                         if !synthesizer.isSpeaking{
-                            speakText(textToSpeak: quiz.question.localizedLanguage(language: language))
+                            speakText(textToSpeak: quiz.question.cw_localized)
                         }else{
                             synthesizer.stopSpeaking(at: .immediate)
                         }
@@ -85,7 +85,7 @@ struct QuizWritingContentView: View {
             }
             
             ZStack{
-                Text(textWriting.isEmpty ? "Enter here".localizedLanguage(language: language) : "")
+                Text(textWriting.isEmpty ? "Enter here".cw_localized : "")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text2)
                     .hAlign(.leading)
@@ -124,7 +124,7 @@ struct QuizWritingContentView: View {
                         answer = quiz.answer
                         focusedField = nil
                         
-                        if textWriting.localizedLanguage(language: language).lowercased().trimmingCharacters(in: .whitespacesAndNewlines).contains(quiz.answer.localizedLanguage(language: language).lowercased().trimmingCharacters(in: .whitespacesAndNewlines)){
+                        if textWriting.cw_localized.lowercased().trimmingCharacters(in: .whitespacesAndNewlines).contains(quiz.answer.cw_localized.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)){
                             loadAudio(nameSound: "correct")
                             isCorrect = true
                             withAnimation {
@@ -144,7 +144,7 @@ struct QuizWritingContentView: View {
                             Point.updatepointWriting(point: countCorrect)
                         }
                     } label: {
-                        Text("CHECK".localizedLanguage(language: language))
+                        Text("CHECK".cw_localized)
                             .font(.bold(size: 16))
                             .foregroundColor(Color(hex: textWriting.isEmpty ? "b5b5b5" : "FFFFFF"))
                             .padding()
@@ -162,7 +162,7 @@ struct QuizWritingContentView: View {
                         }
                         loadAudio(nameSound: "congralutions")
                     } label: {
-                        Text("Done".localizedLanguage(language: language))
+                        Text("Done".cw_localized)
                             .font(.bold(size: 16))
                             .foregroundColor(Color(hex: "FFFFFF"))
                             .padding()

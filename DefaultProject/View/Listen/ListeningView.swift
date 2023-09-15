@@ -33,7 +33,7 @@ struct ListeningView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Listen".localizedLanguage(language: language))
+                    Text("Listen".cw_localized)
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }

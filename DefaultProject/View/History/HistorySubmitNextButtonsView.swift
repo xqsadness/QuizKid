@@ -40,7 +40,7 @@ struct HistorySubmitNextButtonsView: View {
                     countWrong += 1
                 }
             }label: {
-                Text("Submit".localizedLanguage(language: language))
+                Text("Submit".cw_localized)
                     .foregroundColor(.text)
                     .padding()
                     .frame(height: 50)
@@ -78,7 +78,7 @@ struct HistorySubmitNextButtonsView: View {
                 Point.updatePointHistory(newPointHistory: countCorrect)
                 //                        }
             }label: {
-                Text(selectedTab < CONSTANT.SHARED.DATA_HISTORY.count - 1 ? "Next".localizedLanguage(language: language) : "Done".localizedLanguage(language: language))
+                Text(selectedTab < CONSTANT.SHARED.DATA_HISTORY.count - 1 ? "Next".cw_localized : "Done".cw_localized)
                     .foregroundColor(.text)
                     .padding()
                     .frame(height: 50)

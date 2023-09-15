@@ -21,7 +21,7 @@ struct ColorContentView: View {
             let quiz = CONSTANT.SHARED.DATA_COLOR[index]
             
             VStack{
-                Text("\(quiz.question.localizedLanguage(language: language))")
+                Text("\(quiz.question.cw_localized)")
                     .font(.regular(size: 20))
                     .foregroundColor(.background)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -57,7 +57,7 @@ struct ColorContentView: View {
     @ViewBuilder
     func answerView(question: String, isCorrect: Bool) -> some View {
         HStack{
-            Text(question.localizedLanguage(language: language))
+            Text(question.cw_localized)
                 .font(.regular(size: 18))
                 .foregroundColor(.background)
                 .frame(height: 55)

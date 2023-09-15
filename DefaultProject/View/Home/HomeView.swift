@@ -17,7 +17,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             HStack{
-                Text("\("Hi".localizedLanguage(language: language)), \(USERNAME)")
+                Text("\("Hi".cw_localized), \(USERNAME)")
                     .font(.bold(size: 20))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)

@@ -22,14 +22,14 @@ struct ItemTextView: View {
     
     var body: some View {
         VStack {
-            Text("\(answer.localizedLanguage(language: language))")
+            Text("\(answer.cw_localized)")
                 .font(.bold(size: 14))
                 .foregroundColor(Color.background)
                 .padding(10)
                 .cornerRadius(10)
         }
         .frame(width: (size.width - 15) / 2, height: 70)
-        .background(checkedText.localizedLanguage(language: language) == answer.localizedLanguage(language: language) ? Color.blue.opacity(0.5) : Color.clear)
+        .background(checkedText.cw_localized == answer.cw_localized ? Color.blue.opacity(0.5) : Color.clear)
         .cornerRadius(10)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
@@ -39,14 +39,14 @@ struct ItemTextView: View {
         .contentShape(Rectangle())
         .onTapGesture {
             withAnimation {
-                if checkedText.localizedLanguage(language: language) == answer.localizedLanguage(language: language) {
+                if checkedText.cw_localized == answer.cw_localized {
                     checkedText = ""
                 }else{
-                    checkedText = answer.localizedLanguage(language: language)
-                    if checkedImg.localizedLanguage(language: language) == checkedText.localizedLanguage(language: language){
-                        if let index = listText.firstIndex(where: { $0.answer.localizedLanguage(language: language) == checkedText.localizedLanguage(language: language) }) {
+                    checkedText = answer.cw_localized
+                    if checkedImg.cw_localized == checkedText.cw_localized{
+                        if let index = listText.firstIndex(where: { $0.answer.cw_localized == checkedText.cw_localized }) {
                             listText.remove(at: index)
-                            listImg.removeAll(where: {$0.answer.localizedLanguage(language: language) == checkedText.localizedLanguage(language: language)})
+                            listImg.removeAll(where: {$0.answer.cw_localized == checkedText.cw_localized})
                         }
                         loadAudio("correct")
                         countCorrect += 1

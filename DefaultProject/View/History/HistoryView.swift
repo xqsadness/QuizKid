@@ -34,7 +34,7 @@ struct HistoryView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("History".localizedLanguage(language: language))
+                    Text("History".cw_localized)
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }

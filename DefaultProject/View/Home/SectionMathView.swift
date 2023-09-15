@@ -21,11 +21,11 @@ struct SectionMathView: View {
                 .padding(.leading)
             
             VStack(spacing: 5) {
-                Text("Math".localizedLanguage(language: language))
+                Text("Math".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(CONSTANT.SHARED.DATA_MATH.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_MATH.count) \("questions".cw_localized)")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)

@@ -38,20 +38,20 @@ struct ItemImgView: View {
         .overlay{
             Rectangle()
                 .foregroundColor(Color.blue.opacity(0.5))
-                .opacity(checkedImg == answer.localizedLanguage(language: language) ? 1 : 0)
+                .opacity(checkedImg == answer.cw_localized ? 1 : 0)
                 .cornerRadius(10)
         }
         .contentShape(Rectangle())
         .onTapGesture {
             withAnimation {
-                if checkedImg == answer.localizedLanguage(language: language) {
+                if checkedImg == answer.cw_localized {
                     checkedImg = ""
                 } else {
-                    checkedImg = answer.localizedLanguage(language: language)
-                    if checkedImg.localizedLanguage(language: language) == checkedText.localizedLanguage(language: language) {
-                        if let index = listImg.firstIndex(where: { $0.answer.localizedLanguage(language: language) == checkedImg.localizedLanguage(language: language) }) {
+                    checkedImg = answer.cw_localized
+                    if checkedImg.cw_localized == checkedText.cw_localized {
+                        if let index = listImg.firstIndex(where: { $0.answer.cw_localized == checkedImg.cw_localized }) {
                             listImg.remove(at: index)
-                            listText.removeAll(where: {$0.answer.localizedLanguage(language: language) == checkedImg.localizedLanguage(language: language)})
+                            listText.removeAll(where: {$0.answer.cw_localized == checkedImg.cw_localized})
                         }
                         loadAudio("correct")
                         countCorrect += 1

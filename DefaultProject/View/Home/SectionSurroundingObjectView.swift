@@ -21,11 +21,11 @@ struct SectionSurroundingObjectView: View {
                 .padding(.leading)
             
             VStack(spacing: 5){
-                Text("Surrounding objects".localizedLanguage(language: language))
+                Text("Surrounding objects".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(CONSTANT.SHARED.DATA_SURROUNDING.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_SURROUNDING.count) \("questions".cw_localized)")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)

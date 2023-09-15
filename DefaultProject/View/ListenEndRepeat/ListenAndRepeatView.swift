@@ -39,7 +39,7 @@ struct ListenAndRepeatView: View {
                         Image(systemName: "chevron.left")
                             .imageScale(.large)
                             .foregroundColor(Color.background)
-                        Text("Listen and repeat".localizedLanguage(language: language))
+                        Text("Listen and repeat".cw_localized)
                             .font(.bold(size: 24))
                             .foregroundColor(Color.background)
                     }
@@ -52,7 +52,7 @@ struct ListenAndRepeatView: View {
                     TabView(selection: $selectedTab) {
                         ForEach(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.indices, id: \.self) { index in
                             ListenAndRPContentView(speechRecognizer: speechRecognizer,synthesizer: synthesizer,index: index ,isSpeaking: $isSpeaking, isHide: $isHide, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab){
-                                handleTapToSpeak(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.localizedLanguage(language: language))
+                                handleTapToSpeak(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.cw_localized)
                             }
                             .tag(index)
                             .contentShape(Rectangle()).gesture(DragGesture())
@@ -174,7 +174,7 @@ struct ListenAndRepeatView: View {
             } else {
                 isSpeaking = false
                 speechRecognizer.stopTranscribing()
-                if speechRecognizer.transcript.lowercased().localizedLanguage(language: language) == answer.lowercased(){
+                if speechRecognizer.transcript.lowercased().cw_localized == answer.lowercased(){
                     loadAudio(nameSound: "correct")
                     DispatchQueue.main.async {
                         isCorrect = true

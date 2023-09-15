@@ -30,7 +30,7 @@ struct MathSubmitNextButtonsView: View {
                 offset = -10
                 isSubmit = true
                 
-                if selectedAnswer.lowercased().localizedLanguage(language: language) == answerCorrect.lowercased().localizedLanguage(language: language){
+                if selectedAnswer.lowercased().cw_localized == answerCorrect.lowercased().cw_localized{
                     loadAudio(nameSound: "correct")
                     isCorrect = true
                     countCorrect += 1
@@ -40,7 +40,7 @@ struct MathSubmitNextButtonsView: View {
                     countWrong += 1
                 }
             }label: {
-                Text("Submit".localizedLanguage(language: language))
+                Text("Submit".cw_localized)
                     .foregroundColor(.text)
                     .padding()
                     .frame(height: 50)
@@ -76,7 +76,7 @@ struct MathSubmitNextButtonsView: View {
                 
                 Point.updatePointMath(point: countCorrect)
             }label: {
-                Text(selectedTab < CONSTANT.SHARED.DATA_MATH.count - 1 ? "Next".localizedLanguage(language: language) : "Done".localizedLanguage(language: language))
+                Text(selectedTab < CONSTANT.SHARED.DATA_MATH.count - 1 ? "Next".cw_localized : "Done".cw_localized)
                     .foregroundColor(.text)
                     .padding()
                     .frame(height: 50)

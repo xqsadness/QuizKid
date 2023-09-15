@@ -19,17 +19,17 @@ struct CreateUsernameView: View {
                     .foregroundColor(Color.text)
                 
                 VStack{
-                    Text("Welcome".localizedLanguage(language: language))
+                    Text("Welcome".cw_localized)
                         .font(.bold(size: 16))
                         .foregroundColor(Color.background)
                         .padding(.bottom, 10)
-                    Text("Please enter your name".localizedLanguage(language: language))
+                    Text("Please enter your name".cw_localized)
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text2)
                         .padding(.bottom, 15)
                     
                     HStack{
-                        Text(name.isEmpty ? "Enter your name".localizedLanguage(language: language) : "")
+                        Text(name.isEmpty ? "Enter your name".cw_localized : "")
                             .font(Font.medium(size: 16))
                             .foregroundColor(.text2)
                             .hAlign(.leading)
@@ -52,7 +52,7 @@ struct CreateUsernameView: View {
                     Button {
                         USERNAME = name
                     } label: {
-                        Text("START".localizedLanguage(language: language))
+                        Text("START".cw_localized)
                             .font(.bold(size: 18))
                             .foregroundColor(Color.text)
                             .padding(.vertical, 10)

@@ -21,7 +21,7 @@ struct ListenContentView: View {
             let quiz = CONSTANT.SHARED.DATA_LISTEN[index]
             
             VStack{
-                Text("Listen and choose the correct answer".localizedLanguage(language: language))
+                Text("Listen and choose the correct answer".cw_localized)
                     .font(.regular(size: 19))
                     .foregroundColor(.background)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -32,7 +32,7 @@ struct ListenContentView: View {
                     .padding(.top)
                     .onTapGesture {
                         if !synthesizer.isSpeaking{
-                            speakText(textToSpeak: quiz.answer.localizedLanguage(language: language))
+                            speakText(textToSpeak: quiz.answer.cw_localized)
                         }else{
                             synthesizer.stopSpeaking(at: .immediate)
                         }
@@ -65,7 +65,7 @@ struct ListenContentView: View {
     @ViewBuilder
     func answerView(question: String, isCorrect: Bool) -> some View {
         HStack{
-            Text(question.localizedLanguage(language: language))
+            Text(question.cw_localized)
                 .font(.regular(size: 18))
                 .foregroundColor(.background)
                 .frame(height: 55)

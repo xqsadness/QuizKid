@@ -21,11 +21,11 @@ struct SectionListeningView: View {
                 .padding(.leading)
             
             VStack(spacing: 5) {
-                Text("Listen".localizedLanguage(language: language))
+                Text("Listen".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(CONSTANT.SHARED.DATA_LISTEN.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_LISTEN.count) \("questions".cw_localized)")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)

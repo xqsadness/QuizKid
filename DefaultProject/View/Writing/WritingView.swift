@@ -39,7 +39,7 @@ struct WritingView: View {
                         Image(systemName: "chevron.left")
                             .imageScale(.large)
                             .foregroundColor(Color.background)
-                        Text("Writing".localizedLanguage(language: language))
+                        Text("Writing".cw_localized)
                             .font(.bold(size: 24))
                             .foregroundColor(Color.background)
                     }

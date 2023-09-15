@@ -16,7 +16,7 @@ struct PermissionsNoticeView: View {
         ZStack{
             Color.background.opacity(0.7).ignoresSafeArea()
             VStack{
-                Text("\(message)".localizedLanguage(language: language) + "!")
+                Text("\(message)".cw_localized + "!")
                     .font(.bold(size: 20))
                     .foregroundColor(.background)
                     .vAlign(.top)
@@ -35,7 +35,7 @@ struct PermissionsNoticeView: View {
                             coordinator.pop()
                         }
                     }label: {
-                        Text("Back to home".localizedLanguage(language: language))
+                        Text("Back to home".cw_localized)
                             .font(.bold(size: 16))
                             .foregroundColor(.yellow)
                             .padding(.horizontal)
@@ -53,7 +53,7 @@ struct PermissionsNoticeView: View {
                         }
                         UIApplication.shared.open(settingsURL)
                     }label: {
-                        Text("Go to setting".localizedLanguage(language: language))
+                        Text("Go to setting".cw_localized)
                             .font(.bold(size: 16))
                             .foregroundColor(.blue)
                             .padding(.horizontal)

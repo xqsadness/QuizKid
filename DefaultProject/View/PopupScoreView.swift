@@ -17,7 +17,7 @@ struct PopupScoreView: View {
 
     var body: some View {
         VStack{
-            Text(countCorrect == 0 ? "You didn't get any question right !".localizedLanguage(language: language) : "Congralutions! You have scored".localizedLanguage(language: language))
+            Text(countCorrect == 0 ? "You didn't get any question right !".cw_localized : "Congralutions! You have scored".cw_localized)
                 .font(.bold(size: 20))
                 .foregroundColor(.background)
                 .vAlign(.top)
@@ -34,7 +34,7 @@ struct PopupScoreView: View {
                             .foregroundColor(.text)
                             .font(.bold(size: 40))
                         
-                        Text("\("Out of".localizedLanguage(language: language)) \(totalQuestion)")
+                        Text("\("Out of".cw_localized) \(totalQuestion)")
                             .foregroundColor(.text)
                             .font(.regular(size: 19))
                     }
@@ -47,7 +47,7 @@ struct PopupScoreView: View {
                     coordinator.pop()
                 }
             }label: {
-                Text("Back to home".localizedLanguage(language: language))
+                Text("Back to home".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(.yellow)
                     .padding(.horizontal)

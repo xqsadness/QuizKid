@@ -19,7 +19,7 @@ struct QuizWritingInfoView: View {
     var body: some View {
         HStack {
             VStack {
-                Text("\(selectedTab + 1) \("of".localizedLanguage(language: language)) \(CONSTANT.SHARED.DATA_WRITING.count)")
+                Text("\(selectedTab + 1) \("of".cw_localized) \(CONSTANT.SHARED.DATA_WRITING.count)")
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                 ProgressView(value: min(max(progress, 0), Double(CONSTANT.SHARED.DATA_WRITING.count - 1)), total: Double(CONSTANT.SHARED.DATA_WRITING.count - 1))

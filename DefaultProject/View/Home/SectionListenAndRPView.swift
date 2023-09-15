@@ -19,11 +19,11 @@ struct SectionListenAndRPView: View {
                 .frame(width: 80)
             
             VStack(spacing: 5) {
-                Text("Listen And Repeat".localizedLanguage(language: language))
+                Text("Listen And Repeat".cw_localized)
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count) \("questions".cw_localized)")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)
