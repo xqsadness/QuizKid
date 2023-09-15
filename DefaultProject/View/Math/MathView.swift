@@ -44,12 +44,12 @@ struct MathView: View {
             
             VStack{
                 TabView(selection: $selectedTab) {
-                    ForEach(QUIZDEFAULT.SHARED.listQuestionsMath.indices, id: \.self) { index in
+                    ForEach(CONSTANT.SHARED.DATA_MATH.indices, id: \.self) { index in
                         MathContentView(synthesizer: synthesizer, index: index, isSubmit: $isSubmit, selectedAnswer: $selectedAnswer, offset: $offset)
                             .tag(index)
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
-                                answerCorrect = QUIZDEFAULT.SHARED.listQuestionsMath[index].answer
+                                answerCorrect = CONSTANT.SHARED.DATA_MATH[index].answer
                             }
                     }
                 }
@@ -67,7 +67,7 @@ struct MathView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsMath.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_MATH.count)
         }
     }
 }

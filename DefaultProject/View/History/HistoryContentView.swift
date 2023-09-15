@@ -18,7 +18,7 @@ struct HistoryContentView: View {
     
     var body: some View {
         VStack (spacing: 0) {
-            let quiz = QUIZDEFAULT.SHARED.listQuestionsHistory[index]
+            let quiz = CONSTANT.SHARED.DATA_HISTORY[index]
             
             Text("Select an answer".localizedLanguage(language: language))
                 .font(.bold(size: 14))

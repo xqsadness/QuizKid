@@ -50,7 +50,7 @@ struct WritingView: View {
                 
                 VStack{
                     TabView(selection: $selectedTab) {
-                        ForEach(QUIZDEFAULT.SHARED.listWriting.indices, id: \.self) { index in
+                        ForEach(CONSTANT.SHARED.DATA_WRITING.indices, id: \.self) { index in
                             QuizWritingContentView(audioPlayer: audioPlayer ,synthesizer: synthesizer, textWriting: $textWriting, answer: $answer, countCorrect: $countCorrect, countWrong: $countWrong, index: index, selectedTab: $selectedTab, isCorrect: $isCorrect, isShowPopup: $isShowPopup, isShowPopupCheck: $isShowPopupCheck)
                         }
                     }
@@ -66,7 +66,7 @@ struct WritingView: View {
             .background(Color.text)
             .navigationBarBackButtonHidden(true)
             .popup(isPresented: $isShowPopup) {
-                PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listWriting.count)
+                PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_WRITING.count)
             }
             .overlay{
                 if checkPermission{
@@ -96,12 +96,12 @@ struct WritingView: View {
     
     func handleContinue(){
         synthesizer.stopSpeaking(at: .immediate)
-        if selectedTab != QUIZDEFAULT.SHARED.listWriting.count - 1 && (countWrong + countCorrect != QUIZDEFAULT.SHARED.listWriting.count){
+        if selectedTab != CONSTANT.SHARED.DATA_WRITING.count - 1 && (countWrong + countCorrect != CONSTANT.SHARED.DATA_WRITING.count){
             textWriting = ""
         }
         focusedField = nil
         
-        if selectedTab < QUIZDEFAULT.SHARED.listWriting.count - 1 {
+        if selectedTab < CONSTANT.SHARED.DATA_WRITING.count - 1 {
             isShowPopupCheck = false
             progress += 1
             isCorrect = false

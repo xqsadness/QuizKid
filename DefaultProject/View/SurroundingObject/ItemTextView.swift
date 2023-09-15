@@ -13,8 +13,8 @@ struct ItemTextView: View {
     @Binding var checkedImg: String
     @Binding var checkedText: String
     @State var answer: String
-    @Binding var listText: [QUIZSURROUNDING]
-    @Binding var listImg: [QUIZSURROUNDING]
+    @Binding var listText: [QUIZ]
+    @Binding var listImg: [QUIZ]
     @Binding var heartPoint: Int
     @State var size: CGSize
     

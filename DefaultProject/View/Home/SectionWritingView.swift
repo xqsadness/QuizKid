@@ -25,7 +25,7 @@ struct SectionWritingView: View {
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(QUIZDEFAULT.SHARED.listWriting.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_WRITING.count) \("questions".localizedLanguage(language: language))")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)
@@ -40,12 +40,12 @@ struct SectionWritingView: View {
                         .frame(width: 52, height: 52)
                         .overlay {
                             Circle()
-                                .trim(from: 0, to: CGFloat(point.first?.pointWriting ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listWriting.count))
+                                .trim(from: 0, to: CGFloat(point.first?.pointWriting ?? 0) / CGFloat(CONSTANT.SHARED.DATA_WRITING.count))
                                 .stroke(Color.text, style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointWriting ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listWriting.count) * 100 ))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointWriting ?? 0) / CGFloat(CONSTANT.SHARED.DATA_WRITING.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

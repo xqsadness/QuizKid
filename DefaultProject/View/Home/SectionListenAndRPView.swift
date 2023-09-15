@@ -23,7 +23,7 @@ struct SectionListenAndRPView: View {
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(QUIZDEFAULT.SHARED.listListenAndRepeat.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count) \("questions".localizedLanguage(language: language))")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)
@@ -38,12 +38,12 @@ struct SectionListenAndRPView: View {
                         .frame(width: 52, height: 52)
                         .overlay {
                             Circle()
-                                .trim(from: 0, to: CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count))
+                                .trim(from: 0, to: CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count))
                                 .stroke(Color.text, style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listListenAndRepeat.count) * 100 ))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

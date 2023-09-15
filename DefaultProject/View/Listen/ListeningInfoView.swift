@@ -17,10 +17,10 @@ struct ListeningInfoView: View {
     var body: some View {
         HStack{
             VStack{
-                Text("\(selectedTab + 1) \("of".localizedLanguage(language: language)) \(QUIZDEFAULT.SHARED.listQuestionsListen.count)")
+                Text("\(selectedTab + 1) \("of".localizedLanguage(language: language)) \(CONSTANT.SHARED.DATA_LISTEN.count)")
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
-                ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsListen.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsListen.count - 1))
+                ProgressView(value: min(max(progress, 0), Double(CONSTANT.SHARED.DATA_LISTEN.count - 1)), total: Double(CONSTANT.SHARED.DATA_LISTEN.count - 1))
             }
             
             HStack{

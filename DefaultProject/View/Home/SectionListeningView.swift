@@ -25,7 +25,7 @@ struct SectionListeningView: View {
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(QUIZDEFAULT.SHARED.listQuestionsListen.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_LISTEN.count) \("questions".localizedLanguage(language: language))")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)
@@ -40,12 +40,12 @@ struct SectionListeningView: View {
                         .frame(width: 52, height: 52)
                         .overlay {
                             Circle()
-                                .trim(from: 0, to: CGFloat(point.first?.pointListen ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsListen.count))
+                                .trim(from: 0, to: CGFloat(point.first?.pointListen ?? 0) / CGFloat(CONSTANT.SHARED.DATA_LISTEN.count))
                                 .stroke(Color(hex: "FFFFFF"), style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointListen ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsListen.count) * 100 ))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointListen ?? 0) / CGFloat(CONSTANT.SHARED.DATA_LISTEN.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

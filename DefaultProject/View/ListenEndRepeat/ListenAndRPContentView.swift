@@ -23,7 +23,7 @@ struct ListenAndRPContentView: View {
     
     var body: some View {
         VStack (spacing: 0) {
-            let quiz = QUIZDEFAULT.SHARED.listListenAndRepeat[index]
+            let quiz = CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index]
             Text("Repeat what you hear".localizedLanguage(language: language))
                 .font(.bold(size: 16))
                 .foregroundColor(Color.background)
@@ -97,7 +97,7 @@ struct ListenAndRPContentView: View {
                     LottieView(name: "animation_soundwave", loopMode: .loop)
                         .frame(height: 57)
                 } else {
-                    if selectedTab == QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 && (countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
+                    if selectedTab == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
                         Text("Done".localizedLanguage(language: language))
                             .font(.bold(size: 17))
                             .foregroundColor(Color.blue)

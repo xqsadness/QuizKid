@@ -17,10 +17,10 @@ struct MathInfoView: View {
     var body: some View {
         HStack{
             VStack{
-                Text("\(selectedTab + 1) \("of".localizedLanguage(language: language)) \(QUIZDEFAULT.SHARED.listQuestionsMath.count)")
+                Text("\(selectedTab + 1) \("of".localizedLanguage(language: language)) \(CONSTANT.SHARED.DATA_MATH.count)")
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
-                ProgressView(value: min(max(progress, 0), Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1)), total: Double(QUIZDEFAULT.SHARED.listQuestionsMath.count - 1))
+                ProgressView(value: min(max(progress, 0), Double(CONSTANT.SHARED.DATA_MATH.count - 1)), total: Double(CONSTANT.SHARED.DATA_MATH.count - 1))
             }
             
             HStack{

@@ -18,7 +18,7 @@ struct MathContentView: View {
     
     var body: some View {
         VStack (spacing: 0) {
-            let quiz = QUIZDEFAULT.SHARED.listQuestionsMath[index]
+            let quiz = CONSTANT.SHARED.DATA_MATH[index]
             
             Text("Select an answer".localizedLanguage(language: language))
                 .font(.bold(size: 14))

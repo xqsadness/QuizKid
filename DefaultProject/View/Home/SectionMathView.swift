@@ -25,7 +25,7 @@ struct SectionMathView: View {
                     .font(.bold(size: 16))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
-                Text("\(QUIZDEFAULT.SHARED.listQuestionsMath.count) \("questions".localizedLanguage(language: language))")
+                Text("\(CONSTANT.SHARED.DATA_MATH.count) \("questions".localizedLanguage(language: language))")
                     .font(.bold(size: 14))
                     .foregroundColor(Color.text)
                     .hAlign(.leading)
@@ -40,12 +40,12 @@ struct SectionMathView: View {
                         .frame(width: 52, height: 52)
                         .overlay{
                             Circle()
-                                .trim(from: 0, to: CGFloat(point.first?.pointMath ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsMath.count))
+                                .trim(from: 0, to: CGFloat(point.first?.pointMath ?? 0) / CGFloat(CONSTANT.SHARED.DATA_MATH.count))
                                 .stroke(Color(hex: "FFFFFF"), style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                 .rotationEffect(.degrees(-90))
                         }
                     
-                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointMath ?? 0) / CGFloat(QUIZDEFAULT.SHARED.listQuestionsMath.count) * 100 ))%")
+                    Text("\(String(format: "%.0f", CGFloat(point.first?.pointMath ?? 0) / CGFloat(CONSTANT.SHARED.DATA_MATH.count) * 100 ))%")
                         .font(.bold(size: 12))
                         .foregroundColor(Color.text)
                 }

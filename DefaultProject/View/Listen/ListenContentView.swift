@@ -18,7 +18,7 @@ struct ListenContentView: View {
     
     var body: some View {
         VStack {
-            let quiz = QUIZDEFAULT.SHARED.listQuestionsListen[index]
+            let quiz = CONSTANT.SHARED.DATA_LISTEN[index]
             
             VStack{
                 Text("Listen and choose the correct answer".localizedLanguage(language: language))

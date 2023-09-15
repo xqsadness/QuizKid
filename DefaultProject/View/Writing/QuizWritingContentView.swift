@@ -28,7 +28,7 @@ struct QuizWritingContentView: View {
     
     var body: some View {
         VStack (spacing: 0) {
-            let quiz = QUIZDEFAULT.SHARED.listWriting[index]
+            let quiz = CONSTANT.SHARED.DATA_WRITING[index]
             
             VStack{
                 Text("Listen and rewrite the following sentence".localizedLanguage(language: language))
@@ -92,8 +92,8 @@ struct QuizWritingContentView: View {
                 TextField("", text: $textWriting)
                     .foregroundColor(Color.background)
                     .focused($focusedField, equals: .textWriting)
-                    .disabled(selectedTab == QUIZDEFAULT.SHARED.listWriting.count - 1 && (countWrong + countCorrect == QUIZDEFAULT.SHARED.listWriting.count) ? true : false)
-                    .opacity(selectedTab == QUIZDEFAULT.SHARED.listWriting.count - 1 && (countWrong + countCorrect == QUIZDEFAULT.SHARED.listWriting.count) ? 0.6 : 1)
+                    .disabled(selectedTab == CONSTANT.SHARED.DATA_WRITING.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_WRITING.count) ? true : false)
+                    .opacity(selectedTab == CONSTANT.SHARED.DATA_WRITING.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_WRITING.count) ? 0.6 : 1)
                     .simultaneousGesture(DragGesture())
             }
             .padding(10)
@@ -101,7 +101,7 @@ struct QuizWritingContentView: View {
             .overlay{
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.text2, lineWidth: 2)
-                    .opacity(selectedTab == QUIZDEFAULT.SHARED.listWriting.count - 1 && (countWrong + countCorrect == QUIZDEFAULT.SHARED.listWriting.count) ? 0.6 : 1)
+                    .opacity(selectedTab == CONSTANT.SHARED.DATA_WRITING.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_WRITING.count) ? 0.6 : 1)
                     .simultaneousGesture(DragGesture())
             }
             .padding(.horizontal)
@@ -119,7 +119,7 @@ struct QuizWritingContentView: View {
             }
             
             HStack{
-                if selectedTab < QUIZDEFAULT.SHARED.listWriting.count - 1 || !(countWrong + countCorrect == QUIZDEFAULT.SHARED.listWriting.count){
+                if selectedTab < CONSTANT.SHARED.DATA_WRITING.count - 1 || !(countWrong + countCorrect == CONSTANT.SHARED.DATA_WRITING.count){
                     Button{
                         answer = quiz.answer
                         focusedField = nil
@@ -155,7 +155,7 @@ struct QuizWritingContentView: View {
                     .contentShape(Rectangle())
                     .disabled(textWriting.isEmpty ? true : false)
                     .opacity(textWriting.isEmpty ? 0.6 : 1)
-                }else if selectedTab == QUIZDEFAULT.SHARED.listWriting.count - 1 && (countWrong + countCorrect == QUIZDEFAULT.SHARED.listWriting.count){
+                }else if selectedTab == CONSTANT.SHARED.DATA_WRITING.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_WRITING.count){
                     Button{
                         withAnimation{
                             isShowPopup = true

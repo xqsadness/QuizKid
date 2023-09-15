@@ -12,8 +12,8 @@ struct SurroundingObjectView: View {
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
     @State var audioPlayer: AVAudioPlayer?
-    @State var listText: [QUIZSURROUNDING] = []
-    @State var listImg: [QUIZSURROUNDING] = []
+    @State var listText: [QUIZ] = []
+    @State var listImg: [QUIZ] = []
     @State var checkedText: String = ""
     @State var checkedImg: String = ""
     @State var heartPoint: Int = 5
@@ -92,7 +92,7 @@ struct SurroundingObjectView: View {
             if isShowPopup {
                 ZStack{
                     Color.background.opacity(0.7).ignoresSafeArea()
-                    PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsSurrounding.count)
+                    PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_SURROUNDING.count)
                 }
             }
             if isShowPopupFail {
@@ -138,10 +138,10 @@ struct SurroundingObjectView: View {
                                     checkedImg = ""
                                     checkedText = ""
                                     if listText.isEmpty{
-                                        listText = QUIZDEFAULT.SHARED.listQuestionsSurrounding
+                                        listText = CONSTANT.SHARED.DATA_SURROUNDING
                                         listText = listText.shuffled()
                                         
-                                        listImg = QUIZDEFAULT.SHARED.listQuestionsSurrounding
+                                        listImg = CONSTANT.SHARED.DATA_SURROUNDING
                                         listImg = listText.shuffled()
                                     }
                                     heartPoint = 5
@@ -175,10 +175,10 @@ struct SurroundingObjectView: View {
             listImg.removeAll()
             
             if listText.isEmpty{
-                listText = QUIZDEFAULT.SHARED.listQuestionsSurrounding
+                listText = CONSTANT.SHARED.DATA_SURROUNDING
                 listText = listText.shuffled()
                 
-                listImg = QUIZDEFAULT.SHARED.listQuestionsSurrounding
+                listImg = CONSTANT.SHARED.DATA_SURROUNDING
                 listImg = listText.shuffled()
             }
         }

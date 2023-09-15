@@ -54,7 +54,7 @@ struct ChooseLanguageView:  SwiftUI.View {
                         .onTapGesture {
                             withAnimation {
                                 language = ele.code
-                                CrowdinSDK.enableSDKLocalization(true, localization: "\(language)")
+                                CrowdinSDK.currentLocalization = language
                             }
                         }
                     }

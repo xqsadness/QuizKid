@@ -50,14 +50,14 @@ struct ListenAndRepeatView: View {
                 
                 VStack{
                     TabView(selection: $selectedTab) {
-                        ForEach(QUIZDEFAULT.SHARED.listListenAndRepeat.indices, id: \.self) { index in
+                        ForEach(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.indices, id: \.self) { index in
                             ListenAndRPContentView(speechRecognizer: speechRecognizer,synthesizer: synthesizer,index: index ,isSpeaking: $isSpeaking, isHide: $isHide, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab){
-                                handleTapToSpeak(answer: QUIZDEFAULT.SHARED.listListenAndRepeat[index].answer.localizedLanguage(language: language))
+                                handleTapToSpeak(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.localizedLanguage(language: language))
                             }
                             .tag(index)
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
-                                answerCorrect = QUIZDEFAULT.SHARED.listListenAndRepeat[index].answer
+                                answerCorrect = CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer
                             }
                         }
                     }
@@ -73,7 +73,7 @@ struct ListenAndRepeatView: View {
             .background(Color.text)
             .navigationBarBackButtonHidden(true)
             .popup(isPresented: $isShowPopup) {
-                PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listListenAndRepeat.count)
+                PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count)
             }
             .onTapGesture {
                 withAnimation {
@@ -91,7 +91,7 @@ struct ListenAndRepeatView: View {
                 .animation(.easeInOut, value: isCorrect)
                 .onDisappear{
                     synthesizer.stopSpeaking(at: .immediate)
-                    if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 {
+                    if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 {
                         progress += 1
                         resetSpeak()
                         withAnimation {
@@ -126,7 +126,7 @@ struct ListenAndRepeatView: View {
                         }
                     }else{
                         countWrong += 1
-                        if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 {
+                        if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 {
                             progress += 1
                             resetSpeak()
                             withAnimation {
@@ -165,7 +165,7 @@ struct ListenAndRepeatView: View {
     }
 
     func handleTapToSpeak(answer: String){
-        if selectedTab < QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 || !(countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
+        if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 || !(countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
             audioPlayer?.pause()
             if !isSpeaking {
                 isSpeaking = true
@@ -192,7 +192,7 @@ struct ListenAndRepeatView: View {
                     }
                 }
             }
-        }else if selectedTab == QUIZDEFAULT.SHARED.listListenAndRepeat.count - 1 && (countWrong + countCorrect == QUIZDEFAULT.SHARED.listListenAndRepeat.count){
+        }else if selectedTab == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
             loadAudio(nameSound: "congralutions")
             withAnimation {
                 isShowPopup = true

@@ -45,12 +45,12 @@ struct HistoryView: View {
             
             VStack{
                 TabView(selection: $selectedTab) {
-                    ForEach(QUIZDEFAULT.SHARED.listQuestionsHistory.indices, id: \.self) { index in
+                    ForEach(CONSTANT.SHARED.DATA_HISTORY.indices, id: \.self) { index in
                         HistoryContentView(synthesizer: synthesizer, index: index, isSubmit: $isSubmit, selectedAnswer: $selectedAnswer, offset: $offset)
                             .tag(index)
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
-                                answerCorrect = QUIZDEFAULT.SHARED.listQuestionsHistory[index].answer
+                                answerCorrect = CONSTANT.SHARED.DATA_HISTORY[index].answer
                             }
                     }
                 }
@@ -68,7 +68,7 @@ struct HistoryView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsHistory.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_HISTORY.count)
         }
     }
 }

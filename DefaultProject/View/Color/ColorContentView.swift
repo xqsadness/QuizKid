@@ -18,7 +18,7 @@ struct ColorContentView: View {
     
     var body: some View {
         VStack {
-            let quiz = QUIZDEFAULT.SHARED.listQuestionsColor[index]
+            let quiz = CONSTANT.SHARED.DATA_COLOR[index]
             
             VStack{
                 Text("\(quiz.question.localizedLanguage(language: language))")

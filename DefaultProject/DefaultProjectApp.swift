@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import GoogleMobileAds
+import CrowdinSDK
 
 @main
 struct DefaultProjectApp: App {
@@ -19,15 +20,16 @@ struct DefaultProjectApp: App {
     }
 }
 
-struct RootView: View {
+struct RootView: SwiftUI.View {
     @StateObject var appController = APPCONTROLLER.shared
     @StateObject var user = User.shared
     @StateObject var coordinator = Coordinator.shared
     @StateObject var alerter: Alerter = Alerter.shared
     @AppStorage("FIRST_LOAD_APP") var FIRST_LOAD_APP = false
     @AppStorage("USERNAME") var USERNAME: String = ""
-
-    var body: some View {
+    @AppStorage("Language") var language: String = "en"
+    
+    var body: some SwiftUI.View {
         NavigationStack(path: $coordinator.path) {
             Group{
                 if appController.SHOW_OPEN_APPP{
@@ -64,6 +66,10 @@ struct RootView: View {
                 coordinator.build(fullScreenCover: fullScreencover)
             }
             .onAppear(perform: {
+                if USERNAME == ""{
+                    language = "en"
+                    CrowdinSDK.currentLocalization = language
+                }
                 if !FIRST_LOAD_APP{
                     let point = Point(pointColor: 0)
                     Point.savePoint(point: point)

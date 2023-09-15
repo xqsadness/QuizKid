@@ -97,7 +97,7 @@ class CONSTANT{
     var DATA_SURROUNDING = [QUIZ]()
     var DATA_LISTEN = [QUIZ]()
     var DATA_HISTORY = [QUIZ]()
-    var DATA_LISTENANDREPEAT = [QUIZ]()
+    var DATA_LISTEN_AND_REPEAT = [QUIZ]()
     var DATA_WRITING = [QUIZ]()
 }
 
@@ -305,20 +305,80 @@ extension CONSTANT{
         self.APP_NAVIGATION.COLOR_BACKGROUND = nav["COLOR_BACKGROUND"].stringValue
         self.APP_NAVIGATION.COLOR_BUTTON_TEXT = nav["COLOR_BUTTON_TEXT"].stringValue
         self.APP_NAVIGATION.COLOR_BUTTON_BACKGROUND = nav["COLOR_BUTTON_BACKGROUND"].stringValue
-      
+        
     }
     
     //data
     func pareData(_ json: JSON, completion: @escaping ()->Void){
         //DATA_COLOR
-        let dataColors = json["listQuestionsColor"]
+        let jsonColors = json["listQuestionsColor"]
         
-        var list: [QUIZ] = []
-        for (_, json) : (String, JSON) in dataColors{
-            list.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+        var listColor: [QUIZ] = []
+        for (_, json) : (String, JSON) in jsonColors{
+            listColor.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
-        self.DATA_COLOR = list
+        self.DATA_COLOR = listColor
+        
+        //DATA_history
+        let jsonHistory = json["listQuestionsHistory"]
+        
+        var listHistory: [QUIZ] = []
+        for (_, json) : (String, JSON) in jsonHistory{
+            listHistory.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+        }
+        
+        self.DATA_HISTORY = listHistory
+        
+        //DATA_listen
+        let jsonListen = json["listQuestionsListen"]
+        
+        var listListen: [QUIZ] = []
+        for (_, json) : (String, JSON) in jsonListen{
+            listListen.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+        }
+        
+        self.DATA_LISTEN = listListen
+        
+        //DATA_listen
+        let jsonMath = json["listQuestionsMath"]
+        
+        var listMath: [QUIZ] = []
+        for (_, json) : (String, JSON) in jsonMath{
+            listMath.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+        }
+        
+        self.DATA_MATH = listMath
+        
+        //DATA_surrounding
+        let jsonSurrounding = json["listQuestionsSurrounding"]
+        
+        var listSurrounding: [QUIZ] = []
+        for (_, json) : (String, JSON) in jsonSurrounding{
+            listSurrounding.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+        }
+        
+        self.DATA_SURROUNDING = listSurrounding
+        
+        //DATA_writing
+        let jsonWriting = json["listWriting"]
+        
+        var listWriting: [QUIZ] = []
+        for (_, json) : (String, JSON) in jsonWriting{
+            listWriting.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue))
+        }
+        
+        self.DATA_WRITING = listWriting
+        
+        //DATA_listenRepeat
+        let jsonRepeat = json["listListenAndRepeat"]
+        
+        var listListenRepeat: [QUIZ] = []
+        for (_, json) : (String, JSON) in jsonRepeat{
+            listListenRepeat.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+        }
+        
+        self.DATA_LISTEN_AND_REPEAT = listListenRepeat
     }
     
     //Load old

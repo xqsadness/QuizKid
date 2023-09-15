@@ -53,7 +53,7 @@ struct HistorySubmitNextButtonsView: View {
             
             Button{
                 synthesizer.stopSpeaking(at: .immediate)
-                if selectedTab < QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1 {
+                if selectedTab < CONSTANT.SHARED.DATA_HISTORY.count - 1 {
                     progress += 1
                     selectedAnswer = ""
                     isSubmit = false
@@ -78,7 +78,7 @@ struct HistorySubmitNextButtonsView: View {
                 Point.updatePointHistory(newPointHistory: countCorrect)
                 //                        }
             }label: {
-                Text(selectedTab < QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1 ? "Next".localizedLanguage(language: language) : "Done".localizedLanguage(language: language))
+                Text(selectedTab < CONSTANT.SHARED.DATA_HISTORY.count - 1 ? "Next".localizedLanguage(language: language) : "Done".localizedLanguage(language: language))
                     .foregroundColor(.text)
                     .padding()
                     .frame(height: 50)

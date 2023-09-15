@@ -46,12 +46,12 @@ struct ColorView: View {
             
             VStack{
                 TabView(selection: $selectedTab) {
-                    ForEach(QUIZDEFAULT.SHARED.listQuestionsColor.indices, id: \.self) { index in
+                    ForEach(CONSTANT.SHARED.DATA_COLOR.indices, id: \.self) { index in
                         ColorContentView(synthesizer: synthesizer, index: index, isSubmit: $isSubmit, selectedAnswer: $selectedAnswer, offset: $offset)
                             .tag(index)
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
-                                answerCorrect = QUIZDEFAULT.SHARED.listQuestionsColor[index].answer
+                                answerCorrect = CONSTANT.SHARED.DATA_COLOR[index].answer
                             }
                     }
                 }
@@ -69,7 +69,7 @@ struct ColorView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: QUIZDEFAULT.SHARED.listQuestionsColor.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_COLOR.count)
         }
     }
 }
