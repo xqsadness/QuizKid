@@ -12,7 +12,7 @@ import SwiftUI
 
 // A helper for transcribing speech to text using SFSpeechRecognizer and AVAudioEngine.
 class SpeechRecognizer: ObservableObject {
-    @AppStorage("Language") var language: String = "en"
+     @AppStorage("Language") var language: String = "en"
     enum RecognizerError: Error {
         case nilRecognizer
         case notAuthorizedToRecognize
@@ -97,6 +97,8 @@ class SpeechRecognizer: ObservableObject {
                     
                     if let result = result {
                         self.speak(result.bestTranscription.formattedString)
+                        
+                        print(result.bestTranscription.segments)
                     }
                 }
             } catch {

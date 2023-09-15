@@ -50,6 +50,13 @@ struct ListeningView: View {
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
                                 answerCorrect = CONSTANT.SHARED.DATA_LISTEN[index].answer
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.75 ,execute: {
+                                    if !synthesizer.isSpeaking{
+                                        speakText(textToSpeak: CONSTANT.SHARED.DATA_LISTEN[index].answer.cw_localized)
+                                    }else{
+                                        synthesizer.stopSpeaking(at: .immediate)
+                                    }
+                                })
                             }
                     }
                 }
@@ -69,6 +76,20 @@ struct ListeningView: View {
         .popup(isPresented: $isShowPopup) {
             PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_LISTEN.count)
         }
+    }
+    
+    func speakText(textToSpeak: String) {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
+        let utterance = AVSpeechUtterance(string: textToSpeak)
+        utterance.voice = AVSpeechSynthesisVoice(language: language)
+        utterance.rate = 0.3
+        synthesizer.speak(utterance)
     }
 }
 

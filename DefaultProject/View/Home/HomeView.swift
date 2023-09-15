@@ -54,8 +54,6 @@ struct HomeView: View {
         .padding(.horizontal)
         .background(Color(red: 0.89, green: 0.79, blue: 0.98))
         .onAppear{
-            print(CONSTANT.SHARED.DATA_COLOR)
-            
             switch language{
             case "en":
                 selectedLanguage = .english(.us)

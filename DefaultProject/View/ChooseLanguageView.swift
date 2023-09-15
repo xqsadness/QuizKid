@@ -8,7 +8,7 @@
 import SwiftUI
 import CrowdinSDK
 
-struct ChooseLanguageView:  SwiftUI.View {
+struct ChooseLanguageView: SwiftUI.View {
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
     @State var languagesList: [Language] = [.english(.us), .vietnamese, .french, .russian]
@@ -51,6 +51,7 @@ struct ChooseLanguageView:  SwiftUI.View {
                         .background(ele.code == language ? Color(hex: "554BD8") : Color.text)
                         .cornerRadius(10)
                         .contentShape(Rectangle())
+                        .animation(.easeInOut, value: language)
                         .onTapGesture {
                             withAnimation {
                                 language = ele.code

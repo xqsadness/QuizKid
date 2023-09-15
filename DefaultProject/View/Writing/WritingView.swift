@@ -52,6 +52,15 @@ struct WritingView: View {
                     TabView(selection: $selectedTab) {
                         ForEach(CONSTANT.SHARED.DATA_WRITING.indices, id: \.self) { index in
                             QuizWritingContentView(audioPlayer: audioPlayer ,synthesizer: synthesizer, textWriting: $textWriting, answer: $answer, countCorrect: $countCorrect, countWrong: $countWrong, index: index, selectedTab: $selectedTab, isCorrect: $isCorrect, isShowPopup: $isShowPopup, isShowPopupCheck: $isShowPopupCheck)
+                                .onAppear{
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8 ,execute: {
+                                        if !synthesizer.isSpeaking{
+                                            speakText(textToSpeak: CONSTANT.SHARED.DATA_WRITING[index].answer.cw_localized)
+                                        }else{
+                                            synthesizer.stopSpeaking(at: .immediate)
+                                        }
+                                    })
+                                }
                         }
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))
@@ -119,6 +128,20 @@ struct WritingView: View {
                 loadAudio(nameSound: "congralutions")
             }
         }
+    }
+    
+    func speakText(textToSpeak: String) {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
+        let utterance = AVSpeechUtterance(string: textToSpeak)
+        utterance.voice = AVSpeechSynthesisVoice(language: language)
+        utterance.rate = 0.3
+        synthesizer.speak(utterance)
     }
     
     func loadAudio(nameSound: String) {

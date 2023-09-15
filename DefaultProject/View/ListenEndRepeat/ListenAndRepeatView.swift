@@ -58,6 +58,13 @@ struct ListenAndRepeatView: View {
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
                                 answerCorrect = CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8 ,execute: {
+                                    if !synthesizer.isSpeaking{
+                                        speakText(textToSpeak: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.cw_localized)
+                                    }else{
+                                        synthesizer.stopSpeaking(at: .immediate)
+                                    }
+                                })
                             }
                         }
                     }
@@ -200,6 +207,13 @@ struct ListenAndRepeatView: View {
             audioPlayer?.pause()
         }
         speechRecognizer.transcript = ""
+    }
+    
+    func speakText(textToSpeak: String) {
+        let utterance = AVSpeechUtterance(string: textToSpeak)
+        utterance.voice = AVSpeechSynthesisVoice(language: language)
+        utterance.rate = 0.4
+        synthesizer.speak(utterance)
     }
     
     func resetSpeak(){

@@ -173,7 +173,7 @@ struct SurroundingObjectView: View {
         .onAppear{
             listText.removeAll()
             listImg.removeAll()
-            
+            print(CONSTANT.SHARED.DATA_SURROUNDING)
             if listText.isEmpty{
                 listText = CONSTANT.SHARED.DATA_SURROUNDING
                 listText = listText.shuffled()
