@@ -134,6 +134,8 @@
 		DDCC6D792A8E19E50085D950 /* HistoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D782A8E19E50085D950 /* HistoryInfoView.swift */; };
 		DDCC6D7B2A8E1A420085D950 /* HistoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D7A2A8E1A420085D950 /* HistoryContentView.swift */; };
 		DDCC6D7D2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D7C2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift */; };
+		DDFDD3DE2AB3EAF200585841 /* Localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDFDD3DD2AB3EAF200585841 /* Localize.strings */; };
+		DDFDD3E82AB3EE6800585841 /* CrowdinSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DDFDD3E72AB3EE6800585841 /* CrowdinSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -288,6 +290,7 @@
 		DDCC6D782A8E19E50085D950 /* HistoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInfoView.swift; sourceTree = "<group>"; };
 		DDCC6D7A2A8E1A420085D950 /* HistoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentView.swift; sourceTree = "<group>"; };
 		DDCC6D7C2A8E1C890085D950 /* HistorySubmitNextButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySubmitNextButtonsView.swift; sourceTree = "<group>"; };
+		DDFDD3DD2AB3EAF200585841 /* Localize.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localize.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFDD3E82AB3EE6800585841 /* CrowdinSDK in Frameworks */,
 				DA475ADEA3BDD29E30F2BF97 /* Pods_DefaultProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +544,7 @@
 		DD0EA4832A8B26DC007D8C55 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
+				DDFDD3DD2AB3EAF200585841 /* Localize.strings */,
 				DD0EA4882A8B2704007D8C55 /* Localizable.strings */,
 			);
 			path = Localizable;
@@ -703,6 +708,7 @@
 			);
 			name = DefaultProject;
 			packageProductDependencies = (
+				DDFDD3E72AB3EE6800585841 /* CrowdinSDK */,
 			);
 			productName = DefaultProject;
 			productReference = CA2223432A2BB329005164BB /* DefaultProject.app */;
@@ -736,6 +742,7 @@
 			);
 			mainGroup = CA22233A2A2BB329005164BB;
 			packageReferences = (
+				DDFDD3E62AB3EE6800585841 /* XCRemoteSwiftPackageReference "mobile-sdk-ios" */,
 			);
 			productRefGroup = CA2223442A2BB329005164BB /* Products */;
 			projectDirPath = "";
@@ -752,6 +759,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA22234E2A2BB32A005164BB /* Preview Assets.xcassets in Resources */,
+				DDFDD3DE2AB3EAF200585841 /* Localize.strings in Resources */,
 				CA2223AD2A2BB34A005164BB /* GoogleService-Info.plist in Resources */,
 				CA2223A22A2BB34A005164BB /* NativeAdView.xib in Resources */,
 				CA2223DE2A2BBADC005164BB /* Launch Screen.storyboard in Resources */,
@@ -1161,6 +1169,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDFDD3E62AB3EE6800585841 /* XCRemoteSwiftPackageReference "mobile-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/crowdin/mobile-sdk-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DDFDD3E72AB3EE6800585841 /* CrowdinSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDFDD3E62AB3EE6800585841 /* XCRemoteSwiftPackageReference "mobile-sdk-ios" */;
+			productName = CrowdinSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA22233B2A2BB329005164BB /* Project object */;
 }

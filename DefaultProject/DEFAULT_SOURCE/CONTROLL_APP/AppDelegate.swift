@@ -9,10 +9,12 @@ import Foundation
 import Firebase
 import GoogleMobileAds
 import AppTrackingTransparency
+import CrowdinSDK
 
-class AppDelegate: NSObject, UIApplicationDelegate{
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate{
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
+        setUpCrowdinSDK()
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options:  [.alert, .badge, .sound]) { (allowed, error) in
             if #available(iOS 14.0, *) {
@@ -23,6 +25,17 @@ class AppDelegate: NSObject, UIApplicationDelegate{
         }
         return true
     }
+    
+    func setUpCrowdinSDK(){
+        let providerConfig = CrowdinProviderConfig(hashString: "3cb996756cbbe1eed8c9779j50z", sourceLanguage: "fr")
+        let config = CrowdinSDKConfig.config().with(crowdinProviderConfig: providerConfig)
+        
+        CrowdinSDK.startWithConfig(config) {
+            // added successfully
+            print("added successfully")
+        }
+    }
+    
     func appTracking(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             ATTrackingManager.requestTrackingAuthorization { status in
@@ -43,34 +56,5 @@ class AppDelegate: NSObject, UIApplicationDelegate{
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print(error.localizedDescription)
-    }
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate  {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .sound, .badge])
-    }
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//        if response.notification.request.identifier == "cyc.moreapp" {
-//            Constant.myNotification.showMoreApp = true
-//        }else if response.notification.request.identifier == "cyc.download"{
-//            Constant.myNotification.showDownload = true
-//        }
-        completionHandler()
-    }
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, openSettingsFor notification: UNNotification?) { }
-    
-}
-
-
-
-extension UIApplicationDelegate {
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("Successfully registered for notifications!")
-    }
-
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register for notifications: \(error.localizedDescription)")
     }
 }

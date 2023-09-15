@@ -17,5 +17,4 @@ target 'DefaultProject' do
   pod 'Google-Mobile-Ads-SDK'
   
   pod 'lottie-ios'
-  pod 'Kingfisher'
 end

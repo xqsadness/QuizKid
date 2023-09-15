@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "baseapi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/serhii-londar/BaseAPI.git",
+      "state" : {
+        "revision" : "8e736fa8302647749fb1b4ebe3c59e920174a095",
+        "version" : "0.2.1"
+      }
+    },
+    {
+      "identity" : "mobile-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/crowdin/mobile-sdk-ios.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "8ae7f1cc2ca683df32806ce3904e06d2530606b0"
+      }
+    },
+    {
+      "identity" : "starscream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/daltoniam/Starscream.git",
+      "state" : {
+        "revision" : "ac6c0fc9da221873e01bd1a0d4818498a71eef33",
+        "version" : "4.0.6"
+      }
+    }
+  ],
+  "version" : 2
+}
