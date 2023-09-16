@@ -14,6 +14,7 @@ target 'DefaultProject' do
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
   pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
   pod 'Google-Mobile-Ads-SDK'
   
   pod 'lottie-ios'

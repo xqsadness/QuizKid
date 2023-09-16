@@ -15,6 +15,8 @@ class User: ObservableObject{
     @AppStorage(CONSTANT.COUNT_DOWNLOAD) var countDownload = 0
     @AppStorage(CONSTANT.TIME_ADS_OPEN) var timeAdsOpen = 0
     @AppStorage(CONSTANT.COUNT_SHOW_RATE) var countShowRate = 0
+    @AppStorage("user_email") var userEmail:String = ""
+    @AppStorage("user_UID") var userUID:String = ""
     
     func getUser(){
         User.shared.timeExpired = UserDefaults.standard.integer(forKey: CONSTANT.EXPIRED_PREMIUM)

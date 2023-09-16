@@ -111,6 +111,8 @@ extension Color{
     public static var text2: Color = Color("Text2")
     public static var background: Color = Color("Background")
     public static var background2: Color = Color("Background2")
+    public static var toastBackground: Color = Color("toastBackground")
+    public static var toastForeground: Color = Color("toastForeground")
     static var random: Color {
         return Color(
             red: .random(in: 0...1),

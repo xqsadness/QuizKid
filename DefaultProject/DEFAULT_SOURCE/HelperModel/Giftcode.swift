@@ -90,7 +90,7 @@ class GiftCode{
                 return
             }
             GiftCode.shared.check(code) { bool, status in
-                LocalNotification.shared.message(status)
+                LocalNotification.shared.message(status, .info)
                 User.shared.getUser()
             }
         }

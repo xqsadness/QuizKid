@@ -11,7 +11,7 @@ import CrowdinSDK
 struct ChooseLanguageView: SwiftUI.View {
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
-    @State var languagesList: [Language] = [.english(.us), .vietnamese, .french, .russian]
+    @State var languagesList: [Language] = [.english(.us), .vietnamese, .french, .russian, .japanese]
     
     var body: some SwiftUI.View {
         VStack{
@@ -58,6 +58,25 @@ struct ChooseLanguageView: SwiftUI.View {
                                 CrowdinSDK.currentLocalization = language
                             }
                         }
+                    }
+                    
+                    HStack(spacing: 10){
+                        Image("logout")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                        
+                        Text("Logout")
+                            .foregroundColor(.background)
+                            .font(.regular(size: 15))
+                    }
+                    .hAlign(.leading)
+                    .padding()
+                    .cornerRadius(10)
+                    .contentShape(Rectangle())
+                    .animation(.easeInOut, value: language)
+                    .onTapGesture {
+                        AuthManagerViewModel.shared.logoutUser()
+                        coordinator.pop()
                     }
                 }
             }

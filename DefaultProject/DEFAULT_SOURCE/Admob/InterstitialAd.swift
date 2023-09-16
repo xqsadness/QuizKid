@@ -59,7 +59,7 @@ class InterstitialAd: NSObject, GADFullScreenContentDelegate {
                     }
                 }
                 catch let erorr {
-                    LocalNotification.shared.message("Ads load failed!")
+                    LocalNotification.shared.message("Ads load failed!", .info)
                     self.interstitialAd = nil
                     self.loadAd(withAdUnitId: CONSTANT.SHARED.ADS.INTERSTITIAL_ID) { result in
                         //
@@ -78,7 +78,7 @@ class InterstitialAd: NSObject, GADFullScreenContentDelegate {
                             try ad.canPresent(fromRootViewController: view)
                             ad.present(fromRootViewController: view)
                         }catch {
-                            LocalNotification.shared.message("Ads load failed!")
+                            LocalNotification.shared.message("Ads load failed!", .info)
                             self.interstitialAd = nil
                             self.loadAd(withAdUnitId: CONSTANT.SHARED.ADS.INTERSTITIAL_ID) { result in
                                 //

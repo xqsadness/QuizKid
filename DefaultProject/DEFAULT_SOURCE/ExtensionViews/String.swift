@@ -71,6 +71,14 @@ extension String {
         return htmlToAttributedString?.string ?? ""
     }
     
+    func extractName() -> String? {
+        let components = self.components(separatedBy: "@")
+        if components.count == 2 {
+            return components.first
+        }
+        return nil
+    }
+    
     func substring<S: StringProtocol, T: StringProtocol>(from start: S, upTo end: T, options: String.CompareOptions = []) -> SubSequence? {
         guard let lower = range(of: start, options: options)?.upperBound,
               let upper = self[lower...].range(of: end, options: options)?.lowerBound

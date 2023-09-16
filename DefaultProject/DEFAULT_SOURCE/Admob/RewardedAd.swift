@@ -50,7 +50,7 @@ class RewardedAd: NSObject, GADFullScreenContentDelegate{
     
     func show(completion: @escaping (_ result: Bool)->Void){
         if let ad = RewardedAd.shared.rewardedAd{
-            LocalNotification.shared.message("Ads ready!")
+            LocalNotification.shared.message("Ads ready!", .info)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 do {
                     if var view = UIApplication.shared.topMostViewController(){
@@ -64,7 +64,7 @@ class RewardedAd: NSObject, GADFullScreenContentDelegate{
                     }
                 }
                 catch {
-                    LocalNotification.shared.message("Ads load failed! Allow Download FREE!")
+                    LocalNotification.shared.message("Ads load failed! Allow Download FREE!", .info)
                     self.rewardedAd = nil
                     self.loadAd(withAdUnitId:  CONSTANT.SHARED.ADS.REWARDED_ID) { result in
                         //
@@ -73,7 +73,7 @@ class RewardedAd: NSObject, GADFullScreenContentDelegate{
             })
         }
         else{
-            LocalNotification.shared.message("Loading ads...")
+            LocalNotification.shared.message("Loading ads...", .info)
             RewardedAd.shared.loadAd(withAdUnitId:  CONSTANT.SHARED.ADS.REWARDED_ID){ bool in
                 if let ad = RewardedAd.shared.rewardedAd, var view = UIApplication.shared.topMostViewController(){
                     do {
@@ -86,7 +86,7 @@ class RewardedAd: NSObject, GADFullScreenContentDelegate{
                         }
                     }
                     catch {
-                        LocalNotification.shared.message("Ads load failed! Allow Download FREE!")
+                        LocalNotification.shared.message("Ads load failed! Allow Download FREE!", .info)
                         self.rewardedAd = nil
                         self.loadAd(withAdUnitId:  CONSTANT.SHARED.ADS.REWARDED_ID) { result in
                             //

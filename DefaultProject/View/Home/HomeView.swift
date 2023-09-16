@@ -9,7 +9,6 @@ import SwiftUI
 import RealmSwift
 
 struct HomeView: View {
-    @AppStorage("USERNAME") var USERNAME: String = ""
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
     @State private var selectedLanguage: Language = .english(.us)
@@ -17,7 +16,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             HStack{
-                Text("\("Hi".cw_localized), \(USERNAME)")
+                Text("\("Hi".cw_localized), " + (User.shared.userEmail.extractName() ?? "nil"))
                     .font(.bold(size: 20))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)

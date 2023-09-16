@@ -11,10 +11,10 @@ struct ContentView: View {
     @AppStorage("USERNAME") var USERNAME: String = ""
 
     var body: some View {
-        if USERNAME != "" {
+        if User.shared.userUID != "" {
             HomeView()
         } else {
-            CreateUsernameView()
+            LoginDefaultView()
         }
     }
 }

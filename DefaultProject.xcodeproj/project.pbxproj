@@ -121,6 +121,10 @@
 		DDA4945C2A871C8A003814F1 /* congralutions.json in Resources */ = {isa = PBXBuildFile; fileRef = DDA4945B2A871C8A003814F1 /* congralutions.json */; };
 		DDA4945E2A8721C4003814F1 /* faild.json in Resources */ = {isa = PBXBuildFile; fileRef = DDA4945D2A8721C4003814F1 /* faild.json */; };
 		DDA494622A872DDF003814F1 /* ListeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA494612A872DDF003814F1 /* ListeningView.swift */; };
+		DDC727612AB54DA100C5CAAC /* LoginDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC7275A2AB54DA100C5CAAC /* LoginDefaultView.swift */; };
+		DDC727652AB54DAA00C5CAAC /* AuthManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC727642AB54DAA00C5CAAC /* AuthManagerViewModel.swift */; };
+		DDC727672AB54DF600C5CAAC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC727662AB54DF600C5CAAC /* LoadingView.swift */; };
+		DDC727692AB54EBC00C5CAAC /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC727682AB54EBC00C5CAAC /* NotificationView.swift */; };
 		DDCC6D692A8DC4FB0085D950 /* underline.json in Resources */ = {isa = PBXBuildFile; fileRef = DDCC6D682A8DC4FB0085D950 /* underline.json */; };
 		DDCC6D6C2A8DCE100085D950 /* QuestionResultWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D6B2A8DCE100085D950 /* QuestionResultWritingView.swift */; };
 		DDCC6D6E2A8DCF2F0085D950 /* QuizWritingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC6D6D2A8DCF2F0085D950 /* QuizWritingContentView.swift */; };
@@ -271,6 +275,10 @@
 		DDA4945B2A871C8A003814F1 /* congralutions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congralutions.json; sourceTree = "<group>"; };
 		DDA4945D2A8721C4003814F1 /* faild.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = faild.json; sourceTree = "<group>"; };
 		DDA494612A872DDF003814F1 /* ListeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListeningView.swift; sourceTree = "<group>"; };
+		DDC7275A2AB54DA100C5CAAC /* LoginDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDefaultView.swift; sourceTree = "<group>"; };
+		DDC727642AB54DAA00C5CAAC /* AuthManagerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManagerViewModel.swift; sourceTree = "<group>"; };
+		DDC727662AB54DF600C5CAAC /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		DDC727682AB54EBC00C5CAAC /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		DDCC6D682A8DC4FB0085D950 /* underline.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = underline.json; sourceTree = "<group>"; };
 		DDCC6D6B2A8DCE100085D950 /* QuestionResultWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionResultWritingView.swift; sourceTree = "<group>"; };
 		DDCC6D6D2A8DCF2F0085D950 /* QuizWritingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWritingContentView.swift; sourceTree = "<group>"; };
@@ -375,6 +383,8 @@
 		CA2223542A2BB34A005164BB /* DEFAULT_SOURCE */ = {
 			isa = PBXGroup;
 			children = (
+				DDC727632AB54DAA00C5CAAC /* HelperViewModel */,
+				DDC727542AB54DA100C5CAAC /* DefaultView */,
 				CA2223552A2BB34A005164BB /* User&IAP */,
 				CA2223582A2BB34A005164BB /* HelperView */,
 				CA2223612A2BB34A005164BB /* Admob */,
@@ -400,6 +410,7 @@
 		CA2223582A2BB34A005164BB /* HelperView */ = {
 			isa = PBXGroup;
 			children = (
+				DDC727682AB54EBC00C5CAAC /* NotificationView.swift */,
 				CA2223E82A2BCF2F005164BB /* Shimmer.swift */,
 				CA2223592A2BB34A005164BB /* SkeletonView.swift */,
 				CA2223E32A2BC0B1005164BB /* LottieView.swift */,
@@ -643,6 +654,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		DDC727542AB54DA100C5CAAC /* DefaultView */ = {
+			isa = PBXGroup;
+			children = (
+				DDC727662AB54DF600C5CAAC /* LoadingView.swift */,
+				DDC7275A2AB54DA100C5CAAC /* LoginDefaultView.swift */,
+			);
+			path = DefaultView;
+			sourceTree = "<group>";
+		};
+		DDC727632AB54DAA00C5CAAC /* HelperViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDC727642AB54DAA00C5CAAC /* AuthManagerViewModel.swift */,
+			);
+			path = HelperViewModel;
+			sourceTree = "<group>";
+		};
 		DDCC6D6A2A8DCD4D0085D950 /* Writing */ = {
 			isa = PBXGroup;
 			children = (
@@ -833,6 +861,7 @@
 				DDCC6D6E2A8DCF2F0085D950 /* QuizWritingContentView.swift in Sources */,
 				CA2223982A2BB34A005164BB /* TextShimer.swift in Sources */,
 				CA22239A2A2BB34A005164BB /* WebView.swift in Sources */,
+				DDC727652AB54DAA00C5CAAC /* AuthManagerViewModel.swift in Sources */,
 				CA2223E92A2BCF30005164BB /* Shimmer.swift in Sources */,
 				CA2223C02A2BB34A005164BB /* Triangle.swift in Sources */,
 				DD72E2322A8A1233006AB647 /* SpeechRecognizer.swift in Sources */,
@@ -887,6 +916,7 @@
 				CA2223A12A2BB34A005164BB /* GADNativeViewController.swift in Sources */,
 				DD72E2362A8A1D39006AB647 /* PoinRealm.swift in Sources */,
 				CA2223E42A2BC0B1005164BB /* LottieView.swift in Sources */,
+				DDC727672AB54DF600C5CAAC /* LoadingView.swift in Sources */,
 				DD7F61242A8F2B820030E044 /* ItemTextView.swift in Sources */,
 				DD7F61162A8F14BF0030E044 /* SectionListeningView.swift in Sources */,
 				DD5EA4A52A8C7B0600084D6A /* ChooseLanguageView.swift in Sources */,
@@ -905,6 +935,7 @@
 				DD7F61042A8F0C240030E044 /* ColorContentView.swift in Sources */,
 				CA2223962A2BB34A005164BB /* IAPHandler.swift in Sources */,
 				CA2223C62A2BB34A005164BB /* Font.swift in Sources */,
+				DDC727692AB54EBC00C5CAAC /* NotificationView.swift in Sources */,
 				CA2223C72A2BB34A005164BB /* UIApplication.swift in Sources */,
 				DD7F61122A8F14260030E044 /* SectionMathView.swift in Sources */,
 				CA2223CA2A2BB34A005164BB /* TimeInterval.swift in Sources */,
@@ -917,6 +948,7 @@
 				DD5EA4A82A8C80F000084D6A /* WritingView.swift in Sources */,
 				DDCC6D762A8E0B740085D950 /* ListenAndRPContentView.swift in Sources */,
 				DD0EA48D2A8B342F007D8C55 /* ListenAndRepeatView.swift in Sources */,
+				DDC727612AB54DA100C5CAAC /* LoginDefaultView.swift in Sources */,
 				CA2223A92A2BB34A005164BB /* MyAlert.swift in Sources */,
 				CA2223C52A2BB34A005164BB /* Views.swift in Sources */,
 				CA2223BE2A2BB34A005164BB /* String.swift in Sources */,

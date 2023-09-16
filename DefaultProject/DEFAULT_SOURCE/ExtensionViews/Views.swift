@@ -96,6 +96,22 @@ extension View{
         AngularGradient(gradient: Gradient(colors: [.red, .purple, .blue, .green, .yellow, .red]), center: .center)
     }
     
+    func styledText(text: String, foregroundColor: Color, font: Font) -> some View {
+        Text(text)
+            .foregroundColor(foregroundColor)
+            .font(font)
+    }
+    
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+            
+            ZStack(alignment: alignment) {
+                placeholder().opacity(shouldShow ? 1 : 0)
+                self
+            }
+        }
 }
 
 extension View {
