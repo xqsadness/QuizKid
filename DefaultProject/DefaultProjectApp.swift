@@ -66,11 +66,11 @@ struct RootView: SwiftUI.View {
                 coordinator.build(fullScreenCover: fullScreencover)
             }
             .onAppear(perform: {
-                let deviceLanguage = checkDeviceLanguage()
-                language = deviceLanguage
-                CrowdinSDK.currentLocalization = language
-                
                 if !FIRST_LOAD_APP{
+                    let deviceLanguage = checkDeviceLanguage()
+                    language = deviceLanguage
+                    CrowdinSDK.currentLocalization = language
+                    
                     let point = Point(pointColor: 0)
                     Point.savePoint(point: point)
                     FIRST_LOAD_APP = true
