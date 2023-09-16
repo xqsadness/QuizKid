@@ -9,6 +9,7 @@ import SwiftUI
 import CrowdinSDK
 
 struct ChooseLanguageView: SwiftUI.View {
+    @AppStorage("USERNAME") var USERNAME: String = ""
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
     @State var languagesList: [Language] = [.english(.us), .vietnamese, .french, .russian, .japanese]
@@ -75,8 +76,9 @@ struct ChooseLanguageView: SwiftUI.View {
                     .contentShape(Rectangle())
                     .animation(.easeInOut, value: language)
                     .onTapGesture {
+                        User.shared.userEmail = ""
                         AuthManagerViewModel.shared.logoutUser()
-                        coordinator.pop()
+                        coordinator.popToRoot()
                     }
                 }
             }

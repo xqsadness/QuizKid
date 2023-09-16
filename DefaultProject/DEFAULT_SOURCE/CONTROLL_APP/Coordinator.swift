@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum Page: String, Identifiable{
-    case NONE, mathView, listeningView, historyView, listenAndRepeat, speechToTextView, colorView, chooseLanguageView, writingView, surroundingObjectView
+    case NONE, mathView, listeningView, historyView, listenAndRepeat, speechToTextView, colorView, chooseLanguageView, writingView, surroundingObjectView, createUsernameView, homeView
     var id: String{
         return self.rawValue
     }
@@ -94,6 +94,13 @@ class Coordinator: ObservableObject{
         case .surroundingObjectView:
             SurroundingObjectView()
                 .environmentObject(Coordinator.shared)
+        case .createUsernameView:
+            CreateUsernameView()
+                .environmentObject(Coordinator.shared)
+        case .homeView:
+            HomeView()
+                .environmentObject(Coordinator.shared)
+                .navigationBarBackButtonHidden(true)
         default:
             EmptyView()
         }

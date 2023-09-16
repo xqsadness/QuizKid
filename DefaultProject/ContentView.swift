@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @AppStorage("USERNAME") var USERNAME: String = ""
-
     var body: some View {
-        if User.shared.userUID != "" {
+        if User.shared.userUID != ""{
             HomeView()
         } else {
             LoginDefaultView()

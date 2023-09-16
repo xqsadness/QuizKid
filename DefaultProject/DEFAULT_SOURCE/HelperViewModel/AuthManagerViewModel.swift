@@ -30,6 +30,7 @@ class AuthManagerViewModel: ObservableObject {
                     User.shared.userUID = authResult.user.uid
                     User.shared.userEmail =  authResult.user.email ?? "nil"
                     LocalNotification.shared.message("Login sucsess", .success)
+                    Coordinator.shared.push(.homeView)
                 }
             } catch {
                 await setError(error)

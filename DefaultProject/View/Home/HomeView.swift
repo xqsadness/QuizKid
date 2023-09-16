@@ -16,7 +16,7 @@ struct HomeView: View {
     var body: some View {
         VStack {
             HStack{
-                Text("\("Hi".cw_localized), " + (User.shared.userEmail.extractName() ?? "nil"))
+                Text("\("Hi".cw_localized), " + (User.shared.userEmail.extractName() ?? User.shared.userEmail))
                     .font(.bold(size: 20))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)

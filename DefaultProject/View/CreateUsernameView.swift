@@ -9,8 +9,9 @@ import SwiftUI
 
 struct CreateUsernameView: View {
     @AppStorage("Language") var language: String = "en"
-    @AppStorage("USERNAME") var USERNAME: String = ""
     @State var name: String = ""
+    @EnvironmentObject var coordinator: Coordinator
+    
     var body: some View {
         VStack{
             VStack{
@@ -49,19 +50,24 @@ struct CreateUsernameView: View {
                     )
                     .background(Color.text)
                     
-                    Button {
-                        USERNAME = name
-                    } label: {
+                    VStack {
                         Text("START".cw_localized)
                             .font(.bold(size: 18))
                             .foregroundColor(Color.text)
                             .padding(.vertical, 10)
+                            .hAlign(.center)
+                            .frame(height: 50)
+                            .cornerRadius(6)
+                            .background(Color.blue)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                User.shared.userEmail = name
+                                if User.shared.userEmail != "" {
+                                    coordinator.push(.homeView)
+                                }
+                            }
+                            .disabled(name.isEmpty || name.count < 2)
                     }
-                    .hAlign(.center)
-                    .frame(height: 50)
-                    .cornerRadius(6)
-                    .background(Color.blue)
-                    .disabled(name.isEmpty || name.count < 2)
                 }
                 .padding()
                 .background(Color.text)

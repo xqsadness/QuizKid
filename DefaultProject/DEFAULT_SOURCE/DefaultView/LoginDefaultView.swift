@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginDefaultView: View {
     @StateObject var appController = APPCONTROLLER.shared
     @StateObject var authManagerViewModel = AuthManagerViewModel.shared
+    @EnvironmentObject var coordinator: Coordinator
     
     var body: some View {
         VStack{
@@ -91,6 +92,15 @@ struct LoginDefaultView: View {
                 }
                 .padding(.top)
                 .hAlign(.leading)
+            
+            styledText(text: "Or continue with guest", foregroundColor: .blue, font: .regular(size: 17))
+                .onTapGesture {
+                    withAnimation {
+                        coordinator.push(.createUsernameView)
+                    }
+                }
+                .padding(.top)
+                .hAlign(.center)
         }
         .padding()
         .background(Color.text)
