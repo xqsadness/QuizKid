@@ -66,10 +66,10 @@ struct RootView: SwiftUI.View {
                 coordinator.build(fullScreenCover: fullScreencover)
             }
             .onAppear(perform: {
-                if USERNAME == ""{
-                    language = "en"
-                    CrowdinSDK.currentLocalization = language
-                }
+                let deviceLanguage = checkDeviceLanguage()
+                language = deviceLanguage
+                CrowdinSDK.currentLocalization = language
+                
                 if !FIRST_LOAD_APP{
                     let point = Point(pointColor: 0)
                     Point.savePoint(point: point)
@@ -120,6 +120,12 @@ struct RootView: SwiftUI.View {
         GADMobileAds.sharedInstance().start(completionHandler: {_ in
             GADMobileAds.sharedInstance().applicationMuted = true
         })
+    }
+    
+    
+    func checkDeviceLanguage() -> String {
+        let preferredLanguage = Locale.preferredLanguages[0]
+        return preferredLanguage
     }
 }
 
