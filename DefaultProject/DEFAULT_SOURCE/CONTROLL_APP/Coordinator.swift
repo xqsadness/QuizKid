@@ -97,6 +97,7 @@ class Coordinator: ObservableObject{
         case .createUsernameView:
             CreateUsernameView()
                 .environmentObject(Coordinator.shared)
+                .navigationBarBackButtonHidden(true)
         case .homeView:
             HomeView()
                 .environmentObject(Coordinator.shared)

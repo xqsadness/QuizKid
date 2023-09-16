@@ -109,31 +109,31 @@ struct RootView: SwiftUI.View {
                     }
                 }
             }
-            .onReceive(NotificationCenter.default.publisher(for: Notification.Name("PushMessage"))) { (output) in
-                DispatchQueue.main.async {
-                    guard let str = output.userInfo?["data"] as? String else {return}
-                    
-                    appController.MESSAGE_ON_SCREEN = str
-                    withAnimation(.easeInOut(duration: 1)) {
-                        appController.SHOW_MESSAGE_ON_SCREEN  = true
-                    }
-                    appController.TIMER_MESSAGE_ON_SCREEN?.invalidate()
-                    appController.TIMER_MESSAGE_ON_SCREEN = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { _ in
-                        withAnimation(.easeInOut(duration: 1)){
-                            appController.SHOW_MESSAGE_ON_SCREEN  = false
-                        }
-                    })
-                }
-            }
-            .overlay(alignment: .bottom, content: {
-                appController.SHOW_MESSAGE_ON_SCREEN ?
-                NotificationView()
-                : nil
-            })
             .alert(isPresented: $alerter.isShowingAlert) {
                 alerter.alert ?? Alert(title: Text(""))
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("PushMessage"))) { (output) in
+            DispatchQueue.main.async {
+                guard let str = output.userInfo?["data"] as? String else {return}
+                
+                appController.MESSAGE_ON_SCREEN = str
+                withAnimation(.easeInOut(duration: 1)) {
+                    appController.SHOW_MESSAGE_ON_SCREEN  = true
+                }
+                appController.TIMER_MESSAGE_ON_SCREEN?.invalidate()
+                appController.TIMER_MESSAGE_ON_SCREEN = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { _ in
+                    withAnimation(.easeInOut(duration: 1)){
+                        appController.SHOW_MESSAGE_ON_SCREEN  = false
+                    }
+                })
+            }
+        }
+        .overlay(alignment: .bottom, content: {
+            appController.SHOW_MESSAGE_ON_SCREEN ?
+            NotificationView()
+            : nil
+        })
     }
     
     func openApp(){
