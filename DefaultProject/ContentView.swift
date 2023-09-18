@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        if User.shared.userUID != ""{
-//            HomeView()
-//        } else {
+        if User.shared.userUID != "" || User.shared.userEmail != ""{
+            HomeView()
+        } else {
             LoginDefaultView()
-//        }
+        }
     }
 }
 

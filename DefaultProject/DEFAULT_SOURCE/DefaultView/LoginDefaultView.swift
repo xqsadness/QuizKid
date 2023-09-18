@@ -93,7 +93,7 @@ struct LoginDefaultView: View {
                 .padding(.top)
                 .hAlign(.leading)
             
-            styledText(text: "Or continue with guest", foregroundColor: .blue, font: .regular(size: 17))
+            styledText(text: "Or continue with guest.", foregroundColor: .blue, font: .regular(size: 19))
                 .onTapGesture {
                     withAnimation {
                         coordinator.push(.createUsernameView)

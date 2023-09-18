@@ -14,6 +14,23 @@ struct CreateUsernameView: View {
     
     var body: some View {
         VStack{
+            HStack{
+                Button {
+                    coordinator.pop()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .imageScale(.large)
+                        .foregroundColor(Color.text)
+                    Text("Back".cw_localized)
+                        .font(.bold(size: 20))
+                        .foregroundColor(Color.text)
+                }
+                .hAlign(.leading)
+                
+                Spacer()
+            }
+            .padding(.horizontal)
+                        
             VStack{
                 Text("Quiz kid app")
                     .font(.bold(size: 22))
@@ -59,14 +76,18 @@ struct CreateUsernameView: View {
                             .frame(height: 50)
                             .cornerRadius(6)
                             .background(Color.blue)
+                            .cornerRadius(6)
                             .contentShape(Rectangle())
                             .onTapGesture {
-                                User.shared.userEmail = name
-                                if User.shared.userEmail != "" {
-                                    coordinator.push(.homeView)
+                                if name.isEmpty || name.count < 2{
+                                    LocalNotification.shared.message("Name must be >= 2 characters", .warning)
+                                }else{
+                                    User.shared.userEmail = name
+                                    if User.shared.userEmail != "" {
+                                        coordinator.push(.homeView)
+                                    }
                                 }
                             }
-                            .disabled(name.isEmpty || name.count < 2)
                     }
                 }
                 .padding()
@@ -74,9 +95,10 @@ struct CreateUsernameView: View {
                 .cornerRadius(6)
                 .padding(.horizontal)
             }
+            .vAlign(.center)
         }
         .hAlign(.center)
-        .vAlign(.center)
+        .vAlign(.top)
         .background(Color.accentColor)
     }
 }

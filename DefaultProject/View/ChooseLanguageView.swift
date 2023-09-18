@@ -42,6 +42,12 @@ struct ChooseLanguageView: SwiftUI.View {
                             Image("\(ele.code)")
                                 .resizable()
                                 .frame(width: 32, height: 32)
+                                .overlay {
+                                    Circle()
+                                           .stroke(style: StrokeStyle(lineWidth: 1))
+                                           .frame(width: 32, height: 32)
+                                           .foregroundColor(.text2)
+                                }
                             
                             Text(ele.name)
                                 .foregroundColor(ele.code == language ? .text : .background)
@@ -76,9 +82,10 @@ struct ChooseLanguageView: SwiftUI.View {
                     .contentShape(Rectangle())
                     .animation(.easeInOut, value: language)
                     .onTapGesture {
-                        User.shared.userEmail = ""
                         AuthManagerViewModel.shared.logoutUser()
                         coordinator.popToRoot()
+                        coordinator.push(.loginDefaultView)
+//                        coordinator.path = NavigationPath()
                     }
                 }
             }
