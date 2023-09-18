@@ -26,14 +26,21 @@ struct ColorSubmitNextButtonsView: View {
     
     var body: some View {
         HStack(spacing: 10){
-            Button{
-                isSubmit = true
-                
+            Button{                
                 if selectedAnswer.lowercased().cw_localized == answerCorrect.lowercased().cw_localized{
                     loadAudio(nameSound: "correct")
                     isCorrect = true
                     countCorrect += 1
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                        if selectedTab < CONSTANT.SHARED.DATA_COLOR.count - 1{
+                            submitCorrect()
+                        }else{
+                            isSubmit = true
+                            completeAllQuestion()
+                        }
+                    })
                 }else{
+                    isSubmit = true
                     loadAudio(nameSound: "wrong")
                     isCorrect = false
                     countWrong += 1
@@ -53,24 +60,9 @@ struct ColorSubmitNextButtonsView: View {
             Button{
                 synthesizer.stopSpeaking(at: .immediate)
                 if selectedTab < CONSTANT.SHARED.DATA_COLOR.count - 1 {
-                    progress += 1
-                    selectedAnswer = ""
-                    isSubmit = false
-                    isCorrect = false
-                    withAnimation {
-                        selectedTab += 1
-                    }
+                    submitCorrect()
                 }else{
-                    
-                    withAnimation {
-                        isShowPopup = true
-                    }
-                    audioPlayer?.pause()
-                    if countCorrect == 0{
-                        loadAudio(nameSound: "wrong")
-                    }else{
-                        loadAudio(nameSound: "congralutions")
-                    }
+                    completeAllQuestion()
                 }
                 
                 //                        if selectedTab >= QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1{
@@ -89,6 +81,29 @@ struct ColorSubmitNextButtonsView: View {
             .opacity(selectedAnswer == "" || !isSubmit ? 0.6 : 1)
         }
         .padding()
+    }
+    
+    func submitCorrect(){
+        progress += 1
+        selectedAnswer = ""
+        isSubmit = false
+        isCorrect = false
+        withAnimation {
+            selectedTab += 1
+        }
+    }
+    
+    func completeAllQuestion(){
+        // processed upon completion of All Questions
+        withAnimation {
+            isShowPopup = true
+        }
+        audioPlayer?.pause()
+        if countCorrect == 0{
+            loadAudio(nameSound: "wrong")
+        }else{
+            loadAudio(nameSound: "congralutions")
+        }
     }
     
     func loadAudio(nameSound: String) {

@@ -28,13 +28,22 @@ struct HistorySubmitNextButtonsView: View {
         HStack(spacing: 10){
             Button{
                 offset = -10
-                isSubmit = true
+
                 synthesizer.stopSpeaking(at: .immediate)
                 if selectedAnswer == answerCorrect{
                     loadAudio(nameSound: "correct")
                     isCorrect = true
                     countCorrect += 1
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                        if selectedTab < CONSTANT.SHARED.DATA_HISTORY.count - 1{
+                            submitCorrect()
+                        }else{
+                            isSubmit = true
+                            completeAllQuestion()
+                        }
+                    })
                 }else{
+                    isSubmit = true
                     loadAudio(nameSound: "wrong")
                     isCorrect = false
                     countWrong += 1
@@ -54,29 +63,12 @@ struct HistorySubmitNextButtonsView: View {
             Button{
                 synthesizer.stopSpeaking(at: .immediate)
                 if selectedTab < CONSTANT.SHARED.DATA_HISTORY.count - 1 {
-                    progress += 1
-                    selectedAnswer = ""
-                    isSubmit = false
-                    isCorrect = false
-                    withAnimation {
-                        selectedTab += 1
-                    }
+                    submitCorrect()
                 }else{
-                    
-                    withAnimation {
-                        isShowPopup = true
-                    }
-                    audioPlayer?.pause()
-                    if countCorrect == 0{
-                        loadAudio(nameSound: "wrong")
-                    }else{
-                        loadAudio(nameSound: "congralutions")
-                    }
+                    completeAllQuestion()
                 }
                 
-                //                        if selectedTab >= QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1{
                 Point.updatePointHistory(newPointHistory: countCorrect)
-                //                        }
             }label: {
                 Text(selectedTab < CONSTANT.SHARED.DATA_HISTORY.count - 1 ? "Next".cw_localized : "Done".cw_localized)
                     .foregroundColor(.text)
@@ -90,6 +82,30 @@ struct HistorySubmitNextButtonsView: View {
             .opacity(selectedAnswer == "" || !isSubmit ? 0.6 : 1)
         }
         .padding()
+    }
+    
+    func submitCorrect(){
+        // processed after answering 1 question correctly
+        progress += 1
+        selectedAnswer = ""
+        isSubmit = false
+        isCorrect = false
+        withAnimation {
+            selectedTab += 1
+        }
+    }
+    
+    func completeAllQuestion(){
+        // processed upon completion of All Questions
+        withAnimation {
+            isShowPopup = true
+        }
+        audioPlayer?.pause()
+        if countCorrect == 0{
+            loadAudio(nameSound: "wrong")
+        }else{
+            loadAudio(nameSound: "congralutions")
+        }
     }
     
     func loadAudio(nameSound: String) {
