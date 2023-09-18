@@ -44,9 +44,9 @@ struct ChooseLanguageView: SwiftUI.View {
                                 .frame(width: 32, height: 32)
                                 .overlay {
                                     Circle()
-                                           .stroke(style: StrokeStyle(lineWidth: 1))
-                                           .frame(width: 32, height: 32)
-                                           .foregroundColor(.text2)
+                                        .stroke(style: StrokeStyle(lineWidth: 1))
+                                        .frame(width: 32, height: 32)
+                                        .foregroundColor(.text2)
                                 }
                             
                             Text(ele.name)
@@ -85,7 +85,7 @@ struct ChooseLanguageView: SwiftUI.View {
                         AuthManagerViewModel.shared.logoutUser()
                         coordinator.popToRoot()
                         coordinator.push(.loginDefaultView)
-//                        coordinator.path = NavigationPath()
+                        //                        coordinator.path = NavigationPath()
                     }
                 }
             }

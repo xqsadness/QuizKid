@@ -79,8 +79,8 @@ struct CreateUsernameView: View {
                             .cornerRadius(6)
                             .contentShape(Rectangle())
                             .onTapGesture {
-                                if name.isEmpty || name.count < 2{
-                                    LocalNotification.shared.message("Name must be >= 2 characters", .warning)
+                                if name.isEmpty || name.count < 2 || name.count > 18{
+                                    LocalNotification.shared.message("Name must be >= 2, <= 18 characters", .warning)
                                 }else{
                                     User.shared.userEmail = name
                                     if User.shared.userEmail != "" {

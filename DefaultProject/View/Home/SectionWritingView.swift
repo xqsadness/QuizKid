@@ -21,16 +21,17 @@ struct SectionWritingView: View {
             
             VStack(spacing: 5) {
                 Text("Writing".cw_localized)
-                    .font(.bold(size: 16))
+                    .font(.bold(size: 14))
                     .foregroundColor(Color.background)
-                    .hAlign(.center)
+                     .hAlign(.center)
                 
                 HStack{
-                    Text("\(CONSTANT.SHARED.DATA_WRITING.count) \("\nquestions".cw_localized)")
+                    Text("\(CONSTANT.SHARED.DATA_WRITING.count)\n\("questions".cw_localized)")
                         .font(.bold(size: 14))
                         .foregroundColor(Color.text)
-                        .hAlign(.center)
+                        .hAlign(.leading)
                     
+                    Spacer()
                     VStack{
                         ZStack {
                             Image("Ellipse")
@@ -47,9 +48,9 @@ struct SectionWritingView: View {
                                 .font(.bold(size: 12))
                                 .foregroundColor(Color.text)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-                        .padding()
+                        .hAlign(.trailing)
                     }
+                    .hAlign(.center)
                 }
             }            
         }

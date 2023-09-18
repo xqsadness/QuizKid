@@ -16,31 +16,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIconSingle" translatesAutoresizingMaskIntoConstraints="NO" id="GmL-E7-X0F">
-                                <rect key="frame" x="156.66666666666666" y="398.66666666666669" width="80" height="80"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="AppIconSingle" translatesAutoresizingMaskIntoConstraints="NO" id="GmL-E7-X0F">
+                                <rect key="frame" x="156" y="386" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Lwf-5z-7jd"/>
                                     <constraint firstAttribute="height" constant="80" id="WwQ-BO-U86"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Quiz App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyQ-ie-krj">
+                                <rect key="frame" x="130" y="474" width="132" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="B8B-I9-O1Y"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="222" id="YWW-zZ-ifn"/>
+                                    <constraint firstAttribute="height" constant="48" id="jSL-YU-TPM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" name="Background"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" name="Background2"/>
+                        <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
+                            <constraint firstItem="DyQ-ie-krj" firstAttribute="centerX" secondItem="GmL-E7-X0F" secondAttribute="centerX" id="4Mt-HM-Jzn"/>
                             <constraint firstItem="GmL-E7-X0F" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="MAM-sO-R7W"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="DyQ-ie-krj" secondAttribute="bottom" constant="296" id="MjH-r5-IRc"/>
+                            <constraint firstItem="DyQ-ie-krj" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="415" id="dPg-yt-SHO"/>
+                            <constraint firstItem="DyQ-ie-krj" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="415" id="jBo-Bd-3iR"/>
                             <constraint firstItem="GmL-E7-X0F" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="kDv-Vq-Dsn"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="DyQ-ie-krj" secondAttribute="bottom" constant="296" id="n4Z-zp-TdI"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
         <image name="AppIconSingle" width="60" height="60"/>
-        <namedColor name="Background2">
-            <color red="0.16798350209999999" green="0.14819172019999999" blue="0.18858304619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="AccentColor">
+            <color red="0.17700000107288361" green="0.65499997138977051" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

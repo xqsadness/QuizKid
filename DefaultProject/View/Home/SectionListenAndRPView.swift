@@ -16,18 +16,21 @@ struct SectionListenAndRPView: View {
     var body: some View {
         VStack(spacing: 0) {
             LottieView(name: "animation_human2", loopMode: .loop)
-                .frame(width: 100, height: 60)
+                .frame(width: 80, height: 60)
             
             VStack(spacing: 5) {
                 Text("Listen And Repeat".cw_localized)
-                    .font(.bold(size: 16))
+                    .font(.bold(size: 14))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)
+                
                 HStack{
-                    Text("\(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count) \("\nquestions".cw_localized)")
+                    Text("\(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count) \n\("questions".cw_localized)")
                         .font(.bold(size: 14))
                         .foregroundColor(Color.text)
-                        .hAlign(.center)
+                        .hAlign(.leading)
+                    
+                    Spacer()
                     
                     VStack{
                         ZStack {
@@ -45,7 +48,7 @@ struct SectionListenAndRPView: View {
                                 .font(.bold(size: 12))
                                 .foregroundColor(Color.text)
                         }
-                        .padding()
+                        .hAlign(.trailing)
                     }
                 }
             }
