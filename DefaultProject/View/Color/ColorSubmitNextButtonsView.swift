@@ -31,14 +31,14 @@ struct ColorSubmitNextButtonsView: View {
                     loadAudio(nameSound: "correct")
                     isCorrect = true
                     countCorrect += 1
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
                         if selectedTab < CONSTANT.SHARED.DATA_COLOR.count - 1{
                             submitCorrect()
                         }else{
                             isSubmit = true
                             completeAllQuestion()
                         }
-                    })
+//                    })
                 }else{
                     isSubmit = true
                     loadAudio(nameSound: "wrong")
@@ -65,9 +65,7 @@ struct ColorSubmitNextButtonsView: View {
                     completeAllQuestion()
                 }
                 
-                //                        if selectedTab >= QUIZDEFAULT.SHARED.listQuestionsHistory.count - 1{
                 Point.updatePointColor(point: countCorrect)
-                //                        }
             }label: {
                 Text(selectedTab < CONSTANT.SHARED.DATA_COLOR.count - 1 ? "Next".cw_localized : "Done".cw_localized)
                     .foregroundColor(.text)
@@ -104,6 +102,7 @@ struct ColorSubmitNextButtonsView: View {
         }else{
             loadAudio(nameSound: "congralutions")
         }
+        QuizTimer.shared.stop()
     }
     
     func loadAudio(nameSound: String) {

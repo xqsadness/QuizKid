@@ -41,6 +41,9 @@ struct MathView: View {
             }
             
             MathInfoView(countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab, progress: $progress)
+                .onTapGesture {
+                    isShowPopup.toggle()
+                }
             
             VStack{
                 TabView(selection: $selectedTab) {
@@ -67,7 +70,13 @@ struct MathView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_MATH.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Math", totalQuestion: CONSTANT.SHARED.DATA_MATH.count)
+        }
+        .onAppear{
+            QuizTimer.shared.start()
+        }
+        .onDisappear{
+            QuizTimer.shared.reset()
         }
     }
 }

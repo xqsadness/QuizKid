@@ -160,6 +160,7 @@ struct QuizWritingContentView: View {
                     Button{
                         withAnimation{
                             isShowPopup = true
+                            QuizTimer.shared.stop()
                         }
                         loadAudio(nameSound: "congralutions")
                     } label: {

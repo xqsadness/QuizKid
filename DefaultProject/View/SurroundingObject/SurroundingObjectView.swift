@@ -92,7 +92,7 @@ struct SurroundingObjectView: View {
             if isShowPopup {
                 ZStack{
                     Color.background.opacity(0.7).ignoresSafeArea()
-                    PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_SURROUNDING.count)
+                    PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Surrounding Object", totalQuestion: CONSTANT.SHARED.DATA_SURROUNDING.count)
                 }
             }
             if isShowPopupFail {
@@ -182,6 +182,12 @@ struct SurroundingObjectView: View {
                 listImg = listText.shuffled()
             }
         }
+        .onAppear{
+            QuizTimer.shared.start()
+        }
+        .onDisappear{
+            QuizTimer.shared.reset()
+        }
         .onChange(of: heartPoint) { newValue in
             if newValue <= 0 {
                 withAnimation {
@@ -194,6 +200,7 @@ struct SurroundingObjectView: View {
                 loadAudio(nameSound: "congralutions")
                 withAnimation {
                     isShowPopup = true
+                    QuizTimer.shared.stop()
                 }
             }
         }

@@ -50,7 +50,7 @@ struct ListeningView: View {
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
                                 answerCorrect = CONSTANT.SHARED.DATA_LISTEN[index].answer
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.75 ,execute: {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.8 ,execute: {
                                     if !synthesizer.isSpeaking{
                                         speakText(textToSpeak: CONSTANT.SHARED.DATA_LISTEN[index].answer.cw_localized)
                                     }else{
@@ -74,7 +74,13 @@ struct ListeningView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_LISTEN.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Listening", totalQuestion: CONSTANT.SHARED.DATA_LISTEN.count)
+        }
+        .onAppear{
+            QuizTimer.shared.start()
+        }
+        .onDisappear{
+            QuizTimer.shared.reset()
         }
     }
     

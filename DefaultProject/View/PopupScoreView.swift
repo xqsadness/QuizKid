@@ -12,19 +12,12 @@ struct PopupScoreView: View {
     @Binding var isShowPopup: Bool
     @Binding var countCorrect: Int
     @Binding var countWrong: Int
+    @State var title: String
     @State var totalQuestion: Int
     @EnvironmentObject var coordinator: Coordinator
 
     var body: some View {
         VStack{
-            Text(countCorrect == 0 ? "You didn't get any question right !".cw_localized : "Congralutions! You have scored".cw_localized)
-                .font(.bold(size: 20))
-                .foregroundColor(.background)
-                .vAlign(.top)
-                .hAlign(.center)
-                .fixedSize(horizontal: false, vertical: true)
-                .padding(.bottom,15)
-            
             Circle()
                 .foregroundColor(Color(hex: "796dee"))
                 .frame(width: 130, height: 130)
@@ -40,6 +33,49 @@ struct PopupScoreView: View {
                     }
                 )
                 .vAlign(.top)
+            
+            Text(countCorrect == 0 ? "You didn't get any question right !".cw_localized : "Congralutions! You have scored".cw_localized)
+                .font(.bold(size: 20))
+                .foregroundColor(.background)
+                .vAlign(.top)
+                .hAlign(.center)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.bottom,15)
+            
+            styledText(text: "\(title) Quiz", foregroundColor: .background, font: .bold(size: 16))
+                .hAlign(.leading)
+                .padding(.bottom)
+            
+            VStack(spacing: 8){
+                HStack{
+                    styledText(text: "Correct Answer", foregroundColor: .text2, font: .regular(size: 15))
+                    Spacer()
+                    styledText(text: "\(countCorrect)", foregroundColor: .background, font: .regular(size: 15))
+                }
+                .frame(width: 160, alignment: .center)
+                
+                HStack{
+                    styledText(text: "Wrong Answer", foregroundColor: .text2, font: .regular(size: 15))
+                    Spacer()
+                    styledText(text: "\(countWrong)", foregroundColor: .background, font: .regular(size: 15))
+                }
+                .frame(width: 160, alignment: .center)
+                
+                HStack{
+                    styledText(text: "Total Answered", foregroundColor: .text2, font: .regular(size: 15))
+                    Spacer()
+                    styledText(text: "\(totalQuestion)", foregroundColor: .background, font: .regular(size: 15))
+                }
+                .frame(width: 160, alignment: .center)
+                
+                HStack{
+                    styledText(text: "Time spent", foregroundColor: .text2, font: .regular(size: 15))
+                    Spacer()
+                    styledText(text: "\(QuizTimer.shared.formatTimeInterval(QuizTimer.shared.elapsedTime))", foregroundColor: .background, font: .regular(size: 15))
+                }
+                .frame(width: 160, alignment: .center)
+            }
+            .hAlign(.center)
             
             Button{
                 withAnimation {
@@ -62,17 +98,16 @@ struct PopupScoreView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .frame(height: 300)
+        .frame(height: 390)
         .background(Color.text)
         .cornerRadius(12)
         .padding(.horizontal)
         .overlay {
             LottieView(name: "congralutions", loopMode: .loop)
                 .frame(maxWidth: .infinity)
-                .frame(height: 300)
+                .frame(height: 400)
                 .padding(.horizontal)
                 .allowsHitTesting(false)
         }
     }
 }
-

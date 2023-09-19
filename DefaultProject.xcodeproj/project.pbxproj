@@ -93,6 +93,7 @@
 		DD67413E2A85D9AE00CB9B0B /* MathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD67413D2A85D9AE00CB9B0B /* MathView.swift */; };
 		DD6741422A8616D200CB9B0B /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD6741402A86162600CB9B0B /* correct.mp3 */; };
 		DD6741442A8624F500CB9B0B /* wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD6741432A8624F500CB9B0B /* wrong.mp3 */; };
+		DD69C5D62AB9916100ADED44 /* QuizTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD69C5D52AB9916100ADED44 /* QuizTimer.swift */; };
 		DD72E2322A8A1233006AB647 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2312A8A1233006AB647 /* SpeechRecognizer.swift */; };
 		DD72E2362A8A1D39006AB647 /* PoinRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2352A8A1D38006AB647 /* PoinRealm.swift */; };
 		DD72E2382A8A1D4D006AB647 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD72E2372A8A1D4D006AB647 /* HistoryView.swift */; };
@@ -247,6 +248,7 @@
 		DD67413D2A85D9AE00CB9B0B /* MathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathView.swift; sourceTree = "<group>"; };
 		DD6741402A86162600CB9B0B /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
 		DD6741432A8624F500CB9B0B /* wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrong.mp3; sourceTree = "<group>"; };
+		DD69C5D52AB9916100ADED44 /* QuizTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTimer.swift; sourceTree = "<group>"; };
 		DD72E2312A8A1233006AB647 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 		DD72E2352A8A1D38006AB647 /* PoinRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoinRealm.swift; sourceTree = "<group>"; };
 		DD72E2372A8A1D4D006AB647 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -567,6 +569,7 @@
 			children = (
 				DD72E2312A8A1233006AB647 /* SpeechRecognizer.swift */,
 				DD0EA48A2A8B30FD007D8C55 /* Language.swift */,
+				DD69C5D52AB9916100ADED44 /* QuizTimer.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				CA2223492A2BB329005164BB /* ContentView.swift in Sources */,
 				CA2223A62A2BB34A005164BB /* Giftcode.swift in Sources */,
 				DDA494532A871421003814F1 /* PopupScoreView.swift in Sources */,
+				DD69C5D62AB9916100ADED44 /* QuizTimer.swift in Sources */,
 				DD7F60FB2A8F040C0030E044 /* ListeningInfoView.swift in Sources */,
 				CA2223B72A2BB34A005164BB /* Array.swift in Sources */,
 				CA2223972A2BB34A005164BB /* SkeletonView.swift in Sources */,

@@ -51,7 +51,7 @@ struct HistoryView: View {
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
                                 answerCorrect = CONSTANT.SHARED.DATA_HISTORY[index].answer
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.75 ,execute: {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.8 ,execute: {
                                     if !synthesizer.isSpeaking{
                                         speakText(textToSpeak: CONSTANT.SHARED.DATA_HISTORY[index].question.cw_localized)
                                     }else{
@@ -75,7 +75,13 @@ struct HistoryView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_HISTORY.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "History ", totalQuestion: CONSTANT.SHARED.DATA_HISTORY.count)
+        }
+        .onAppear{
+            QuizTimer.shared.start()
+        }
+        .onDisappear{
+            QuizTimer.shared.reset()
         }
     }
     
@@ -89,7 +95,7 @@ struct HistoryView: View {
         
         let utterance = AVSpeechUtterance(string: textToSpeak)
         utterance.voice = AVSpeechSynthesisVoice(language: language)
-        utterance.rate = 0.3
+        utterance.rate = 0.35
         synthesizer.speak(utterance)
     }
 }

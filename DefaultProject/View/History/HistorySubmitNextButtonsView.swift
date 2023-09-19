@@ -34,14 +34,14 @@ struct HistorySubmitNextButtonsView: View {
                     loadAudio(nameSound: "correct")
                     isCorrect = true
                     countCorrect += 1
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
                         if selectedTab < CONSTANT.SHARED.DATA_HISTORY.count - 1{
                             submitCorrect()
                         }else{
                             isSubmit = true
                             completeAllQuestion()
                         }
-                    })
+//                    })
                 }else{
                     isSubmit = true
                     loadAudio(nameSound: "wrong")
@@ -106,6 +106,7 @@ struct HistorySubmitNextButtonsView: View {
         }else{
             loadAudio(nameSound: "congralutions")
         }
+        QuizTimer.shared.stop()
     }
     
     func loadAudio(nameSound: String) {

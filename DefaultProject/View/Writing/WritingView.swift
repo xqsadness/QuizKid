@@ -78,7 +78,7 @@ struct WritingView: View {
             .background(Color.text)
             .navigationBarBackButtonHidden(true)
             .popup(isPresented: $isShowPopup) {
-                PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_WRITING.count)
+                PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong,title: "Writing", totalQuestion: CONSTANT.SHARED.DATA_WRITING.count)
             }
             .overlay{
                 if checkPermission{
@@ -97,6 +97,12 @@ struct WritingView: View {
                         return
                     }
                 }
+            }
+            .onAppear{
+                QuizTimer.shared.start()
+            }
+            .onDisappear{
+                QuizTimer.shared.reset()
             }
             if isShowPopupCheck{
                 QuestionResultWritingView(isCorrect: $isCorrect, isShowPopupCheck: $isShowPopupCheck, answer: $answer) {
@@ -123,6 +129,7 @@ struct WritingView: View {
         }else{
             withAnimation {
                 isShowPopup = true
+                QuizTimer.shared.reset()
             }
             audioPlayer?.pause()
             if countCorrect == 0{

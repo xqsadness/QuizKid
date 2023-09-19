@@ -69,7 +69,13 @@ struct ColorView: View {
         .background(Color.text)
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_COLOR.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Color", totalQuestion: CONSTANT.SHARED.DATA_COLOR.count)
+        }
+        .onAppear{
+            QuizTimer.shared.start()
+        }
+        .onDisappear{
+            QuizTimer.shared.reset()
         }
     }
 }

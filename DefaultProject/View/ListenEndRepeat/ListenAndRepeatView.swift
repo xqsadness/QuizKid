@@ -80,7 +80,7 @@ struct ListenAndRepeatView: View {
             .background(Color.text)
             .navigationBarBackButtonHidden(true)
             .popup(isPresented: $isShowPopup) {
-                PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, totalQuestion: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count)
+                PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Listen and repeat", totalQuestion: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count)
             }
             .onTapGesture {
                 withAnimation {
@@ -113,6 +113,7 @@ struct ListenAndRepeatView: View {
                         }
                         withAnimation {
                             isShowPopup = true
+                            QuizTimer.shared.reset()
                         }
                     }
                 }
@@ -145,6 +146,7 @@ struct ListenAndRepeatView: View {
                             loadAudio(nameSound: "congralutions")
                             withAnimation {
                                 isShowPopup = true
+                                QuizTimer.shared.reset()
                             }
                         }
                     }
@@ -168,6 +170,12 @@ struct ListenAndRepeatView: View {
                     return
                 }
             }
+        }
+        .onAppear{
+            QuizTimer.shared.start()
+        }
+        .onDisappear{
+            QuizTimer.shared.reset()
         }
     }
 
