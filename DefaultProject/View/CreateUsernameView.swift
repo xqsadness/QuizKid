@@ -9,13 +9,19 @@ import SwiftUI
 
 struct CreateUsernameView: View {
     @AppStorage("Language") var language: String = "en"
-    @State var name: String = ""
     @EnvironmentObject var coordinator: Coordinator
+    @FocusState private var focusedField: FocusedField?
+    @State var name: String = ""
+    
+    enum FocusedField {
+        case name
+    }
     
     var body: some View {
         VStack{
             HStack{
                 Button {
+                    focusedField = nil
                     coordinator.pop()
                 } label: {
                     Image(systemName: "chevron.left")
@@ -30,7 +36,7 @@ struct CreateUsernameView: View {
                 Spacer()
             }
             .padding(.horizontal)
-                        
+            
             VStack{
                 Text("Quiz kid app")
                     .font(.bold(size: 22))
@@ -59,6 +65,18 @@ struct CreateUsernameView: View {
                         TextField("", text: $name)
                             .foregroundColor(Color.text2)
                             .padding(.horizontal)
+                            .focused($focusedField, equals: .name)
+                            .onSubmit {
+                                if name.isEmpty || name.count < 2 || name.count > 18{
+                                    LocalNotification.shared.message("Name must be >= 2, <= 18 characters", .warning)
+                                }else{
+                                    focusedField = nil
+                                    User.shared.userEmail = name
+                                    if User.shared.userEmail != "" {
+                                        coordinator.push(.homeView)
+                                    }
+                                }
+                            }
                     }
                     .overlay(
                         RoundedRectangle(cornerRadius: 6)
@@ -82,6 +100,7 @@ struct CreateUsernameView: View {
                                 if name.isEmpty || name.count < 2 || name.count > 18{
                                     LocalNotification.shared.message("Name must be >= 2, <= 18 characters", .warning)
                                 }else{
+                                    focusedField = nil
                                     User.shared.userEmail = name
                                     if User.shared.userEmail != "" {
                                         coordinator.push(.homeView)
@@ -100,5 +119,9 @@ struct CreateUsernameView: View {
         .hAlign(.center)
         .vAlign(.top)
         .background(Color.accentColor)
+        .onAppear{
+            focusedField = .name
+        }
+        .ignoresSafeArea(.keyboard)
     }
 }

@@ -12,6 +12,7 @@ import Speech
 enum FocusedField {
     case textWriting
 }
+
 struct WritingView: View {
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
@@ -61,6 +62,8 @@ struct WritingView: View {
                                         }
                                     })
                                 }
+                                .contentShape(Rectangle())
+                                .simultaneousGesture(DragGesture())
                         }
                     }
                     .tabViewStyle(.page(indexDisplayMode: .never))

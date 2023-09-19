@@ -11,6 +11,12 @@ struct LoginDefaultView: View {
     @StateObject var appController = APPCONTROLLER.shared
     @StateObject var authManagerViewModel = AuthManagerViewModel.shared
     @EnvironmentObject var coordinator: Coordinator
+    @FocusState private var focusedField: FocusedField?
+    @State var name: String = ""
+
+    enum FocusedField {
+        case username, password
+    }
     
     var body: some View {
         VStack{
@@ -30,6 +36,7 @@ struct LoginDefaultView: View {
                     }
                     .keyboardType(.emailAddress)
                     .foregroundColor(.background)
+                    .focused($focusedField, equals: .username)
             }
             .padding(16)
             .background(Color.gray.opacity(0.1))
@@ -43,6 +50,7 @@ struct LoginDefaultView: View {
                         }
                         .font(.regular(size: 15))
                         .foregroundColor(.background)
+                        .focused($focusedField, equals: .password)
                 } else {
                     SecureField("Password ...", text: $authManagerViewModel.pswd)
                         .placeholder(when: authManagerViewModel.pswd.isEmpty) {
@@ -50,6 +58,7 @@ struct LoginDefaultView: View {
                         }
                         .font(.regular(size: 15))
                         .foregroundColor(.background)
+                        .focused($focusedField, equals: .password)
                 }
                 
                 Button(action: {
@@ -68,6 +77,7 @@ struct LoginDefaultView: View {
             
             Button(action: {
                 if authManagerViewModel.isSignin{
+                    focusedField = nil
                     authManagerViewModel.login()
                 }else{
                     authManagerViewModel.registerUser()
@@ -106,6 +116,7 @@ struct LoginDefaultView: View {
         .background(Color.text)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.text)
+        .ignoresSafeArea(.keyboard)
         .overlay {
             LoadingView(show: $authManagerViewModel.isLoading)
         }

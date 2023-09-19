@@ -96,9 +96,20 @@ class SpeechRecognizer: ObservableObject {
                     }
                     
                     if let result = result {
-                        self.speak(result.bestTranscription.formattedString)
-                        
-                        print(result.bestTranscription.segments)
+//                        self.speak(result.bestTranscription.formattedString)
+
+                        var bestTranscription: SFTranscription?
+
+                        for transcription in result.transcriptions {
+                            //find the largest confidence value and confidence > 0.5
+                            if let bestSegment = transcription.segments.max(by: { $0.confidence < $1.confidence }), bestSegment.confidence > 0.5 {
+                                bestTranscription = transcription
+                            }
+                        }
+
+                        if let bestTranscription = bestTranscription {
+                            self.speak(bestTranscription.formattedString)
+                        }
                     }
                 }
             } catch {

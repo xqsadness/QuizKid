@@ -102,6 +102,7 @@ struct QuizWritingContentView: View {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.text2, lineWidth: 2)
                     .opacity(selectedTab == CONSTANT.SHARED.DATA_WRITING.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_WRITING.count) ? 0.6 : 1)
+                    .contentShape(Rectangle())
                     .simultaneousGesture(DragGesture())
             }
             .padding(.horizontal)
