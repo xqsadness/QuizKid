@@ -88,7 +88,9 @@ struct RootView: SwiftUI.View {
                     })
                 }
                 
-                CONSTANT.SHARED.loadData{}
+                CONSTANT.SHARED.loadData{
+                    CONSTANT.SHARED.cancellable?.cancel()
+                }
             })
             .onChange(of: appController.INDEX_TABBAR, perform: { b in
                 if User.isShowInterstitial() == false{
@@ -142,7 +144,6 @@ struct RootView: SwiftUI.View {
             GADMobileAds.sharedInstance().applicationMuted = true
         })
     }
-    
     
     func checkDeviceLanguage() -> String {
         let preferredLanguage = Locale.preferredLanguages[0]

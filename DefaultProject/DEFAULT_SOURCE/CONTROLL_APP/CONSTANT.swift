@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseDatabase
 import SwiftUI
+import Combine
 
 class CONSTANT{
     static var SHARED = CONSTANT()
@@ -17,6 +18,7 @@ class CONSTANT{
     static var DATA_URL = "/data/ver_1"
     
     var OBSERVER_MANIFEST: Any?
+    var cancellable: AnyCancellable?
     
     @AppStorage("TIME_INSTALLED_APP") var TIME_INSTALLED_APP = 0
     @AppStorage("SAVE_VERSION_APP") var SAVE_VERSION_APP = ""
@@ -64,17 +66,10 @@ class CONSTANT{
             }
         }
         else {
-            if let manifestPath = Bundle.main.path(forResource: "data", ofType: "json"){
-                if let data = NSData(contentsOfFile: manifestPath) {
-                    do {
-                        let json = try JSON(data: data as Data, options: JSONSerialization.ReadingOptions.allowFragments)
-                        self.pareData(json, completion: {
-                            completion()
-                        })
-                    } catch _ {
-                        debugPrint("error")
-                    }
-                }
+            if let manifestPath = Bundle.main.url(forResource: "data", withExtension: "json"){
+                self.pareDataCombine(manifestPath, completions: {
+                    completion()
+                })
             }
         }
     }
@@ -185,7 +180,7 @@ struct APP_NAVIGATION_STRUCT{
     var COLOR_BUTTON_TEXT = "ffffff"
 }
 
-struct QUIZ {
+struct QUIZ: Codable {
     var id: String = ""
     var answer: String = ""
     var question: String = ""
@@ -194,6 +189,16 @@ struct QUIZ {
     var c: String = ""
     var d: String = ""
     var img: String = ""
+}
+
+struct QuizDataCombine: Codable {
+    var listQuestionsMath: [QUIZ]
+    var listQuestionsColor: [QUIZ]
+    var listQuestionsListen: [QUIZ]
+    var listQuestionsSurrounding: [QUIZ]
+    var listQuestionsHistory: [QUIZ]
+    var listListenAndRepeat: [QUIZ]
+    var listWriting: [QUIZ]
 }
 
 extension CONSTANT{
@@ -310,75 +315,121 @@ extension CONSTANT{
     
     //data
     func pareData(_ json: JSON, completion: @escaping ()->Void){
-        //DATA_COLOR
-        let jsonColors = json["listQuestionsColor"]
+        self.parseJson(json: json) { data in
+            self.DATA_COLOR = data.listQuestionsColor
+
+            self.DATA_HISTORY = data.listQuestionsHistory
+            
+            self.DATA_LISTEN = data.listQuestionsListen
+                    
+            self.DATA_MATH = data.listQuestionsMath
+            
+            self.DATA_SURROUNDING = data.listQuestionsSurrounding
+            
+            self.DATA_WRITING = data.listWriting
+            
+            self.DATA_LISTEN_AND_REPEAT = data.listListenAndRepeat
+        }
+    }
+    
+    func pareDataCombine(_ jsonURL: URL, completions: @escaping ()->Void){
+          let publisher = URLSession.shared.dataTaskPublisher(for: jsonURL)
+          
+          cancellable = publisher
+              .map(\.data)
+        //                                .decode(type: QUIZ.self, decoder: JSONDecoder())
+              .tryMap { data -> QuizDataCombine in
+                  let json = try JSON(data: data)
+                  var save: QuizDataCombine?
+                  
+                  self.parseJson(json: json){ data in
+                      save = QuizDataCombine(
+                        listQuestionsMath: data.listQuestionsMath,
+                        listQuestionsColor: data.listQuestionsMath,
+                        listQuestionsListen: data.listQuestionsMath,
+                        listQuestionsSurrounding: data.listQuestionsSurrounding,
+                        listQuestionsHistory: data.listQuestionsHistory,
+                        listListenAndRepeat: data.listListenAndRepeat,
+                        listWriting: data.listWriting
+                      )
+                  }
+                  return save!
+              }
+              .receive(on: DispatchQueue.main)
+              .sink(
+                receiveCompletion: { completion in
+                    switch completion {
+                    case .finished:
+                          print("Request completed successfully.")
+                        completions()
+                      case .failure(let error):
+                          print("Request failed with error: \(error)")
+                        completions()
+                      }
+                  },
+                  receiveValue: { value in
+                      self.DATA_MATH = value.listQuestionsMath
+                      self.DATA_HISTORY = value.listQuestionsHistory
+                      self.DATA_COLOR = value.listQuestionsColor
+                      self.DATA_LISTEN = value.listQuestionsListen
+                      self.DATA_SURROUNDING = value.listQuestionsSurrounding
+                      self.DATA_LISTEN_AND_REPEAT = value.listListenAndRepeat
+                      self.DATA_WRITING = value.listWriting
+                  }
+              )
+      }
+    
+    func parseJson(json: JSON, completion: @escaping (QuizDataCombine) -> Void){
         
+        let jsonColors = json["listQuestionsColor"]
         var listColor: [QUIZ] = []
         for (_, json) : (String, JSON) in jsonColors{
             listColor.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
-        self.DATA_COLOR = listColor
-        
-        //DATA_history
-        let jsonHistory = json["listQuestionsHistory"]
-        
-        var listHistory: [QUIZ] = []
-        for (_, json) : (String, JSON) in jsonHistory{
-            listHistory.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
-        }
-        
-        self.DATA_HISTORY = listHistory
-        
-        //DATA_listen
-        let jsonListen = json["listQuestionsListen"]
-        
-        var listListen: [QUIZ] = []
-        for (_, json) : (String, JSON) in jsonListen{
-            listListen.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
-        }
-        
-        self.DATA_LISTEN = listListen
-        
-        //DATA_listen
+        //DATA_MATH
         let jsonMath = json["listQuestionsMath"]
-        
         var listMath: [QUIZ] = []
         for (_, json) : (String, JSON) in jsonMath{
             listMath.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
-        self.DATA_MATH = listMath
+        //DATA_LISTEN
+        let jsonListen = json["listQuestionsListen"]
+        var listListen: [QUIZ] = []
+        for (_, json) : (String, JSON) in jsonListen{
+            listListen.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+        }
+        
+        //DATA_history
+        let jsonHistory = json["listQuestionsHistory"]
+        var listHistory: [QUIZ] = []
+        for (_, json) : (String, JSON) in jsonHistory{
+            listHistory.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+        }
         
         //DATA_surrounding
         let jsonSurrounding = json["listQuestionsSurrounding"]
-        
         var listSurrounding: [QUIZ] = []
         for (_, json) : (String, JSON) in jsonSurrounding{
             listSurrounding.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
-        self.DATA_SURROUNDING = listSurrounding
-        
         //DATA_writing
         let jsonWriting = json["listWriting"]
-        
         var listWriting: [QUIZ] = []
         for (_, json) : (String, JSON) in jsonWriting{
             listWriting.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue))
         }
-        
-        self.DATA_WRITING = listWriting
-        
+                        
         //DATA_listenRepeat
         let jsonRepeat = json["listListenAndRepeat"]
-        
         var listListenRepeat: [QUIZ] = []
         for (_, json) : (String, JSON) in jsonRepeat{
             listListenRepeat.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
-        self.DATA_LISTEN_AND_REPEAT = listListenRepeat
+        completion(QuizDataCombine(listQuestionsMath: listMath, listQuestionsColor: listColor, listQuestionsListen: listListen,listQuestionsSurrounding: listSurrounding, listQuestionsHistory: listHistory,listListenAndRepeat: listListenRepeat,listWriting: listWriting))
     }
     
     //Load old
@@ -394,11 +445,11 @@ extension CONSTANT{
             }
         }
     }
+    
     func pareManifestOld(_ json: JSON, completion: @escaping ()->Void){
         parseOther(json)
         completion()
     }
-    
 }
 
 extension CONSTANT{
