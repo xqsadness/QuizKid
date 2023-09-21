@@ -76,7 +76,6 @@
 		CA2223EB2A2BD0F3005164BB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2223EA2A2BD0F3005164BB /* Coordinator.swift */; };
 		CA2223ED2A2BD434005164BB /* Alerter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2223EC2A2BD434005164BB /* Alerter.swift */; };
 		DA475ADEA3BDD29E30F2BF97 /* Pods_DefaultProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42865764303805AED8FF6CB0 /* Pods_DefaultProject.framework */; };
-		DD03D17A2ABC28B100EAE138 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD03D1792ABC28B100EAE138 /* test.swift */; };
 		DD0EA48B2A8B30FD007D8C55 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EA48A2A8B30FD007D8C55 /* Language.swift */; };
 		DD0EA48D2A8B342F007D8C55 /* ListenAndRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0EA48C2A8B342F007D8C55 /* ListenAndRepeatView.swift */; };
 		DD0EA4902A8B366B007D8C55 /* animation_human.json in Resources */ = {isa = PBXBuildFile; fileRef = DD0EA48E2A8B366A007D8C55 /* animation_human.json */; };
@@ -232,7 +231,6 @@
 		CA2223E82A2BCF2F005164BB /* Shimmer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		CA2223EA2A2BD0F3005164BB /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		CA2223EC2A2BD434005164BB /* Alerter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerter.swift; sourceTree = "<group>"; };
-		DD03D1792ABC28B100EAE138 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		DD0EA48A2A8B30FD007D8C55 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		DD0EA48C2A8B342F007D8C55 /* ListenAndRepeatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenAndRepeatView.swift; sourceTree = "<group>"; };
 		DD0EA48E2A8B366A007D8C55 /* animation_human.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_human.json; sourceTree = "<group>"; };
@@ -572,7 +570,6 @@
 				DD72E2312A8A1233006AB647 /* SpeechRecognizer.swift */,
 				DD0EA48A2A8B30FD007D8C55 /* Language.swift */,
 				DD69C5D52AB9916100ADED44 /* QuizTimer.swift */,
-				DD03D1792ABC28B100EAE138 /* test.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -872,7 +869,6 @@
 				CA2223C02A2BB34A005164BB /* Triangle.swift in Sources */,
 				DD72E2322A8A1233006AB647 /* SpeechRecognizer.swift in Sources */,
 				DD72E2382A8A1D4D006AB647 /* HistoryView.swift in Sources */,
-				DD03D17A2ABC28B100EAE138 /* test.swift in Sources */,
 				CA22239D2A2BB34A005164BB /* CircleProgressView.swift in Sources */,
 				278982FE2A84EE65003CB639 /* CreateUsernameView.swift in Sources */,
 				CA2223A52A2BB34A005164BB /* InterstitialAd.swift in Sources */,
