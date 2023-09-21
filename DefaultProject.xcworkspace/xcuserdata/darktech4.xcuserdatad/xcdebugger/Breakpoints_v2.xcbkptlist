@@ -14,13 +14,13 @@
             filePath = "DefaultProject/DEFAULT_SOURCE/CONTROLL_APP/CONSTANT.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "loadData(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6D186499-383D-4553-9F43-0F0D52EFD085 - 70ba66d3b96d59c"
+                  uuid = "6D186499-383D-4553-9F43-0F0D52EFD085 - 70ba66d3b96d47d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -30,24 +30,24 @@
                   urlString = "file:///Users/darktech4/QuizKid/DefaultProject/DEFAULT_SOURCE/CONTROLL_APP/CONSTANT.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "560">
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "284">
                </Location>
                <Location
-                  uuid = "6D186499-383D-4553-9F43-0F0D52EFD085 - bc563ae47193a895"
+                  uuid = "6D186499-383D-4553-9F43-0F0D52EFD085 - 70ba66d3b96d47d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (__C.FIRDataSnapshot) -&gt; () in DefaultProject.CONSTANT.loadData(() -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in DefaultProject.CONSTANT.loadData(() -&gt; ()) -&gt; ()"
                   moduleName = "DefaultProject"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/darktech4/QuizKid/DefaultProject/DEFAULT_SOURCE/CONTROLL_APP/CONSTANT.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "48">
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "340">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -62,42 +62,10 @@
             filePath = "DefaultProject/DEFAULT_SOURCE/CONTROLL_APP/CONSTANT.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "loadData(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6FD388C0-50AA-4843-A795-6C62C17947D2 - 37b0f4f70749a51c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DefaultProject.CONSTANT.loadData(() -&gt; ()) -&gt; ()"
-                  moduleName = "DefaultProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/darktech4/QuizKid/DefaultProject/DEFAULT_SOURCE/CONTROLL_APP/CONSTANT.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "1548">
-               </Location>
-               <Location
-                  uuid = "6FD388C0-50AA-4843-A795-6C62C17947D2 - aa6e787a29110f68"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in DefaultProject.CONSTANT.loadData(() -&gt; ()) -&gt; ()"
-                  moduleName = "DefaultProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/darktech4/QuizKid/DefaultProject/DEFAULT_SOURCE/CONTROLL_APP/CONSTANT.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -110,8 +78,8 @@
             filePath = "DefaultProject/DEFAULT_SOURCE/CONTROLL_APP/CONSTANT.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
             landmarkName = "pareDataCombine(_:completions:)"
             landmarkType = "7">
          </BreakpointContent>

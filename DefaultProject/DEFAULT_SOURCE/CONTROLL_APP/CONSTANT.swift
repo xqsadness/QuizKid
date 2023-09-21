@@ -35,8 +35,7 @@ class CONSTANT{
                     completion()
                 })
             }
-        }
-        else {
+        } else {
             if let manifestPath = Bundle.main.path(forResource: "temp_manifest", ofType: "json"){
                 if let data = NSData(contentsOfFile: manifestPath) {
                     do {
@@ -60,14 +59,14 @@ class CONSTANT{
                     return
                 }
                 let json = JSON(snapshot.value as Any)
-                self.pareData(json, completion: {
+                self.parseData(json, completion: {
                     completion()
                 })
             }
         }
         else {
             if let manifestPath = Bundle.main.url(forResource: "data", withExtension: "json"){
-                self.pareDataCombine(manifestPath, completions: {
+                self.parseDataCombine(manifestPath, completions: {
                     completion()
                 })
             }
@@ -314,14 +313,14 @@ extension CONSTANT{
     }
     
     //data
-    func pareData(_ json: JSON, completion: @escaping ()->Void){
-        self.parseJson(json: json) { data in
+    func parseData(_ json: JSON, completion: @escaping ()->Void){
+        self.parseSwiftyJson(json: json) { data in
             self.DATA_COLOR = data.listQuestionsColor
-
+            
             self.DATA_HISTORY = data.listQuestionsHistory
             
             self.DATA_LISTEN = data.listQuestionsListen
-                    
+            
             self.DATA_MATH = data.listQuestionsMath
             
             self.DATA_SURROUNDING = data.listQuestionsSurrounding
@@ -332,18 +331,18 @@ extension CONSTANT{
         }
     }
     
-    func pareDataCombine(_ jsonURL: URL, completions: @escaping ()->Void){
-          let publisher = URLSession.shared.dataTaskPublisher(for: jsonURL)
-          
-          cancellable = publisher
-              .map(\.data)
+    func parseDataCombine(_ jsonURL: URL, completions: @escaping ()->Void){
+        let publisher = URLSession.shared.dataTaskPublisher(for: jsonURL)
+        
+        cancellable = publisher
+            .map(\.data)
         //                                .decode(type: QUIZ.self, decoder: JSONDecoder())
-              .tryMap { data -> QuizDataCombine in
-                  let json = try JSON(data: data)
-                  var save: QuizDataCombine?
-                  
-                  self.parseJson(json: json){ data in
-                      save = QuizDataCombine(
+            .tryMap { data -> QuizDataCombine in
+                let json = try JSON(data: data)
+                var save: QuizDataCombine?
+                
+                self.parseSwiftyJson(json: json){ data in
+                    save = QuizDataCombine(
                         listQuestionsMath: data.listQuestionsMath,
                         listQuestionsColor: data.listQuestionsMath,
                         listQuestionsListen: data.listQuestionsMath,
@@ -351,35 +350,35 @@ extension CONSTANT{
                         listQuestionsHistory: data.listQuestionsHistory,
                         listListenAndRepeat: data.listListenAndRepeat,
                         listWriting: data.listWriting
-                      )
-                  }
-                  return save!
-              }
-              .receive(on: DispatchQueue.main)
-              .sink(
+                    )
+                }
+                return save ?? .init(listQuestionsMath: [], listQuestionsColor: [], listQuestionsListen: [], listQuestionsSurrounding: [], listQuestionsHistory: [], listListenAndRepeat: [], listWriting: [])
+            }
+            .receive(on: DispatchQueue.main)
+            .sink(
                 receiveCompletion: { completion in
                     switch completion {
                     case .finished:
-                          print("Request completed successfully.")
+                        print("Request completed successfully.")
                         completions()
-                      case .failure(let error):
-                          print("Request failed with error: \(error)")
+                    case .failure(let error):
+                        print("Request failed with error: \(error)")
                         completions()
-                      }
-                  },
-                  receiveValue: { value in
-                      self.DATA_MATH = value.listQuestionsMath
-                      self.DATA_HISTORY = value.listQuestionsHistory
-                      self.DATA_COLOR = value.listQuestionsColor
-                      self.DATA_LISTEN = value.listQuestionsListen
-                      self.DATA_SURROUNDING = value.listQuestionsSurrounding
-                      self.DATA_LISTEN_AND_REPEAT = value.listListenAndRepeat
-                      self.DATA_WRITING = value.listWriting
-                  }
-              )
-      }
+                    }
+                },
+                receiveValue: { value in
+                    self.DATA_MATH = value.listQuestionsMath
+                    self.DATA_HISTORY = value.listQuestionsHistory
+                    self.DATA_COLOR = value.listQuestionsColor
+                    self.DATA_LISTEN = value.listQuestionsListen
+                    self.DATA_SURROUNDING = value.listQuestionsSurrounding
+                    self.DATA_LISTEN_AND_REPEAT = value.listListenAndRepeat
+                    self.DATA_WRITING = value.listWriting
+                }
+            )
+    }
     
-    func parseJson(json: JSON, completion: @escaping (QuizDataCombine) -> Void){
+    func parseSwiftyJson(json: JSON, completion: @escaping (QuizDataCombine) -> Void){
         
         let jsonColors = json["listQuestionsColor"]
         var listColor: [QUIZ] = []
@@ -421,7 +420,7 @@ extension CONSTANT{
         for (_, json) : (String, JSON) in jsonWriting{
             listWriting.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue))
         }
-                        
+        
         //DATA_listenRepeat
         let jsonRepeat = json["listListenAndRepeat"]
         var listListenRepeat: [QUIZ] = []
