@@ -344,8 +344,8 @@ extension CONSTANT{
                 self.parseSwiftyJson(json: json){ data in
                     save = QuizDataCombine(
                         listQuestionsMath: data.listQuestionsMath,
-                        listQuestionsColor: data.listQuestionsMath,
-                        listQuestionsListen: data.listQuestionsMath,
+                        listQuestionsColor: data.listQuestionsColor,
+                        listQuestionsListen: data.listQuestionsListen,
                         listQuestionsSurrounding: data.listQuestionsSurrounding,
                         listQuestionsHistory: data.listQuestionsHistory,
                         listListenAndRepeat: data.listListenAndRepeat,
