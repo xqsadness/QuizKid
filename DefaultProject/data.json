@@ -1,274 +1,249 @@
 
+
 {
     "listQuestionsMath": [
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "8",
-            "answer2": "eight",
-            "question": "What is 5 + 3?",
-            "a": "7",
-            "b": "8",
-            "c": "6",
-            "d": "5",
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "5",
-            "answer2": "five",
-            "question": "How many fingers are there on each of your hands?",
-            "a": "4",
-            "b": "5",
-            "c": "6",
-            "d": "7"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "3",
-            "answer2": "three",
-            "question": "If you have 4 apples and you give one to your friend, how many apples do you have left?",
-            "a": "1",
-            "b": "2",
-            "c": "3",
-            "d": "4"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "6",
-            "answer2": "six",
-            "question": "How many faces does a cube have?",
-            "a": "1",
-            "b": "2",
-            "c": "3",
-            "d": "6"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "0",
-            "answer2": "Zero",
-            "question": "What is 8 x 0?",
-            "a": "1",
-            "b": "3",
-            "c": "5",
-            "d": "0"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "10",
-            "answer2": "ten",
-            "question": "If you have 10 fingers, how many fingers do you need to count to 20?",
-            "a": "10",
-            "b": "5",
-            "c": "3",
-            "d": "4"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "4",
-            "answer2": "four",
-            "question": "How many legs does a dog have?",
-            "a": "2",
-            "b": "3",
-            "c": "4",
-            "d": "5"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "14",
-            "answer2": "four teen",
-            "question": "What is 7 x 2?",
-            "a": "9",
-            "b": "12",
-            "c": "14",
-            "d": "21"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "11",
-            "answer2": "elevent",
-            "question": "What is 4 + 7?",
-            "a": "54",
-            "b": "4",
-            "c": "11",
-            "d": "14"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Cat",
-            "answer2": "Cat",
-            "question": "If a cat is in front of a chicken coop, the chicken coop is in front of the house, and the house is in front of a pond, then what is in front of a window?",
-            "a": "Chicken",
-            "b": "Cat",
-            "c": "Fish",
-            "d": "Dog"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "9",
-            "answer2": "nine",
-            "question": "There is a bridge with 5 ducks on it. Under the bridge, there are 4 ducks. How many ducks are there in total?",
-            "a": "10",
-            "b": "8",
-            "c": "9",
-            "d": "11"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "3",
-            "answer2": "three",
-            "question": "You have 5 apples. You ate 2. How many apples do you have left?",
-            "a": "5",
-            "b": "4",
-            "c": "3",
-            "d": "2"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Sunday",
-            "answer2": "Sunday",
-            "question": "If today is Saturday, what day is tomorrow?",
-            "a": "Saturday",
-            "b": "Sunday",
-            "c": "Monday",
-            "d": "Friday"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "At the end of the road",
-            "answer2": "At the end of the road",
-            "question": "If you walk 10 steps along a road, where are you?",
-            "a": "At the beginning of the road",
-            "b": "In the middle of the road",
-            "c": "At the end of the road",
-            "d": "Cannot be determined"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "4 times",
-            "answer2": "four times",
-            "question": "You have 2 red balls, 3 blue balls, and 1 yellow ball. If you randomly draw a ball from the bag, how many times do you need to draw to ensure you have at least one blue ball?",
-            "a": "2 times",
-            "b": "3 times",
-            "c": "4 times",
-            "d": "6 times"
-        }
-    ],
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["8"],
+               "question": "What is 5 + 3?",
+               "a": "7",
+               "b": "8",
+               "c": "6",
+               "d": "5"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["5"],
+               "question": "How many fingers are there on each of your hands?",
+               "a": "4",
+               "b": "5",
+               "c": "6",
+               "d": "7"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["3"],
+               "question": "If you have 4 apples and you give one to your friend, how many apples do you have left?",
+               "a": "1",
+               "b": "2",
+               "c": "3",
+               "d": "4"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["6"],
+               "question": "How many faces does a cube have?",
+               "a": "1",
+               "b": "2",
+               "c": "3",
+               "d": "6"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["0"],
+               "question": "What is 8 x 0?",
+               "a": "1",
+               "b": "3",
+               "c": "5",
+               "d": "0"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["10"],
+               "question": "If you have 10 fingers, how many fingers do you need to count to 20?",
+               "a": "10",
+               "b": "5",
+               "c": "3",
+               "d": "4"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["4"],
+               "question": "How many legs does a dog have?",
+               "a": "2",
+               "b": "3",
+               "c": "4",
+               "d": "5"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["14"],
+               "question": "What is 7 x 2?",
+               "a": "9",
+               "b": "12",
+               "c": "14",
+               "d": "21"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["11"],
+               "question": "What is 4 + 7?",
+               "a": "54",
+               "b": "4",
+               "c": "11",
+               "d": "14"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["Cat"],
+               "question": "If a cat is in front of a chicken coop, the chicken coop is in front of the house, and the house is in front of a pond, then what is in front of a window?",
+               "a": "Chicken",
+               "b": "Cat",
+               "c": "Fish",
+               "d": "Dog"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["9"],
+               "question": "There is a bridge with 5 ducks on it. Under the bridge, there are 4 ducks. How many ducks are there in total?",
+               "a": "10",
+               "b": "8",
+               "c": "9",
+               "d": "11"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["3"],
+               "question": "You have 5 apples. You ate 2. How many apples do you have left?",
+               "a": "5",
+               "b": "4",
+               "c": "3",
+               "d": "2"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["Sunday"],
+               "question": "If today is Saturday, what day is tomorrow?",
+               "a": "Saturday",
+               "b": "Sunday",
+               "c": "Monday",
+               "d": "Friday"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["At the end of the road"],
+               "question": "If you walk 10 steps along a road, where are you?",
+               "a": "At the beginning of the road",
+               "b": "In the middle of the road",
+               "c": "At the end of the road",
+               "d": "Cannot be determined"
+           },
+           {
+               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+               "answer": ["4 times"],
+               "question": "You have 2 red balls, 3 blue balls, and 1 yellow ball. If you randomly draw a ball from the bag, how many times do you need to draw to ensure you have at least one blue ball?",
+               "a": "2 times",
+               "b": "3 times",
+               "c": "4 times",
+               "d": "6 times"
+           }
+       ],
     "listQuestionsColor": [
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Orange",
-            "answer2": "Orange",
-            "question": "What color is this fruit?",
-            "a": "Red",
-            "b": "Orange",
-            "c": "Yellow",
-            "d": "Green",
-            "img": "cam"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Red",
-            "answer2": "Red",
-            "question": "What color is this cherry?",
-            "a": "Red",
-            "b": "Green",
-            "c": "Yellow",
-            "d": "Purple",
-            "img": "cherry"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "White",
-            "answer2": "White",
-            "question": "What color is this dog?",
-            "a": "Black",
-            "b": "Brown",
-            "c": "Red",
-            "d": "White",
-            "img": "conchotrang"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Yellow",
-            "answer2": "Yellow",
-            "question": "What color is this?",
-            "a": "Yellow",
-            "b": "Purple",
-            "c": "Blue",
-            "d": "Orange",
-            "img": "conga"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Red",
-            "answer2": "Red",
-            "question": "What color is this?",
-            "a": "Green",
-            "b": "Orange",
-            "c": "Blue",
-            "d": "Red",
-            "img": "images (1)"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Blue",
-            "answer2": "Blue",
-            "question": "What color is the girl's dress?",
-            "a": "Blue",
-            "b": "Green",
-            "c": "Black",
-            "d": "White",
-            "img": "IMG_3959-scaled"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Brown",
-            "answer2": "Brown",
-            "question": "What color is this rabbit?",
-            "a": "Black",
-            "b": "Red",
-            "c": "Gray",
-            "d": "Brown",
-            "img": "thonau"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Red",
-            "answer2": "Red",
-            "question": "What color is this?",
-            "a": "Green",
-            "b": "Orange",
-            "c": "Black",
-            "d": "Red",
-            "img": "xedo"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Yellow",
-            "answer2": "Yellow",
-            "question": "What color is this?",
-            "a": "Purple",
-            "b": "Orange",
-            "c": "Blue",
-            "d": "Yellow",
-            "img": "hinh-anh-qua-chuoi-tieu"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Red",
-            "answer2": "Red",
-            "question": "What color is the inside of this watermelon?",
-            "a": "Yellow",
-            "b": "Green",
-            "c": "Black",
-            "d": "Red",
-            "img": "duahau"
-        }
-    ],
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["Orange"],
+                "question": "What color is this fruit?",
+                "a": "Red",
+                "b": "Orange",
+                "c": "Yellow",
+                "d": "Green",
+                "img": "cam"
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["Red"],
+                "question": "What color is this cherry?",
+                "a": "Red",
+                "b": "Green",
+                "c": "Yellow",
+                "d": "Purple",
+                "img": "cherry"
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["White"],
+                "question": "What color is this dog?",
+                "a": "Black",
+                "b": "Brown",
+                "c": "Red",
+                "d": "White",
+                "img": "conchotrang"
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["Yellow"],
+                "question": "What color is this?",
+                "a": "Yellow",
+                "b": "Purple",
+                "c": "Blue",
+                "d": "Orange",
+                "img": "conga"
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["Red"],
+                "question": "What color is this?",
+                "a": "Green",
+                "b": "Orange",
+                "c": "Blue",
+                "d": "Red",
+                "img": "images (1)"
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["Blue"],
+                "question": "What color is the girl's dress?",
+                "a": "Blue",
+                "b": "Green",
+                "c": "Black",
+                "d": "White",
+                "img": "IMG_3959-scaled"
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["Brown"],
+                "question": "What color is this rabbit?",
+                "a": "Black",
+                "b": "Red",
+                "c": "Gray",
+                "d": "Brown",
+                "img": "thonau"
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["Red"],
+                "question": "What color is this?",
+                "a": "Green",
+                "b": "Orange",
+                "c": "Black",
+                "d": "Red",
+                "img": "xedo"
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["Yellow"],
+                "question": "What color is this?",
+                "a": "Purple",
+                "b": "Orange",
+                "c": "Blue",
+                "d": "Yellow",
+                "img": "hinh-anh-qua-chuoi-tieu"
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "answer": ["Red"],
+                "question": "What color is the inside of this watermelon?",
+                "a": "Yellow",
+                "b": "Green",
+                "c": "Black",
+                "d": "Red",
+                "img": "duahau"
+            }
+        ],
     "listQuestionsListen": [
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Shoes",
-            "answer2": "Shoes",
+            "answer": ["Shoes"],
             "question": "What is she wearing?",
             "a": "Shoes",
             "b": "Gloves",
@@ -278,8 +253,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Mining",
-            "answer2": "Mining",
+            "answer": ["Mining"],
             "question": "What is he doing?",
             "a": "Sheep farming",
             "b": "Gardening",
@@ -289,8 +263,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Planting",
-            "answer2": "Planting",
+            "answer": ["Planting"],
             "question": "What is he doing?",
             "a": "Baking",
             "b": "Cooking rice",
@@ -300,8 +273,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Elephant",
-            "answer2": "Elephant",
+            "answer": ["Elephant"],
             "question": "What animal is this?",
             "a": "Dog",
             "b": "Pig",
@@ -311,8 +283,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Rose",
-            "answer2": "Rose",
+            "answer": ["Rose"],
             "question": "What flower is this?",
             "a": "Wild grass flower",
             "b": "Sunflower",
@@ -322,8 +293,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Mouth",
-            "answer2": "Mouth",
+            "answer": ["Mouth"],
             "question": "What part of the body is this?",
             "a": "Nose",
             "b": "Eye",
@@ -333,8 +303,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Sun",
-            "answer2": "Sun",
+            "answer": ["Sun"],
             "question": "What is this?",
             "a": "Moon",
             "b": "Sun",
@@ -344,8 +313,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Planet",
-            "answer2": "Planet",
+            "answer": ["Planet"],
             "question": "What is this?",
             "a": "Onion",
             "b": "Leafy greens",
@@ -355,8 +323,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Computer",
-            "answer2": "Computer",
+            "answer": ["Computer"],
             "question": "What is this?",
             "a": "Desktop computer",
             "b": "Airplane",
@@ -366,8 +333,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Baby",
-            "answer2": "Baby",
+            "answer": ["Baby"],
             "question": "What is he?",
             "a": "Youngest",
             "b": "Baby",
@@ -380,7 +346,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "Watermelon",
-            "answer2": "Watermelon",
             "question": "Watermelon",
             "a": "",
             "b": "",
@@ -391,7 +356,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "Banana Pepper",
-            "answer2": "Banana Pepper",
             "question": "Banana Pepper",
             "a": "",
             "b": "",
@@ -402,7 +366,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "Brown Rabbit",
-            "answer2": "Brown Rabbit",
             "question": "Brown Rabbit",
             "a": "",
             "b": "",
@@ -413,7 +376,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "Ao Dai",
-            "answer2": "Ao Dai",
             "question": "Ao Dai",
             "a": "",
             "b": "",
@@ -424,7 +386,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "Strawberry",
-            "answer2": "Strawberry",
             "question": "Strawberry",
             "a": "",
             "b": "",
@@ -435,7 +396,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "Rooster",
-            "answer2": "Rooster",
             "question": "Rooster",
             "a": "",
             "b": "",
@@ -446,7 +406,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "White Dog",
-            "answer2": "White Dog",
             "question": "White Dog",
             "a": "",
             "b": "",
@@ -457,7 +416,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "Cherry",
-            "answer2": "Cherry",
             "question": "Cherry",
             "a": "",
             "b": "",
@@ -468,7 +426,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "Orange",
-            "answer2": "Orange",
             "question": "Orange",
             "a": "",
             "b": "",
@@ -479,7 +436,6 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": "Car",
-            "answer2": "Car",
             "question": "Car",
             "a": "",
             "b": "",
@@ -491,8 +447,7 @@
     "listQuestionsHistory": [
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Ba Ria",
-            "answer2": "Ba Ria",
+            "answer": ["Ba Ria"],
             "question": "In the year 1933, France merged Truong Sa into which province?",
             "a": "Ba Ria",
             "b": "Kien Giang",
@@ -502,8 +457,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Vietnam",
-            "answer2": "Vietnam",
+            "answer": ["Vietnam"],
             "question": "The Paracel and Spratly Islands belong to which country?",
             "a": "Vietnam",
             "b": "China",
@@ -513,8 +467,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Hanoi",
-            "answer2": "Hanoi",
+            "answer": ["Hanoi"],
             "question": "Which city was the capital of North Vietnam during the Vietnam War?",
             "a": "Hanoi",
             "b": "Ho Chi Minh City",
@@ -524,8 +477,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Ly Thai To",
-            "answer2": "Ly Thai To",
+            "answer": ["Ly Thai To"],
             "question": "Who founded the city of Thang Long, now known as Hanoi?",
             "a": "Ly Thai To",
             "b": "Tran Nhan Tong",
@@ -535,8 +487,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Hue",
-            "answer2": "Hue",
+            "answer": ["Hue"],
             "question": "Which city in Vietnam is known for its historic Imperial City and Forbidden Purple City?",
             "a": "Hue",
             "b": "Hanoi",
@@ -546,8 +497,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "1975",
-            "answer2": "1975",
+            "answer": ["1975"],
             "question": "In which year did the Fall of Saigon occur, leading to the end of the Vietnam War?",
             "a": "1975",
             "b": "1965",
@@ -557,8 +507,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Pho",
-            "answer2": "Pho",
+            "answer": ["Pho"],
             "question": "What is the name of the popular Vietnamese noodle soup typically consisting of broth, rice noodles, and meat?",
             "a": "Pho",
             "b": "Banh Mi",
@@ -568,8 +517,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Uncle Ho",
-            "answer2": "Uncle Ho",
+            "answer": ["Uncle Ho"],
             "question": "What nickname is often used to refer to Ho Chi Minh, the founding father of modern Vietnam?",
             "a": "Uncle Ho",
             "b": "Grandfather Hanoi",
@@ -579,8 +527,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Saigon",
-            "answer2": "Saigon",
+            "answer": ["Saigon"],
             "question": "What was the former name of Ho Chi Minh City before the reunification of North and South Vietnam?",
             "a": "Saigon",
             "b": "Hanoi",
@@ -590,8 +537,7 @@
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": "Banh Mi",
-            "answer2": "Banh Mi",
+            "answer": ["Banh Mi"],
             "question": "What is the name of the Vietnamese sandwich typically consisting of a French baguette filled with various ingredients?",
             "a": "Banh Mi",
             "b": "Pho",
@@ -604,154 +550,104 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "How are you",
-            "answer": "How are you",
-            "answer2": "How are you",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["How are you"]
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "I can see",
-            "answer": "I can see",
-            "answer2": "I can see",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["I can see"]
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "I love you",
-            "answer": "I love you",
-            "answer2": "I love you",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["I love you"]
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "Bread",
-            "answer": "Bread",
-            "answer2": "Bread",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["Bread"]
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "Listen to music",
-            "answer": "Listen to music",
-            "answer2": "Listen to music",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["Listen to music"]
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "Watch TV",
-            "answer": "Watch TV",
-            "answer2": "Watch TV",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["Watch TV"]
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "Do exercise",
-            "answer": "Do exercise",
-            "answer2": "Do exercise",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["Do exercise"]
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "Breakfast",
-            "answer": "Breakfast",
-            "answer2": "Breakfast",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["Breakfast"]
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "I like it",
-            "answer": "I like it",
-            "answer2": "I like it",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["I like it"]
         },
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "question": "Fine, thank you!",
-            "answer": "Fine thank you",
-            "answer2": "Fine thank you",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": ""
+            "answer": ["Fine thank you"]
         }
     ],
     "listWriting": [
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Good bye",
-            "answer": "Good bye"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Bye",
-            "answer": "Bye"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Fine",
-            "answer": "Fine"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Go",
-            "answer": "Go"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "See",
-            "answer": "See"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Come here",
-            "answer": "Come here"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Listen",
-            "answer": "Listen"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "How are you",
-            "answer": "How are you"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Good morning",
-            "answer": "Good morning"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Good evening",
-            "answer": "Good evening"
-        }
-    ]
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "Good bye",
+                "answer": ["Good bye"]
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "Bye",
+                "answer": ["Bye"]
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "Fine",
+                "answer": ["Fine"]
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "Go",
+                "answer": ["Go"]
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "See",
+                "answer": ["See"]
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "Come here",
+                "answer": ["Come here"]
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "Listen",
+                "answer": ["Listen"]
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "How are you",
+                "answer": ["How are you"]
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "Good morning",
+                "answer": ["Good morning"]
+            },
+            {
+                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+                "question": "Good evening",
+                "answer": ["Good evening"]
+            }
+        ]
 }
