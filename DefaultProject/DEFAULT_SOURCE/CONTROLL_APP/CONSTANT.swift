@@ -190,6 +190,17 @@ struct QUIZ: Codable {
     var img: String = ""
 }
 
+struct QUIZ_ARRAY: Codable {
+    var id: String = ""
+    var answer: [String] = []
+    var question: String = ""
+    var a: String = ""
+    var b: String = ""
+    var c: String = ""
+    var d: String = ""
+    var img: String = ""
+}
+
 struct QuizDataCombine: Codable {
     var listQuestionsMath: [QUIZ]
     var listQuestionsColor: [QUIZ]

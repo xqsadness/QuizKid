@@ -35,6 +35,7 @@ struct WritingView: View {
             VStack{
                 HStack{
                     Button {
+                        synthesizer.stopSpeaking(at: .immediate)
                         coordinator.pop()
                     } label: {
                         Image(systemName: "chevron.left")
@@ -103,6 +104,7 @@ struct WritingView: View {
             }
             .onDisappear{
                 QuizTimer.shared.reset()
+                synthesizer.stopSpeaking(at: .immediate)
             }
             if isShowPopupCheck{
                 QuestionResultWritingView(isCorrect: $isCorrect, isShowPopupCheck: $isShowPopupCheck, answer: $answer) {

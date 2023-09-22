@@ -13,13 +13,14 @@ struct ListenAndRPContentView: View {
     @StateObject var speechRecognizer: SpeechRecognizer
     @State var synthesizer: AVSpeechSynthesizer
     @State var index: Int
-    @Binding var isSpeaking: Bool
+//    @Binding var isSpeaking: Bool
     @Binding var isHide: Bool
     @Binding var countCorrect: Int
     @Binding var countWrong: Int
     @Binding var selectedTab: Int
     
     var handleTapToSpeak: (() -> Void)
+    var handleTapToSpeakOnchange: (() -> Void)
     
     var body: some View {
         VStack (spacing: 0) {
@@ -93,7 +94,7 @@ struct ListenAndRPContentView: View {
                 .simultaneousGesture(DragGesture())
             
             HStack{
-                if isSpeaking {
+                if speechRecognizer.isSpeaking {
                     LottieView(name: "animation_soundwave", loopMode: .loop)
                         .frame(height: 57)
                 } else {
@@ -111,7 +112,7 @@ struct ListenAndRPContentView: View {
                     }
                 }
             }
-            .padding(isSpeaking ? 0 : 15)
+            .padding(speechRecognizer.isSpeaking ? 0 : 15)
             .frame(maxWidth: .infinity)
             .overlay{
                 RoundedRectangle(cornerRadius: 10)
@@ -123,6 +124,12 @@ struct ListenAndRPContentView: View {
             .simultaneousGesture(DragGesture())
             .onTapGesture {
                 handleTapToSpeak()
+            }
+            
+            .onChange(of: speechRecognizer.isSpeaking) { newValue in
+                if !newValue{
+                    handleTapToSpeakOnchange()
+                }
             }
             
             if speechRecognizer.transcript.isEmpty{
@@ -152,7 +159,7 @@ struct ListenAndRPContentView: View {
     }
     
     func speakText(textToSpeak: String) {
-        isSpeaking = false
+        speechRecognizer.isSpeaking = false
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
             try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)

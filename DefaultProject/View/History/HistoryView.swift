@@ -29,6 +29,7 @@ struct HistoryView: View {
         VStack{
             HStack{
                 Button {
+                    synthesizer.stopSpeaking(at: .immediate)
                     coordinator.pop()
                 } label: {
                     Image(systemName: "chevron.left")
@@ -82,6 +83,7 @@ struct HistoryView: View {
         }
         .onDisappear{
             QuizTimer.shared.reset()
+            synthesizer.stopSpeaking(at: .immediate)
         }
     }
     

@@ -30,11 +30,15 @@ class SpeechRecognizer: ObservableObject {
     }
     
     @Published var transcript: String = ""
+    @Published var isSpeaking: Bool = false
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
     private var task: SFSpeechRecognitionTask?
     private var recognizer: SFSpeechRecognizer? = nil
+    private var isFinal = false
+    private var timer: Timer?
+    
     
     init() {
         recognizer = SFSpeechRecognizer(locale: Locale(identifier: language))
@@ -66,6 +70,9 @@ class SpeechRecognizer: ObservableObject {
         audioEngine = nil
         request = nil
         task = nil
+        withAnimation {
+            isSpeaking = false
+        }
     }
     
     /**
@@ -96,27 +103,32 @@ class SpeechRecognizer: ObservableObject {
                     }
                     
                     if let result = result {
-//                        self.speak(result.bestTranscription.formattedString)
-
-                        var bestTranscription: SFTranscription?
-
-                        for transcription in result.transcriptions {
-                            //find the largest confidence value and confidence > 0.5
-                            if let bestSegment = transcription.segments.max(by: { $0.confidence < $1.confidence }), bestSegment.confidence > 0.5 {
-                                bestTranscription = transcription
-                            }
-                        }
-
-                        if let bestTranscription = bestTranscription {
-                            self.speak(bestTranscription.formattedString)
-                        }
+                        self.speak(result.bestTranscription.formattedString)
+                        self.isFinal = result.isFinal
                     }
+                    
+                    if self.isFinal {
+                        self.stopTranscribing()
+                    } else if error == nil {
+                        self.restartSpeechTimer()
+                    }
+                    
                 }
             } catch {
                 self.reset()
                 self.speakError(error)
             }
         }
+    }
+    
+    func restartSpeechTimer() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.85, repeats: false, block: { (timer) in
+            // Do whatever needs to be done when the timer expires
+            print("timeout")
+            
+            self.stopTranscribing()
+        })
     }
     
     private static func prepareEngine() throws -> (AVAudioEngine, SFSpeechAudioBufferRecognitionRequest) {

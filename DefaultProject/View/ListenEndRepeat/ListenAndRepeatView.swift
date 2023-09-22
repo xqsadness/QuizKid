@@ -26,14 +26,15 @@ struct ListenAndRepeatView: View {
     @State private var isFail = false
     @State private var isShowPopup = false
     @State private var isHide: Bool = true
-    @State private var isSpeaking: Bool = false
+    //    @State private var isSpeaking: Bool = false
     @State private var checkPermission: Bool = false
     
     var body: some View {
         ZStack(alignment: .top){
-            VStack{ 
+            VStack{
                 HStack{
                     Button {
+                        synthesizer.stopSpeaking(at: .immediate)
                         coordinator.pop()
                     } label: {
                         Image(systemName: "chevron.left")
@@ -51,8 +52,10 @@ struct ListenAndRepeatView: View {
                 VStack{
                     TabView(selection: $selectedTab) {
                         ForEach(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.indices, id: \.self) { index in
-                            ListenAndRPContentView(speechRecognizer: speechRecognizer,synthesizer: synthesizer,index: index ,isSpeaking: $isSpeaking, isHide: $isHide, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab){
+                            ListenAndRPContentView(speechRecognizer: speechRecognizer,synthesizer: synthesizer,index: index, isHide: $isHide, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab){
                                 handleTapToSpeak(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.cw_localized)
+                            } handleTapToSpeakOnchange: {
+                                handleTapToSpeakOnchange(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.cw_localized)
                             }
                             .tag(index)
                             .contentShape(Rectangle()).gesture(DragGesture())
@@ -65,6 +68,14 @@ struct ListenAndRepeatView: View {
                                         synthesizer.stopSpeaking(at: .immediate)
                                     }
                                 })
+                                
+//                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8 ,execute: {
+//                                    if !synthesizer.isSpeaking{
+//                                        speakText(textToSpeak: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.cw_localized)
+//                                    }else{
+//                                        synthesizer.stopSpeaking(at: .immediate)
+//                                    }
+//                                })
                             }
                         }
                     }
@@ -155,7 +166,7 @@ struct ListenAndRepeatView: View {
         }
         .overlay{
             if checkPermission{
-               PermissionsNoticeView(message: "Please allow access speech and voice")
+                PermissionsNoticeView(message: "Please allow access speech and voice")
                     .environmentObject(coordinator)
             }
         }
@@ -176,18 +187,19 @@ struct ListenAndRepeatView: View {
         }
         .onDisappear{
             QuizTimer.shared.reset()
+            synthesizer.stopSpeaking(at: .immediate)
         }
     }
-
+    
     func handleTapToSpeak(answer: String){
         if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 || !(countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
             audioPlayer?.pause()
-            if !isSpeaking {
-                isSpeaking = true
+            if !speechRecognizer.isSpeaking {
+                speechRecognizer.isSpeaking = true
                 synthesizer.stopSpeaking(at: .immediate)
                 speechRecognizer.transcribe()
             } else {
-                isSpeaking = false
+                speechRecognizer.isSpeaking = false
                 speechRecognizer.stopTranscribing()
                 if speechRecognizer.transcript.lowercased().cw_localized == answer.lowercased(){
                     loadAudio(nameSound: "correct")
@@ -217,6 +229,37 @@ struct ListenAndRepeatView: View {
         speechRecognizer.transcript = ""
     }
     
+    func handleTapToSpeakOnchange(answer: String){
+        if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 || !(countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
+            audioPlayer?.pause()
+            speechRecognizer.stopTranscribing()
+            if speechRecognizer.transcript.lowercased().cw_localized == answer.cw_localized.lowercased(){
+                loadAudio(nameSound: "correct")
+                DispatchQueue.main.async {
+                    isCorrect = true
+                }
+                countCorrect += 1
+            }else{
+                loadAudio(nameSound: "wrong")
+                if countFail < 2{
+                    titleButon = "Again"
+                }else{
+                    titleButon = "Understand"
+                }
+                DispatchQueue.main.async {
+                    isFail = true
+                }
+            }
+        }else if selectedTab == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
+            loadAudio(nameSound: "congralutions")
+            withAnimation {
+                isShowPopup = true
+            }
+            audioPlayer?.pause()
+        }
+        speechRecognizer.transcript = ""
+    }
+    
     func speakText(textToSpeak: String) {
         let utterance = AVSpeechUtterance(string: textToSpeak)
         utterance.voice = AVSpeechSynthesisVoice(language: language)
@@ -227,7 +270,7 @@ struct ListenAndRepeatView: View {
     func resetSpeak(){
         speechRecognizer.transcript = ""
         speechRecognizer.reset()
-        isSpeaking = false
+        speechRecognizer.isSpeaking = false
     }
     
     func loadAudio(nameSound: String) {

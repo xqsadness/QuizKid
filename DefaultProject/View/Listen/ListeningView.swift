@@ -28,6 +28,7 @@ struct ListeningView: View {
         VStack{
             HStack{
                 Button {
+                    synthesizer.stopSpeaking(at: .immediate)
                     coordinator.pop()
                 } label: {
                     Image(systemName: "chevron.left")
@@ -81,6 +82,7 @@ struct ListeningView: View {
         }
         .onDisappear{
             QuizTimer.shared.reset()
+            synthesizer.stopSpeaking(at: .immediate)
         }
     }
     
