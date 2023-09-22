@@ -32,7 +32,7 @@ struct ListenContentView: View {
                     .padding(.top)
                     .onTapGesture {
                         if !synthesizer.isSpeaking{
-                            speakText(textToSpeak: quiz.answer.cw_localized)
+                            speakText(textToSpeak: quiz.question.cw_localized)
                         }else{
                             synthesizer.stopSpeaking(at: .immediate)
                         }
@@ -45,10 +45,10 @@ struct ListenContentView: View {
             Spacer()
             
             VStack(spacing: 10){
-                answerView(question: quiz.a, isCorrect: quiz.answer == quiz.a)
-                answerView(question: quiz.b, isCorrect: quiz.answer == quiz.b)
-                answerView(question: quiz.c, isCorrect: quiz.answer == quiz.c)
-                answerView(question: quiz.d, isCorrect: quiz.answer == quiz.d)
+                answerView(question: quiz.a, isCorrect: quiz.question == quiz.a)
+                answerView(question: quiz.b, isCorrect: quiz.question == quiz.b)
+                answerView(question: quiz.c, isCorrect: quiz.question == quiz.c)
+                answerView(question: quiz.d, isCorrect: quiz.question == quiz.d)
             }
             .padding()
             .simultaneousGesture(DragGesture())

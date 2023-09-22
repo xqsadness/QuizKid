@@ -14,7 +14,7 @@ struct ColorView: View {
     @State var countWrong = 0
     @State private var textToSpeak: String = ""
     @State private var selectedAnswer = ""
-    @State private var answerCorrect = ""
+    @State private var answerCorrect: [String] = []
     @State private var selectedTab = 0
     @State private var isCorrect = false
     @State private var isSubmit = false

@@ -244,7 +244,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Shoes"],
-            "question": "What is she wearing?",
+            "question": "Shoes",
             "a": "Shoes",
             "b": "Gloves",
             "c": "Coat",
@@ -254,7 +254,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Mining"],
-            "question": "What is he doing?",
+            "question": "Mining",
             "a": "Sheep farming",
             "b": "Gardening",
             "c": "Baking",
@@ -264,7 +264,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Planting"],
-            "question": "What is he doing?",
+            "question": "Planting",
             "a": "Baking",
             "b": "Cooking rice",
             "c": "Planting",
@@ -274,7 +274,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Elephant"],
-            "question": "What animal is this?",
+            "question": "Elephant",
             "a": "Dog",
             "b": "Pig",
             "c": "Elephant",
@@ -284,7 +284,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Rose"],
-            "question": "What flower is this?",
+            "question": "Rose",
             "a": "Wild grass flower",
             "b": "Sunflower",
             "c": "Chrysanthemum",
@@ -294,7 +294,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Mouth"],
-            "question": "What part of the body is this?",
+            "question": "Mouth",
             "a": "Nose",
             "b": "Eye",
             "c": "Ear",
@@ -304,7 +304,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Sun"],
-            "question": "What is this?",
+            "question": "Sun",
             "a": "Moon",
             "b": "Sun",
             "c": "Mercury",
@@ -314,7 +314,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Planet"],
-            "question": "What is this?",
+            "question": "Planet",
             "a": "Onion",
             "b": "Leafy greens",
             "c": "Planet",
@@ -324,7 +324,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Computer"],
-            "question": "What is this?",
+            "question": "Computer",
             "a": "Desktop computer",
             "b": "Airplane",
             "c": "Projector",
@@ -334,7 +334,7 @@
         {
             "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
             "answer": ["Baby"],
-            "question": "What is he?",
+            "question": "Baby",
             "a": "Youngest",
             "b": "Baby",
             "c": "Well-behaved",
@@ -602,52 +602,52 @@
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "Good bye",
-                "answer": ["Good bye"]
+                "answer": "Good bye"
             },
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "Bye",
-                "answer": ["Bye"]
+                "answer": "Bye"
             },
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "Fine",
-                "answer": ["Fine"]
+                "answer": "Fine"
             },
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "Go",
-                "answer": ["Go"]
+                "answer": "Go"
             },
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "See",
-                "answer": ["See"]
+                "answer": "See"
             },
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "Come here",
-                "answer": ["Come here"]
+                "answer": "Come here"
             },
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "Listen",
-                "answer": ["Listen"]
+                "answer": "Listen"
             },
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "How are you",
-                "answer": ["How are you"]
+                "answer": "How are you"
             },
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "Good morning",
-                "answer": ["Good morning"]
+                "answer": "Good morning"
             },
             {
                 "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
                 "question": "Good evening",
-                "answer": ["Good evening"]
+                "answer": "Good evening"
             }
         ]
 }

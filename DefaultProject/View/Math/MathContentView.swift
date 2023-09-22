@@ -45,10 +45,10 @@ struct MathContentView: View {
             Spacer()
             
             VStack(spacing: 10){
-                answerView(question: quiz.a, isCorrect: quiz.answer == quiz.a)
-                answerView(question: quiz.b, isCorrect: quiz.answer == quiz.b)
-                answerView(question: quiz.c, isCorrect: quiz.answer == quiz.c)
-                answerView(question: quiz.d, isCorrect: quiz.answer == quiz.d)
+                answerView(question: quiz.a, isCorrect: quiz.answer.map({$0}).rawValue == quiz.a)
+                answerView(question: quiz.b, isCorrect: quiz.answer.map({$0}).rawValue == quiz.b)
+                answerView(question: quiz.c, isCorrect: quiz.answer.map({$0}).rawValue == quiz.c)
+                answerView(question: quiz.d, isCorrect: quiz.answer.map({$0}).rawValue == quiz.d)
             }
             .padding()
             .simultaneousGesture(DragGesture())

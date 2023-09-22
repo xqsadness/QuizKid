@@ -122,10 +122,10 @@ struct QuizWritingContentView: View {
             HStack{
                 if selectedTab < CONSTANT.SHARED.DATA_WRITING.count - 1 || !(countWrong + countCorrect == CONSTANT.SHARED.DATA_WRITING.count){
                     Button{
-                        answer = quiz.answer
+//                        answer = quiz.answer
                         focusedField = nil
                         
-                        if textWriting.cw_localized.lowercased().trimmingCharacters(in: .whitespacesAndNewlines).contains(quiz.answer.cw_localized.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)){
+                        if textWriting.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == quiz.answer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines){
                             loadAudio(nameSound: "correct")
                             isCorrect = true
                             withAnimation {

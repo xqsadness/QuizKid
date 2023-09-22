@@ -19,7 +19,7 @@ struct ListeningView: View {
     @State private var progress = 0.5
     @State var offset: CGFloat = -10
     @State private var selectedAnswer = ""
-    @State private var answerCorrect = ""
+    @State private var answerCorrect: [String] = []
     @State private var isCorrect = false
     @State private var isSubmit = false
     @State private var isShowPopup = false
@@ -53,7 +53,7 @@ struct ListeningView: View {
                                 answerCorrect = CONSTANT.SHARED.DATA_LISTEN[index].answer
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.8 ,execute: {
                                     if !synthesizer.isSpeaking{
-                                        speakText(textToSpeak: CONSTANT.SHARED.DATA_LISTEN[index].answer.cw_localized)
+                                        speakText(textToSpeak: CONSTANT.SHARED.DATA_LISTEN[index].question)
                                     }else{
                                         synthesizer.stopSpeaking(at: .immediate)
                                     }

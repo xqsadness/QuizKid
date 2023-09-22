@@ -53,17 +53,17 @@ struct ListenAndRepeatView: View {
                     TabView(selection: $selectedTab) {
                         ForEach(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.indices, id: \.self) { index in
                             ListenAndRPContentView(speechRecognizer: speechRecognizer,synthesizer: synthesizer,index: index, isHide: $isHide, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab){
-                                handleTapToSpeak(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.cw_localized)
+                                handleTapToSpeak(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].question.cw_localized)
                             } handleTapToSpeakOnchange: {
-                                handleTapToSpeakOnchange(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.cw_localized)
+                                handleTapToSpeakOnchange(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].question.cw_localized)
                             }
                             .tag(index)
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
-                                answerCorrect = CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer
+                                answerCorrect = CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].question
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8 ,execute: {
                                     if !synthesizer.isSpeaking{
-                                        speakText(textToSpeak: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.cw_localized)
+                                        speakText(textToSpeak: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].question.cw_localized)
                                     }else{
                                         synthesizer.stopSpeaking(at: .immediate)
                                     }

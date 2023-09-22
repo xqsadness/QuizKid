@@ -14,7 +14,7 @@ struct MathSubmitNextButtonsView: View {
     
     @Binding var synthesizer: AVSpeechSynthesizer
     @Binding var selectedAnswer: String
-    @Binding var answerCorrect: String
+    @Binding var answerCorrect: [String]
     @Binding var isSubmit: Bool
     @Binding var isCorrect: Bool
     @Binding var selectedTab: Int
@@ -29,24 +29,32 @@ struct MathSubmitNextButtonsView: View {
             Button{
                 offset = -10
                 
-                if selectedAnswer.lowercased().cw_localized == answerCorrect.lowercased().cw_localized{
-                    loadAudio(nameSound: "correct")
-                    isCorrect = true
-                    countCorrect += 1
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
-                        if selectedTab < CONSTANT.SHARED.DATA_MATH.count - 1{
-                            submitCorrect()
-                        }else{
-                            isSubmit = true
-                            completeAllQuestion()
-                        }
-//                    })
+                var isAnswerCorrect = false
+                
+                for i in answerCorrect {
+                    if selectedAnswer.lowercased() == i.lowercased(){
+                        loadAudio(nameSound: "correct")
+                        isCorrect = true
+                        countCorrect += 1
+                        isAnswerCorrect = true
+                        break
+                    }
+                }
+                
+                if isAnswerCorrect {
+                    if selectedTab < CONSTANT.SHARED.DATA_MATH.count - 1{
+                        submitCorrect()
+                    }else{
+                        isSubmit = true
+                        completeAllQuestion()
+                    }
                 }else{
                     isSubmit = true
                     loadAudio(nameSound: "wrong")
                     isCorrect = false
                     countWrong += 1
                 }
+
             }label: {
                 Text("Submit".cw_localized)
                     .foregroundColor(.text)

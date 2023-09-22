@@ -15,7 +15,7 @@ class CONSTANT{
     
     static var USING_MANIFEST = true
     static var MANIFEST_URL = "/manifest/test/v1_0"
-    static var DATA_URL = "/data/ver_1"
+    static var DATA_URL = "/data/ver_2"
     
     var OBSERVER_MANIFEST: Any?
     var cancellable: AnyCancellable?
@@ -92,7 +92,7 @@ class CONSTANT{
     var DATA_LISTEN = [QUIZ_ARRAY]()
     var DATA_HISTORY = [QUIZ_ARRAY]()
     var DATA_LISTEN_AND_REPEAT = [QUIZ_ARRAY]()
-    var DATA_WRITING = [QUIZ_ARRAY]()
+    var DATA_WRITING = [QUIZ]()
 }
 
 struct VERSION_APP_STRUCT{
@@ -208,7 +208,7 @@ struct QuizDataCombine: Codable {
     var listQuestionsSurrounding: [QUIZ]
     var listQuestionsHistory: [QUIZ_ARRAY]
     var listListenAndRepeat: [QUIZ_ARRAY]
-    var listWriting: [QUIZ_ARRAY]
+    var listWriting: [QUIZ]
 }
 
 extension CONSTANT{
@@ -427,9 +427,9 @@ extension CONSTANT{
         
         //DATA_writing
         let jsonWriting = json["listWriting"]
-        var listWriting: [QUIZ_ARRAY] = []
+        var listWriting: [QUIZ] = []
         for (_, json) : (String, JSON) in jsonWriting{
-            listWriting.append(QUIZ_ARRAY(id: json["id"].stringValue, answer: json["answer"].arrayValue.map({$0.stringValue}), question: json["question"].stringValue))
+            listWriting.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue))
         }
         
         //DATA_listenRepeat

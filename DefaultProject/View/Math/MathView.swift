@@ -19,7 +19,7 @@ struct MathView: View {
     @State private var progress = 0.5
     @State var offset: CGFloat = -10
     @State private var selectedAnswer = ""
-    @State private var answerCorrect = ""
+    @State private var answerCorrect: [String] = []
     @State private var isCorrect = false
     @State private var isSubmit = false
     @State private var isShowPopup = false

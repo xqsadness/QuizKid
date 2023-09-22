@@ -14,7 +14,7 @@ struct HistoryView: View {
     @State var synthesizer = AVSpeechSynthesizer()
     @State private var textToSpeak: String = ""
     @State private var selectedAnswer = ""
-    @State private var answerCorrect = ""
+    @State private var answerCorrect: [String] = []
     @State private var selectedTab = 0
     @State private var progress = 0.5
     @State var countCorrect = 0
