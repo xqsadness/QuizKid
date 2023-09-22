@@ -86,13 +86,13 @@ class CONSTANT{
     var APP_NAVIGATION = APP_NAVIGATION_STRUCT()
     
     //data
-    var DATA_COLOR = [QUIZ]()
-    var DATA_MATH = [QUIZ]()
+    var DATA_COLOR = [QUIZ_ARRAY]()
+    var DATA_MATH = [QUIZ_ARRAY]()
     var DATA_SURROUNDING = [QUIZ]()
-    var DATA_LISTEN = [QUIZ]()
-    var DATA_HISTORY = [QUIZ]()
-    var DATA_LISTEN_AND_REPEAT = [QUIZ]()
-    var DATA_WRITING = [QUIZ]()
+    var DATA_LISTEN = [QUIZ_ARRAY]()
+    var DATA_HISTORY = [QUIZ_ARRAY]()
+    var DATA_LISTEN_AND_REPEAT = [QUIZ_ARRAY]()
+    var DATA_WRITING = [QUIZ_ARRAY]()
 }
 
 struct VERSION_APP_STRUCT{
@@ -202,13 +202,13 @@ struct QUIZ_ARRAY: Codable {
 }
 
 struct QuizDataCombine: Codable {
-    var listQuestionsMath: [QUIZ]
-    var listQuestionsColor: [QUIZ]
-    var listQuestionsListen: [QUIZ]
+    var listQuestionsMath: [QUIZ_ARRAY]
+    var listQuestionsColor: [QUIZ_ARRAY]
+    var listQuestionsListen: [QUIZ_ARRAY]
     var listQuestionsSurrounding: [QUIZ]
-    var listQuestionsHistory: [QUIZ]
-    var listListenAndRepeat: [QUIZ]
-    var listWriting: [QUIZ]
+    var listQuestionsHistory: [QUIZ_ARRAY]
+    var listListenAndRepeat: [QUIZ_ARRAY]
+    var listWriting: [QUIZ_ARRAY]
 }
 
 extension CONSTANT{
@@ -392,30 +392,30 @@ extension CONSTANT{
     func parseSwiftyJson(json: JSON, completion: @escaping (QuizDataCombine) -> Void){
         
         let jsonColors = json["listQuestionsColor"]
-        var listColor: [QUIZ] = []
+        var listColor: [QUIZ_ARRAY] = []
         for (_, json) : (String, JSON) in jsonColors{
-            listColor.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+            listColor.append(QUIZ_ARRAY(id: json["id"].stringValue, answer: json["answer"].arrayValue.map({$0.stringValue}), question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
         //DATA_MATH
         let jsonMath = json["listQuestionsMath"]
-        var listMath: [QUIZ] = []
+        var listMath: [QUIZ_ARRAY] = []
         for (_, json) : (String, JSON) in jsonMath{
-            listMath.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+            listMath.append(QUIZ_ARRAY(id: json["id"].stringValue, answer: json["answer"].arrayValue.map({$0.stringValue}), question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
         //DATA_LISTEN
         let jsonListen = json["listQuestionsListen"]
-        var listListen: [QUIZ] = []
+        var listListen: [QUIZ_ARRAY] = []
         for (_, json) : (String, JSON) in jsonListen{
-            listListen.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+            listListen.append(QUIZ_ARRAY(id: json["id"].stringValue, answer: json["answer"].arrayValue.map({$0.stringValue}), question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
         //DATA_history
         let jsonHistory = json["listQuestionsHistory"]
-        var listHistory: [QUIZ] = []
+        var listHistory: [QUIZ_ARRAY] = []
         for (_, json) : (String, JSON) in jsonHistory{
-            listHistory.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+            listHistory.append(QUIZ_ARRAY(id: json["id"].stringValue, answer: json["answer"].arrayValue.map({$0.stringValue}), question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
         //DATA_surrounding
@@ -427,16 +427,16 @@ extension CONSTANT{
         
         //DATA_writing
         let jsonWriting = json["listWriting"]
-        var listWriting: [QUIZ] = []
+        var listWriting: [QUIZ_ARRAY] = []
         for (_, json) : (String, JSON) in jsonWriting{
-            listWriting.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue))
+            listWriting.append(QUIZ_ARRAY(id: json["id"].stringValue, answer: json["answer"].arrayValue.map({$0.stringValue}), question: json["question"].stringValue))
         }
         
         //DATA_listenRepeat
         let jsonRepeat = json["listListenAndRepeat"]
-        var listListenRepeat: [QUIZ] = []
+        var listListenRepeat: [QUIZ_ARRAY] = []
         for (_, json) : (String, JSON) in jsonRepeat{
-            listListenRepeat.append(QUIZ(id: json["id"].stringValue, answer: json["answer"].stringValue, question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
+            listListenRepeat.append(QUIZ_ARRAY(id: json["id"].stringValue, answer: json["answer"].arrayValue.map({$0.stringValue}), question: json["question"].stringValue, a: json["a"].stringValue, b: json["b"].stringValue, c: json["c"].stringValue, d: json["d"].stringValue, img: json["img"].stringValue))
         }
         
         completion(QuizDataCombine(listQuestionsMath: listMath, listQuestionsColor: listColor, listQuestionsListen: listListen,listQuestionsSurrounding: listSurrounding, listQuestionsHistory: listHistory,listListenAndRepeat: listListenRepeat,listWriting: listWriting))
