@@ -100,10 +100,11 @@ struct FirebaseImageView: View {
             Image(uiImage: uiImage)
                 .resizable()
                 .scaledToFit()
-                .frame(height: 50)
         } else {
             // Display a placeholder or loading indicator if imageData is nil
-            Text("Loading Image...")
+            ProgressView()
+                .frame(maxHeight: .infinity)
+                .foregroundColor(Color.black)
                 .onAppear {
                     // Load image here
                     loadImageFromFirebase(imageName: self.imageName) { data in
