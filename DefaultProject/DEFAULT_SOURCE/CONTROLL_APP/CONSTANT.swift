@@ -15,7 +15,7 @@ class CONSTANT{
     
     static var USING_MANIFEST = true
     static var MANIFEST_URL = "/manifest/test/v1_0"
-    static var DATA_URL = "/data/ver_2"
+    static var DATA_URL = "/data/ver_3"
     
     var OBSERVER_MANIFEST: Any?
     var cancellable: AnyCancellable?
