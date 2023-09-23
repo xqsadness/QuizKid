@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		278982FE2A84EE65003CB639 /* CreateUsernameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278982FC2A84EE65003CB639 /* CreateUsernameView.swift */; };
 		278982FF2A84EE65003CB639 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278982FD2A84EE65003CB639 /* HomeView.swift */; };
+		27D616562ABE77900073764C /* FireImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D616552ABE77900073764C /* FireImageModel.swift */; };
 		9ADF75732A84C8F800A42B7B /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADF756E2A84C8F500A42B7B /* SF-Pro-Text-Bold.otf */; };
 		9ADF75742A84C8F800A42B7B /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADF756F2A84C8F600A42B7B /* SF-Pro-Text-Medium.otf */; };
 		9ADF75752A84C8F800A42B7B /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9ADF75702A84C8F600A42B7B /* SF-Pro-Text-Semibold.otf */; };
@@ -156,6 +157,7 @@
 /* Begin PBXFileReference section */
 		278982FC2A84EE65003CB639 /* CreateUsernameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUsernameView.swift; sourceTree = "<group>"; };
 		278982FD2A84EE65003CB639 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		27D616552ABE77900073764C /* FireImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireImageModel.swift; sourceTree = "<group>"; };
 		42865764303805AED8FF6CB0 /* Pods_DefaultProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DefaultProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92387C875A235D896EF0B713 /* Pods-DefaultProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DefaultProject.release.xcconfig"; path = "Target Support Files/Pods-DefaultProject/Pods-DefaultProject.release.xcconfig"; sourceTree = "<group>"; };
 		9ADF756E2A84C8F500A42B7B /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
@@ -653,6 +655,7 @@
 			isa = PBXGroup;
 			children = (
 				DD72E2352A8A1D38006AB647 /* PoinRealm.swift */,
+				27D616552ABE77900073764C /* FireImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -858,6 +861,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27D616562ABE77900073764C /* FireImageModel.swift in Sources */,
 				DD0EA4932A8B5B1A007D8C55 /* SheetShowAnswerView.swift in Sources */,
 				DD7F611C2A8F154D0030E044 /* SectionListenAndRPView.swift in Sources */,
 				CA2223A42A2BB34A005164BB /* RewardedAd.swift in Sources */,

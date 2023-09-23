@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseStorage
 
 struct ItemImgView: View {
     @AppStorage("Language") var language: String = "en"
@@ -23,8 +24,7 @@ struct ItemImgView: View {
     
     var body: some View {
         VStack {
-            Image("\(img)")
-                .resizable()
+            FirebaseImageView(imageName: img)
                 .scaledToFit()
                 .frame(height: 50)
             
@@ -42,6 +42,7 @@ struct ItemImgView: View {
                 .cornerRadius(10)
         }
         .contentShape(Rectangle())
+        .onAppear{}
         .onTapGesture {
             withAnimation {
                 if checkedImg == answer.cw_localized {
@@ -64,6 +65,53 @@ struct ItemImgView: View {
                 }
                 Point.updatePointSurrounding(point: countCorrect)
             }
+        }
+    }
+}
+
+func loadImageFromFirebase(imageName: String, completion: @escaping (Data?) -> Void) {
+    let storage = Storage.storage()
+    let storageRef = storage.reference()
+    let imageRef = storageRef.child("\(imageName)")
+
+    imageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+        if let error = error {
+            // Handle the error
+            print("Error downloading image: \(error.localizedDescription)")
+            completion(nil)
+        } else {
+            // Image downloaded successfully
+            print("Image downloaded successfully.")
+            completion(data)
+        }
+    }
+}
+
+struct FirebaseImageView: View {
+    @State private var imageData: Data? = nil
+    let imageName: String
+
+    init(imageName: String) {
+        self.imageName = imageName
+    }
+    
+    var body: some View {
+        if let imageData = imageData, let uiImage = UIImage(data: imageData) {
+            Image(uiImage: uiImage)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 50)
+        } else {
+            // Display a placeholder or loading indicator if imageData is nil
+            Text("Loading Image...")
+                .onAppear {
+                    // Load image here
+                    loadImageFromFirebase(imageName: self.imageName) { data in
+                        DispatchQueue.main.async {
+                            self.imageData = data
+                        }
+                    }
+                }
         }
     }
 }
