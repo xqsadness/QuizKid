@@ -26,7 +26,8 @@ struct ListenAndRepeatView: View {
     @State private var isFail = false
     @State private var isShowPopup = false
     @State private var isHide: Bool = true
-    //    @State private var isSpeaking: Bool = false
+    @State private var isCheckFail: Bool = false
+    @State private var isCheckFailBtn: Bool = false
     @State private var checkPermission: Bool = false
     
     var body: some View {
@@ -54,12 +55,12 @@ struct ListenAndRepeatView: View {
                         ForEach(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.indices, id: \.self) { index in
                             ListenAndRPContentView(speechRecognizer: speechRecognizer,synthesizer: synthesizer,index: index, isHide: $isHide, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab){
                                 handleTapToSpeak(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].question.cw_localized)
-                            } handleTapToSpeakOnchange: {
-                                handleTapToSpeakOnchange(answer: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].question.cw_localized)
                             }
                             .tag(index)
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
+                                isCheckFail = false
+                                isFail = false
                                 answerCorrect = CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].question
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8 ,execute: {
                                     if !synthesizer.isSpeaking{
@@ -68,14 +69,6 @@ struct ListenAndRepeatView: View {
                                         synthesizer.stopSpeaking(at: .immediate)
                                     }
                                 })
-                                
-//                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8 ,execute: {
-//                                    if !synthesizer.isSpeaking{
-//                                        speakText(textToSpeak: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].answer.cw_localized)
-//                                    }else{
-//                                        synthesizer.stopSpeaking(at: .immediate)
-//                                    }
-//                                })
                             }
                         }
                     }
@@ -92,6 +85,10 @@ struct ListenAndRepeatView: View {
             .navigationBarBackButtonHidden(true)
             .popup(isPresented: $isShowPopup) {
                 PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Listen and repeat", totalQuestion: CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count)
+                    .onAppear{
+                        isFail = false
+                        isCorrect = false
+                    }
             }
             .onTapGesture {
                 withAnimation {
@@ -99,65 +96,78 @@ struct ListenAndRepeatView: View {
                     isFail = false
                 }
             }
-            
-            if isCorrect{
-                SheetShowAnswerCorrectView(answer: $answerCorrect){
-                    withAnimation {
-                        isCorrect = false
-                    }
-                }
-                .animation(.easeInOut, value: isCorrect)
-                .onDisappear{
-                    synthesizer.stopSpeaking(at: .immediate)
-                    if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 {
-                        progress += 1
-                        resetSpeak()
-                        withAnimation {
-                            selectedTab += 1
-                            isCorrect = false
-                        }
-                        countFail = 0
-                    }else{
-                        loadAudio(nameSound: "congralutions")
+            .overlay(alignment: .bottom) {
+                if isCorrect{
+                    VStack{}
+                        .vAlign(.center)
+                        .hAlign(.center)
+                        .background(.background).opacity(0.15)
+                    
+                    SheetShowAnswerCorrectView(answer: $answerCorrect){
                         withAnimation {
                             isCorrect = false
                         }
-                        withAnimation {
-                            isShowPopup = true
-                            QuizTimer.shared.reset()
-                        }
                     }
-                }
-            }
-            
-            if isFail{
-                SheetShowAnswerFailedView(answer: $answerCorrect, titleButon: $titleButon){
-                    withAnimation {
-                        isFail = false
-                    }
-                }
-                .animation(.easeInOut, value: isFail)
-                .onDisappear{
-                    if countFail < 2{
-                        withAnimation {
-                            isFail = false
-                            countFail += 1
-                        }
-                    }else{
-                        countWrong += 1
+                    .vAlign(.bottom)
+                    .animation(.easeInOut, value: isCorrect)
+                    .onDisappear{
+                        synthesizer.stopSpeaking(at: .immediate)
                         if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 {
                             progress += 1
                             resetSpeak()
                             withAnimation {
                                 selectedTab += 1
-                                isFail = false
+                                isCorrect = false
                             }
                             countFail = 0
                         }else{
                             loadAudio(nameSound: "congralutions")
                             withAnimation {
+                                isCorrect = false
+                            }
+                            withAnimation {
                                 isShowPopup = true
                                 QuizTimer.shared.reset()
+                            }
+                        }
+                    }
+                }
+                
+                if isFail{
+                    VStack{}
+                        .vAlign(.center)
+                        .hAlign(.center)
+                        .background(.background).opacity(0.15)
+                    
+                    SheetShowAnswerFailedView(answer: $answerCorrect, titleButon: $titleButon){
+                        withAnimation {
+                            isFail = false
+                        }
+                    }
+                    .vAlign(.bottom)
+                    .animation(.easeInOut, value: isFail)
+                    .onDisappear{
+                        if countFail < 2{
+                            withAnimation {
+                                isFail = false
+                                countFail += 1
+                            }
+                        }else{
+                            countWrong += 1
+                            if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 {
+                                progress += 1
+                                resetSpeak()
+                                withAnimation {
+                                    selectedTab += 1
+                                    isFail = false
+                                }
+                                countFail = 0
+                            }else{
+                                loadAudio(nameSound: "congralutions")
+                                withAnimation {
+                                    isShowPopup = true
+                                    QuizTimer.shared.reset()
+                                }
                             }
                         }
                     }
@@ -189,8 +199,43 @@ struct ListenAndRepeatView: View {
             QuizTimer.shared.reset()
             synthesizer.stopSpeaking(at: .immediate)
         }
+        .onChange(of: speechRecognizer.isTimeout) { newValue in
+            if newValue && !isCheckFailBtn{
+                print("\(!isCorrect) - \(!isCheckFail)")
+                print("\(speechRecognizer.transcript.cw_localized.lowercased()) - \(answerCorrect.cw_localized.lowercased())")
+                if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 || !(countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
+                    audioPlayer?.pause()
+                    speechRecognizer.stopTranscribing()
+                    if speechRecognizer.transcript.lowercased().cw_localized == answerCorrect.cw_localized.lowercased() && !isFail{
+                        loadAudio(nameSound: "correct")
+                        DispatchQueue.main.async {
+                            isCorrect = true
+                        }
+                        countCorrect += 1
+                    }else if !isCorrect && !isCheckFail {
+                        loadAudio(nameSound: "wrong")
+                        if countFail < 2{
+                            titleButon = "Again"
+                        }else{
+                            titleButon = "Understand"
+                        }
+                        DispatchQueue.main.async {
+                            isFail = true
+                        }
+                    }
+                }else if selectedTab == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
+                    loadAudio(nameSound: "congralutions")
+                    withAnimation {
+                        isShowPopup = true
+                    }
+                    audioPlayer?.pause()
+                }
+                speechRecognizer.transcript = ""
+            }
+        }
     }
     
+    //MARK: - Func handle
     func handleTapToSpeak(answer: String){
         if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 || !(countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
             audioPlayer?.pause()
@@ -198,16 +243,21 @@ struct ListenAndRepeatView: View {
                 speechRecognizer.isSpeaking = true
                 synthesizer.stopSpeaking(at: .immediate)
                 speechRecognizer.transcribe()
+                isCheckFailBtn = false
             } else {
+                isCheckFailBtn = true
                 speechRecognizer.isSpeaking = false
                 speechRecognizer.stopTranscribing()
-                if speechRecognizer.transcript.lowercased().cw_localized == answer.lowercased(){
+                
+                print("\(speechRecognizer.transcript.lowercased()) - \(answer.lowercased())")
+                if speechRecognizer.transcript.lowercased() == answer.lowercased() && !isFail{
                     loadAudio(nameSound: "correct")
                     DispatchQueue.main.async {
                         isCorrect = true
                     }
                     countCorrect += 1
-                }else{
+                }else if !isCorrect{
+                    isCheckFail = true
                     loadAudio(nameSound: "wrong")
                     if countFail < 2{
                         titleButon = "Again"
@@ -217,37 +267,6 @@ struct ListenAndRepeatView: View {
                     DispatchQueue.main.async {
                         isFail = true
                     }
-                }
-            }
-        }else if selectedTab == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
-            loadAudio(nameSound: "congralutions")
-            withAnimation {
-                isShowPopup = true
-            }
-            audioPlayer?.pause()
-        }
-        speechRecognizer.transcript = ""
-    }
-    
-    func handleTapToSpeakOnchange(answer: String){
-        if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 || !(countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
-            audioPlayer?.pause()
-            speechRecognizer.stopTranscribing()
-            if speechRecognizer.transcript.lowercased().cw_localized == answer.cw_localized.lowercased(){
-                loadAudio(nameSound: "correct")
-                DispatchQueue.main.async {
-                    isCorrect = true
-                }
-                countCorrect += 1
-            }else{
-                loadAudio(nameSound: "wrong")
-                if countFail < 2{
-                    titleButon = "Again"
-                }else{
-                    titleButon = "Understand"
-                }
-                DispatchQueue.main.async {
-                    isFail = true
                 }
             }
         }else if selectedTab == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){

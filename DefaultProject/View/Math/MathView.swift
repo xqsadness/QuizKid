@@ -11,6 +11,7 @@ import AVFoundation
 struct MathView: View {
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
+    @StateObject var speechRecognizer = SpeechRecognizer()
     @State var audioPlayer: AVAudioPlayer?
     @State var synthesizer = AVSpeechSynthesizer()
     @State var countCorrect = 0
@@ -23,6 +24,8 @@ struct MathView: View {
     @State private var isCorrect = false
     @State private var isSubmit = false
     @State private var isShowPopup = false
+    @State private var isCheckFailBtn: Bool = false
+    @State private var isCheckFailSpeech: Bool = false
     
     var body: some View {
         VStack{
@@ -41,24 +44,26 @@ struct MathView: View {
             }
             
             MathInfoView(countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab, progress: $progress)
-                .onTapGesture {
-                    isShowPopup.toggle()
-                }
             
             VStack{
                 TabView(selection: $selectedTab) {
                     ForEach(CONSTANT.SHARED.DATA_MATH.indices, id: \.self) { index in
-                        MathContentView(synthesizer: synthesizer, index: index, isSubmit: $isSubmit, selectedAnswer: $selectedAnswer, offset: $offset)
-                            .tag(index)
-                            .contentShape(Rectangle()).gesture(DragGesture())
-                            .onAppear{
-                                answerCorrect = CONSTANT.SHARED.DATA_MATH[index].answer
-                            }
+                        MathContentView(speechRecognizer: speechRecognizer,synthesizer: synthesizer,index: index, isSubmit: $isSubmit, selectedAnswer: $selectedAnswer, offset: $offset, isCheckFailSpeech: $isCheckFailSpeech){
+                            handleTapToSpeak(answer: CONSTANT.SHARED.DATA_MATH[index].answer)
+                        }
+                        .tag(index)
+                        .contentShape(Rectangle()).gesture(DragGesture())
+                        .onAppear{
+                            isCheckFailSpeech = false
+                            answerCorrect = CONSTANT.SHARED.DATA_MATH[index].answer
+                        }
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 
-                MathSubmitNextButtonsView(audioPlayer: audioPlayer, synthesizer: $synthesizer, selectedAnswer: $selectedAnswer, answerCorrect: $answerCorrect, isSubmit: $isSubmit, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset)
+                MathSubmitNextButtonsView(audioPlayer: audioPlayer, speechRecognizer: speechRecognizer, synthesizer: $synthesizer, selectedAnswer: $selectedAnswer, answerCorrect: $answerCorrect, isSubmit: $isSubmit, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset, isCheckFailSpeech: $isCheckFailSpeech){ nameSound in
+                    loadAudio(nameSound: nameSound)
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.text)
@@ -78,6 +83,134 @@ struct MathView: View {
         .onDisappear{
             QuizTimer.shared.reset()
         }
+        .onChange(of: speechRecognizer.isTimeout) { newValue in
+            if newValue && !isCheckFailBtn{
+                offset = -10
+                
+                var isAnswerCorrect = false
+                
+                for i in answerCorrect {
+                    if speechRecognizer.transcript.cw_localized.lowercased() == i.cw_localized.lowercased(){
+                        loadAudio(nameSound: "correct")
+                        isCorrect = true
+                        countCorrect += 1
+                        isAnswerCorrect = true
+                        break
+                    }
+                }
+                
+                if isAnswerCorrect {
+                    if selectedTab < CONSTANT.SHARED.DATA_MATH.count - 1{
+                        submitCorrect()
+                    }else{
+                        isSubmit = true
+                        selectedAnswer = "temp"
+                        completeAllQuestion()
+                    }
+                }else{
+                    selectedAnswer = "temp"
+                    isCheckFailSpeech = true
+                    isSubmit = true
+                    loadAudio(nameSound: "wrong")
+                    isCorrect = false
+                    countWrong += 1
+                }
+                speechRecognizer.transcript = ""
+            }
+        }
+    }
+    
+    func loadAudio(nameSound: String) {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch let err{
+            print(err.localizedDescription)
+        }
+        if let audioURL = Bundle.main.url(forResource: nameSound, withExtension: "mp3") {
+            audioPlayer = try? AVAudioPlayer(contentsOf: audioURL)
+            DispatchQueue.main.async {
+                audioPlayer?.play()
+            }
+        }
+    }
+    
+    func submitCorrect(){
+        // processed after answering 1 question correctly
+        progress += 1
+        selectedAnswer = ""
+        isSubmit = false
+        isCorrect = false
+        withAnimation {
+            selectedTab += 1
+        }
+    }
+    
+    func completeAllQuestion(){
+        // processed upon completion of All Questions
+        withAnimation {
+            isShowPopup = true
+        }
+        audioPlayer?.pause()
+        if countCorrect == 0{
+            loadAudio(nameSound: "wrong")
+        }else{
+            loadAudio(nameSound: "congralutions")
+        }
+        QuizTimer.shared.stop()
+    }
+    
+    func handleTapToSpeak(answer: [String]){
+        if !speechRecognizer.isSpeaking {
+            speechRecognizer.isSpeaking = true
+            
+            speechRecognizer.transcribe()
+            isCheckFailBtn = false
+        } else {
+            isCheckFailBtn = true
+            speechRecognizer.isSpeaking = false
+            speechRecognizer.stopTranscribing()
+            
+            offset = -10
+            offset = -10
+            
+            var isAnswerCorrect = false
+            
+            for i in answerCorrect {
+                if speechRecognizer.transcript.cw_localized.lowercased() == i.cw_localized.lowercased(){
+                    loadAudio(nameSound: "correct")
+                    isCorrect = true
+                    countCorrect += 1
+                    isAnswerCorrect = true
+                    break
+                }
+            }
+            
+            if isAnswerCorrect {
+                if selectedTab < CONSTANT.SHARED.DATA_MATH.count - 1{
+                    submitCorrect()
+                }else{
+                    isSubmit = true
+                    selectedAnswer = "temp"
+                    completeAllQuestion()
+                }
+            }else{
+                selectedAnswer = "temp"
+                isCheckFailSpeech = true
+                isSubmit = true
+                loadAudio(nameSound: "wrong")
+                isCorrect = false
+                countWrong += 1
+            }
+        }
+        //        else if selectedTab == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
+        //            loadAudio(nameSound: "congralutions")
+        //            withAnimation {
+        //                isShowPopup = true
+        //            }
+        //            audioPlayer?.pause()
+        //        }
+        speechRecognizer.transcript = ""
     }
 }
 

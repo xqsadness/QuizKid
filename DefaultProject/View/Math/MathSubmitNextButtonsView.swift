@@ -12,6 +12,7 @@ struct MathSubmitNextButtonsView: View {
     @AppStorage("Language") var language: String = "en"
     @State var audioPlayer: AVAudioPlayer?
     
+    @State var speechRecognizer: SpeechRecognizer
     @Binding var synthesizer: AVSpeechSynthesizer
     @Binding var selectedAnswer: String
     @Binding var answerCorrect: [String]
@@ -23,17 +24,20 @@ struct MathSubmitNextButtonsView: View {
     @Binding var countCorrect: Int
     @Binding var countWrong: Int
     @Binding var offset: CGFloat
-    
+    @Binding var isCheckFailSpeech: Bool
+
+    var loadAudio: ((String) -> Void)
     var body: some View {
         HStack(spacing: 10){
             Button{
                 offset = -10
+                speechRecognizer.reset()
                 
                 var isAnswerCorrect = false
                 
                 for i in answerCorrect {
                     if selectedAnswer.lowercased() == i.lowercased(){
-                        loadAudio(nameSound: "correct")
+                        loadAudio("correct")
                         isCorrect = true
                         countCorrect += 1
                         isAnswerCorrect = true
@@ -50,7 +54,7 @@ struct MathSubmitNextButtonsView: View {
                     }
                 }else{
                     isSubmit = true
-                    loadAudio(nameSound: "wrong")
+                    loadAudio("wrong")
                     isCorrect = false
                     countWrong += 1
                 }
@@ -64,8 +68,8 @@ struct MathSubmitNextButtonsView: View {
                     .background(Color.blue)
                     .cornerRadius(13)
             }
-            .disabled(selectedAnswer == "" || isSubmit ? true : false)
-            .opacity(selectedAnswer == "" || isSubmit ? 0.6 : 1)
+            .disabled(selectedAnswer == "" || isSubmit || speechRecognizer.isSpeaking ? true : false)
+            .opacity(selectedAnswer == "" || isSubmit || speechRecognizer.isSpeaking ? 0.6 : 1)
             
             Button{
                 synthesizer.stopSpeaking(at: .immediate)
@@ -86,8 +90,8 @@ struct MathSubmitNextButtonsView: View {
                     .background(Color.blue)
                     .cornerRadius(13)
             }
-            .disabled(selectedAnswer == "" || !isSubmit ? true : false)
-            .opacity(selectedAnswer == "" || !isSubmit ? 0.6 : 1)
+            .disabled(selectedAnswer == "" || !isSubmit ? true : false )
+            .opacity(selectedAnswer == "" || !isSubmit ? 0.6 : 1 )
         }
         .padding()
     }
@@ -110,18 +114,11 @@ struct MathSubmitNextButtonsView: View {
         }
         audioPlayer?.pause()
         if countCorrect == 0{
-            loadAudio(nameSound: "wrong")
+            loadAudio("wrong")
         }else{
-            loadAudio(nameSound: "congralutions")
+            loadAudio("congralutions")
         }
         QuizTimer.shared.stop()
-    }
-    
-    func loadAudio(nameSound: String) {
-        if let audioURL = Bundle.main.url(forResource: nameSound, withExtension: "mp3") {
-            audioPlayer = try? AVAudioPlayer(contentsOf: audioURL)
-            audioPlayer?.play()
-        }
     }
     
 }

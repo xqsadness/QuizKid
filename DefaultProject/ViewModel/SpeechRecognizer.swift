@@ -31,6 +31,7 @@ class SpeechRecognizer: ObservableObject {
     
     @Published var transcript: String = ""
     @Published var isSpeaking: Bool = false
+    @Published var isTimeout: Bool = false
     
     private var audioEngine: AVAudioEngine?
     private var request: SFSpeechAudioBufferRecognitionRequest?
@@ -82,6 +83,7 @@ class SpeechRecognizer: ObservableObject {
      The resulting transcription is continuously written to the published `transcript` property.
      */
     func transcribe() {
+        self.isTimeout = false
         DispatchQueue(label: "Speech Recognizer Queue", qos: .background).async { [weak self] in
             guard let self = self, let recognizer = self.recognizer, recognizer.isAvailable else {
                 self?.speakError(RecognizerError.recognizerIsUnavailable)
@@ -94,14 +96,14 @@ class SpeechRecognizer: ObservableObject {
                 self.request = request
                 
                 self.task = recognizer.recognitionTask(with: request) { result, error in
-                    let receivedFinalResult = result?.isFinal ?? false
-                    let receivedError = error != nil // != nil mean there's error (true)
-                    
-                    if receivedFinalResult || receivedError {
-                        audioEngine.stop()
-                        audioEngine.inputNode.removeTap(onBus: 0)
-                    }
-                    
+//                    let receivedFinalResult = result?.isFinal ?? false
+//                    let receivedError = error != nil // != nil mean there's error (true)
+//
+//                    if receivedFinalResult || receivedError {
+//                        audioEngine.stop()
+//                        audioEngine.inputNode.removeTap(onBus: 0)
+//                    }
+//
                     if let result = result {
                         self.speak(result.bestTranscription.formattedString)
                         self.isFinal = result.isFinal
@@ -126,7 +128,7 @@ class SpeechRecognizer: ObservableObject {
         timer = Timer.scheduledTimer(withTimeInterval: 1.85, repeats: false, block: { (timer) in
             // Do whatever needs to be done when the timer expires
             print("timeout")
-            
+            self.isTimeout = true
             self.stopTranscribing()
         })
     }

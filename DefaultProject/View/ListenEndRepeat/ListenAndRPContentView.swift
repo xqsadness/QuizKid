@@ -13,14 +13,12 @@ struct ListenAndRPContentView: View {
     @StateObject var speechRecognizer: SpeechRecognizer
     @State var synthesizer: AVSpeechSynthesizer
     @State var index: Int
-//    @Binding var isSpeaking: Bool
     @Binding var isHide: Bool
     @Binding var countCorrect: Int
     @Binding var countWrong: Int
     @Binding var selectedTab: Int
     
     var handleTapToSpeak: (() -> Void)
-    var handleTapToSpeakOnchange: (() -> Void)
     
     var body: some View {
         VStack (spacing: 0) {
@@ -125,13 +123,7 @@ struct ListenAndRPContentView: View {
             .onTapGesture {
                 handleTapToSpeak()
             }
-            
-            .onChange(of: speechRecognizer.isSpeaking) { newValue in
-                if !newValue{
-                    handleTapToSpeakOnchange()
-                }
-            }
-            
+
             if speechRecognizer.transcript.isEmpty{
                 HStack(spacing: 10){
                     ForEach(0..<3){ _ in
