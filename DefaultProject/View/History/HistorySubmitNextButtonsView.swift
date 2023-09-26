@@ -12,6 +12,7 @@ struct HistorySubmitNextButtonsView: View {
     @AppStorage("Language") var language: String = "en"
     @State var audioPlayer: AVAudioPlayer?
     
+    @State var speechRecognizer: SpeechRecognizer
     @Binding var synthesizer: AVSpeechSynthesizer
     @Binding var selectedAnswer: String
     @Binding var answerCorrect: [String]
@@ -66,8 +67,8 @@ struct HistorySubmitNextButtonsView: View {
                     .background(Color.blue)
                     .cornerRadius(13)
             }
-            .disabled(selectedAnswer == "" || isSubmit ? true : false)
-            .opacity(selectedAnswer == "" || isSubmit ? 0.6 : 1)
+            .disabled(selectedAnswer == "" || isSubmit || speechRecognizer.isSpeaking ? true : false)
+            .opacity(selectedAnswer == "" || isSubmit || speechRecognizer.isSpeaking ? 0.6 : 1)
             
             Button{
                 synthesizer.stopSpeaking(at: .immediate)

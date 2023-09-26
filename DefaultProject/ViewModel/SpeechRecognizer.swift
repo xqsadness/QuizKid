@@ -125,7 +125,7 @@ class SpeechRecognizer: ObservableObject {
     
     func restartSpeechTimer() {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.85, repeats: false, block: { (timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.55, repeats: false, block: { (timer) in
             // Do whatever needs to be done when the timer expires
             print("timeout")
             self.isTimeout = true

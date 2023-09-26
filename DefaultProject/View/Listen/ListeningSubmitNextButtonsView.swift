@@ -11,7 +11,7 @@ import AVFAudio
 struct ListeningSubmitNextButtonsView: View {
     @AppStorage("Language") var language: String = "en"
     @State var audioPlayer: AVAudioPlayer?
-    
+    @State var speechRecognizer: SpeechRecognizer
     @Binding var synthesizer: AVSpeechSynthesizer
     @Binding var selectedAnswer: String
     @Binding var answerCorrect: [String]
@@ -47,12 +47,16 @@ struct ListeningSubmitNextButtonsView: View {
                         completeAllQuestion()
                     }
                 }else{
-                    isSubmit = true
-                    loadAudio(nameSound: "wrong")
-                    isCorrect = false
-                    countWrong += 1
+                    if selectedTab < CONSTANT.SHARED.DATA_LISTEN.count - 1{
+                        isSubmit = true
+                        loadAudio(nameSound: "wrong")
+                        isCorrect = false
+                        countWrong += 1
+                    }else{
+                        isSubmit = true
+                        completeAllQuestion()
+                    }
                 }
-
             }label: {
                 Text("Submit".cw_localized)
                     .foregroundColor(.text)
@@ -62,8 +66,8 @@ struct ListeningSubmitNextButtonsView: View {
                     .background(Color.blue)
                     .cornerRadius(13)
             }
-            .disabled(selectedAnswer == "" || isSubmit ? true : false)
-            .opacity(selectedAnswer == "" || isSubmit ? 0.6 : 1)
+            .disabled(selectedAnswer == "" || isSubmit || speechRecognizer.isSpeaking ? true : false)
+            .opacity(selectedAnswer == "" || isSubmit || speechRecognizer.isSpeaking ? 0.6 : 1)
             
             Button{
                 synthesizer.stopSpeaking(at: .immediate)

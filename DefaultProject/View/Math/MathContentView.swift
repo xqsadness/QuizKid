@@ -33,13 +33,15 @@ struct MathContentView: View {
             
             HStack{
                 Text(quiz.question.cw_localized)
-                    .font(.regular(size: 20))
+                    .font(.regular(size: 18))
                     .foregroundColor(.background)
                     .multilineTextAlignment(.leading)
             }
             .simultaneousGesture(DragGesture())
             .hAlign(.leading)
             .padding()
+            
+            Spacer()
             
             HStack{
                 if speechRecognizer.isSpeaking {
@@ -70,23 +72,24 @@ struct MathContentView: View {
             .disabled(isSubmit ? true : false )
             .opacity(isSubmit ? 0.6 : 1 )
             
-            if speechRecognizer.transcript.isEmpty{
-                HStack(spacing: 10){
-                    ForEach(0..<3){ _ in
-                        Image("line")
-                            .resizable()
-                            .frame(width: 35,height: 30)
+            VStack{
+                if speechRecognizer.transcript.isEmpty{
+                    HStack(spacing: 10){
+                        ForEach(0..<3){ _ in
+                            Image("line")
+                                .resizable()
+                                .frame(width: 35,height: 30)
+                        }
                     }
-                }
-                .padding(.top,20)
-            }else{
-                Text("\(speechRecognizer.transcript.cw_localized)")
-                    .font(.bold(size: 17))
-                    .foregroundColor(Color.blue)
                     .padding(.top,20)
+                }else{
+                    Text("\(speechRecognizer.transcript.cw_localized)")
+                        .font(.bold(size: 17))
+                        .foregroundColor(Color.blue)
+                        .padding(.top,20)
+                }
             }
-            
-            Spacer()
+            .frame(height: 30)
             
             VStack(spacing: 10){
                 answerView(question: quiz.a, isCorrect: quiz.answer.contains(where: {$0 == quiz.a}))
@@ -165,7 +168,7 @@ struct MathContentView: View {
         if isSubmit && isCorrect && !isCheckFailSpeech{
             return .green
         } else if isSubmit && isCorrect && isCheckFailSpeech{
-            return .green
+            return .blue
         }else if isSubmit && !isCorrect && selectedAnswer == question{
             return .red
         } else if selectedAnswer == question{

@@ -53,10 +53,15 @@ struct MathSubmitNextButtonsView: View {
                         completeAllQuestion()
                     }
                 }else{
-                    isSubmit = true
-                    loadAudio("wrong")
-                    isCorrect = false
-                    countWrong += 1
+                    if selectedTab < CONSTANT.SHARED.DATA_MATH.count - 1{
+                        isSubmit = true
+                        loadAudio("wrong")
+                        isCorrect = false
+                        countWrong += 1
+                    }else{
+                        isSubmit = true
+                        completeAllQuestion()
+                    }
                 }
 
             }label: {

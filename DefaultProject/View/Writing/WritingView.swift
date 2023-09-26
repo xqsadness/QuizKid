@@ -57,7 +57,7 @@ struct WritingView: View {
                                 .onAppear{
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8 ,execute: {
                                         if !synthesizer.isSpeaking{
-                                            speakText(textToSpeak: CONSTANT.SHARED.DATA_WRITING[index].answer)
+                                            speakText(textToSpeak: CONSTANT.SHARED.DATA_WRITING[index].answer.cw_localized)
                                         }else{
                                             synthesizer.stopSpeaking(at: .immediate)
                                         }

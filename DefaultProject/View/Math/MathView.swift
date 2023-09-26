@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import Speech
 
 struct MathView: View {
     @AppStorage("Language") var language: String = "en"
@@ -26,6 +27,7 @@ struct MathView: View {
     @State private var isShowPopup = false
     @State private var isCheckFailBtn: Bool = false
     @State private var isCheckFailSpeech: Bool = false
+    @State private var checkPermission: Bool = false
     
     var body: some View {
         VStack{
@@ -60,7 +62,7 @@ struct MathView: View {
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
-                
+
                 MathSubmitNextButtonsView(audioPlayer: audioPlayer, speechRecognizer: speechRecognizer, synthesizer: $synthesizer, selectedAnswer: $selectedAnswer, answerCorrect: $answerCorrect, isSubmit: $isSubmit, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset, isCheckFailSpeech: $isCheckFailSpeech){ nameSound in
                     loadAudio(nameSound: nameSound)
                 }
@@ -76,6 +78,24 @@ struct MathView: View {
         .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
             PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Math", totalQuestion: CONSTANT.SHARED.DATA_MATH.count)
+        }
+        .overlay{
+            if checkPermission{
+                PermissionsNoticeView(message: "Please allow access speech and voice")
+                    .environmentObject(coordinator)
+            }
+        }
+        .onAppear {
+            Task(priority: .background) {
+                guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
+                    checkPermission = true
+                    return
+                }
+                guard await AVAudioSession.sharedInstance().hasPermissionToRecord() else {
+                    checkPermission = true
+                    return
+                }
+            }
         }
         .onAppear{
             QuizTimer.shared.start()
@@ -108,12 +128,16 @@ struct MathView: View {
                         completeAllQuestion()
                     }
                 }else{
-                    selectedAnswer = "temp"
-                    isCheckFailSpeech = true
-                    isSubmit = true
-                    loadAudio(nameSound: "wrong")
-                    isCorrect = false
-                    countWrong += 1
+                    if selectedTab < CONSTANT.SHARED.DATA_MATH.count - 1{
+                        selectedAnswer = "temp"
+                        isCheckFailSpeech = true
+                        isSubmit = true
+                        loadAudio(nameSound: "wrong")
+                        isCorrect = false
+                        countWrong += 1
+                    }else{
+                        completeAllQuestion()
+                    }
                 }
                 speechRecognizer.transcript = ""
             }
@@ -195,21 +219,20 @@ struct MathView: View {
                     completeAllQuestion()
                 }
             }else{
-                selectedAnswer = "temp"
-                isCheckFailSpeech = true
-                isSubmit = true
-                loadAudio(nameSound: "wrong")
-                isCorrect = false
-                countWrong += 1
+                if selectedTab < CONSTANT.SHARED.DATA_MATH.count - 1{
+                    selectedAnswer = "temp"
+                    isCheckFailSpeech = true
+                    isSubmit = true
+                    loadAudio(nameSound: "wrong")
+                    isCorrect = false
+                    countWrong += 1
+                }else{
+                    isSubmit = true
+                    selectedAnswer = "temp"
+                    completeAllQuestion()
+                }
             }
         }
-        //        else if selectedTab == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 && (countWrong + countCorrect == CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count){
-        //            loadAudio(nameSound: "congralutions")
-        //            withAnimation {
-        //                isShowPopup = true
-        //            }
-        //            audioPlayer?.pause()
-        //        }
         speechRecognizer.transcript = ""
     }
 }
