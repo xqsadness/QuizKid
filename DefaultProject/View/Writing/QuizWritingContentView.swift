@@ -125,7 +125,8 @@ struct QuizWritingContentView: View {
                         answer = quiz.answer
                         focusedField = nil
                         
-                        if textWriting.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == quiz.answer.lowercased().trimmingCharacters(in: .whitespacesAndNewlines){
+                        print("\(textWriting.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)) - \(quiz.answer.cw_localized.lowercased().trimmingCharacters(in: .whitespacesAndNewlines))")
+                        if textWriting.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == quiz.answer.cw_localized.lowercased().trimmingCharacters(in: .whitespacesAndNewlines){
                             loadAudio(nameSound: "correct")
                             isCorrect = true
                             withAnimation {

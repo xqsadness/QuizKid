@@ -1,653 +1,831 @@
-
-
 {
-    "listQuestionsMath": [
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["8"],
-               "question": "What is 5 + 3?",
-               "a": "7",
-               "b": "8",
-               "c": "6",
-               "d": "5"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["5"],
-               "question": "How many fingers are there on each of your hands?",
-               "a": "4",
-               "b": "5",
-               "c": "6",
-               "d": "7"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["3"],
-               "question": "If you have 4 apples and you give one to your friend, how many apples do you have left?",
-               "a": "1",
-               "b": "2",
-               "c": "3",
-               "d": "4"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["6"],
-               "question": "How many faces does a cube have?",
-               "a": "1",
-               "b": "2",
-               "c": "3",
-               "d": "6"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["0"],
-               "question": "What is 8 x 0?",
-               "a": "1",
-               "b": "3",
-               "c": "5",
-               "d": "0"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["10"],
-               "question": "If you have 10 fingers, how many fingers do you need to count to 20?",
-               "a": "10",
-               "b": "5",
-               "c": "3",
-               "d": "4"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["4"],
-               "question": "How many legs does a dog have?",
-               "a": "2",
-               "b": "3",
-               "c": "4",
-               "d": "5"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["14"],
-               "question": "What is 7 x 2?",
-               "a": "9",
-               "b": "12",
-               "c": "14",
-               "d": "21"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["11"],
-               "question": "What is 4 + 7?",
-               "a": "54",
-               "b": "4",
-               "c": "11",
-               "d": "14"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["Cat"],
-               "question": "If a cat is in front of a chicken coop, the chicken coop is in front of the house, and the house is in front of a pond, then what is in front of a window?",
-               "a": "Chicken",
-               "b": "Cat",
-               "c": "Fish",
-               "d": "Dog"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["9"],
-               "question": "There is a bridge with 5 ducks on it. Under the bridge, there are 4 ducks. How many ducks are there in total?",
-               "a": "10",
-               "b": "8",
-               "c": "9",
-               "d": "11"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["3"],
-               "question": "You have 5 apples. You ate 2. How many apples do you have left?",
-               "a": "5",
-               "b": "4",
-               "c": "3",
-               "d": "2"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["Sunday"],
-               "question": "If today is Saturday, what day is tomorrow?",
-               "a": "Saturday",
-               "b": "Sunday",
-               "c": "Monday",
-               "d": "Friday"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["At the end of the road"],
-               "question": "If you walk 10 steps along a road, where are you?",
-               "a": "At the beginning of the road",
-               "b": "In the middle of the road",
-               "c": "At the end of the road",
-               "d": "Cannot be determined"
-           },
-           {
-               "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-               "answer": ["4 times"],
-               "question": "You have 2 red balls, 3 blue balls, and 1 yellow ball. If you randomly draw a ball from the bag, how many times do you need to draw to ensure you have at least one blue ball?",
-               "a": "2 times",
-               "b": "3 times",
-               "c": "4 times",
-               "d": "6 times"
-           }
-       ],
-    "listQuestionsColor": [
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["Orange"],
-                "question": "What color is this fruit?",
-                "a": "Red",
-                "b": "Orange",
-                "c": "Yellow",
-                "d": "Green",
-                "img": "cam"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["Red"],
-                "question": "What color is this cherry?",
-                "a": "Red",
-                "b": "Green",
-                "c": "Yellow",
-                "d": "Purple",
-                "img": "cherry"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["White"],
-                "question": "What color is this dog?",
-                "a": "Black",
-                "b": "Brown",
-                "c": "Red",
-                "d": "White",
-                "img": "conchotrang"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["Yellow"],
-                "question": "What color is this?",
-                "a": "Yellow",
-                "b": "Purple",
-                "c": "Blue",
-                "d": "Orange",
-                "img": "conga"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["Red"],
-                "question": "What color is this?",
-                "a": "Green",
-                "b": "Orange",
-                "c": "Blue",
-                "d": "Red",
-                "img": "images (1)"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["Blue"],
-                "question": "What color is the girl's dress?",
-                "a": "Blue",
-                "b": "Green",
-                "c": "Black",
-                "d": "White",
-                "img": "IMG_3959-scaled"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["Brown"],
-                "question": "What color is this rabbit?",
-                "a": "Black",
-                "b": "Red",
-                "c": "Gray",
-                "d": "Brown",
-                "img": "thonau"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["Red"],
-                "question": "What color is this?",
-                "a": "Green",
-                "b": "Orange",
-                "c": "Black",
-                "d": "Red",
-                "img": "xedo"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["Yellow"],
-                "question": "What color is this?",
-                "a": "Purple",
-                "b": "Orange",
-                "c": "Blue",
-                "d": "Yellow",
-                "img": "hinh-anh-qua-chuoi-tieu"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "answer": ["Red"],
-                "question": "What color is the inside of this watermelon?",
-                "a": "Yellow",
-                "b": "Green",
-                "c": "Black",
-                "d": "Red",
-                "img": "duahau"
-            }
-        ],
-    "listQuestionsListen": [
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Shoes"],
-            "question": "Shoes",
-            "a": "Shoes",
-            "b": "Gloves",
-            "c": "Coat",
-            "d": "Hat",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Mining"],
-            "question": "Mining",
-            "a": "Sheep farming",
-            "b": "Gardening",
-            "c": "Baking",
-            "d": "Mining",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Planting"],
-            "question": "Planting",
-            "a": "Baking",
-            "b": "Cooking rice",
-            "c": "Planting",
-            "d": "Raising chickens",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Elephant"],
-            "question": "Elephant",
-            "a": "Dog",
-            "b": "Pig",
-            "c": "Elephant",
-            "d": "Cat",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Rose"],
-            "question": "Rose",
-            "a": "Wild grass flower",
-            "b": "Sunflower",
-            "c": "Chrysanthemum",
-            "d": "Rose",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Mouth"],
-            "question": "Mouth",
-            "a": "Nose",
-            "b": "Eye",
-            "c": "Ear",
-            "d": "Mouth",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Sun"],
-            "question": "Sun",
-            "a": "Moon",
-            "b": "Sun",
-            "c": "Mercury",
-            "d": "Venus",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Planet"],
-            "question": "Planet",
-            "a": "Onion",
-            "b": "Leafy greens",
-            "c": "Planet",
-            "d": "Action",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Computer"],
-            "question": "Computer",
-            "a": "Desktop computer",
-            "b": "Airplane",
-            "c": "Projector",
-            "d": "Computer",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Baby"],
-            "question": "Baby",
-            "a": "Youngest",
-            "b": "Baby",
-            "c": "Well-behaved",
-            "d": "Grown-up",
-            "img": ""
-        }
-    ],
-    "listQuestionsSurrounding": [
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB0",
-            "answer": "Watermelon",
-            "question": "Watermelon",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "duahau"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB1",
-            "answer": "Banana Pepper",
-            "question": "Banana Pepper",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "hinh-anh-qua-chuoi-tieu"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB2",
-            "answer": "Brown Rabbit",
-            "question": "Brown Rabbit",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "thonau"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB3",
-            "answer": "Ao Dai",
-            "question": "Ao Dai",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "IMG_3959-scaled"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB4",
-            "answer": "Strawberry",
-            "question": "Strawberry",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "images (1)"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB5",
-            "answer": "Rooster",
-            "question": "Rooster",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "conga"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB6",
-            "answer": "White Dog",
-            "question": "White Dog",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "conchotrang"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB7",
-            "answer": "Cherry",
-            "question": "Cherry",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "cherry"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB8",
-            "answer": "Orange",
-            "question": "Orange",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "cam"
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB9",
-            "answer": "Car",
-            "question": "Car",
-            "a": "",
-            "b": "",
-            "c": "",
-            "d": "",
-            "img": "xedo"
-        }
-    ],
-    "listQuestionsHistory": [
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Ba Ria"],
-            "question": "In the year 1933, France merged Truong Sa into which province?",
-            "a": "Ba Ria",
-            "b": "Kien Giang",
-            "c": "Gia Dinh",
-            "d": "Khanh Hoa",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Vietnam"],
-            "question": "The Paracel and Spratly Islands belong to which country?",
-            "a": "Vietnam",
-            "b": "China",
-            "c": "Philippines",
-            "d": "Malaysia",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Hanoi"],
-            "question": "Which city was the capital of North Vietnam during the Vietnam War?",
-            "a": "Hanoi",
-            "b": "Ho Chi Minh City",
-            "c": "Hue",
-            "d": "Da Nang",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Ly Thai To"],
-            "question": "Who founded the city of Thang Long, now known as Hanoi?",
-            "a": "Ly Thai To",
-            "b": "Tran Nhan Tong",
-            "c": "Le Loi",
-            "d": "Nguyen Hue",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Hue"],
-            "question": "Which city in Vietnam is known for its historic Imperial City and Forbidden Purple City?",
-            "a": "Hue",
-            "b": "Hanoi",
-            "c": "Hoi An",
-            "d": "Ho Chi Minh City",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["1975"],
-            "question": "In which year did the Fall of Saigon occur, leading to the end of the Vietnam War?",
-            "a": "1975",
-            "b": "1965",
-            "c": "1985",
-            "d": "1995",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Pho"],
-            "question": "What is the name of the popular Vietnamese noodle soup typically consisting of broth, rice noodles, and meat?",
-            "a": "Pho",
-            "b": "Banh Mi",
-            "c": "Goi Cuon",
-            "d": "Com tam",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Uncle Ho"],
-            "question": "What nickname is often used to refer to Ho Chi Minh, the founding father of modern Vietnam?",
-            "a": "Uncle Ho",
-            "b": "Grandfather Hanoi",
-            "c": "Father of the Nation",
-            "d": "Hero of Dien Bien Phu",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Saigon"],
-            "question": "What was the former name of Ho Chi Minh City before the reunification of North and South Vietnam?",
-            "a": "Saigon",
-            "b": "Hanoi",
-            "c": "Hue",
-            "d": "Da Nang",
-            "img": ""
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "answer": ["Banh Mi"],
-            "question": "What is the name of the Vietnamese sandwich typically consisting of a French baguette filled with various ingredients?",
-            "a": "Banh Mi",
-            "b": "Pho",
-            "c": "Goi Cuon",
-            "d": "Com tam",
-            "img": ""
-        }
-    ],
-    "listListenAndRepeat": [
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "How are you",
-            "answer": ["How are you"]
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "I can see",
-            "answer": ["I can see"]
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "I love you",
-            "answer": ["I love you"]
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Bread",
-            "answer": ["Bread"]
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Listen to music",
-            "answer": ["Listen to music"]
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Watch TV",
-            "answer": ["Watch TV"]
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Do exercise",
-            "answer": ["Do exercise"]
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Breakfast",
-            "answer": ["Breakfast"]
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "I like it",
-            "answer": ["I like it"]
-        },
-        {
-            "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-            "question": "Fine, thank you!",
-            "answer": ["Fine thank you"]
-        }
-    ],
-    "listWriting": [
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "Good bye",
-                "answer": "Good bye"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "Bye",
-                "answer": "Bye"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "Fine",
-                "answer": "Fine"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "Go",
-                "answer": "Go"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "See",
-                "answer": "See"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "Come here",
-                "answer": "Come here"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "Listen",
-                "answer": "Listen"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "How are you",
-                "answer": "How are you"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "Good morning",
-                "answer": "Good morning"
-            },
-            {
-                "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
-                "question": "Good evening",
-                "answer": "Good evening"
-            }
-        ]
+  "listListenAndRepeat": [
+    {
+      "answer": [
+        "How are you"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "How are you"
+    },
+    {
+      "answer": [
+        "I can see"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "I can see"
+    },
+    {
+      "answer": [
+        "I love you"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "I love you"
+    },
+    {
+      "answer": [
+        "Bread"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Bread"
+    },
+    {
+      "answer": [
+        "Listen to music"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Listen to music"
+    },
+    {
+      "answer": [
+        "Watch TV"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Watch TV"
+    },
+    {
+      "answer": [
+        "Do exercise"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Do exercise"
+    },
+    {
+      "answer": [
+        "Breakfast"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Breakfast"
+    },
+    {
+      "answer": [
+        "I like it"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "I like it"
+    },
+    {
+      "answer": [
+        "Fine thank you"
+      ],
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Fine, thank you!"
+    }
+  ],
+  "listQuestionsColor": [
+    {
+      "a": "Red",
+      "answer": [
+        "Orange"
+      ],
+      "b": "Orange",
+      "c": "Yellow",
+      "d": "Green",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "cam.jpeg",
+      "question": "What color is this fruit?"
+    },
+    {
+      "a": "Red",
+      "answer": [
+        "Red"
+      ],
+      "b": "Green",
+      "c": "Yellow",
+      "d": "Purple",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "cherry.jpeg",
+      "question": "What color is this cherry?"
+    },
+    {
+      "a": "Black",
+      "answer": [
+        "White"
+      ],
+      "b": "Brown",
+      "c": "Red",
+      "d": "White",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "conchotrang.jpeg",
+      "question": "What color is this dog?"
+    },
+    {
+      "a": "Yellow",
+      "answer": [
+        "Yellow"
+      ],
+      "b": "Purple",
+      "c": "Blue",
+      "d": "Orange",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "conga.jpeg",
+      "question": "What color is this?"
+    },
+    {
+      "a": "Green",
+      "answer": [
+        "Red"
+      ],
+      "b": "Orange",
+      "c": "Blue",
+      "d": "Red",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "images (1).jpeg",
+      "question": "What color is this?"
+    },
+    {
+      "a": "Blue",
+      "answer": [
+        "Blue"
+      ],
+      "b": "Green",
+      "c": "Black",
+      "d": "White",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "IMG_3959-scaled.jpeg",
+      "question": "What color is the girl's dress?"
+    },
+    {
+      "a": "Black",
+      "answer": [
+        "Brown"
+      ],
+      "b": "Red",
+      "c": "Gray",
+      "d": "Brown",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "thonau.jpeg",
+      "question": "What color is this rabbit?"
+    },
+    {
+      "a": "Green",
+      "answer": [
+        "Red"
+      ],
+      "b": "Orange",
+      "c": "Black",
+      "d": "Red",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "xedo.jpeg",
+      "question": "What color is this?"
+    },
+    {
+      "a": "Purple",
+      "answer": [
+        "Yellow"
+      ],
+      "b": "Orange",
+      "c": "Blue",
+      "d": "Yellow",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "hinh-anh-qua-chuoi-tieu.jpeg",
+      "question": "What color is this?"
+    },
+    {
+      "a": "Yellow",
+      "answer": [
+        "Red"
+      ],
+      "b": "Green",
+      "c": "Black",
+      "d": "Red",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "duahau.jpeg",
+      "question": "What color is the inside of this watermelon?"
+    }
+  ],
+  "listQuestionsHistory": [
+    {
+      "a": "Ba Ria",
+      "answer": [
+        "Ba Ria"
+      ],
+      "b": "Kien Giang",
+      "c": "Gia Dinh",
+      "d": "Khanh Hoa",
+      "id": "Db831EB08-9F41-jk85-ABED-DEE1320-72CAB",
+      "img": "",
+      "question": "In the year 1933, France merged Truong Sa into which province?"
+    },
+    {
+      "a": "Vietnam",
+      "answer": [
+        "Vietnam"
+      ],
+      "b": "China",
+      "c": "Philippines",
+      "d": "Malaysia",
+      "id": "DkslEB08-9F41-47A5-ABED-DEE2963418CAB",
+      "img": "",
+      "question": "The Paracel and Spratly Islands belong to which country?"
+    },
+    {
+      "a": "Hanoi",
+      "answer": [
+        "Hanoi"
+      ],
+      "b": "Ho Chi Minh City",
+      "c": "Hue",
+      "d": "Da Nang",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Which city was the capital of North Vietnam during the Vietnam War?"
+    },
+    {
+      "a": "Ly Thai To",
+      "answer": [
+        "Ly Thai To"
+      ],
+      "b": "Tran Nhan Tong",
+      "c": "Le Loi",
+      "d": "Nguyen Hue",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Who founded the city of Thang Long, now known as Hanoi?"
+    },
+    {
+      "a": "Hue",
+      "answer": [
+        "Hue"
+      ],
+      "b": "Hanoi",
+      "c": "Hoi An",
+      "d": "Ho Chi Minh City",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Which city in Vietnam is known for its historic Imperial City and Forbidden Purple City?"
+    },
+    {
+      "a": "1975",
+      "answer": [
+        "1975"
+      ],
+      "b": "1965",
+      "c": "1985",
+      "d": "1995",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "In which year did the Fall of Saigon occur, leading to the end of the Vietnam War?"
+    },
+    {
+      "a": "Pho",
+      "answer": [
+        "Pho"
+      ],
+      "b": "Banh Mi",
+      "c": "Goi Cuon",
+      "d": "Com tam",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "What is the name of the popular Vietnamese noodle soup typically consisting of broth, rice noodles, and meat?"
+    },
+    {
+      "a": "Uncle Ho",
+      "answer": [
+        "Uncle Ho"
+      ],
+      "b": "Grandfather Hanoi",
+      "c": "Father of the Nation",
+      "d": "Hero of Dien Bien Phu",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "What nickname is often used to refer to Ho Chi Minh, the founding father of modern Vietnam?"
+    },
+    {
+      "a": "Saigon",
+      "answer": [
+        "Saigon"
+      ],
+      "b": "Hanoi",
+      "c": "Hue",
+      "d": "Da Nang",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "What was the former name of Ho Chi Minh City before the reunification of North and South Vietnam?"
+    },
+    {
+      "a": "Banh Mi",
+      "answer": [
+        "Banh Mi"
+      ],
+      "b": "Pho",
+      "c": "Goi Cuon",
+      "d": "Com tam",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "What is the name of the Vietnamese sandwich typically consisting of a French baguette filled with various ingredients?"
+    }
+  ],
+  "listQuestionsListen": [
+    {
+      "a": "Shoes",
+      "answer": [
+        "Shoes"
+      ],
+      "b": "Gloves",
+      "c": "Coat",
+      "d": "Hat",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Shoes"
+    },
+    {
+      "a": "Sheep farming",
+      "answer": [
+        "Mining"
+      ],
+      "b": "Gardening",
+      "c": "Baking",
+      "d": "Mining",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Mining"
+    },
+    {
+      "a": "Baking",
+      "answer": [
+        "Planting"
+      ],
+      "b": "Cooking rice",
+      "c": "Planting",
+      "d": "Raising chickens",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Planting"
+    },
+    {
+      "a": "Dog",
+      "answer": [
+        "Elephant"
+      ],
+      "b": "Pig",
+      "c": "Elephant",
+      "d": "Cat",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Elephant"
+    },
+    {
+      "a": "Wild grass flower",
+      "answer": [
+        "Rose"
+      ],
+      "b": "Sunflower",
+      "c": "Chrysanthemum",
+      "d": "Rose",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Rose"
+    },
+    {
+      "a": "Nose",
+      "answer": [
+        "Mouth"
+      ],
+      "b": "Eye",
+      "c": "Ear",
+      "d": "Mouth",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Mouth"
+    },
+    {
+      "a": "Moon",
+      "answer": [
+        "Sun"
+      ],
+      "b": "Sun",
+      "c": "Mercury",
+      "d": "Venus",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Sun"
+    },
+    {
+      "a": "Onion",
+      "answer": [
+        "Planet"
+      ],
+      "b": "Leafy greens",
+      "c": "Planet",
+      "d": "Action",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Planet"
+    },
+    {
+      "a": "Desktop computer",
+      "answer": [
+        "Computer"
+      ],
+      "b": "Airplane",
+      "c": "Projector",
+      "d": "Computer",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Computer"
+    },
+    {
+      "a": "Youngest",
+      "answer": [
+        "Baby"
+      ],
+      "b": "Baby",
+      "c": "Well-behaved",
+      "d": "Grown-up",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "img": "",
+      "question": "Baby"
+    }
+  ],
+  "listQuestionsMath": [
+    {
+      "a": "7",
+      "answer": [
+        "8",
+        "Eight",
+        "Tám",
+        "八",
+        "Huit",
+        "восемь"
+      ],
+      "b": "8",
+      "c": "6",
+      "d": "5",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "What is 5 + 3?"
+    },
+    {
+      "a": "4",
+      "answer": [
+        "5",
+        "пять",
+        "five",
+        "năm",
+        "cinq",
+        "五"
+      ],
+      "b": "5",
+      "c": "6",
+      "d": "7",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "How many fingers are there on each of your hands?"
+    },
+    {
+      "a": "1",
+      "answer": [
+        "3",
+        "three",
+        "три",
+        "trois",
+        "三つ",
+        "ba"
+      ],
+      "b": "2",
+      "c": "3",
+      "d": "4",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "If you have 4 apples and you give one to your friend, how many apples do you have left?"
+    },
+    {
+      "a": "1",
+      "answer": [
+        "6",
+        "six",
+        "sáu",
+        "六",
+        "шесть"
+      ],
+      "b": "2",
+      "c": "3",
+      "d": "6",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "How many faces does a cube have?"
+    },
+    {
+      "a": "1",
+      "answer": [
+        "0",
+        "zero",
+        "không",
+        "zéro",
+        "нуль",
+        "ゼロ"
+      ],
+      "b": "3",
+      "c": "5",
+      "d": "0",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "What is 8 x 0?"
+    },
+    {
+      "a": "10",
+      "answer": [
+        "10",
+        "ten",
+        "mười",
+        "十",
+        "dix",
+        "десять"
+      ],
+      "b": "5",
+      "c": "3",
+      "d": "4",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "If you have 10 fingers, how many fingers do you need to count to 20?"
+    },
+    {
+      "a": "2",
+      "answer": [
+        "4",
+        "四",
+        "Quatre",
+        "Четыре",
+        "four",
+        "bốn"
+      ],
+      "b": "3",
+      "c": "4",
+      "d": "5",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "How many legs does a dog have?"
+    },
+    {
+      "a": "9",
+      "answer": [
+        "14",
+        "Fourteen",
+        "Четырнадцать",
+        "Quatorze",
+        "mười bốn",
+        "十四"
+      ],
+      "b": "12",
+      "c": "14",
+      "d": "21",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "What is 7 x 2?"
+    },
+    {
+      "a": "54",
+      "answer": [
+        "11",
+        "mười một",
+        "十一",
+        "Onze",
+        "Одиннадцать",
+        "Eleven"
+      ],
+      "b": "4",
+      "c": "11",
+      "d": "14",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "What is 4 + 7?"
+    },
+    {
+      "a": "5",
+      "answer": [
+        "16",
+        "mười sáu",
+        "Sixteen",
+        "шестнадцать",
+        "seize",
+        "十六"
+      ],
+      "b": "16",
+      "c": "12",
+      "d": "10",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "What is 4 + 6 * 2 ?"
+    },
+    {
+      "a": "10",
+      "answer": [
+        "9",
+        "Nine",
+        "девять",
+        "neuve",
+        "九",
+        "九つ",
+        "chín"
+      ],
+      "b": "8",
+      "c": "9",
+      "d": "11",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "There is a bridge with 5 ducks on it. Under the bridge, there are 4 ducks. How many ducks are there in total?"
+    },
+    {
+      "a": "5",
+      "answer": [
+        "3",
+        "三つ",
+        "trois",
+        "три",
+        "three",
+        "ba"
+      ],
+      "b": "4",
+      "c": "3",
+      "d": "2",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "You have 5 apples. You ate 2. How many apples do you have left?"
+    },
+    {
+      "a": "7",
+      "answer": [
+        "3",
+        "three",
+        "三つ",
+        "trois",
+        "три",
+        "ba"
+      ],
+      "b": "3",
+      "c": "6",
+      "d": "5",
+      "id": "Dlk1EB08-9n41-47A5-ABED-DEE132618CAB",
+      "question": "What is 9 / 3?"
+    },
+    {
+      "a": "At the beginning of the road",
+      "answer": [
+        "At the end of the road"
+      ],
+      "b": "In the middle of the road",
+      "c": "At the end of the road",
+      "d": "Cannot be determined",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "If you walk 10 steps along a road, where are you?"
+    },
+    {
+      "a": "2",
+      "answer": [
+        "4",
+        "Four",
+        "четыре",
+        "quatre",
+        "四",
+        "bốn"
+      ],
+      "b": "3",
+      "c": "4",
+      "d": "6",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "You have 2 red balls, 3 blue balls, and 1 yellow ball. If you randomly draw a ball from the bag, how many times do you need to draw to ensure you have at least one blue ball?"
+    }
+  ],
+  "listQuestionsSurrounding": [
+    {
+      "a": "",
+      "answer": "Watermelon",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB0",
+      "img": "duahau.jpeg",
+      "question": "Watermelon"
+    },
+    {
+      "a": "",
+      "answer": "Banana Pepper",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB1",
+      "img": "hinh-anh-qua-chuoi-tieu.jpeg",
+      "question": "Banana Pepper"
+    },
+    {
+      "a": "",
+      "answer": "Brown Rabbit",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB2",
+      "img": "thonau.jpeg",
+      "question": "Brown Rabbit"
+    },
+    {
+      "a": "",
+      "answer": "Ao Dai",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB3",
+      "img": "IMG_3959-scaled.jpeg",
+      "question": "Ao Dai"
+    },
+    {
+      "a": "",
+      "answer": "Strawberry",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB4",
+      "img": "images (1).jpeg",
+      "question": "Strawberry"
+    },
+    {
+      "a": "",
+      "answer": "Rooster",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB5",
+      "img": "conga.jpeg",
+      "question": "Rooster"
+    },
+    {
+      "a": "",
+      "answer": "White Dog",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB6",
+      "img": "conchotrang.jpeg",
+      "question": "White Dog"
+    },
+    {
+      "a": "",
+      "answer": "Cherry",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB7",
+      "img": "cherry.jpeg",
+      "question": "Cherry"
+    },
+    {
+      "a": "",
+      "answer": "Orange",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB8",
+      "img": "cam.jpeg",
+      "question": "Orange"
+    },
+    {
+      "a": "",
+      "answer": "Car",
+      "b": "",
+      "c": "",
+      "d": "",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB9",
+      "img": "xedo.jpeg",
+      "question": "Car"
+    }
+  ],
+  "listWriting": [
+    {
+      "answer": "Good bye",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Good bye"
+    },
+    {
+      "answer": "Bye",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Bye"
+    },
+    {
+      "answer": "Fine",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Fine"
+    },
+    {
+      "answer": "Go",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Go"
+    },
+    {
+      "answer": "See",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "See"
+    },
+    {
+      "answer": "Come here",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Come here"
+    },
+    {
+      "answer": "Listen",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Listen"
+    },
+    {
+      "answer": "How are you",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "How are you"
+    },
+    {
+      "answer": "Good morning",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Good morning"
+    },
+    {
+      "answer": "Good evening",
+      "id": "D921EB08-9F41-47A5-ABED-DEE132618CAB",
+      "question": "Good evening"
+    }
+  ]
 }
