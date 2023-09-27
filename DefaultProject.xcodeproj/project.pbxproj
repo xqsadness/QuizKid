@@ -88,6 +88,14 @@
 		DD3B1B8D2A8B8C910047F43B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B1B8C2A8B8C910047F43B /* ColorView.swift */; };
 		DD3B1B8F2A8B8CF70047F43B /* congralutions2.json in Resources */ = {isa = PBXBuildFile; fileRef = DD3B1B8E2A8B8CF70047F43B /* congralutions2.json */; };
 		DD4979B12AC18EBA00909A15 /* correct.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD4979B02AC18EBA00909A15 /* correct.mp3 */; };
+		DD59E9BE2AC3C41C000CA7DB /* RandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59E9BD2AC3C41C000CA7DB /* RandomView.swift */; };
+		DD59E9C02AC3C45C000CA7DB /* SectionRandomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59E9BF2AC3C45C000CA7DB /* SectionRandomView.swift */; };
+		DD59E9C22AC3D21D000CA7DB /* RandomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59E9C12AC3D21D000CA7DB /* RandomInfoView.swift */; };
+		DD59E9C42AC3D38D000CA7DB /* RandomWritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59E9C32AC3D38D000CA7DB /* RandomWritingView.swift */; };
+		DD59E9C62AC3D83F000CA7DB /* RandomListenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59E9C52AC3D83F000CA7DB /* RandomListenView.swift */; };
+		DD59E9C82AC3E18B000CA7DB /* RandomSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59E9C72AC3E18B000CA7DB /* RandomSelectView.swift */; };
+		DD59E9CC2AC4116A000CA7DB /* RandomSpeakingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59E9CB2AC4116A000CA7DB /* RandomSpeakingView.swift */; };
+		DD59E9CE2AC41A5F000CA7DB /* PopupResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD59E9CD2AC41A5F000CA7DB /* PopupResultView.swift */; };
 		DD5EA4A32A8C780A00084D6A /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA4A22A8C780A00084D6A /* DropdownView.swift */; };
 		DD5EA4A52A8C7B0600084D6A /* ChooseLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA4A42A8C7B0600084D6A /* ChooseLanguageView.swift */; };
 		DD5EA4A82A8C80F000084D6A /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5EA4A62A8C80F000084D6A /* WritingView.swift */; };
@@ -245,6 +253,14 @@
 		DD3B1B8C2A8B8C910047F43B /* ColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		DD3B1B8E2A8B8CF70047F43B /* congralutions2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = congralutions2.json; sourceTree = "<group>"; };
 		DD4979B02AC18EBA00909A15 /* correct.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correct.mp3; sourceTree = "<group>"; };
+		DD59E9BD2AC3C41C000CA7DB /* RandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomView.swift; sourceTree = "<group>"; };
+		DD59E9BF2AC3C45C000CA7DB /* SectionRandomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionRandomView.swift; sourceTree = "<group>"; };
+		DD59E9C12AC3D21D000CA7DB /* RandomInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomInfoView.swift; sourceTree = "<group>"; };
+		DD59E9C32AC3D38D000CA7DB /* RandomWritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWritingView.swift; sourceTree = "<group>"; };
+		DD59E9C52AC3D83F000CA7DB /* RandomListenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomListenView.swift; sourceTree = "<group>"; };
+		DD59E9C72AC3E18B000CA7DB /* RandomSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSelectView.swift; sourceTree = "<group>"; };
+		DD59E9CB2AC4116A000CA7DB /* RandomSpeakingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomSpeakingView.swift; sourceTree = "<group>"; };
+		DD59E9CD2AC41A5F000CA7DB /* PopupResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupResultView.swift; sourceTree = "<group>"; };
 		DD5EA4A22A8C780A00084D6A /* DropdownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
 		DD5EA4A42A8C7B0600084D6A /* ChooseLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageView.swift; sourceTree = "<group>"; };
 		DD5EA4A62A8C80F000084D6A /* WritingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
@@ -314,6 +330,7 @@
 		278982FB2A84EE65003CB639 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DD59E9BC2AC3C3F9000CA7DB /* RandomQuestion */,
 				DD7F611F2A8F163C0030E044 /* SurroundingObject */,
 				DD7F61102A8F13BB0030E044 /* Home */,
 				DD7F61072A8F103F0030E044 /* Math */,
@@ -558,6 +575,19 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
+		DD59E9BC2AC3C3F9000CA7DB /* RandomQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				DD59E9BD2AC3C41C000CA7DB /* RandomView.swift */,
+				DD59E9C12AC3D21D000CA7DB /* RandomInfoView.swift */,
+				DD59E9C32AC3D38D000CA7DB /* RandomWritingView.swift */,
+				DD59E9C52AC3D83F000CA7DB /* RandomListenView.swift */,
+				DD59E9C72AC3E18B000CA7DB /* RandomSelectView.swift */,
+				DD59E9CB2AC4116A000CA7DB /* RandomSpeakingView.swift */,
+			);
+			path = RandomQuestion;
+			sourceTree = "<group>";
+		};
 		DD67413F2A86161D00CB9B0B /* Sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +652,7 @@
 				DD7F61192A8F15230030E044 /* SectionHistoryView.swift */,
 				DD7F611B2A8F154D0030E044 /* SectionListenAndRPView.swift */,
 				DD7F611D2A8F15700030E044 /* SectionWritingView.swift */,
+				DD59E9BF2AC3C45C000CA7DB /* SectionRandomView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -699,6 +730,7 @@
 				DDCC6D732A8E0A9D0085D950 /* ListenAndRPInfoView.swift */,
 				DDCC6D752A8E0B740085D950 /* ListenAndRPContentView.swift */,
 				DD3063592A8F6576009ED5E3 /* PermissionsNoticeView.swift */,
+				DD59E9CD2AC41A5F000CA7DB /* PopupResultView.swift */,
 			);
 			path = ListenEndRepeat;
 			sourceTree = "<group>";
@@ -870,10 +902,13 @@
 				DD7F611C2A8F154D0030E044 /* SectionListenAndRPView.swift in Sources */,
 				CA2223A42A2BB34A005164BB /* RewardedAd.swift in Sources */,
 				DDCC6D6E2A8DCF2F0085D950 /* QuizWritingContentView.swift in Sources */,
+				DD59E9CC2AC4116A000CA7DB /* RandomSpeakingView.swift in Sources */,
 				CA2223982A2BB34A005164BB /* TextShimer.swift in Sources */,
 				CA22239A2A2BB34A005164BB /* WebView.swift in Sources */,
 				DDC727652AB54DAA00C5CAAC /* AuthManagerViewModel.swift in Sources */,
 				CA2223E92A2BCF30005164BB /* Shimmer.swift in Sources */,
+				DD59E9CE2AC41A5F000CA7DB /* PopupResultView.swift in Sources */,
+				DD59E9BE2AC3C41C000CA7DB /* RandomView.swift in Sources */,
 				CA2223C02A2BB34A005164BB /* Triangle.swift in Sources */,
 				DD72E2322A8A1233006AB647 /* SpeechRecognizer.swift in Sources */,
 				DD72E2382A8A1D4D006AB647 /* HistoryView.swift in Sources */,
@@ -890,6 +925,7 @@
 				DD7F610D2A8F113C0030E044 /* MathSubmitNextButtonsView.swift in Sources */,
 				CA2223492A2BB329005164BB /* ContentView.swift in Sources */,
 				CA2223A62A2BB34A005164BB /* Giftcode.swift in Sources */,
+				DD59E9C82AC3E18B000CA7DB /* RandomSelectView.swift in Sources */,
 				DDA494532A871421003814F1 /* PopupScoreView.swift in Sources */,
 				DD69C5D62AB9916100ADED44 /* QuizTimer.swift in Sources */,
 				DD7F60FB2A8F040C0030E044 /* ListeningInfoView.swift in Sources */,
@@ -903,12 +939,14 @@
 				DDCC6D6C2A8DCE100085D950 /* QuestionResultWritingView.swift in Sources */,
 				DD7F61062A8F0D480030E044 /* ColorSubmitNextButtonsView.swift in Sources */,
 				DDCC6D7B2A8E1A420085D950 /* HistoryContentView.swift in Sources */,
+				DD59E9C02AC3C45C000CA7DB /* SectionRandomView.swift in Sources */,
 				CA2223A72A2BB34A005164BB /* Network.swift in Sources */,
 				CA2223BF2A2BB34A005164BB /* RoundedCross.swift in Sources */,
 				CA2223BB2A2BB34A005164BB /* Int.swift in Sources */,
 				CA2223BC2A2BB34A005164BB /* UIDevice.swift in Sources */,
 				CA2223AE2A2BB34A005164BB /* APPCONTROLLER.swift in Sources */,
 				DD7F61022A8F0BE00030E044 /* ColorInfoView.swift in Sources */,
+				DD59E9C42AC3D38D000CA7DB /* RandomWritingView.swift in Sources */,
 				CA2223A82A2BB34A005164BB /* LocalNotification.swift in Sources */,
 				CA2223CD2A2BB6F8005164BB /* AppDelegate.swift in Sources */,
 				278982FF2A84EE65003CB639 /* HomeView.swift in Sources */,
@@ -942,6 +980,7 @@
 				CA2223BA2A2BB34A005164BB /* SafeAreaInsets.swift in Sources */,
 				CA2223C22A2BB34A005164BB /* ConfettiSwiftUI.swift in Sources */,
 				CA22239E2A2BB34A005164BB /* CustomSheet.swift in Sources */,
+				DD59E9C22AC3D21D000CA7DB /* RandomInfoView.swift in Sources */,
 				CA22239C2A2BB34A005164BB /* MarqueeText.swift in Sources */,
 				DDA494622A872DDF003814F1 /* ListeningView.swift in Sources */,
 				DD7F61042A8F0C240030E044 /* ColorContentView.swift in Sources */,
@@ -957,6 +996,7 @@
 				DD7F611A2A8F15230030E044 /* SectionHistoryView.swift in Sources */,
 				DD7F61142A8F14810030E044 /* SectionColorView.swift in Sources */,
 				CA2223992A2BB34A005164BB /* CustomActivity.swift in Sources */,
+				DD59E9C62AC3D83F000CA7DB /* RandomListenView.swift in Sources */,
 				DD5EA4A82A8C80F000084D6A /* WritingView.swift in Sources */,
 				DDCC6D762A8E0B740085D950 /* ListenAndRPContentView.swift in Sources */,
 				DD0EA48D2A8B342F007D8C55 /* ListenAndRepeatView.swift in Sources */,

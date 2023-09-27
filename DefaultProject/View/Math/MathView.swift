@@ -75,7 +75,6 @@ struct MathView: View {
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.text)
-        .navigationBarBackButtonHidden(true)
         .popup(isPresented: $isShowPopup) {
             PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Math", totalQuestion: CONSTANT.SHARED.DATA_MATH.count)
         }

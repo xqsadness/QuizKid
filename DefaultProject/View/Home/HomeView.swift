@@ -50,6 +50,8 @@ struct HomeView: View {
                     SectionListenAndRPView()
                     
                     SectionWritingView()
+                    
+                    SectionRandomView()
                 }
                 .padding(.top,5)
             }

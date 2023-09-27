@@ -97,80 +97,8 @@ struct ListenAndRepeatView: View {
                 }
             }
             .overlay(alignment: .bottom) {
-                if isCorrect{
-                    VStack{}
-                        .vAlign(.center)
-                        .hAlign(.center)
-                        .background(.background).opacity(0.15)
-                    
-                    SheetShowAnswerCorrectView(answer: $answerCorrect){
-                        withAnimation {
-                            isCorrect = false
-                        }
-                    }
-                    .vAlign(.bottom)
-                    .animation(.easeInOut, value: isCorrect)
-                    .onDisappear{
-                        synthesizer.stopSpeaking(at: .immediate)
-                        if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 {
-                            progress += 1
-                            resetSpeak()
-                            withAnimation {
-                                selectedTab += 1
-                                isCorrect = false
-                            }
-                            countFail = 0
-                        }else{
-                            loadAudio(nameSound: "congralutions")
-                            withAnimation {
-                                isCorrect = false
-                            }
-                            withAnimation {
-                                isShowPopup = true
-                                QuizTimer.shared.reset()
-                            }
-                        }
-                    }
-                }
-                
-                if isFail{
-                    VStack{}
-                        .vAlign(.center)
-                        .hAlign(.center)
-                        .background(.background).opacity(0.15)
-                    
-                    SheetShowAnswerFailedView(answer: $answerCorrect, titleButon: $titleButon){
-                        withAnimation {
-                            isFail = false
-                        }
-                    }
-                    .vAlign(.bottom)
-                    .animation(.easeInOut, value: isFail)
-                    .onDisappear{
-                        if countFail < 2{
-                            withAnimation {
-                                isFail = false
-                                countFail += 1
-                            }
-                        }else{
-                            countWrong += 1
-                            if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 {
-                                progress += 1
-                                resetSpeak()
-                                withAnimation {
-                                    selectedTab += 1
-                                    isFail = false
-                                }
-                                countFail = 0
-                            }else{
-                                loadAudio(nameSound: "congralutions")
-                                withAnimation {
-                                    isShowPopup = true
-                                    QuizTimer.shared.reset()
-                                }
-                            }
-                        }
-                    }
+                PopupResultView(synthesizer: synthesizer, speechRecognizer: speechRecognizer, isCorrect: $isCorrect, isFail: $isFail, isShowPopup: $isShowPopup, progress: $progress, selectedTab: $selectedTab, countWrong: $countWrong, countFail: $countFail, answerCorrectSpeaking: $answerCorrect, titleButon: $titleButon){ nameSound in
+                    loadAudio(nameSound: nameSound)
                 }
             }
         }
