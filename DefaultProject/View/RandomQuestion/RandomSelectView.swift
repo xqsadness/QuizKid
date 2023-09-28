@@ -19,8 +19,6 @@ struct RandomSelectView: View {
     @State var index: Int
     @State var audioPlayer: AVAudioPlayer?
     @Binding var data: [QUIZ_ARRAY]
-    @Binding var answerCorrect: [String]
-    @Binding var isCorrect: Bool
     @Binding var selectedTab: Int
     @Binding var progress: Double
     @Binding var isShowPopup: Bool
@@ -75,7 +73,6 @@ struct RandomSelectView: View {
                     for i in data[index].answer {
                         if selectedAnswer.lowercased() == i.lowercased(){
                             loadAudio("correct")
-                            isCorrect = true
                             countCorrect += 1
                             isAnswerCorrect = true
                             break
@@ -93,7 +90,6 @@ struct RandomSelectView: View {
                         if selectedTab < data.count - 1{
                             isSubmit = true
                             loadAudio("wrong")
-                            isCorrect = false
                             countWrong += 1
                         }else{
                             isSubmit = true
@@ -211,7 +207,6 @@ struct RandomSelectView: View {
         progress += 1
         selectedAnswer = ""
         isSubmit = false
-        isCorrect = false
         withAnimation {
             selectedTab += 1
         }

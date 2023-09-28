@@ -82,11 +82,11 @@ struct RandomWritingView: View {
             }
             .contentShape(Rectangle())
             .simultaneousGesture(DragGesture())
-            .onTapGesture {
-                withAnimation {
-                    isShowPopupCheck = false
-                }
-            }
+//            .onTapGesture {
+//                withAnimation {
+//                    isShowPopupCheck = false
+//                }
+//            }
             
             ZStack{
                 Text(textWriting.isEmpty ? "Enter here".cw_localized : "")
@@ -128,11 +128,11 @@ struct RandomWritingView: View {
                     Button{
                         answer = quiz.answer
                         focusedField = nil
+                        synthesizer.stopSpeaking(at: .immediate)
                         var isAnswerCorrect = false
                         
-                        for i in answer {
+                        for i in quiz.answer {
                             if textWriting.lowercased() == i.cw_localized.lowercased(){
-                                countCorrect += 1
                                 isAnswerCorrect = true
                                 answerCorrectWriting = i
                                 break
@@ -196,9 +196,6 @@ struct RandomWritingView: View {
         }
         .tag(index)
         .contentShape(Rectangle()).gesture(DragGesture())
-        .onAppear{
-            focusedField = nil
-        }
     }
     
     func resetSpeak(){

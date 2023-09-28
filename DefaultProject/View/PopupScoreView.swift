@@ -15,6 +15,7 @@ struct PopupScoreView: View {
     @State var title: String
     @State var totalQuestion: Int
     @EnvironmentObject var coordinator: Coordinator
+    var isShowTimeSpent = true
 
     var body: some View {
         VStack{
@@ -68,12 +69,14 @@ struct PopupScoreView: View {
                 }
                 .frame(width: 160, alignment: .center)
                 
-                HStack{
-                    styledText(text: "Time spent", foregroundColor: .text2, font: .regular(size: 15))
-                    Spacer()
-                    styledText(text: "\(QuizTimer.shared.formatTimeInterval(QuizTimer.shared.elapsedTime))", foregroundColor: .background, font: .regular(size: 15))
+                if isShowTimeSpent{
+                    HStack{
+                        styledText(text: "Time spent", foregroundColor: .text2, font: .regular(size: 15))
+                        Spacer()
+                        styledText(text: "\(QuizTimer.shared.formatTimeInterval(QuizTimer.shared.elapsedTime))", foregroundColor: .background, font: .regular(size: 15))
+                    }
+                    .frame(width: 160, alignment: .center)
                 }
-                .frame(width: 160, alignment: .center)
             }
             .hAlign(.center)
             
@@ -98,7 +101,7 @@ struct PopupScoreView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .frame(height: 390)
+        .frame(height: countCorrect == 0 ? 420 : 390)
         .background(Color.text)
         .cornerRadius(12)
         .padding(.horizontal)

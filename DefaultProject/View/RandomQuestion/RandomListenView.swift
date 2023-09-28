@@ -12,7 +12,6 @@ struct RandomListenView: View {
     @AppStorage("Language") var language: String = "en"
     @State var selectedAnswer: String = ""
     @State var isSubmit: Bool = false
-    @State var isCheckFailSpeech: Bool = false
     
     @State var synthesizer: AVSpeechSynthesizer
     @State var speechRecognizer: SpeechRecognizer
@@ -20,7 +19,6 @@ struct RandomListenView: View {
     @State var audioPlayer: AVAudioPlayer?
     @Binding var data: [QUIZ_ARRAY]
     @Binding var answerCorrect: [String]
-    @Binding var isCorrect: Bool
     @Binding var selectedTab: Int
     @Binding var progress: Double
     @Binding var isShowPopup: Bool
@@ -70,13 +68,12 @@ struct RandomListenView: View {
             
             HStack(spacing: 10){
                 Button{
+                    synthesizer.stopSpeaking(at: .immediate)
                     var isAnswerCorrect = false
-                    print(data[index].answer)
+                    
                     for i in data[index].answer {
-                        print("\(selectedAnswer.cw_localized.lowercased()) - \(i.cw_localized.lowercased()) - index\(index) - \(quiz.question)")
                         if selectedAnswer.cw_localized.lowercased() == i.cw_localized.lowercased(){
                             loadAudio("correct")
-                            isCorrect = true
                             countCorrect += 1
                             isAnswerCorrect = true
                             break
@@ -92,10 +89,8 @@ struct RandomListenView: View {
                         }
                     }else{
                         if selectedTab < data.count - 1{
-                            
                             isSubmit = true
                             loadAudio("wrong")
-                            isCorrect = false
                             countWrong += 1
                         }else{
                             isSubmit = true
@@ -158,7 +153,7 @@ struct RandomListenView: View {
         )
         .overlay(alignment: .trailing){
             VStack{
-                if isSubmit && isCorrect && !isCheckFailSpeech{
+                if isSubmit && isCorrect{
                     Image(systemName: "checkmark")
                         .imageScale(.medium)
                         .foregroundColor(.green)
@@ -166,10 +161,6 @@ struct RandomListenView: View {
                     Image(systemName: "x.circle")
                         .imageScale(.medium)
                         .foregroundColor(.red)
-                }else if isSubmit && isCorrect && isCheckFailSpeech{
-                    Image(systemName: "info.circle")
-                        .imageScale(.medium)
-                        .foregroundColor(.blue)
                 }
             }
             .padding(.horizontal)
@@ -195,10 +186,8 @@ struct RandomListenView: View {
     }
     
     func getAnswerColor(isCorrect: Bool, question: String) -> Color {
-        if isSubmit && isCorrect && !isCheckFailSpeech{
+        if isSubmit && isCorrect{
             return .green
-        } else if isSubmit && isCorrect && isCheckFailSpeech{
-            return .blue
         }else if isSubmit && !isCorrect && selectedAnswer == question{
             return .red
         } else if selectedAnswer == question{
@@ -213,7 +202,6 @@ struct RandomListenView: View {
         progress += 1
         selectedAnswer = ""
         isSubmit = false
-        isCorrect = false
         withAnimation {
             selectedTab += 1
         }
