@@ -15,7 +15,6 @@ struct PopupScoreView: View {
     @State var title: String
     @State var totalQuestion: Int
     @EnvironmentObject var coordinator: Coordinator
-    var isShowTimeSpent = true
 
     var body: some View {
         VStack{
@@ -69,7 +68,7 @@ struct PopupScoreView: View {
                 }
                 .frame(width: 160, alignment: .center)
                 
-                if isShowTimeSpent{
+                if QuizTimer.shared.elapsedTime != .zero{
                     HStack{
                         styledText(text: "Time spent", foregroundColor: .text2, font: .regular(size: 15))
                         Spacer()

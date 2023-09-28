@@ -80,7 +80,7 @@ struct RandomView: View {
                                     loadAudio(nameSound: nameSound)
                                 }
                                 .onAppear{
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5 ,execute: {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1 ,execute: {
                                         if !speechRecognizer.isSpeaking{
                                             if !synthesizer.isSpeaking{
                                                 speakText(textToSpeak: data[index].question.cw_localized)
@@ -97,7 +97,7 @@ struct RandomView: View {
                                 .onAppear{
                                     isCheckFail = false
                                     isFailSpeaking = false
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5 ,execute: {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1 ,execute: {
                                         if !speechRecognizer.isSpeaking{
                                             if !synthesizer.isSpeaking{
                                                 speakText(textToSpeak: data[index].question.cw_localized)
@@ -111,7 +111,7 @@ struct RandomView: View {
                             else if randomEnum == RandomEnum.writing{
                                 RandomWritingView(speechRecognizer: speechRecognizer,audioPlayer:audioPlayer ,synthesizer: synthesizer, textWriting: $textWriting, answer: $answerWriting,answerCorrectWriting: $answerCorrectWriting ,countCorrect: $countCorrect, countWrong: $countWrong, progress: $progress, data: $data, index: index, selectedTab: $selectedTab, isCorrect: $isCorrectWriting, isShowPopup: $isShowPopup, isShowPopupCheck: $isShowPopupCheck)
                                     .onAppear{
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5 ,execute: {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1 ,execute: {
                                             if !speechRecognizer.isSpeaking{
                                                 if !synthesizer.isSpeaking{
                                                     speakText(textToSpeak: data[index].question.cw_localized)
@@ -157,7 +157,7 @@ struct RandomView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.text)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Random", totalQuestion: data.count, isShowTimeSpent: false)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Random", totalQuestion: data.count)
         }
         .onAppear{
             QuizTimer.shared.start()
@@ -248,6 +248,7 @@ struct RandomView: View {
     // speaking
     func handleTapToSpeak(answer: [String]){
         answerSpeaking = answer
+        synthesizer.stopSpeaking(at: .immediate)
         if selectedTab < data.count - 1 || !(countWrong + countCorrect == data.count){
             audioPlayer?.pause()
             if !speechRecognizer.isSpeaking {
