@@ -16,7 +16,7 @@ struct RandomListenView: View {
     
     @State var synthesizer: AVSpeechSynthesizer
     @State var speechRecognizer: SpeechRecognizer
-    @State var index: Int
+    @Binding var index: Int
     @State var audioPlayer: AVAudioPlayer?
     @Binding var data: [QUIZ_ARRAY]
     @Binding var answerCorrect: [String]
@@ -60,10 +60,10 @@ struct RandomListenView: View {
             Spacer()
             
             VStack(spacing: 10){
-                answerView(question: quiz.a, isCorrect: quiz.question == quiz.a)
-                answerView(question: quiz.b, isCorrect: quiz.question == quiz.b)
-                answerView(question: quiz.c, isCorrect: quiz.question == quiz.c)
-                answerView(question: quiz.d, isCorrect: quiz.question == quiz.d)
+                answerView(question: quiz.a, isCorrect: quiz.answer.contains(where: { $0 == quiz.a}))
+                answerView(question: quiz.b, isCorrect: quiz.answer.contains(where: { $0 == quiz.b}))
+                answerView(question: quiz.c, isCorrect: quiz.answer.contains(where: { $0 == quiz.c}))
+                answerView(question: quiz.d, isCorrect: quiz.answer.contains(where: { $0 == quiz.d}))
             }
             .padding()
             .simultaneousGesture(DragGesture())
@@ -71,9 +71,10 @@ struct RandomListenView: View {
             HStack(spacing: 10){
                 Button{
                     var isAnswerCorrect = false
-                    
-                    for i in answerCorrect {
-                        if selectedAnswer.lowercased() == i.lowercased(){
+                    print(data[index].answer)
+                    for i in data[index].answer {
+                        print("\(selectedAnswer.cw_localized.lowercased()) - \(i.cw_localized.lowercased()) - index\(index) - \(quiz.question)")
+                        if selectedAnswer.cw_localized.lowercased() == i.cw_localized.lowercased(){
                             loadAudio("correct")
                             isCorrect = true
                             countCorrect += 1
@@ -91,6 +92,7 @@ struct RandomListenView: View {
                         }
                     }else{
                         if selectedTab < data.count - 1{
+                            
                             isSubmit = true
                             loadAudio("wrong")
                             isCorrect = false

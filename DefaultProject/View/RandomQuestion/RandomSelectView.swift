@@ -60,10 +60,10 @@ struct RandomSelectView: View {
             Spacer()
             
             VStack(spacing: 10){
-                answerView(question: quiz.a, isCorrect: quiz.question == quiz.a)
-                answerView(question: quiz.b, isCorrect: quiz.question == quiz.b)
-                answerView(question: quiz.c, isCorrect: quiz.question == quiz.c)
-                answerView(question: quiz.d, isCorrect: quiz.question == quiz.d)
+                answerView(question: quiz.a, isCorrect: quiz.answer.contains(where: { $0 == quiz.a}))
+                answerView(question: quiz.b, isCorrect: quiz.answer.contains(where: { $0 == quiz.b}))
+                answerView(question: quiz.c, isCorrect: quiz.answer.contains(where: { $0 == quiz.c}))
+                answerView(question: quiz.d, isCorrect: quiz.answer.contains(where: { $0 == quiz.d}))
             }
             .padding()
             .simultaneousGesture(DragGesture())
@@ -72,7 +72,7 @@ struct RandomSelectView: View {
                 Button{
                     var isAnswerCorrect = false
                     
-                    for i in answerCorrect {
+                    for i in data[index].answer {
                         if selectedAnswer.lowercased() == i.lowercased(){
                             loadAudio("correct")
                             isCorrect = true

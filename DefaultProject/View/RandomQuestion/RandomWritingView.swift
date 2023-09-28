@@ -19,6 +19,7 @@ struct RandomWritingView: View {
     @FocusState var focusedField: FocusedField?
     @Binding var textWriting: String
     @Binding var answer: [String]
+    @Binding var answerCorrectWriting: String
     @Binding var countCorrect: Int
     @Binding var countWrong: Int
     @Binding var progress: Double
@@ -133,6 +134,10 @@ struct RandomWritingView: View {
                             if textWriting.lowercased() == i.cw_localized.lowercased(){
                                 countCorrect += 1
                                 isAnswerCorrect = true
+                                answerCorrectWriting = i
+                                break
+                            }else{
+                                answerCorrectWriting = i
                                 break
                             }
                         }

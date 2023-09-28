@@ -24,19 +24,24 @@ struct RandomView: View {
     @State var offset: CGFloat = -10
     @State var selectedAnswer = ""
     @State var textWriting: String = ""
+    @State var answerCorrectWriting: String = ""
+    @State var answerCorrectSpeaking: String = ""
     @State var answerCorrectListen: [String] = []
     @State var answerCorrectSelect: [String] = []
-    @State var answerCorrectWriting: [String] = []
-    @State var answerCorrectSpeaking: String = ""
-    @State var isCorrect = false
+    @State var answerSpeaking: [String] = []
+    @State var answerWriting: [String] = []
+    @State var isCorrectListen = false
+    @State var isCorrectSelect = false
+    @State var isCorrectWriting = false
+    @State var isCorrectSpeaking = false
     @State var isShowPopup = false
+    @State var isFailSpeaking = false
     @State var isCheckFailBtn: Bool = false
     @State var checkPermission: Bool = false
     @State var isCheckFail: Bool = false
     @State var isShowPopupCheck: Bool = false
     @State var isHide: Bool = true
     @State var titleButon = "CONTINUE"
-    @State var isFail = false
     @State var category: RandomEnum = .writing
     
     
@@ -57,40 +62,35 @@ struct RandomView: View {
             }
             
             RandomInfoView(dataListen: $data, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab, progress: $progress)
-                .onTapGesture {
-                    selectedTab = data.count - 1
-                }
             
             VStack{
                 TabView(selection: $selectedTab) {
                     ForEach(data.indices, id: \.self) { index in
                         VStack {
                             if category.rawValue == RandomEnum.listen.rawValue{
-                                RandomListenView(synthesizer: synthesizer, speechRecognizer: speechRecognizer,index: index,audioPlayer: audioPlayer,data: $data , answerCorrect: $answerCorrectListen, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset){ text in
+                                RandomListenView(synthesizer: synthesizer, speechRecognizer: speechRecognizer,index: .constant(index) ,audioPlayer: audioPlayer,data: $data , answerCorrect: $answerCorrectListen, isCorrect: $isCorrectListen, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset){ text in
                                     speakText(textToSpeak: text)
                                 } loadAudio: {nameSound in
                                     loadAudio(nameSound: nameSound)
                                 }
-                                .onAppear{
-                                    answerCorrectListen = data[index].answer
-                                }
+//                                .onAppear{
+//                                    answerCorrectListen = data[index].answer
+//                                    print(answerCorrectSelect)
+//                                }
                             }else if category.rawValue == RandomEnum.speaking.rawValue{
                                 RandomSpeakingView(speechRecognizer: speechRecognizer, synthesizer: synthesizer, index: index, isHide: $isHide, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab, data: $data){
-                                    handleTapToSpeak(answer: data[index].question.cw_localized)
+                                    handleTapToSpeak(answer: data[index].answer)
                                 }
                                 .onAppear{
                                     isCheckFail = false
-                                    isFail = false
-                                    if let answer = data[index].answer.first{
-                                        answerCorrectSpeaking = answer
-                                    }
+                                    isFailSpeaking = false
                                 }
                             }
                             else if category.rawValue == RandomEnum.writing.rawValue{
-                                RandomWritingView(speechRecognizer: speechRecognizer,audioPlayer:audioPlayer ,synthesizer: synthesizer, textWriting: $textWriting, answer: $answerCorrectWriting, countCorrect: $countCorrect, countWrong: $countWrong, progress: $progress, data: $data, index: index, selectedTab: $selectedTab, isCorrect: $isCorrect, isShowPopup: $isShowPopup, isShowPopupCheck: $isShowPopupCheck)
+                                RandomWritingView(speechRecognizer: speechRecognizer,audioPlayer:audioPlayer ,synthesizer: synthesizer, textWriting: $textWriting, answer: $answerWriting,answerCorrectWriting: $answerCorrectWriting ,countCorrect: $countCorrect, countWrong: $countWrong, progress: $progress, data: $data, index: index, selectedTab: $selectedTab, isCorrect: $isCorrectWriting, isShowPopup: $isShowPopup, isShowPopupCheck: $isShowPopupCheck)
                             }
                             else{
-                                RandomSelectView(synthesizer: synthesizer, speechRecognizer: speechRecognizer,index: index,audioPlayer: audioPlayer,data: $data, answerCorrect: $answerCorrectSelect, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset){ text in
+                                RandomSelectView(synthesizer: synthesizer, speechRecognizer: speechRecognizer,index: index,audioPlayer: audioPlayer,data: $data, answerCorrect: $answerCorrectSelect, isCorrect: $isCorrectSelect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset){ text in
                                     speakText(textToSpeak: text)
                                 } loadAudio: {nameSound in
                                     loadAudio(nameSound: nameSound)
@@ -134,12 +134,11 @@ struct RandomView: View {
             QuizTimer.shared.reset()
             synthesizer.stopSpeaking(at: .immediate)
         }
+        //writing
         .overlay(alignment: .bottom) {
             if isShowPopupCheck{
-                if let answer = answerCorrectWriting.first{
-                    QuestionResultWritingView(isCorrect: $isCorrect, isShowPopupCheck: $isShowPopupCheck, answer: .constant(answer)) {
-                        handleContinue()
-                    }
+                QuestionResultWritingView(isCorrect: $isCorrectWriting, isShowPopupCheck: $isShowPopupCheck, answer: $answerCorrectWriting) {
+                    handleContinue()
                 }
             }
         }
@@ -148,13 +147,26 @@ struct RandomView: View {
                 if selectedTab < data.count - 1 || !(countWrong + countCorrect == data.count){
                     audioPlayer?.pause()
                     speechRecognizer.stopTranscribing()
-                    if speechRecognizer.transcript.lowercased().cw_localized == answerCorrectSpeaking.cw_localized.lowercased() && !isFail{
+                    
+                    var isCorrectAnswer = false
+                    
+                    for i in answerSpeaking{
+                        if speechRecognizer.transcript.lowercased() == i.cw_localized.lowercased() && !isFailSpeaking{
+                            isCorrectAnswer = true
+                            answerCorrectSpeaking = i
+                        }else{
+                            answerCorrectSpeaking = i
+                            break
+                        }
+                    }
+                    
+                    if isCorrectAnswer{
                         loadAudio(nameSound: "correct")
                         DispatchQueue.main.async {
-                            isCorrect = true
+                            isCorrectSpeaking = true
                         }
                         countCorrect += 1
-                    }else if !isCorrect && !isCheckFail {
+                    }else if !isCorrectSpeaking && !isCheckFail {
                         loadAudio(nameSound: "wrong")
                         if countFail < 2{
                             titleButon = "Again"
@@ -162,7 +174,7 @@ struct RandomView: View {
                             titleButon = "Understand"
                         }
                         DispatchQueue.main.async {
-                            isFail = true
+                            isFailSpeaking = true
                         }
                     }
                 }else if selectedTab == data.count - 1 && (countWrong + countCorrect == data.count){
@@ -175,15 +187,17 @@ struct RandomView: View {
                 speechRecognizer.transcript = ""
             }
         }
+        // speaking
         .overlay(alignment: .bottom) {
-            PopupResultView(synthesizer: synthesizer, speechRecognizer: speechRecognizer, isCorrect: $isCorrect, isFail: $isFail, isShowPopup: $isShowPopup, progress: $progress, selectedTab: $selectedTab, countWrong: $countWrong, countFail: $countFail, answerCorrectSpeaking: $answerCorrectSpeaking, titleButon: $titleButon){ nameSound in
+            PopupResultView(synthesizer: synthesizer, speechRecognizer: speechRecognizer, isCorrect: $isCorrectSpeaking, isFail: $isFailSpeaking, isShowPopup: $isShowPopup, progress: $progress, selectedTab: $selectedTab, countWrong: $countWrong, countFail: $countFail, answerCorrectSpeaking: $answerCorrectSpeaking, titleButon: $titleButon){ nameSound in
                 loadAudio(nameSound: nameSound)
             }
         }
     }
     
     // speaking
-    func handleTapToSpeak(answer: String){
+    func handleTapToSpeak(answer: [String]){
+        answerSpeaking = answer
         if selectedTab < data.count - 1 || !(countWrong + countCorrect == data.count){
             audioPlayer?.pause()
             if !speechRecognizer.isSpeaking {
@@ -195,15 +209,26 @@ struct RandomView: View {
                 isCheckFailBtn = true
                 speechRecognizer.isSpeaking = false
                 speechRecognizer.stopTranscribing()
+               
+                var isCorrectAnswer = false
                 
-                print("\(speechRecognizer.transcript.lowercased()) - \(answer.lowercased())")
-                if speechRecognizer.transcript.lowercased() == answer.lowercased() && !isFail{
+                for i in answer{
+                    if speechRecognizer.transcript.lowercased() == i.cw_localized.lowercased() && !isFailSpeaking{
+                        isCorrectAnswer = true
+                        answerCorrectSpeaking = i
+                    }else{
+                        answerCorrectSpeaking = i
+                        break
+                    }
+                }
+                
+                if isCorrectAnswer{
                     loadAudio(nameSound: "correct")
                     DispatchQueue.main.async {
-                        isCorrect = true
+                        isCorrectSpeaking = true
                     }
                     countCorrect += 1
-                }else if !isCorrect{
+                }else if !isCorrectSpeaking{
                     isCheckFail = true
                     loadAudio(nameSound: "wrong")
                     if countFail < 2{
@@ -212,7 +237,7 @@ struct RandomView: View {
                         titleButon = "Understand"
                     }
                     DispatchQueue.main.async {
-                        isFail = true
+                        isFailSpeaking = true
                     }
                 }
             }
@@ -236,7 +261,7 @@ struct RandomView: View {
         if selectedTab < data.count - 1 {
             isShowPopupCheck = false
             progress += 1
-            isCorrect = false
+            isCorrectWriting = false
             withAnimation {
                 selectedTab += 1
             }
