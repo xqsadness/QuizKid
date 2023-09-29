@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseStorage
 import SDWebImage
 import SDWebImageSwiftUI
+import Kingfisher
 
 struct ItemImgView: View {
     @AppStorage("Language") var language: String = "en"
@@ -132,7 +133,8 @@ struct FirebaseImageView2: View {
     var body: some View {
         VStack {
             if let imageUrl = imageUrl {
-                WebImage(url: imageUrl)
+//                WebImage(url: imageUrl)
+                KFImage( imageUrl)
                     .resizable()
                     .scaledToFit()
             } else {

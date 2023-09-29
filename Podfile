@@ -21,5 +21,6 @@ target 'DefaultProject' do
   pod 'CrowdinSDK'
   pod 'SDWebImage'
   pod 'SDWebImageSwiftUI'
+  pod 'Kingfisher'
   
 end

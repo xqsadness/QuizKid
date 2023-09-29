@@ -10,11 +10,16 @@ import Firebase
 import GoogleMobileAds
 import AppTrackingTransparency
 import CrowdinSDK
+import Kingfisher
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate{    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         setUpCrowdinSDK()
+        
+        let cache = ImageCache.default
+            cache.diskStorage.config.sizeLimit = UInt(100 * 1024 * 1024) // Adjust the cache size as needed
+            cache.memoryStorage.config.totalCostLimit = 30 * 1024 * 1024 // Adjust the memory cache size as needed
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options:  [.alert, .badge, .sound]) { (allowed, error) in
             if #available(iOS 14.0, *) {
