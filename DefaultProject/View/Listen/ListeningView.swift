@@ -58,7 +58,7 @@ struct ListeningView: View {
                         .contentShape(Rectangle()).gesture(DragGesture())
                         .onAppear{
                             answerCorrect = CONSTANT.SHARED.DATA_LISTEN[index].answer
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5 ,execute: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7 ,execute: {
                                 if !speechRecognizer.isSpeaking{
                                     if !synthesizer.isSpeaking{
                                         if let answer = CONSTANT.SHARED.DATA_LISTEN[index].answer.first{
@@ -74,7 +74,7 @@ struct ListeningView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 
-                ListeningSubmitNextButtonsView(audioPlayer: audioPlayer, speechRecognizer: speechRecognizer, synthesizer: $synthesizer, selectedAnswer: $selectedAnswer, answerCorrect: $answerCorrect, isSubmit: $isSubmit, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset)
+                ListeningSubmitNextButtonsView(audioPlayer: audioPlayer, speechRecognizer: speechRecognizer, synthesizer: $synthesizer, selectedAnswer: $selectedAnswer, answerCorrect: $answerCorrect, isSubmit: $isSubmit, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset,isCheckFailSpeech: $isCheckFailSpeech)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.text)
@@ -147,6 +147,7 @@ struct ListeningView: View {
                         countWrong += 1
                     }else{
                         isSubmit = true
+                        isCheckFailSpeech = true
                         selectedAnswer = "temp"
                         completeAllQuestion()
                     }
@@ -253,6 +254,9 @@ struct ListeningView: View {
                     isCorrect = false
                     countWrong += 1
                 }else{
+                    isSubmit = true
+                    isCheckFailSpeech = true
+                    selectedAnswer = "temp"
                     completeAllQuestion()
                 }
             }

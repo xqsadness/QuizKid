@@ -135,6 +135,9 @@ struct MathView: View {
                         isCorrect = false
                         countWrong += 1
                     }else{
+                        isSubmit = true
+                        isCheckFailSpeech = true
+                        selectedAnswer = "temp"
                         completeAllQuestion()
                     }
                 }
@@ -227,6 +230,7 @@ struct MathView: View {
                     countWrong += 1
                 }else{
                     isSubmit = true
+                    isCheckFailSpeech = true
                     selectedAnswer = "temp"
                     completeAllQuestion()
                 }

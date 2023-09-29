@@ -135,6 +135,7 @@ struct ColorView: View {
                         countWrong += 1
                     }else{
                         isSubmit = true
+                        isCheckFailSpeech = true
                         selectedAnswer = "temp"
                         completeAllQuestion()
                     }
@@ -229,6 +230,7 @@ struct ColorView: View {
                 }else{
                     isSubmit = true
                     selectedAnswer = "temp"
+                    isCheckFailSpeech = true
                     completeAllQuestion()
                 }
             }

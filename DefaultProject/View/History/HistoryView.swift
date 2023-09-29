@@ -59,8 +59,7 @@ struct HistoryView: View {
                         .contentShape(Rectangle()).gesture(DragGesture())
                         .onAppear{
                             answerCorrect = CONSTANT.SHARED.DATA_HISTORY[index].answer
-                          
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5 ,execute: {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7 ,execute: {
                                     if !speechRecognizer.isSpeaking{
                                         if !synthesizer.isSpeaking{
                                             speakText(textToSpeak: CONSTANT.SHARED.DATA_HISTORY[index].question.cw_localized)
@@ -150,6 +149,7 @@ struct HistoryView: View {
                     }else{
                         isSubmit = true
                         selectedAnswer = "temp"
+                        isCheckFailSpeech = true
                         completeAllQuestion()
                     }
                 }
@@ -257,6 +257,7 @@ struct HistoryView: View {
                 }else{
                     isSubmit = true
                     selectedAnswer = "temp"
+                    isCheckFailSpeech = true
                     completeAllQuestion()
                 }
             }

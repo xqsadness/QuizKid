@@ -97,10 +97,10 @@ struct ListenContentView: View {
             .frame(height: 30)
             
             VStack(spacing: 10){
-                answerView(question: quiz.a, isCorrect: quiz.question == quiz.a)
-                answerView(question: quiz.b, isCorrect: quiz.question == quiz.b)
-                answerView(question: quiz.c, isCorrect: quiz.question == quiz.c)
-                answerView(question: quiz.d, isCorrect: quiz.question == quiz.d)
+                answerView(question: quiz.a, isCorrect: quiz.answer.contains { $0 == quiz.a })
+                answerView(question: quiz.b, isCorrect: quiz.answer.contains { $0 == quiz.b })
+                answerView(question: quiz.c, isCorrect: quiz.answer.contains { $0 == quiz.c })
+                answerView(question: quiz.d, isCorrect: quiz.answer.contains { $0 == quiz.d })
             }
             .padding()
             .simultaneousGesture(DragGesture())
