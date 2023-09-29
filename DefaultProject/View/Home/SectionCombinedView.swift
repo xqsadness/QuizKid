@@ -8,18 +8,18 @@
 import SwiftUI
 import RealmSwift
 
-struct SectionRandomView: View {
+struct SectionCombinedView: View {
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
     @ObservedResults(Point.self) var point
     
     var body: some View {
         VStack(spacing: 0) {
-            LottieView(name: "animation_human2", loopMode: .loop)
+            LottieView(name: "combined", loopMode: .loop)
                 .frame(width: 80, height: 60)
             
             VStack(spacing: 5) {
-                Text("Random".cw_localized)
+                Text("Combined Disciplines".cw_localized)
                     .font(.bold(size: 14))
                     .foregroundColor(Color.background)
                     .hAlign(.leading)

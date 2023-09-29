@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFAudio
 
-struct RandomWritingView: View {
+struct CombinedWritingView: View {
     @AppStorage("Language") var language: String = "en"
     @State var speechRecognizer: SpeechRecognizer
     @State var isSpeaking: Bool = false

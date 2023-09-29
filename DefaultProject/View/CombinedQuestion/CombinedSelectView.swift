@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFAudio
 
-struct RandomSelectView: View {
+struct CombinedSelectView: View {
     @AppStorage("Language") var language: String = "en"
     @State var selectedAnswer: String = ""
     @State var isSubmit: Bool = false

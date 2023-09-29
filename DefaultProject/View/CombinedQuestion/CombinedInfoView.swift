@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RandomInfoView: View {
+struct CombinedInfoView: View {
     @AppStorage("Language") var language: String = "en"
     @Binding var dataListen: [QUIZ_ARRAY]
     @Binding var countCorrect: Int

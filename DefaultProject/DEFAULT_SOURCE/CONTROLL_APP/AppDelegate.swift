@@ -17,6 +17,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         FirebaseApp.configure()
         setUpCrowdinSDK()
         
+        //cache image
         let cache = ImageCache.default
             cache.diskStorage.config.sizeLimit = UInt(100 * 1024 * 1024) // Adjust the cache size as needed
             cache.memoryStorage.config.totalCostLimit = 30 * 1024 * 1024 // Adjust the memory cache size as needed

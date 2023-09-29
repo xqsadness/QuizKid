@@ -37,7 +37,7 @@ struct ColorContentView: View {
             
             ScrollView{
                 VStack{
-                    FirebaseImageView(imageName: quiz.img)
+                    FirebaseImageView2(imageName: quiz.img)
                         .scaledToFit()
                         .padding(.horizontal)
                 }

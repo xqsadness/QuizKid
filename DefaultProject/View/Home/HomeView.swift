@@ -51,7 +51,7 @@ struct HomeView: View {
                     
                     SectionWritingView()
                     
-                    SectionRandomView()
+                    SectionCombinedView()
                 }
                 .padding(.top,5)
             }

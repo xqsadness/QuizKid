@@ -9,7 +9,7 @@ import SwiftUI
 import AVFAudio
 import Speech
 
-struct RandomView: View {
+struct CombinedView: View {
     @AppStorage("Language") var language: String = "en"
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var speechRecognizer = SpeechRecognizer()
@@ -23,7 +23,6 @@ struct RandomView: View {
     @State var countFail = 0
     @State var progress = 0.5
     @State var offset: CGFloat = -10
-    //    @State var selectedAnswer = ""
     @State var textWriting: String = ""
     @State var answerCorrectWriting: String = ""
     @State var answerCorrectSpeaking: String = ""
@@ -50,14 +49,14 @@ struct RandomView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .foregroundColor(Color.background)
-                    Text("Random".cw_localized)
+                    Text("Combined Disciplines".cw_localized)
                         .font(.bold(size: 24))
                         .foregroundColor(Color.background)
                 }
                 .hAlign(.leading)
             }
             
-            RandomInfoView(dataListen: $data, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab, progress: $progress)
+            CombinedInfoView(dataListen: $data, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab, progress: $progress)
             
             VStack{
                 TabView(selection: $selectedTab) {
@@ -73,13 +72,13 @@ struct RandomView: View {
                         
                         VStack {
                             if randomEnum == RandomEnum.listen{
-                                RandomListenView(synthesizer: synthesizer, speechRecognizer: speechRecognizer,index: .constant(index) ,audioPlayer: audioPlayer,data: $data , answerCorrect: $answerCorrectListen, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset){ text in
+                                CombinedListenView(synthesizer: synthesizer, speechRecognizer: speechRecognizer,index: .constant(index) ,audioPlayer: audioPlayer,data: $data , answerCorrect: $answerCorrectListen, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset){ text in
                                     speakText(textToSpeak: text)
                                 } loadAudio: {nameSound in
                                     loadAudio(nameSound: nameSound)
                                 }
                                 .onAppear{
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1 ,execute: {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ,execute: {
                                         if !speechRecognizer.isSpeaking{
                                             if !synthesizer.isSpeaking{
                                                 speakText(textToSpeak: data[index].question.cw_localized)
@@ -90,14 +89,14 @@ struct RandomView: View {
                                     })
                                 }
                             }else if randomEnum == RandomEnum.speaking{
-                                RandomSpeakingView(speechRecognizer: speechRecognizer, synthesizer: synthesizer, index: index, isHide: $isHide, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab, data: $data){
+                                CombinedSpeakingView(speechRecognizer: speechRecognizer, synthesizer: synthesizer, index: index, isHide: $isHide, countCorrect: $countCorrect, countWrong: $countWrong, selectedTab: $selectedTab, data: $data){
                                     handleTapToSpeak(answer: data[index].answer)
                                 }
                                 .onAppear{
                                     isCheckFail = false
                                     isFailSpeaking = false
                                     isCorrectSpeaking = false
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1 ,execute: {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ,execute: {
                                         if !speechRecognizer.isSpeaking{
                                             if !synthesizer.isSpeaking{
                                                 speakText(textToSpeak: data[index].question.cw_localized)
@@ -109,9 +108,9 @@ struct RandomView: View {
                                 }
                             }
                             else if randomEnum == RandomEnum.writing{
-                                RandomWritingView(speechRecognizer: speechRecognizer,audioPlayer:audioPlayer ,synthesizer: synthesizer, textWriting: $textWriting, answer: $answerWriting,answerCorrectWriting: $answerCorrectWriting ,countCorrect: $countCorrect, countWrong: $countWrong, progress: $progress, data: $data, index: index, selectedTab: $selectedTab, isCorrect: $isCorrectWriting, isShowPopup: $isShowPopup, isShowPopupCheck: $isShowPopupCheck)
+                                CombinedWritingView(speechRecognizer: speechRecognizer,audioPlayer:audioPlayer ,synthesizer: synthesizer, textWriting: $textWriting, answer: $answerWriting,answerCorrectWriting: $answerCorrectWriting ,countCorrect: $countCorrect, countWrong: $countWrong, progress: $progress, data: $data, index: index, selectedTab: $selectedTab, isCorrect: $isCorrectWriting, isShowPopup: $isShowPopup, isShowPopupCheck: $isShowPopupCheck)
                                     .onAppear{
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1 ,execute: {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ,execute: {
                                             if !speechRecognizer.isSpeaking{
                                                 if !synthesizer.isSpeaking{
                                                     speakText(textToSpeak: data[index].question.cw_localized)
@@ -123,7 +122,7 @@ struct RandomView: View {
                                     }
                             }
                             else{
-                                RandomSelectView(synthesizer: synthesizer, speechRecognizer: speechRecognizer,index: index,audioPlayer: audioPlayer,data: $data, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset){ text in
+                                CombinedSelectView(synthesizer: synthesizer, speechRecognizer: speechRecognizer,index: index,audioPlayer: audioPlayer,data: $data, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset){ text in
                                     speakText(textToSpeak: text)
                                 } loadAudio: {nameSound in
                                     loadAudio(nameSound: nameSound)
@@ -150,7 +149,7 @@ struct RandomView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.text)
         .popup(isPresented: $isShowPopup) {
-            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Random", totalQuestion: data.count)
+            PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Combined Disciplines", totalQuestion: data.count)
         }
         .onDisappear{
             synthesizer.stopSpeaking(at: .immediate)
@@ -331,7 +330,7 @@ struct RandomView: View {
         
         let utterance = AVSpeechUtterance(string: textToSpeak)
         utterance.voice = AVSpeechSynthesisVoice(language: language)
-        utterance.rate = 0.4
+        utterance.rate = 0.36
         synthesizer.speak(utterance)
     }
     

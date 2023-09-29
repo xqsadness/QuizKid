@@ -104,7 +104,7 @@ class Coordinator: ObservableObject{
                 .environmentObject(Coordinator.shared)
                 .navigationBarBackButtonHidden(true)
         case .randomView:
-            RandomView()
+            CombinedView()
                 .environmentObject(Coordinator.shared)
                 .navigationBarBackButtonHidden(true)
         case .loginDefaultView:

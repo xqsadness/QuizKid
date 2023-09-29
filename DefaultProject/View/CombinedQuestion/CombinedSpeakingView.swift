@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFAudio
 
-struct RandomSpeakingView: View {
+struct CombinedSpeakingView: View {
     @AppStorage("Language") var language: String = "en"
     @StateObject var speechRecognizer: SpeechRecognizer
     @State var synthesizer: AVSpeechSynthesizer
