@@ -19,5 +19,7 @@ target 'DefaultProject' do
   
   pod 'lottie-ios'
   pod 'CrowdinSDK'
+  pod 'SDWebImage'
+  pod 'SDWebImageSwiftUI'
   
 end

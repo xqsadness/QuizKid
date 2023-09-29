@@ -7,6 +7,8 @@
 
 import SwiftUI
 import FirebaseStorage
+import SDWebImage
+import SDWebImageSwiftUI
 
 struct ItemImgView: View {
     @AppStorage("Language") var language: String = "en"
@@ -21,11 +23,11 @@ struct ItemImgView: View {
     @State var size: CGSize
     
     var loadAudio: ((String) -> Void)
-    
+    @State private var downloadedImage: UIImage? = nil
+
     var body: some View {
         VStack {
-            FirebaseImageView(imageName: img)
-                .scaledToFit()
+            FirebaseImageView2(imageName: img)
                 .frame(height: 50)
             
         }
@@ -113,6 +115,55 @@ struct FirebaseImageView: View {
                         }
                     }
                 }
+        }
+    }
+}
+
+
+struct FirebaseImageView2: View {
+    let imageName: String
+
+    @State private var imageUrl: URL?
+
+    init(imageName: String) {
+        self.imageName = imageName
+    }
+
+    var body: some View {
+        VStack {
+            if let imageUrl = imageUrl {
+                WebImage(url: imageUrl)
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                ProgressView()
+            }
+        }
+        .onAppear {
+            // Tải URL từ Firebase Storage khi chế độ xem xuất hiện
+            getFirebaseStorageURL(forImageName: imageName) { url in
+                DispatchQueue.main.async {
+                    self.imageUrl = url
+                }
+            }
+        }
+    }
+}
+
+
+func getFirebaseStorageURL(forImageName imageName: String, completion: @escaping (URL?) -> Void) {
+    let storage = Storage.storage()
+    let storageRef = storage.reference()
+    let imageRef = storageRef.child(imageName)
+
+    imageRef.downloadURL { (url, error) in
+        if let error = error {
+            // Xử lý lỗi nếu có
+            print("Error getting download URL: \(error.localizedDescription)")
+            completion(nil)
+        } else if let url = url {
+            // Trả về URL nếu tìm thấy
+            completion(url)
         }
     }
 }
