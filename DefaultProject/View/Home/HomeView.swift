@@ -39,14 +39,14 @@ struct HomeView: View {
                 
                 SectionListeningView()
                 
-                SectionSurroundingObjectView()
-                
                 SectionHistoryView()
                 
                 LazyVGrid(columns: [
                     GridItem(.flexible()),
                     GridItem(.flexible()),
                 ], spacing: 5) {
+                    SectionSurroundingObjectView()
+                    
                     SectionListenAndRPView()
                     
                     SectionWritingView()
