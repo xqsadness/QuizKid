@@ -20,6 +20,7 @@ struct PopupResultView: View {
     @Binding var countFail: Int
     @Binding var answerCorrectSpeaking: String
     @Binding var titleButon: String
+    @Binding var data: [QUIZ_ARRAY]
     
     var loadAudio: ((String) -> Void)
     
@@ -29,6 +30,11 @@ struct PopupResultView: View {
                 .vAlign(.center)
                 .hAlign(.center)
                 .background(.background).opacity(0.15)
+                .onTapGesture {
+                    withAnimation {
+                        isCorrect = false
+                    }
+                }
             
             SheetShowAnswerCorrectView(answer: $answerCorrectSpeaking){
                 withAnimation {
@@ -39,7 +45,7 @@ struct PopupResultView: View {
             .animation(.easeInOut, value: isCorrect)
             .onDisappear{
                 synthesizer.stopSpeaking(at: .immediate)
-                if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 {
+                if selectedTab < data.count - 1 {
                     progress += 1
                     resetSpeak()
                     withAnimation {
@@ -65,6 +71,11 @@ struct PopupResultView: View {
                 .vAlign(.center)
                 .hAlign(.center)
                 .background(.background).opacity(0.15)
+                .onTapGesture {
+                    withAnimation {
+                        isFail = false
+                    }
+                }
             
             SheetShowAnswerFailedView(answer: $answerCorrectSpeaking, titleButon: $titleButon){
                 withAnimation {
@@ -81,7 +92,7 @@ struct PopupResultView: View {
                     }
                 }else{
                     countWrong += 1
-                    if selectedTab < CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count - 1 {
+                    if selectedTab < data.count - 1 {
                         progress += 1
                         resetSpeak()
                         withAnimation {

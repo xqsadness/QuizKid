@@ -97,7 +97,7 @@ struct ListenAndRepeatView: View {
                 }
             }
             .overlay(alignment: .bottom) {
-                PopupResultView(synthesizer: synthesizer, speechRecognizer: speechRecognizer, isCorrect: $isCorrect, isFail: $isFail, isShowPopup: $isShowPopup, progress: $progress, selectedTab: $selectedTab, countWrong: $countWrong, countFail: $countFail, answerCorrectSpeaking: $answerCorrect, titleButon: $titleButon){ nameSound in
+                PopupResultView(synthesizer: synthesizer, speechRecognizer: speechRecognizer, isCorrect: $isCorrect, isFail: $isFail, isShowPopup: $isShowPopup, progress: $progress, selectedTab: $selectedTab, countWrong: $countWrong, countFail: $countFail, answerCorrectSpeaking: $answerCorrect, titleButon: $titleButon, data: .constant(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT)){ nameSound in
                     loadAudio(nameSound: nameSound)
                 }
             }

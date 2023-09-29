@@ -16,7 +16,7 @@ struct RandomView: View {
     @State var audioPlayer: AVAudioPlayer?
     @State var synthesizer = AVSpeechSynthesizer()
     @FocusState private var focusedField: FocusedField?
-    @State var data = CONSTANT.SHARED.DATA_HISTORY
+    @State var data = CONSTANT.SHARED.DATA_MATH
     @State var selectedTab = 0
     @State var countCorrect = 0
     @State var countWrong = 0
@@ -40,7 +40,6 @@ struct RandomView: View {
     @State var isShowPopupCheck: Bool = false
     @State var isHide: Bool = true
     @State var titleButon = "CONTINUE"
-    @State var category: RandomEnum = .writing
     
     var body: some View {
         VStack{
@@ -97,6 +96,7 @@ struct RandomView: View {
                                 .onAppear{
                                     isCheckFail = false
                                     isFailSpeaking = false
+                                    isCorrectSpeaking = false
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1 ,execute: {
                                         if !speechRecognizer.isSpeaking{
                                             if !synthesizer.isSpeaking{
@@ -134,17 +134,10 @@ struct RandomView: View {
                         .contentShape(Rectangle())
                         .gesture(DragGesture())
                         .animation(.easeInOut, value: selectedTab)
-                        .onAppear{
-                            let allCases = RandomEnum.allCases
-                            let randomIndex = Int.random(in: 0..<allCases.count)
-                            self.category = allCases[randomIndex]
-                        }
                     }
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
-                //                .onAppear{
-                
-                //                }
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.text)
@@ -159,11 +152,7 @@ struct RandomView: View {
         .popup(isPresented: $isShowPopup) {
             PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Random", totalQuestion: data.count)
         }
-        .onAppear{
-            QuizTimer.shared.start()
-        }
         .onDisappear{
-            QuizTimer.shared.reset()
             synthesizer.stopSpeaking(at: .immediate)
         }
         .overlay{
@@ -197,26 +186,26 @@ struct RandomView: View {
                 if selectedTab < data.count - 1 || !(countWrong + countCorrect == data.count){
                     audioPlayer?.pause()
                     speechRecognizer.stopTranscribing()
-                    
+
                     var isCorrectAnswer = false
                     
                     for i in answerSpeaking{
                         if speechRecognizer.transcript.lowercased() == i.cw_localized.lowercased() && !isFailSpeaking{
-                            isCorrectAnswer = true
                             answerCorrectSpeaking = i
+                            isCorrectAnswer = true
+                            break
                         }else{
                             answerCorrectSpeaking = i
-                            break
                         }
                     }
-                    
+
                     if isCorrectAnswer{
                         loadAudio(nameSound: "correct")
                         DispatchQueue.main.async {
                             isCorrectSpeaking = true
                         }
                         countCorrect += 1
-                    }else if !isCorrectSpeaking && !isCheckFail {
+                    }else if !isCorrectSpeaking {
                         loadAudio(nameSound: "wrong")
                         if countFail < 2{
                             titleButon = "Again"
@@ -227,7 +216,8 @@ struct RandomView: View {
                             isFailSpeaking = true
                         }
                     }
-                }else if selectedTab == data.count - 1 && (countWrong + countCorrect == data.count){
+
+                }else if selectedTab == data.count && (countWrong + countCorrect == data.count){
                     loadAudio(nameSound: "congralutions")
                     withAnimation {
                         isShowPopup = true
@@ -239,7 +229,7 @@ struct RandomView: View {
         }
         // speaking
         .overlay(alignment: .bottom) {
-            PopupResultView(synthesizer: synthesizer, speechRecognizer: speechRecognizer, isCorrect: $isCorrectSpeaking, isFail: $isFailSpeaking, isShowPopup: $isShowPopup, progress: $progress, selectedTab: $selectedTab, countWrong: $countWrong, countFail: $countFail, answerCorrectSpeaking: $answerCorrectSpeaking, titleButon: $titleButon){ nameSound in
+            PopupResultView(synthesizer: synthesizer, speechRecognizer: speechRecognizer, isCorrect: $isCorrectSpeaking, isFail: $isFailSpeaking, isShowPopup: $isShowPopup, progress: $progress, selectedTab: $selectedTab, countWrong: $countWrong, countFail: $countFail, answerCorrectSpeaking: $answerCorrectSpeaking, titleButon: $titleButon, data: $data){ nameSound in
                 loadAudio(nameSound: nameSound)
             }
         }
@@ -264,12 +254,13 @@ struct RandomView: View {
                 var isCorrectAnswer = false
                 
                 for i in answer{
-                    if speechRecognizer.transcript.lowercased() == i.cw_localized.lowercased() && !isFailSpeaking{
+                    if speechRecognizer.transcript.lowercased() == i.lowercased() && !isFailSpeaking{
+                        answerCorrectSpeaking = i
                         isCorrectAnswer = true
-                        answerCorrectSpeaking = i
-                    }else{
-                        answerCorrectSpeaking = i
                         break
+                    }
+                    else{
+                        answerCorrectSpeaking = i
                     }
                 }
                 
@@ -369,6 +360,6 @@ enum RandomEnum: String {
 
 extension RandomEnum {
     static var allCases: [RandomEnum] {
-        return [.listen, .writing, .select, .speaking]
+        return [.listen,.speaking ,.writing,.select]
     }
 }
