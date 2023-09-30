@@ -97,6 +97,7 @@ struct CombinedListenView: View {
                             completeAllQuestion()
                         }
                     }
+                    Point.updatepointRandom(point: countCorrect)
                 }label: {
                     Text("Submit".cw_localized)
                         .foregroundColor(.text)
@@ -116,8 +117,7 @@ struct CombinedListenView: View {
                     }else{
                         completeAllQuestion()
                     }
-                    
-                    Point.updatePointListen(point: countCorrect)
+                    Point.updatepointRandom(point: countCorrect)
                 }label: {
                     Text(selectedTab < data.count - 1 ? "Next".cw_localized : "Done".cw_localized)
                         .foregroundColor(.text)

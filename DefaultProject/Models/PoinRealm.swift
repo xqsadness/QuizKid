@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 class Point: Object, ObjectKeyIdentifiable {
-    convenience init(pointMath: Int? = 0, pointListen: Int? = 0, pointHistory: Int? = 0, pointSurrounding: Int? = 0, pointColor: Int? = 0, pointListenAndRepeat: Int? = 0, pointWriting: Int? = 0) {
+    convenience init(pointMath: Int? = 0, pointListen: Int? = 0, pointHistory: Int? = 0, pointSurrounding: Int? = 0, pointColor: Int? = 0, pointListenAndRepeat: Int? = 0, pointWriting: Int? = 0, pointRandom: Int? = 0) {
         self.init()
         self.pointMath = pointMath ?? 0
         self.pointListen = pointListen ?? 0
@@ -18,6 +18,7 @@ class Point: Object, ObjectKeyIdentifiable {
         self.pointColor = pointColor ?? 0
         self.pointListenAndRepeat = pointListenAndRepeat ?? 0
         self.pointWriting = pointWriting ?? 0
+        self.pointRandom = pointRandom ?? 0
     }
     
     @Persisted(primaryKey: true) var id: String = "Point"
@@ -28,7 +29,8 @@ class Point: Object, ObjectKeyIdentifiable {
     @Persisted var pointColor: Int = 0
     @Persisted var pointListenAndRepeat: Int = 0
     @Persisted var pointWriting: Int = 0
-    
+    @Persisted var pointRandom: Int = 0
+
     static func savePoint(point: Point) {
         let realm = try! Realm()
         
@@ -142,6 +144,20 @@ class Point: Object, ObjectKeyIdentifiable {
             if let existingPoint = realm.object(ofType: Point.self, forPrimaryKey: "Point") {
                 try realm.write {
                     existingPoint.pointWriting = point
+                }
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    static func updatepointRandom(point: Int) {
+        let realm = try! Realm()
+
+        do {
+            if let existingPoint = realm.object(ofType: Point.self, forPrimaryKey: "Point") {
+                try realm.write {
+                    existingPoint.pointRandom = point
                 }
             }
         } catch let error {

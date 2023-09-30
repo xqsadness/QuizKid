@@ -157,10 +157,8 @@ struct CombinedWritingView: View {
                             isCorrect = false
                             countWrong += 1
                         }
-                        
-                        DispatchQueue.main.async {
-                            Point.updatepointWriting(point: countCorrect)
-                        }
+                                                    Point.updatepointRandom(point: countCorrect)
+
                     } label: {
                         Text("CHECK".cw_localized)
                             .font(.bold(size: 16))
@@ -180,6 +178,7 @@ struct CombinedWritingView: View {
                             QuizTimer.shared.stop()
                         }
                         loadAudio(nameSound: "congralutions")
+                        Point.updatepointRandom(point: countCorrect)
                     } label: {
                         Text("Done".cw_localized)
                             .font(.bold(size: 16))

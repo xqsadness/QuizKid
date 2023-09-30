@@ -321,6 +321,8 @@ struct CombinedView: View {
                 loadAudio(nameSound: "congralutions")
             }
         }
+        
+        Point.updatepointRandom(point: countCorrect)
     }
     
     func speakText(textToSpeak: String) {

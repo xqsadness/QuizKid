@@ -25,7 +25,7 @@ struct SectionCombinedView: View {
                     .hAlign(.leading)
                 
                 HStack{
-                    Text("\(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count) \n\("questions".cw_localized)")
+                    Text("\(CONSTANT.SHARED.DATA_HISTORY.count) \n\("questions".cw_localized)")
                         .font(.bold(size: 14))
                         .foregroundColor(Color.text)
                         .hAlign(.leading)
@@ -39,12 +39,12 @@ struct SectionCombinedView: View {
                                 .frame(width: 52, height: 52)
                                 .overlay {
                                     Circle()
-                                        .trim(from: 0, to: CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count))
+                                        .trim(from: 0, to: CGFloat(point.first?.pointRandom ?? 0) / CGFloat(CONSTANT.SHARED.DATA_HISTORY.count))
                                         .stroke(Color.text, style: StrokeStyle(lineWidth: 5, lineCap: .round))
                                         .rotationEffect(.degrees(-90))
                                 }
                             
-                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointListenAndRepeat ?? 0) / CGFloat(CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT.count) * 100 ))%")
+                            Text("\(String(format: "%.0f", CGFloat(point.first?.pointRandom ?? 0) / CGFloat(CONSTANT.SHARED.DATA_HISTORY.count) * 100 ))%")
                                 .font(.bold(size: 12))
                                 .foregroundColor(Color.text)
                         }
