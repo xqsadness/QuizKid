@@ -32,7 +32,7 @@ struct MathSubmitNextButtonsView: View {
             Button{
                 offset = -10
                 speechRecognizer.reset()
-                
+                isCheckFailSpeech = false
                 var isAnswerCorrect = false
                 
                 for i in answerCorrect {

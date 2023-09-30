@@ -74,7 +74,7 @@ struct HistoryView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 
-                HistorySubmitNextButtonsView(audioPlayer : audioPlayer, speechRecognizer: speechRecognizer ,synthesizer: $synthesizer, selectedAnswer: $selectedAnswer, answerCorrect: $answerCorrect, isSubmit: $isSubmit, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset)
+                HistorySubmitNextButtonsView(audioPlayer : audioPlayer, speechRecognizer: speechRecognizer ,synthesizer: $synthesizer, selectedAnswer: $selectedAnswer, answerCorrect: $answerCorrect, isSubmit: $isSubmit, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset,isCheckFailSpeech: $isCheckFailSpeech)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.text)
@@ -224,7 +224,7 @@ struct HistoryView: View {
             speechRecognizer.isSpeaking = false
             speechRecognizer.stopTranscribing()
             
-//            offset = -10
+            offset = -10
 //            
             var isAnswerCorrect = false
             

@@ -59,6 +59,7 @@ struct ListenAndRepeatView: View {
                             .tag(index)
                             .contentShape(Rectangle()).gesture(DragGesture())
                             .onAppear{
+                                isHide = true
                                 isCheckFail = false
                                 isFail = false
                                 answerCorrect = CONSTANT.SHARED.DATA_LISTEN_AND_REPEAT[index].question

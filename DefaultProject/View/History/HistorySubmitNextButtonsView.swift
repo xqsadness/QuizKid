@@ -24,14 +24,14 @@ struct HistorySubmitNextButtonsView: View {
     @Binding var countCorrect: Int
     @Binding var countWrong: Int
     @Binding var offset: CGFloat
+    @Binding var isCheckFailSpeech: Bool
     
     var body: some View {
         HStack(spacing: 10){
             Button{
                 offset = -10
-
                 synthesizer.stopSpeaking(at: .immediate)
-                
+                isCheckFailSpeech = false
                 var isAnswerCorrect = false
                 
                 for i in answerCorrect{

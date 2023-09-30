@@ -63,7 +63,7 @@ struct ColorView: View {
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 
-                ColorSubmitNextButtonsView(audioPlayer: audioPlayer,speechRecognizer: speechRecognizer ,synthesizer: $synthesizer, selectedAnswer: $selectedAnswer, answerCorrect: $answerCorrect, isSubmit: $isSubmit, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset)
+                ColorSubmitNextButtonsView(audioPlayer: audioPlayer,speechRecognizer: speechRecognizer ,synthesizer: $synthesizer, selectedAnswer: $selectedAnswer, answerCorrect: $answerCorrect, isSubmit: $isSubmit, isCorrect: $isCorrect, selectedTab: $selectedTab, progress: $progress, isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, offset: $offset,isCheckFailSpeech: $isCheckFailSpeech)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.text)

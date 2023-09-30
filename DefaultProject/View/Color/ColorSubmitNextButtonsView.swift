@@ -23,13 +23,14 @@ struct ColorSubmitNextButtonsView: View {
     @Binding var countCorrect: Int
     @Binding var countWrong: Int
     @Binding var offset: CGFloat
+    @Binding var isCheckFailSpeech: Bool
     
     var body: some View {
         HStack(spacing: 10){
             Button{
                 var isAnswerCorrect = false
                 speechRecognizer.reset()
-                
+                isCheckFailSpeech = false
                 for i in answerCorrect {
                     if selectedAnswer.lowercased() == i.lowercased() {
                         // Xử lý khi câu trả lời chính xác

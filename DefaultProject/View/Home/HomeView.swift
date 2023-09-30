@@ -32,28 +32,30 @@ struct HomeView: View {
             }
             .zIndex(10)
             
-            VStack {
-                SectionMathView()
-                
-                SectionColorView()
-                
-                SectionListeningView()
-                
-                SectionHistoryView()
-                
-                LazyVGrid(columns: [
-                    GridItem(.flexible()),
-                    GridItem(.flexible()),
-                ], spacing: 5) {
-                    SectionSurroundingObjectView()
+            ScrollView(showsIndicators: false){
+                VStack {
+                    SectionMathView()
                     
-                    SectionListenAndRPView()
+                    SectionColorView()
                     
-                    SectionWritingView()
+                    SectionListeningView()
                     
-                    SectionCombinedView()
+                    SectionHistoryView()
+                    
+                    LazyVGrid(columns: [
+                        GridItem(.flexible()),
+                        GridItem(.flexible()),
+                    ], spacing: 5) {
+                        SectionSurroundingObjectView()
+                        
+                        SectionListenAndRPView()
+                        
+                        SectionWritingView()
+                        
+                        SectionCombinedView()
+                    }
+                    .padding(.top,5)
                 }
-                .padding(.top,5)
             }
             .zIndex(1)
         }

@@ -16,7 +16,7 @@ struct CombinedView: View {
     @State var audioPlayer: AVAudioPlayer?
     @State var synthesizer = AVSpeechSynthesizer()
     @FocusState private var focusedField: FocusedField?
-    @State var data = CONSTANT.SHARED.DATA_MATH
+    @State var data = CONSTANT.SHARED.DATA_HISTORY
     @State var selectedTab = 0
     @State var countCorrect = 0
     @State var countWrong = 0
@@ -93,6 +93,7 @@ struct CombinedView: View {
                                     handleTapToSpeak(answer: data[index].answer)
                                 }
                                 .onAppear{
+                                    isHide = true
                                     isCheckFail = false
                                     isFailSpeaking = false
                                     isCorrectSpeaking = false
