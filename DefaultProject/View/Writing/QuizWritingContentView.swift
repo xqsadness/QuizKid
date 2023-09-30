@@ -125,7 +125,6 @@ struct QuizWritingContentView: View {
                         answer = quiz.answer
                         focusedField = nil
                         
-                        print("\(textWriting.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)) - \(quiz.answer.cw_localized.lowercased().trimmingCharacters(in: .whitespacesAndNewlines))")
                         if textWriting.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) == quiz.answer.cw_localized.lowercased().trimmingCharacters(in: .whitespacesAndNewlines){
                             loadAudio(nameSound: "correct")
                             isCorrect = true
@@ -161,6 +160,8 @@ struct QuizWritingContentView: View {
                     Button{
                         withAnimation{
                             isShowPopup = true
+                        }
+                        DispatchQueue.main.async {
                             QuizTimer.shared.stop()
                         }
                         loadAudio(nameSound: "congralutions")

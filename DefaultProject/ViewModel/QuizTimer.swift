@@ -9,12 +9,12 @@ import Foundation
 
 class QuizTimer: ObservableObject {
     static var shared = QuizTimer()
+    
     @Published var elapsedTime: TimeInterval = 0
     
     private var startTime: Date?
     private var endTime: Date?
     private var timer: Timer?
-    
     
     init() {
         startTime = nil
@@ -44,7 +44,7 @@ class QuizTimer: ObservableObject {
         
         if let startTime = startTime {
             endTime = Date()
-            let elapsedTime = endTime!.timeIntervalSince(startTime)
+            _ = endTime!.timeIntervalSince(startTime)
         }
     }
     
@@ -63,5 +63,4 @@ class QuizTimer: ObservableObject {
         
         return formatter.string(from: timeInterval) ?? "0s"
     }
-    
 }

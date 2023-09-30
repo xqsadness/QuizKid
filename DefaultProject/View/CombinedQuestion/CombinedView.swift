@@ -153,6 +153,7 @@ struct CombinedView: View {
             PopupScoreView(isShowPopup: $isShowPopup, countCorrect: $countCorrect, countWrong: $countWrong, title: "Combined Disciplines", totalQuestion: data.count)
         }
         .onDisappear{
+            QuizTimer.shared.reset()
             synthesizer.stopSpeaking(at: .immediate)
         }
         .overlay{
@@ -162,6 +163,7 @@ struct CombinedView: View {
             }
         }
         .onAppear {
+            QuizTimer.shared.start()
             Task(priority: .background) {
                 guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
                     checkPermission = true
@@ -310,7 +312,7 @@ struct CombinedView: View {
         }else{
             withAnimation {
                 isShowPopup = true
-                QuizTimer.shared.reset()
+                QuizTimer.shared.stop()
             }
             audioPlayer?.pause()
             if countCorrect == 0{

@@ -60,7 +60,7 @@ struct PopupResultView: View {
                     }
                     withAnimation {
                         isShowPopup = true
-                        QuizTimer.shared.reset()
+                        QuizTimer.shared.stop()
                     }
                 }
             }
@@ -104,7 +104,7 @@ struct PopupResultView: View {
                         loadAudio("congralutions")
                         withAnimation {
                             isShowPopup = true
-                            QuizTimer.shared.reset()
+                            QuizTimer.shared.stop()
                         }
                     }
                 }

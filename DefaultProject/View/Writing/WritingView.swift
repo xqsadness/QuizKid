@@ -88,6 +88,7 @@ struct WritingView: View {
                 }
             }
             .onAppear {
+                QuizTimer.shared.start()
                 Task(priority: .background) {
                     guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
                         checkPermission = true
@@ -98,9 +99,6 @@ struct WritingView: View {
                         return
                     }
                 }
-            }
-            .onAppear{
-                QuizTimer.shared.start()
             }
             .onDisappear{
                 QuizTimer.shared.reset()
@@ -131,7 +129,7 @@ struct WritingView: View {
         }else{
             withAnimation {
                 isShowPopup = true
-                QuizTimer.shared.reset()
+                QuizTimer.shared.stop()
             }
             audioPlayer?.pause()
             if countCorrect == 0{

@@ -48,21 +48,21 @@ struct PopupScoreView: View {
             
             VStack(spacing: 8){
                 HStack{
-                    styledText(text: "Correct Answer", foregroundColor: .text2, font: .regular(size: 15))
+                    styledText(text: "Correct Answer".cw_localized, foregroundColor: .text2, font: .regular(size: 15))
                     Spacer()
                     styledText(text: "\(countCorrect)", foregroundColor: .background, font: .regular(size: 15))
                 }
                 .frame(width: 160, alignment: .center)
                 
                 HStack{
-                    styledText(text: "Wrong Answer", foregroundColor: .text2, font: .regular(size: 15))
+                    styledText(text: "Wrong Answer".cw_localized, foregroundColor: .text2, font: .regular(size: 15))
                     Spacer()
                     styledText(text: "\(countWrong)", foregroundColor: .background, font: .regular(size: 15))
                 }
                 .frame(width: 160, alignment: .center)
                 
                 HStack{
-                    styledText(text: "Total Answered", foregroundColor: .text2, font: .regular(size: 15))
+                    styledText(text: "Total Answered".cw_localized, foregroundColor: .text2, font: .regular(size: 15))
                     Spacer()
                     styledText(text: "\(totalQuestion)", foregroundColor: .background, font: .regular(size: 15))
                 }
@@ -70,7 +70,7 @@ struct PopupScoreView: View {
                 
                 if QuizTimer.shared.elapsedTime != .zero{
                     HStack{
-                        styledText(text: "Time spent", foregroundColor: .text2, font: .regular(size: 15))
+                        styledText(text: "Time spent".cw_localized, foregroundColor: .text2, font: .regular(size: 15))
                         Spacer()
                         styledText(text: "\(QuizTimer.shared.formatTimeInterval(QuizTimer.shared.elapsedTime))", foregroundColor: .background, font: .regular(size: 15))
                     }

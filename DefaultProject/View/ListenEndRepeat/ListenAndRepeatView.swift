@@ -110,6 +110,7 @@ struct ListenAndRepeatView: View {
             }
         }
         .onAppear {
+            QuizTimer.shared.start()
             Task(priority: .background) {
                 guard await SFSpeechRecognizer.hasAuthorizationToRecognize() else {
                     checkPermission = true
@@ -120,9 +121,6 @@ struct ListenAndRepeatView: View {
                     return
                 }
             }
-        }
-        .onAppear{
-            QuizTimer.shared.start()
         }
         .onDisappear{
             QuizTimer.shared.reset()
@@ -156,6 +154,9 @@ struct ListenAndRepeatView: View {
                     loadAudio(nameSound: "congralutions")
                     withAnimation {
                         isShowPopup = true
+                    }
+                    DispatchQueue.main.async {
+                        QuizTimer.shared.stop()
                     }
                     audioPlayer?.pause()
                 }
@@ -202,6 +203,9 @@ struct ListenAndRepeatView: View {
             loadAudio(nameSound: "congralutions")
             withAnimation {
                 isShowPopup = true
+            }
+            DispatchQueue.main.async {
+                QuizTimer.shared.stop()
             }
             audioPlayer?.pause()
         }
